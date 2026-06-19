@@ -146,7 +146,7 @@ export function RoundStage({ now }: { now: number }) {
       </View>
 
       {/* Lineup */}
-      <PlayerLineup items={items} avatarSize={q.type === "list" ? 64 : 52} />
+      <PlayerLineup items={items} avatarSize={q.type === "list" ? 50 : 44} />
 
       {/* Reveal banner */}
       {banner ? (

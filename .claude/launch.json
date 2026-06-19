@@ -10,8 +10,8 @@
     {
       "name": "web-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "web"],
-      "port": 8081
+      "runtimeArgs": ["run", "web", "--", "--port", "8095"],
+      "port": 8095
     }
   ]
 }
