@@ -1,0 +1,752 @@
+[
+  {
+    "id": "R1-01",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "What is the capital of Australia?",
+    "options": [
+      "Sydney",
+      "Canberra",
+      "Melbourne",
+      "Perth"
+    ],
+    "answer": "Canberra",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-02",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "How many planets are in our solar system?",
+    "options": [
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "answer": "8",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-03",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "In what year did World War II end?",
+    "options": [
+      "1939",
+      "1943",
+      "1945",
+      "1947"
+    ],
+    "answer": "1945",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-04",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Music",
+    "question": "Which band released the album \"Abbey Road\"?",
+    "options": [
+      "The Rolling Stones",
+      "The Beatles",
+      "Led Zeppelin",
+      "Pink Floyd"
+    ],
+    "answer": "The Beatles",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-05",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the chemical symbol for gold?",
+    "options": [
+      "Go",
+      "Gd",
+      "Au",
+      "Ag"
+    ],
+    "answer": "Au",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-06",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Math",
+    "question": "What is 12 × 12?",
+    "options": [
+      "124",
+      "132",
+      "144",
+      "121"
+    ],
+    "answer": "144",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-07",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "What is the largest hot desert in the world?",
+    "options": [
+      "Gobi",
+      "Sahara",
+      "Kalahari",
+      "Mojave"
+    ],
+    "answer": "Sahara",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-08",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Animals",
+    "question": "What is the largest land animal on Earth?",
+    "options": [
+      "Hippopotamus",
+      "White rhino",
+      "African elephant",
+      "Giraffe"
+    ],
+    "answer": "African elephant",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-09",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "How many bones are in the adult human body?",
+    "options": [
+      "201",
+      "206",
+      "212",
+      "198"
+    ],
+    "answer": "206",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-10",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "Who was the first President of the United States?",
+    "options": [
+      "Thomas Jefferson",
+      "George Washington",
+      "John Adams",
+      "Abraham Lincoln"
+    ],
+    "answer": "George Washington",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-11",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "Which country has the most people?",
+    "options": [
+      "China",
+      "India",
+      "United States",
+      "Indonesia"
+    ],
+    "answer": "India",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-12",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "Which planet is known as the Red Planet?",
+    "options": [
+      "Venus",
+      "Mars",
+      "Jupiter",
+      "Mercury"
+    ],
+    "answer": "Mars",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-13",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Sports",
+    "question": "How many players from one team are on a soccer field at once?",
+    "options": [
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "answer": "11",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-14",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Pop Culture",
+    "question": "Which company created the iPhone?",
+    "options": [
+      "Samsung",
+      "Apple",
+      "Google",
+      "Microsoft"
+    ],
+    "answer": "Apple",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-15",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "On which continent is Egypt located?",
+    "options": [
+      "Asia",
+      "Africa",
+      "Europe",
+      "South America"
+    ],
+    "answer": "Africa",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-16",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "Which gas do plants absorb from the air?",
+    "options": [
+      "Oxygen",
+      "Nitrogen",
+      "Carbon dioxide",
+      "Hydrogen"
+    ],
+    "answer": "Carbon dioxide",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-17",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "The Great Wall is located in which country?",
+    "options": [
+      "Japan",
+      "China",
+      "India",
+      "Mongolia"
+    ],
+    "answer": "China",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-18",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Math",
+    "question": "What is 15% of 200?",
+    "options": [
+      "15",
+      "25",
+      "30",
+      "45"
+    ],
+    "answer": "30",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-19",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Animals",
+    "question": "Which is the fastest land animal?",
+    "options": [
+      "Lion",
+      "Cheetah",
+      "Pronghorn",
+      "Horse"
+    ],
+    "answer": "Cheetah",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-20",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Music",
+    "question": "Who is known as the \"King of Pop\"?",
+    "options": [
+      "Elvis Presley",
+      "Michael Jackson",
+      "Prince",
+      "Freddie Mercury"
+    ],
+    "answer": "Michael Jackson",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-21",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "What is the smallest country in the world?",
+    "options": [
+      "Monaco",
+      "Vatican City",
+      "San Marino",
+      "Nauru"
+    ],
+    "answer": "Vatican City",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-22",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is often called the powerhouse of the cell?",
+    "options": [
+      "Nucleus",
+      "Ribosome",
+      "Mitochondria",
+      "Membrane"
+    ],
+    "answer": "Mitochondria",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-23",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "In what year did the Titanic sink?",
+    "options": [
+      "1905",
+      "1912",
+      "1918",
+      "1923"
+    ],
+    "answer": "1912",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-24",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Pop Culture",
+    "question": "Which film series features the character Luke Skywalker?",
+    "options": [
+      "Star Trek",
+      "Star Wars",
+      "Avatar",
+      "Dune"
+    ],
+    "answer": "Star Wars",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-25",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Math",
+    "question": "What is the square root of 81?",
+    "options": [
+      "7",
+      "8",
+      "9",
+      "11"
+    ],
+    "answer": "9",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-26",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "The Eiffel Tower is located in which city?",
+    "options": [
+      "London",
+      "Paris",
+      "Rome",
+      "Madrid"
+    ],
+    "answer": "Paris",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-27",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "How many legs does a spider have?",
+    "options": [
+      "6",
+      "8",
+      "10",
+      "12"
+    ],
+    "answer": "8",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-28",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Sports",
+    "question": "How many points is a touchdown worth in American football?",
+    "options": [
+      "2",
+      "3",
+      "6",
+      "7"
+    ],
+    "answer": "6",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-29",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "Who painted the Mona Lisa?",
+    "options": [
+      "Michelangelo",
+      "Leonardo da Vinci",
+      "Raphael",
+      "Vincent van Gogh"
+    ],
+    "answer": "Leonardo da Vinci",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-30",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "Which ocean is the largest?",
+    "options": [
+      "Atlantic",
+      "Pacific",
+      "Indian",
+      "Arctic"
+    ],
+    "answer": "Pacific",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-31",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the hardest natural substance on Earth?",
+    "options": [
+      "Gold",
+      "Iron",
+      "Diamond",
+      "Quartz"
+    ],
+    "answer": "Diamond",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-32",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Animals",
+    "question": "What is a group of lions called?",
+    "options": [
+      "A pack",
+      "A pride",
+      "A herd",
+      "A flock"
+    ],
+    "answer": "A pride",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-33",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Music",
+    "question": "How many strings does a standard guitar have?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "answer": "6",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-34",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "Which ancient civilization built the pyramids of Giza?",
+    "options": [
+      "Romans",
+      "Greeks",
+      "Egyptians",
+      "Mayans"
+    ],
+    "answer": "Egyptians",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-35",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Math",
+    "question": "What is 7 × 8?",
+    "options": [
+      "48",
+      "54",
+      "56",
+      "64"
+    ],
+    "answer": "56",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-36",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "What is the capital of Japan?",
+    "options": [
+      "Kyoto",
+      "Osaka",
+      "Tokyo",
+      "Seoul"
+    ],
+    "answer": "Tokyo",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-37",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "Water is made of hydrogen and which other element?",
+    "options": [
+      "Carbon",
+      "Oxygen",
+      "Nitrogen",
+      "Helium"
+    ],
+    "answer": "Oxygen",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-38",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Pop Culture",
+    "question": "Who created Mickey Mouse?",
+    "options": [
+      "Walt Disney",
+      "Stan Lee",
+      "Jim Henson",
+      "Charles Schulz"
+    ],
+    "answer": "Walt Disney",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-39",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Sports",
+    "question": "In which sport would you perform a slam dunk?",
+    "options": [
+      "Volleyball",
+      "Basketball",
+      "Tennis",
+      "Football"
+    ],
+    "answer": "Basketball",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-40",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "The U.S. Declaration of Independence was signed in what year?",
+    "options": [
+      "1066",
+      "1776",
+      "1812",
+      "1865"
+    ],
+    "answer": "1776",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-41",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "Mount Everest is located in which mountain range?",
+    "options": [
+      "Andes",
+      "Alps",
+      "Himalayas",
+      "Rockies"
+    ],
+    "answer": "Himalayas",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-42",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "Which is the closest planet to the Sun?",
+    "options": [
+      "Venus",
+      "Mercury",
+      "Earth",
+      "Mars"
+    ],
+    "answer": "Mercury",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-43",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Animals",
+    "question": "Which bird is famous for mimicking human speech?",
+    "options": [
+      "Eagle",
+      "Parrot",
+      "Owl",
+      "Penguin"
+    ],
+    "answer": "Parrot",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-44",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Math",
+    "question": "How many sides does a hexagon have?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answer": "6",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-45",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Music",
+    "question": "Which instrument has 88 keys?",
+    "options": [
+      "Organ",
+      "Piano",
+      "Harp",
+      "Accordion"
+    ],
+    "answer": "Piano",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-46",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "The Statue of Liberty was a gift from which country?",
+    "options": [
+      "England",
+      "France",
+      "Spain",
+      "Italy"
+    ],
+    "answer": "France",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-47",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "Who was the British PM during most of World War II?",
+    "options": [
+      "Neville Chamberlain",
+      "Winston Churchill",
+      "Clement Attlee",
+      "Tony Blair"
+    ],
+    "answer": "Winston Churchill",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-48",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "Which part of a plant carries out most photosynthesis?",
+    "options": [
+      "Roots",
+      "Stem",
+      "Leaves",
+      "Flowers"
+    ],
+    "answer": "Leaves",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-49",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Pop Culture",
+    "question": "What color traffic light means \"go\"?",
+    "options": [
+      "Red",
+      "Yellow",
+      "Green",
+      "Blue"
+    ],
+    "answer": "Green",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-50",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Sports",
+    "question": "How many rings are on the Olympic flag?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": "5",
+    "difficulty": "Easy"
+  }
+]

@@ -1,0 +1,3555 @@
+{
+  "generatedAt": "2026-06-19T01:10:49.202Z",
+  "source": "content/brady_trivia_question_bank.xlsx",
+  "counts": {
+    "round1": 50,
+    "round2": 50,
+    "round3": 50,
+    "final": 50,
+    "total": 200
+  },
+  "round1": [
+    {
+      "id": "R1-01",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "What is the capital of Australia?",
+      "options": [
+        "Sydney",
+        "Canberra",
+        "Melbourne",
+        "Perth"
+      ],
+      "answer": "Canberra",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-02",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "How many planets are in our solar system?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "8",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-03",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "In what year did World War II end?",
+      "options": [
+        "1939",
+        "1943",
+        "1945",
+        "1947"
+      ],
+      "answer": "1945",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-04",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Music",
+      "question": "Which band released the album \"Abbey Road\"?",
+      "options": [
+        "The Rolling Stones",
+        "The Beatles",
+        "Led Zeppelin",
+        "Pink Floyd"
+      ],
+      "answer": "The Beatles",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-05",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the chemical symbol for gold?",
+      "options": [
+        "Go",
+        "Gd",
+        "Au",
+        "Ag"
+      ],
+      "answer": "Au",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-06",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Math",
+      "question": "What is 12 × 12?",
+      "options": [
+        "124",
+        "132",
+        "144",
+        "121"
+      ],
+      "answer": "144",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-07",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "What is the largest hot desert in the world?",
+      "options": [
+        "Gobi",
+        "Sahara",
+        "Kalahari",
+        "Mojave"
+      ],
+      "answer": "Sahara",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-08",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Animals",
+      "question": "What is the largest land animal on Earth?",
+      "options": [
+        "Hippopotamus",
+        "White rhino",
+        "African elephant",
+        "Giraffe"
+      ],
+      "answer": "African elephant",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-09",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "How many bones are in the adult human body?",
+      "options": [
+        "201",
+        "206",
+        "212",
+        "198"
+      ],
+      "answer": "206",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-10",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "Who was the first President of the United States?",
+      "options": [
+        "Thomas Jefferson",
+        "George Washington",
+        "John Adams",
+        "Abraham Lincoln"
+      ],
+      "answer": "George Washington",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-11",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "Which country has the most people?",
+      "options": [
+        "China",
+        "India",
+        "United States",
+        "Indonesia"
+      ],
+      "answer": "India",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-12",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "Which planet is known as the Red Planet?",
+      "options": [
+        "Venus",
+        "Mars",
+        "Jupiter",
+        "Mercury"
+      ],
+      "answer": "Mars",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-13",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Sports",
+      "question": "How many players from one team are on a soccer field at once?",
+      "options": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "answer": "11",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-14",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "Which company created the iPhone?",
+      "options": [
+        "Samsung",
+        "Apple",
+        "Google",
+        "Microsoft"
+      ],
+      "answer": "Apple",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-15",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "On which continent is Egypt located?",
+      "options": [
+        "Asia",
+        "Africa",
+        "Europe",
+        "South America"
+      ],
+      "answer": "Africa",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-16",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "Which gas do plants absorb from the air?",
+      "options": [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon dioxide",
+        "Hydrogen"
+      ],
+      "answer": "Carbon dioxide",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-17",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "The Great Wall is located in which country?",
+      "options": [
+        "Japan",
+        "China",
+        "India",
+        "Mongolia"
+      ],
+      "answer": "China",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-18",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Math",
+      "question": "What is 15% of 200?",
+      "options": [
+        "15",
+        "25",
+        "30",
+        "45"
+      ],
+      "answer": "30",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-19",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Animals",
+      "question": "Which is the fastest land animal?",
+      "options": [
+        "Lion",
+        "Cheetah",
+        "Pronghorn",
+        "Horse"
+      ],
+      "answer": "Cheetah",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-20",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Music",
+      "question": "Who is known as the \"King of Pop\"?",
+      "options": [
+        "Elvis Presley",
+        "Michael Jackson",
+        "Prince",
+        "Freddie Mercury"
+      ],
+      "answer": "Michael Jackson",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-21",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "What is the smallest country in the world?",
+      "options": [
+        "Monaco",
+        "Vatican City",
+        "San Marino",
+        "Nauru"
+      ],
+      "answer": "Vatican City",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-22",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is often called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondria",
+        "Membrane"
+      ],
+      "answer": "Mitochondria",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-23",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "In what year did the Titanic sink?",
+      "options": [
+        "1905",
+        "1912",
+        "1918",
+        "1923"
+      ],
+      "answer": "1912",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-24",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "Which film series features the character Luke Skywalker?",
+      "options": [
+        "Star Trek",
+        "Star Wars",
+        "Avatar",
+        "Dune"
+      ],
+      "answer": "Star Wars",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-25",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Math",
+      "question": "What is the square root of 81?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "11"
+      ],
+      "answer": "9",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-26",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "The Eiffel Tower is located in which city?",
+      "options": [
+        "London",
+        "Paris",
+        "Rome",
+        "Madrid"
+      ],
+      "answer": "Paris",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-27",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "How many legs does a spider have?",
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "answer": "8",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-28",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Sports",
+      "question": "How many points is a touchdown worth in American football?",
+      "options": [
+        "2",
+        "3",
+        "6",
+        "7"
+      ],
+      "answer": "6",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-29",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "Who painted the Mona Lisa?",
+      "options": [
+        "Michelangelo",
+        "Leonardo da Vinci",
+        "Raphael",
+        "Vincent van Gogh"
+      ],
+      "answer": "Leonardo da Vinci",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-30",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "Which ocean is the largest?",
+      "options": [
+        "Atlantic",
+        "Pacific",
+        "Indian",
+        "Arctic"
+      ],
+      "answer": "Pacific",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-31",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the hardest natural substance on Earth?",
+      "options": [
+        "Gold",
+        "Iron",
+        "Diamond",
+        "Quartz"
+      ],
+      "answer": "Diamond",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-32",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Animals",
+      "question": "What is a group of lions called?",
+      "options": [
+        "A pack",
+        "A pride",
+        "A herd",
+        "A flock"
+      ],
+      "answer": "A pride",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-33",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Music",
+      "question": "How many strings does a standard guitar have?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "answer": "6",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-34",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "Which ancient civilization built the pyramids of Giza?",
+      "options": [
+        "Romans",
+        "Greeks",
+        "Egyptians",
+        "Mayans"
+      ],
+      "answer": "Egyptians",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-35",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Math",
+      "question": "What is 7 × 8?",
+      "options": [
+        "48",
+        "54",
+        "56",
+        "64"
+      ],
+      "answer": "56",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-36",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "What is the capital of Japan?",
+      "options": [
+        "Kyoto",
+        "Osaka",
+        "Tokyo",
+        "Seoul"
+      ],
+      "answer": "Tokyo",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-37",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "Water is made of hydrogen and which other element?",
+      "options": [
+        "Carbon",
+        "Oxygen",
+        "Nitrogen",
+        "Helium"
+      ],
+      "answer": "Oxygen",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-38",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "Who created Mickey Mouse?",
+      "options": [
+        "Walt Disney",
+        "Stan Lee",
+        "Jim Henson",
+        "Charles Schulz"
+      ],
+      "answer": "Walt Disney",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-39",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Sports",
+      "question": "In which sport would you perform a slam dunk?",
+      "options": [
+        "Volleyball",
+        "Basketball",
+        "Tennis",
+        "Football"
+      ],
+      "answer": "Basketball",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-40",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "The U.S. Declaration of Independence was signed in what year?",
+      "options": [
+        "1066",
+        "1776",
+        "1812",
+        "1865"
+      ],
+      "answer": "1776",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-41",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "Mount Everest is located in which mountain range?",
+      "options": [
+        "Andes",
+        "Alps",
+        "Himalayas",
+        "Rockies"
+      ],
+      "answer": "Himalayas",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-42",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "Which is the closest planet to the Sun?",
+      "options": [
+        "Venus",
+        "Mercury",
+        "Earth",
+        "Mars"
+      ],
+      "answer": "Mercury",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-43",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Animals",
+      "question": "Which bird is famous for mimicking human speech?",
+      "options": [
+        "Eagle",
+        "Parrot",
+        "Owl",
+        "Penguin"
+      ],
+      "answer": "Parrot",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-44",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Math",
+      "question": "How many sides does a hexagon have?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": "6",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-45",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Music",
+      "question": "Which instrument has 88 keys?",
+      "options": [
+        "Organ",
+        "Piano",
+        "Harp",
+        "Accordion"
+      ],
+      "answer": "Piano",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-46",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "The Statue of Liberty was a gift from which country?",
+      "options": [
+        "England",
+        "France",
+        "Spain",
+        "Italy"
+      ],
+      "answer": "France",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-47",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "Who was the British PM during most of World War II?",
+      "options": [
+        "Neville Chamberlain",
+        "Winston Churchill",
+        "Clement Attlee",
+        "Tony Blair"
+      ],
+      "answer": "Winston Churchill",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-48",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "Which part of a plant carries out most photosynthesis?",
+      "options": [
+        "Roots",
+        "Stem",
+        "Leaves",
+        "Flowers"
+      ],
+      "answer": "Leaves",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-49",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "What color traffic light means \"go\"?",
+      "options": [
+        "Red",
+        "Yellow",
+        "Green",
+        "Blue"
+      ],
+      "answer": "Green",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-50",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Sports",
+      "question": "How many rings are on the Olympic flag?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": "5",
+      "difficulty": "Easy"
+    }
+  ],
+  "round2": [
+    {
+      "id": "R2-01",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "Canada",
+        "USA",
+        "United Kingdom",
+        "Australia"
+      ],
+      "answer": "Canada",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the red maple leaf at center of Canada's flag",
+        "country": "Canada"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-02",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "South Korea",
+        "Japan",
+        "Bangladesh",
+        "China"
+      ],
+      "answer": "Japan",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the red disc of Japan's flag",
+        "country": "Japan"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-03",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "Argentina",
+        "Brazil",
+        "Portugal",
+        "Colombia"
+      ],
+      "answer": "Brazil",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the blue globe & banner at center of Brazil's flag",
+        "country": "Brazil"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-04",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "Australia",
+        "United Kingdom",
+        "New Zealand",
+        "USA"
+      ],
+      "answer": "United Kingdom",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on a corner of the UK Union Jack",
+        "country": "United Kingdom"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-05",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "China",
+        "United States",
+        "European Union",
+        "Chile"
+      ],
+      "answer": "United States",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the star field (canton) of the USA flag",
+        "country": "United States"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-06",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "Belgium",
+        "Germany",
+        "Spain",
+        "Lithuania"
+      ],
+      "answer": "Germany",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the black-red-gold horizontal bands of Germany's flag",
+        "country": "Germany"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-07",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "Ireland",
+        "India",
+        "Niger",
+        "Italy"
+      ],
+      "answer": "India",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the blue Ashoka Chakra wheel of India's flag",
+        "country": "India"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-08",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "Kenya",
+        "South Africa",
+        "Zimbabwe",
+        "Jamaica"
+      ],
+      "answer": "South Africa",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the green-and-gold Y shape of South Africa's flag",
+        "country": "South Africa"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-09",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "Tunisia",
+        "Turkey",
+        "Pakistan",
+        "Algeria"
+      ],
+      "answer": "Turkey",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the white crescent & star on red of Turkey's flag",
+        "country": "Turkey"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-10",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "Italy",
+        "Mexico",
+        "Hungary",
+        "Iran"
+      ],
+      "answer": "Mexico",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the eagle-on-cactus emblem at center of Mexico's flag",
+        "country": "Mexico"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-11",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "Poland",
+        "Indonesia",
+        "Monaco",
+        "Singapore"
+      ],
+      "answer": "Indonesia",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the red-over-white horizontal split of Indonesia's flag",
+        "country": "Indonesia"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-12",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "Finland",
+        "Greece",
+        "Israel",
+        "Uruguay"
+      ],
+      "answer": "Greece",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the white cross in the blue canton of Greece's flag",
+        "country": "Greece"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-13",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "Which country's flag is this? (zoomed in)",
+      "options": [
+        "Vietnam",
+        "China",
+        "Morocco",
+        "Turkey"
+      ],
+      "answer": "China",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "Zoom on the large gold star on red of China's flag",
+        "country": "China"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-14",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "United States",
+        "Liberia",
+        "Malaysia",
+        "Uruguay"
+      ],
+      "answer": "United States",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale USA flag — stars + 13 stripes",
+        "country": "United States"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-15",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "Canada",
+        "Peru",
+        "Bahrain",
+        "Lebanon"
+      ],
+      "answer": "Canada",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale Canada flag — maple leaf + vertical bands",
+        "country": "Canada"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-16",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "United Kingdom",
+        "Georgia",
+        "Greece",
+        "Norway"
+      ],
+      "answer": "United Kingdom",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale UK Union Jack — overlaid crosses",
+        "country": "United Kingdom"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-17",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "Japan",
+        "Bangladesh",
+        "Palau",
+        "Laos"
+      ],
+      "answer": "Japan",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale Japan flag — single centered disc",
+        "country": "Japan"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-18",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "France",
+        "Italy",
+        "Ireland",
+        "Belgium"
+      ],
+      "answer": "France",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale France flag — three vertical bands",
+        "country": "France"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-19",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "Brazil",
+        "India",
+        "Portugal",
+        "Argentina"
+      ],
+      "answer": "Brazil",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale Brazil flag — diamond + central globe",
+        "country": "Brazil"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-20",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "Australia",
+        "New Zealand",
+        "Fiji",
+        "United Kingdom"
+      ],
+      "answer": "Australia",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale Australia flag — Union Jack + Southern Cross stars",
+        "country": "Australia"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-21",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "Switzerland",
+        "Tonga",
+        "Denmark",
+        "England"
+      ],
+      "answer": "Switzerland",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale Switzerland flag — square with centered cross",
+        "country": "Switzerland"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-22",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "Turkey",
+        "Tunisia",
+        "Pakistan",
+        "Singapore"
+      ],
+      "answer": "Turkey",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale Turkey flag — crescent + star",
+        "country": "Turkey"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-23",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "South Korea",
+        "China",
+        "Mongolia",
+        "Sri Lanka"
+      ],
+      "answer": "South Korea",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale South Korea flag — central taegeuk + trigrams",
+        "country": "South Korea"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-24",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "Germany",
+        "Russia",
+        "Netherlands",
+        "Yemen"
+      ],
+      "answer": "Germany",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale Germany flag — three horizontal bands",
+        "country": "Germany"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-25",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "Identify this flag (shown in greyscale)",
+      "options": [
+        "Mexico",
+        "Italy",
+        "Ireland",
+        "Hungary"
+      ],
+      "answer": "Mexico",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "Greyscale Mexico flag — vertical bands + central emblem",
+        "country": "Mexico"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-26",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "Italy",
+        "Greece",
+        "Spain",
+        "Croatia"
+      ],
+      "answer": "Italy",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of Italy — the boot shape",
+        "country": "Italy"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-27",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "United States",
+        "Canada",
+        "Mexico",
+        "Australia"
+      ],
+      "answer": "United States",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of the contiguous United States",
+        "country": "United States"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-28",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "France",
+        "Germany",
+        "Spain",
+        "Poland"
+      ],
+      "answer": "France",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of France — the hexagon",
+        "country": "France"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-29",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "India",
+        "Pakistan",
+        "Sri Lanka",
+        "Bangladesh"
+      ],
+      "answer": "India",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of India — the subcontinent triangle",
+        "country": "India"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-30",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "Japan",
+        "Philippines",
+        "Indonesia",
+        "South Korea"
+      ],
+      "answer": "Japan",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of Japan — the archipelago",
+        "country": "Japan"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-31",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "Brazil",
+        "Argentina",
+        "Peru",
+        "Colombia"
+      ],
+      "answer": "Brazil",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of Brazil",
+        "country": "Brazil"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-32",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "United Kingdom",
+        "Ireland",
+        "Iceland",
+        "New Zealand"
+      ],
+      "answer": "United Kingdom",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of Great Britain (United Kingdom)",
+        "country": "United Kingdom"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-33",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "Australia",
+        "Greenland",
+        "India",
+        "Madagascar"
+      ],
+      "answer": "Australia",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of Australia",
+        "country": "Australia"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-34",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "Chile",
+        "Vietnam",
+        "Norway",
+        "Italy"
+      ],
+      "answer": "Chile",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of Chile — the long thin strip",
+        "country": "Chile"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-35",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "Egypt",
+        "Sudan",
+        "Libya",
+        "Saudi Arabia"
+      ],
+      "answer": "Egypt",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of Egypt — squarish with Sinai peninsula",
+        "country": "Egypt"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-36",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "Mexico",
+        "Spain",
+        "Turkey",
+        "Iran"
+      ],
+      "answer": "Mexico",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of Mexico",
+        "country": "Mexico"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-37",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "Russia",
+        "Canada",
+        "China",
+        "Kazakhstan"
+      ],
+      "answer": "Russia",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of Russia — vast east-west landmass",
+        "country": "Russia"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-38",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "Which country is this? (outline only)",
+      "options": [
+        "Spain",
+        "Portugal",
+        "France",
+        "Italy"
+      ],
+      "answer": "Spain",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "Outline of Spain — the Iberian bulk",
+        "country": "Spain"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-39",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "Which country has the largest land area?",
+      "options": [
+        "Russia",
+        "Canada",
+        "China",
+        "United States"
+      ],
+      "answer": "Russia",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-40",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "The Amazon rainforest is primarily located in which country?",
+      "options": [
+        "Brazil",
+        "Peru",
+        "Colombia",
+        "Venezuela"
+      ],
+      "answer": "Brazil",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-41",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "Which is the largest country in Africa by area?",
+      "options": [
+        "Algeria",
+        "Egypt",
+        "Nigeria",
+        "South Africa"
+      ],
+      "answer": "Algeria",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-42",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "Mount Kilimanjaro is located in which country?",
+      "options": [
+        "Tanzania",
+        "Kenya",
+        "Ethiopia",
+        "Uganda"
+      ],
+      "answer": "Tanzania",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-43",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "Which country straddles Europe and Asia at the Bosphorus?",
+      "options": [
+        "Turkey",
+        "Russia",
+        "Greece",
+        "Egypt"
+      ],
+      "answer": "Turkey",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-44",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "What is the capital of Canada?",
+      "options": [
+        "Toronto",
+        "Ottawa",
+        "Vancouver",
+        "Montreal"
+      ],
+      "answer": "Ottawa",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-45",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "The Sahara Desert spans the northern part of which continent?",
+      "options": [
+        "Africa",
+        "Asia",
+        "Australia",
+        "South America"
+      ],
+      "answer": "Africa",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-46",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "Which country has the most natural lakes?",
+      "options": [
+        "Canada",
+        "Russia",
+        "United States",
+        "Finland"
+      ],
+      "answer": "Canada",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-47",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "Which European country is shaped like a boot?",
+      "options": [
+        "Italy",
+        "Spain",
+        "Greece",
+        "Portugal"
+      ],
+      "answer": "Italy",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-48",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "The Nile flows through which country before the Mediterranean?",
+      "options": [
+        "Egypt",
+        "Kenya",
+        "Nigeria",
+        "Morocco"
+      ],
+      "answer": "Egypt",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-49",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "Which country has the longest coastline in the world?",
+      "options": [
+        "Canada",
+        "Australia",
+        "Russia",
+        "Indonesia"
+      ],
+      "answer": "Canada",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-50",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "What is the capital of Brazil?",
+      "options": [
+        "Rio de Janeiro",
+        "Brasília",
+        "São Paulo",
+        "Salvador"
+      ],
+      "answer": "Brasília",
+      "asset": {
+        "kind": "none",
+        "describes": "(text question — no image)"
+      },
+      "difficulty": "Medium"
+    }
+  ],
+  "round3": [
+    {
+      "id": "R3-01",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of Chicago, Illinois (city proper)?",
+      "answer": 2700000,
+      "unit": "people",
+      "notes": "Approx; city proper ~2.7M",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-02",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of the United States?",
+      "answer": 335000000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-03",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of Japan?",
+      "answer": 124000000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-04",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of Canada?",
+      "answer": 40000000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-05",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of Brazil?",
+      "answer": 216000000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-06",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of Australia?",
+      "answer": 27000000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-07",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of New York City (city proper)?",
+      "answer": 8300000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-08",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of India?",
+      "answer": 1430000000,
+      "unit": "people",
+      "notes": "Approx 2024 (most populous)",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-09",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of France?",
+      "answer": 68000000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-10",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of the state of California?",
+      "answer": 39000000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-11",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of Mexico?",
+      "answer": 130000000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-12",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of the state of Texas?",
+      "answer": 30000000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-13",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the world's total population?",
+      "answer": 8100000000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-14",
+      "round": 3,
+      "type": "numeric",
+      "category": "Population",
+      "question": "What is the population of China?",
+      "answer": 1410000000,
+      "unit": "people",
+      "notes": "Approx 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-15",
+      "round": 3,
+      "type": "numeric",
+      "category": "Year",
+      "question": "In what year did the Chicago Bulls last win an NBA championship?",
+      "answer": 1998,
+      "unit": "year",
+      "notes": "Last of six 1990s titles",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-16",
+      "round": 3,
+      "type": "numeric",
+      "category": "Year",
+      "question": "In what year did the first iPhone release?",
+      "answer": 2007,
+      "unit": "year",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-17",
+      "round": 3,
+      "type": "numeric",
+      "category": "Year",
+      "question": "In what year did World War I begin?",
+      "answer": 1914,
+      "unit": "year",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-18",
+      "round": 3,
+      "type": "numeric",
+      "category": "Year",
+      "question": "In what year did humans first land on the Moon?",
+      "answer": 1969,
+      "unit": "year",
+      "notes": "Apollo 11",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-19",
+      "round": 3,
+      "type": "numeric",
+      "category": "Year",
+      "question": "In what year did the Berlin Wall fall?",
+      "answer": 1989,
+      "unit": "year",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-20",
+      "round": 3,
+      "type": "numeric",
+      "category": "Year",
+      "question": "In what year was the U.S. Declaration of Independence signed?",
+      "answer": 1776,
+      "unit": "year",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-21",
+      "round": 3,
+      "type": "numeric",
+      "category": "Year",
+      "question": "In what year did the Titanic sink?",
+      "answer": 1912,
+      "unit": "year",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-22",
+      "round": 3,
+      "type": "numeric",
+      "category": "Year",
+      "question": "In what year did the Soviet Union dissolve?",
+      "answer": 1991,
+      "unit": "year",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-23",
+      "round": 3,
+      "type": "numeric",
+      "category": "Year",
+      "question": "In what year was the United Nations founded?",
+      "answer": 1945,
+      "unit": "year",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-24",
+      "round": 3,
+      "type": "numeric",
+      "category": "Year",
+      "question": "In what year was the COVID-19 pandemic declared?",
+      "answer": 2020,
+      "unit": "year",
+      "notes": "WHO declaration",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-25",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many countries are on the continent of Africa?",
+      "answer": 54,
+      "unit": "countries",
+      "notes": "UN-recognized",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-26",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many countries are in South America?",
+      "answer": 12,
+      "unit": "countries",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-27",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many U.S. states are there?",
+      "answer": 50,
+      "unit": "states",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-28",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many bones are in the adult human body?",
+      "answer": 206,
+      "unit": "bones",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-29",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many keys are on a standard piano?",
+      "answer": 88,
+      "unit": "keys",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-30",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many elements are on the periodic table?",
+      "answer": 118,
+      "unit": "elements",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-31",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many member states are in the United Nations?",
+      "answer": 193,
+      "unit": "countries",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-32",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many time zones does Russia span?",
+      "answer": 11,
+      "unit": "time zones",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-33",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many players are on an NFL team's active roster?",
+      "answer": 53,
+      "unit": "players",
+      "notes": "Standard active roster",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-34",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many Super Bowls had been played through the 2025 game (LIX)?",
+      "answer": 59,
+      "unit": "games",
+      "notes": "Through Feb 2025",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-35",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many strings are on a standard violin?",
+      "answer": 4,
+      "unit": "strings",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-36",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many minutes are in a regulation soccer match?",
+      "answer": 90,
+      "unit": "minutes",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-37",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many hearts does an octopus have?",
+      "answer": 3,
+      "unit": "hearts",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-38",
+      "round": 3,
+      "type": "numeric",
+      "category": "Count",
+      "question": "How many teeth does an adult human typically have?",
+      "answer": 32,
+      "unit": "teeth",
+      "notes": "Including wisdom teeth",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-39",
+      "round": 3,
+      "type": "numeric",
+      "category": "Elevation",
+      "question": "How tall is Mount Everest above sea level?",
+      "answer": 29032,
+      "unit": "feet",
+      "notes": "~8,849 m",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-40",
+      "round": 3,
+      "type": "numeric",
+      "category": "Elevation",
+      "question": "How tall is Mount Kilimanjaro?",
+      "answer": 19341,
+      "unit": "feet",
+      "notes": "Highest peak in Africa",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-41",
+      "round": 3,
+      "type": "numeric",
+      "category": "Elevation",
+      "question": "How tall is the Burj Khalifa?",
+      "answer": 2717,
+      "unit": "feet",
+      "notes": "~828 m; tallest building",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-42",
+      "round": 3,
+      "type": "numeric",
+      "category": "Elevation",
+      "question": "How tall is the Eiffel Tower (to the tip)?",
+      "answer": 1083,
+      "unit": "feet",
+      "notes": "~330 m",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-43",
+      "round": 3,
+      "type": "numeric",
+      "category": "Distance",
+      "question": "How many miles is it from New York City to Los Angeles (driving)?",
+      "answer": 2790,
+      "unit": "miles",
+      "notes": "Approx driving distance",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-44",
+      "round": 3,
+      "type": "numeric",
+      "category": "Distance",
+      "question": "What is the equatorial diameter of the Earth?",
+      "answer": 7918,
+      "unit": "miles",
+      "notes": "Approx",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-45",
+      "round": 3,
+      "type": "numeric",
+      "category": "Distance",
+      "question": "What is the average distance from the Earth to the Moon?",
+      "answer": 238900,
+      "unit": "miles",
+      "notes": "Average",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-46",
+      "round": 3,
+      "type": "numeric",
+      "category": "Area",
+      "question": "What is the total area of the United States?",
+      "answer": 3800000,
+      "unit": "square miles",
+      "notes": "Approx (~3.8M)",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-47",
+      "round": 3,
+      "type": "numeric",
+      "category": "Area",
+      "question": "How many square feet are in one acre?",
+      "answer": 43560,
+      "unit": "square feet",
+      "notes": "Exact",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-48",
+      "round": 3,
+      "type": "numeric",
+      "category": "Speed",
+      "question": "What is the approximate speed of light?",
+      "answer": 186000,
+      "unit": "miles per second",
+      "notes": "~186,282 mi/s",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-49",
+      "round": 3,
+      "type": "numeric",
+      "category": "Temperature",
+      "question": "At what temperature does water boil at sea level (°F)?",
+      "answer": 212,
+      "unit": "°F",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-50",
+      "round": 3,
+      "type": "numeric",
+      "category": "Temperature",
+      "question": "At what temperature does water freeze (°F)?",
+      "answer": 32,
+      "unit": "°F",
+      "difficulty": "Easy"
+    }
+  ],
+  "final": [
+    {
+      "id": "F-01",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries in Africa as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Algeria",
+        "Angola",
+        "Benin",
+        "Botswana",
+        "Burkina Faso",
+        "Burundi",
+        "Cabo Verde",
+        "Cameroon",
+        "Central African Republic",
+        "Chad",
+        "Comoros",
+        "Republic of the Congo",
+        "Democratic Republic of the Congo",
+        "Cote d'Ivoire",
+        "Djibouti",
+        "Egypt",
+        "Equatorial Guinea",
+        "Eritrea",
+        "Eswatini",
+        "Ethiopia",
+        "Gabon",
+        "Gambia",
+        "Ghana",
+        "Guinea",
+        "Guinea-Bissau",
+        "Kenya",
+        "Lesotho",
+        "Liberia",
+        "Libya",
+        "Madagascar",
+        "Malawi",
+        "Mali",
+        "Mauritania",
+        "Mauritius",
+        "Morocco",
+        "Mozambique",
+        "Namibia",
+        "Niger",
+        "Nigeria",
+        "Rwanda",
+        "Sao Tome and Principe",
+        "Senegal",
+        "Seychelles",
+        "Sierra Leone",
+        "Somalia",
+        "South Africa",
+        "South Sudan",
+        "Sudan",
+        "Tanzania",
+        "Togo",
+        "Tunisia",
+        "Uganda",
+        "Zambia",
+        "Zimbabwe"
+      ],
+      "totalPossible": 54
+    },
+    {
+      "id": "F-02",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many Super Bowl-winning teams as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Green Bay Packers",
+        "Kansas City Chiefs",
+        "New York Jets",
+        "Colts (Baltimore/Indianapolis)",
+        "Dallas Cowboys",
+        "Miami Dolphins",
+        "Pittsburgh Steelers",
+        "Raiders (Oakland/LA/Las Vegas)",
+        "San Francisco 49ers",
+        "Washington (Redskins/Commanders)",
+        "Rams (LA/St. Louis)",
+        "Chicago Bears",
+        "New York Giants",
+        "Denver Broncos",
+        "New England Patriots",
+        "Baltimore Ravens",
+        "Tampa Bay Buccaneers",
+        "New Orleans Saints",
+        "Seattle Seahawks",
+        "Philadelphia Eagles"
+      ],
+      "totalPossible": 20
+    },
+    {
+      "id": "F-03",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many animals that start with the letter B as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Bear",
+        "Bat",
+        "Bison",
+        "Buffalo",
+        "Boar",
+        "Bobcat",
+        "Badger",
+        "Beaver",
+        "Bee",
+        "Beetle",
+        "Butterfly",
+        "Baboon",
+        "Bald eagle",
+        "Barracuda",
+        "Bass",
+        "Bluejay",
+        "Bulldog",
+        "Bull",
+        "Buzzard",
+        "Boa",
+        "Bullfrog",
+        "Blue whale",
+        "Bonobo",
+        "Butterflyfish"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-03"
+    },
+    {
+      "id": "F-04",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many U.S. states as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Alabama",
+        "Alaska",
+        "Arizona",
+        "Arkansas",
+        "California",
+        "Colorado",
+        "Connecticut",
+        "Delaware",
+        "Florida",
+        "Georgia",
+        "Hawaii",
+        "Idaho",
+        "Illinois",
+        "Indiana",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Louisiana",
+        "Maine",
+        "Maryland",
+        "Massachusetts",
+        "Michigan",
+        "Minnesota",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "Nevada",
+        "New Hampshire",
+        "New Jersey",
+        "New Mexico",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Ohio",
+        "Oklahoma",
+        "Oregon",
+        "Pennsylvania",
+        "Rhode Island",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Vermont",
+        "Virginia",
+        "Washington",
+        "West Virginia",
+        "Wisconsin",
+        "Wyoming"
+      ],
+      "totalPossible": 50
+    },
+    {
+      "id": "F-05",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many planets in our solar system as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars",
+        "Jupiter",
+        "Saturn",
+        "Uranus",
+        "Neptune"
+      ],
+      "totalPossible": 8
+    },
+    {
+      "id": "F-06",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many colors of the rainbow as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Red",
+        "Orange",
+        "Yellow",
+        "Green",
+        "Blue",
+        "Indigo",
+        "Violet"
+      ],
+      "totalPossible": 7
+    },
+    {
+      "id": "F-07",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries in South America as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Argentina",
+        "Bolivia",
+        "Brazil",
+        "Chile",
+        "Colombia",
+        "Ecuador",
+        "Guyana",
+        "Paraguay",
+        "Peru",
+        "Suriname",
+        "Uruguay",
+        "Venezuela"
+      ],
+      "totalPossible": 12
+    },
+    {
+      "id": "F-08",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many oceans as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Pacific",
+        "Atlantic",
+        "Indian",
+        "Arctic",
+        "Southern (Antarctic)"
+      ],
+      "totalPossible": 5
+    },
+    {
+      "id": "F-09",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many continents as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Asia",
+        "Africa",
+        "North America",
+        "South America",
+        "Antarctica",
+        "Europe",
+        "Australia (Oceania)"
+      ],
+      "totalPossible": 7
+    },
+    {
+      "id": "F-10",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many NBA teams as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Atlanta Hawks",
+        "Boston Celtics",
+        "Brooklyn Nets",
+        "Charlotte Hornets",
+        "Chicago Bulls",
+        "Cleveland Cavaliers",
+        "Dallas Mavericks",
+        "Denver Nuggets",
+        "Detroit Pistons",
+        "Golden State Warriors",
+        "Houston Rockets",
+        "Indiana Pacers",
+        "LA Clippers",
+        "Los Angeles Lakers",
+        "Memphis Grizzlies",
+        "Miami Heat",
+        "Milwaukee Bucks",
+        "Minnesota Timberwolves",
+        "New Orleans Pelicans",
+        "New York Knicks",
+        "Oklahoma City Thunder",
+        "Orlando Magic",
+        "Philadelphia 76ers",
+        "Phoenix Suns",
+        "Portland Trail Blazers",
+        "Sacramento Kings",
+        "San Antonio Spurs",
+        "Toronto Raptors",
+        "Utah Jazz",
+        "Washington Wizards"
+      ],
+      "totalPossible": 30
+    },
+    {
+      "id": "F-11",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many fruits as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Apple",
+        "Banana",
+        "Orange",
+        "Grape",
+        "Mango",
+        "Pineapple",
+        "Strawberry",
+        "Blueberry",
+        "Watermelon",
+        "Peach",
+        "Pear",
+        "Cherry",
+        "Kiwi",
+        "Lemon",
+        "Lime",
+        "Plum",
+        "Apricot",
+        "Pomegranate",
+        "Papaya",
+        "Guava"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-11"
+    },
+    {
+      "id": "F-12",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries that start with the letter A as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Afghanistan",
+        "Albania",
+        "Algeria",
+        "Andorra",
+        "Angola",
+        "Antigua and Barbuda",
+        "Argentina",
+        "Armenia",
+        "Australia",
+        "Austria",
+        "Azerbaijan"
+      ],
+      "totalPossible": 11
+    },
+    {
+      "id": "F-13",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many U.S. Presidents as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Washington",
+        "Adams",
+        "Jefferson",
+        "Madison",
+        "Monroe",
+        "Lincoln",
+        "Roosevelt (T)",
+        "Wilson",
+        "Roosevelt (F)",
+        "Truman",
+        "Eisenhower",
+        "Kennedy",
+        "Johnson",
+        "Nixon",
+        "Ford",
+        "Carter",
+        "Reagan",
+        "Bush",
+        "Clinton",
+        "Obama",
+        "Trump",
+        "Biden"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-13"
+    },
+    {
+      "id": "F-14",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many days of the week as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "totalPossible": 7
+    },
+    {
+      "id": "F-15",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many months of the year as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      "totalPossible": 12
+    },
+    {
+      "id": "F-16",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many chess pieces as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "King",
+        "Queen",
+        "Rook",
+        "Bishop",
+        "Knight",
+        "Pawn"
+      ],
+      "totalPossible": 6
+    },
+    {
+      "id": "F-17",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many primary and secondary colors as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Red",
+        "Blue",
+        "Yellow",
+        "Green",
+        "Orange",
+        "Purple"
+      ],
+      "totalPossible": 6
+    },
+    {
+      "id": "F-18",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries in Europe as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "France",
+        "Germany",
+        "Italy",
+        "Spain",
+        "Portugal",
+        "United Kingdom",
+        "Ireland",
+        "Netherlands",
+        "Belgium",
+        "Switzerland",
+        "Austria",
+        "Poland",
+        "Sweden",
+        "Norway",
+        "Denmark",
+        "Finland",
+        "Greece",
+        "Hungary",
+        "Czechia",
+        "Romania",
+        "Ukraine",
+        "Russia"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-18"
+    },
+    {
+      "id": "F-19",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many sports played with a ball as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Soccer",
+        "Basketball",
+        "Football",
+        "Baseball",
+        "Tennis",
+        "Golf",
+        "Volleyball",
+        "Cricket",
+        "Rugby",
+        "Bowling",
+        "Softball",
+        "Handball",
+        "Water polo"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-19"
+    },
+    {
+      "id": "F-20",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many animals that live in the ocean as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Shark",
+        "Whale",
+        "Dolphin",
+        "Octopus",
+        "Squid",
+        "Jellyfish",
+        "Tuna",
+        "Salmon",
+        "Crab",
+        "Lobster",
+        "Starfish",
+        "Seahorse",
+        "Eel",
+        "Stingray",
+        "Clownfish"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-20"
+    },
+    {
+      "id": "F-21",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name every country that borders the United States.",
+      "timeSec": 20,
+      "acceptable": [
+        "Canada",
+        "Mexico"
+      ],
+      "totalPossible": 2
+    },
+    {
+      "id": "F-22",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many of the Great Lakes as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Superior",
+        "Michigan",
+        "Huron",
+        "Erie",
+        "Ontario"
+      ],
+      "totalPossible": 5
+    },
+    {
+      "id": "F-23",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many Ivy League universities as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Harvard",
+        "Yale",
+        "Princeton",
+        "Columbia",
+        "Brown",
+        "Dartmouth",
+        "Cornell",
+        "University of Pennsylvania"
+      ],
+      "totalPossible": 8
+    },
+    {
+      "id": "F-24",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries in Asia as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "China",
+        "India",
+        "Japan",
+        "South Korea",
+        "North Korea",
+        "Vietnam",
+        "Thailand",
+        "Indonesia",
+        "Philippines",
+        "Malaysia",
+        "Singapore",
+        "Pakistan",
+        "Bangladesh",
+        "Iran",
+        "Iraq",
+        "Saudi Arabia",
+        "Turkey",
+        "Israel",
+        "Nepal",
+        "Mongolia"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-24"
+    },
+    {
+      "id": "F-25",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many NFL teams as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Arizona Cardinals",
+        "Atlanta Falcons",
+        "Baltimore Ravens",
+        "Buffalo Bills",
+        "Carolina Panthers",
+        "Chicago Bears",
+        "Cincinnati Bengals",
+        "Cleveland Browns",
+        "Dallas Cowboys",
+        "Denver Broncos",
+        "Detroit Lions",
+        "Green Bay Packers",
+        "Houston Texans",
+        "Indianapolis Colts",
+        "Jacksonville Jaguars",
+        "Kansas City Chiefs",
+        "Las Vegas Raiders",
+        "LA Chargers",
+        "LA Rams",
+        "Miami Dolphins",
+        "Minnesota Vikings",
+        "New England Patriots",
+        "New Orleans Saints",
+        "New York Giants",
+        "New York Jets",
+        "Philadelphia Eagles",
+        "Pittsburgh Steelers",
+        "San Francisco 49ers",
+        "Seattle Seahawks",
+        "Tampa Bay Buccaneers",
+        "Tennessee Titans",
+        "Washington Commanders"
+      ],
+      "totalPossible": 32
+    },
+    {
+      "id": "F-26",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many dog breeds as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Labrador",
+        "Poodle",
+        "Bulldog",
+        "Beagle",
+        "German Shepherd",
+        "Golden Retriever",
+        "Chihuahua",
+        "Dachshund",
+        "Boxer",
+        "Rottweiler",
+        "Husky",
+        "Pug",
+        "Corgi",
+        "Dalmatian",
+        "Border Collie"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-26"
+    },
+    {
+      "id": "F-27",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries that use the Euro as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Austria",
+        "Belgium",
+        "Croatia",
+        "Cyprus",
+        "Estonia",
+        "Finland",
+        "France",
+        "Germany",
+        "Greece",
+        "Ireland",
+        "Italy",
+        "Latvia",
+        "Lithuania",
+        "Luxembourg",
+        "Malta",
+        "Netherlands",
+        "Portugal",
+        "Slovakia",
+        "Slovenia",
+        "Spain"
+      ],
+      "totalPossible": 20
+    },
+    {
+      "id": "F-28",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many world capital cities as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Paris",
+        "London",
+        "Tokyo",
+        "Rome",
+        "Madrid",
+        "Berlin",
+        "Moscow",
+        "Beijing",
+        "Cairo",
+        "Ottawa",
+        "Canberra",
+        "Brasilia",
+        "Cairo",
+        "Nairobi",
+        "Seoul",
+        "Bangkok",
+        "Athens",
+        "Lisbon",
+        "Dublin",
+        "Oslo"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-28"
+    },
+    {
+      "id": "F-29",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many flavors of ice cream as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Vanilla",
+        "Chocolate",
+        "Strawberry",
+        "Mint chocolate chip",
+        "Cookies and cream",
+        "Rocky road",
+        "Pistachio",
+        "Butter pecan",
+        "Coffee",
+        "Neapolitan"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-29"
+    },
+    {
+      "id": "F-30",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many things you'd find in a kitchen as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Stove",
+        "Oven",
+        "Fridge",
+        "Microwave",
+        "Sink",
+        "Toaster",
+        "Blender",
+        "Knife",
+        "Fork",
+        "Spoon",
+        "Plate",
+        "Pan",
+        "Pot",
+        "Kettle",
+        "Cutting board"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-30"
+    },
+    {
+      "id": "F-31",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries that start with the letter S as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Samoa",
+        "San Marino",
+        "Sao Tome and Principe",
+        "Saudi Arabia",
+        "Senegal",
+        "Serbia",
+        "Seychelles",
+        "Sierra Leone",
+        "Singapore",
+        "Slovakia",
+        "Slovenia",
+        "Solomon Islands",
+        "Somalia",
+        "South Africa",
+        "South Korea",
+        "South Sudan",
+        "Spain",
+        "Sri Lanka",
+        "Sudan",
+        "Suriname",
+        "Sweden",
+        "Switzerland",
+        "Syria"
+      ],
+      "totalPossible": 23
+    },
+    {
+      "id": "F-32",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many U.S. states that start with the letter M as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Maine",
+        "Maryland",
+        "Massachusetts",
+        "Michigan",
+        "Minnesota",
+        "Mississippi",
+        "Missouri",
+        "Montana"
+      ],
+      "totalPossible": 8
+    },
+    {
+      "id": "F-33",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many geometric shapes as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle",
+        "Pentagon",
+        "Hexagon",
+        "Octagon",
+        "Oval",
+        "Rhombus",
+        "Trapezoid",
+        "Star",
+        "Heart"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-33"
+    },
+    {
+      "id": "F-34",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many famous world landmarks as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Eiffel Tower",
+        "Statue of Liberty",
+        "Great Wall of China",
+        "Big Ben",
+        "Colosseum",
+        "Taj Mahal",
+        "Pyramids of Giza",
+        "Christ the Redeemer",
+        "Sydney Opera House",
+        "Leaning Tower of Pisa"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-34"
+    },
+    {
+      "id": "F-35",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many musical instruments as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Piano",
+        "Guitar",
+        "Violin",
+        "Drums",
+        "Flute",
+        "Trumpet",
+        "Saxophone",
+        "Cello",
+        "Clarinet",
+        "Trombone",
+        "Harp",
+        "Bass"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-35"
+    },
+    {
+      "id": "F-36",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many car brands as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Toyota",
+        "Honda",
+        "Ford",
+        "Chevrolet",
+        "BMW",
+        "Mercedes-Benz",
+        "Audi",
+        "Tesla",
+        "Nissan",
+        "Hyundai",
+        "Kia",
+        "Volkswagen",
+        "Jeep",
+        "Subaru"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-36"
+    },
+    {
+      "id": "F-37",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many Summer Olympic sports as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Swimming",
+        "Track and field",
+        "Gymnastics",
+        "Basketball",
+        "Soccer",
+        "Tennis",
+        "Boxing",
+        "Wrestling",
+        "Cycling",
+        "Rowing",
+        "Volleyball",
+        "Diving",
+        "Fencing",
+        "Archery"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-37"
+    },
+    {
+      "id": "F-38",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries in North America as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Canada",
+        "United States",
+        "Mexico",
+        "Guatemala",
+        "Belize",
+        "Honduras",
+        "El Salvador",
+        "Nicaragua",
+        "Costa Rica",
+        "Panama",
+        "Cuba",
+        "Jamaica",
+        "Haiti",
+        "Dominican Republic"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-38"
+    },
+    {
+      "id": "F-39",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many types of birds as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Eagle",
+        "Sparrow",
+        "Robin",
+        "Owl",
+        "Hawk",
+        "Falcon",
+        "Crow",
+        "Pigeon",
+        "Parrot",
+        "Penguin",
+        "Ostrich",
+        "Flamingo",
+        "Cardinal",
+        "Bluejay",
+        "Hummingbird"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-39"
+    },
+    {
+      "id": "F-40",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name every even number between 1 and 20.",
+      "timeSec": 20,
+      "acceptable": [
+        "2",
+        "4",
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "totalPossible": 10
+    },
+    {
+      "id": "F-41",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name every U.S. state that borders the Pacific Ocean.",
+      "timeSec": 20,
+      "acceptable": [
+        "California",
+        "Oregon",
+        "Washington",
+        "Alaska",
+        "Hawaii"
+      ],
+      "totalPossible": 5
+    },
+    {
+      "id": "F-42",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many languages as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "English",
+        "Spanish",
+        "Mandarin",
+        "Hindi",
+        "Arabic",
+        "French",
+        "Portuguese",
+        "Russian",
+        "German",
+        "Japanese",
+        "Korean",
+        "Italian"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-42"
+    },
+    {
+      "id": "F-43",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many board games as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Monopoly",
+        "Chess",
+        "Checkers",
+        "Scrabble",
+        "Clue",
+        "Risk",
+        "Sorry",
+        "Candy Land",
+        "Battleship",
+        "Connect Four",
+        "Catan"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-43"
+    },
+    {
+      "id": "F-44",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries that have hosted the Summer Olympics as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Greece",
+        "France",
+        "United States",
+        "United Kingdom",
+        "Germany",
+        "Australia",
+        "Japan",
+        "China",
+        "Brazil",
+        "Italy",
+        "Spain",
+        "South Korea",
+        "Canada",
+        "Mexico",
+        "Finland"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-44"
+    },
+    {
+      "id": "F-45",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many pizza toppings as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Pepperoni",
+        "Mushroom",
+        "Onion",
+        "Sausage",
+        "Bacon",
+        "Cheese",
+        "Pineapple",
+        "Olives",
+        "Peppers",
+        "Spinach",
+        "Ham",
+        "Chicken"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-45"
+    },
+    {
+      "id": "F-46",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many famous scientists as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Einstein",
+        "Newton",
+        "Darwin",
+        "Galileo",
+        "Tesla",
+        "Curie",
+        "Hawking",
+        "Edison",
+        "Faraday",
+        "Bohr",
+        "Pasteur"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-46"
+    },
+    {
+      "id": "F-47",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries that start with the letter I as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Iceland",
+        "India",
+        "Indonesia",
+        "Iran",
+        "Iraq",
+        "Ireland",
+        "Israel",
+        "Italy"
+      ],
+      "totalPossible": 8
+    },
+    {
+      "id": "F-48",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many parts of the human body as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Head",
+        "Arm",
+        "Leg",
+        "Hand",
+        "Foot",
+        "Eye",
+        "Ear",
+        "Nose",
+        "Mouth",
+        "Heart",
+        "Lung",
+        "Brain",
+        "Stomach",
+        "Knee",
+        "Elbow"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-48"
+    },
+    {
+      "id": "F-49",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many Disney animated movies as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "The Lion King",
+        "Frozen",
+        "Moana",
+        "Aladdin",
+        "Mulan",
+        "Cinderella",
+        "Tangled",
+        "Encanto",
+        "Beauty and the Beast",
+        "The Little Mermaid"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-49"
+    },
+    {
+      "id": "F-50",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many words that rhyme with \"cat\" as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "bat",
+        "hat",
+        "rat",
+        "mat",
+        "sat",
+        "fat",
+        "pat",
+        "flat",
+        "that",
+        "chat",
+        "splat",
+        "brat"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-50"
+    }
+  ]
+}

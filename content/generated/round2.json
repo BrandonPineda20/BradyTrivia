@@ -1,0 +1,990 @@
+[
+  {
+    "id": "R2-01",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "Canada",
+      "USA",
+      "United Kingdom",
+      "Australia"
+    ],
+    "answer": "Canada",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the red maple leaf at center of Canada's flag",
+      "country": "Canada"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-02",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "South Korea",
+      "Japan",
+      "Bangladesh",
+      "China"
+    ],
+    "answer": "Japan",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the red disc of Japan's flag",
+      "country": "Japan"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-03",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "Argentina",
+      "Brazil",
+      "Portugal",
+      "Colombia"
+    ],
+    "answer": "Brazil",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the blue globe & banner at center of Brazil's flag",
+      "country": "Brazil"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-04",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "Australia",
+      "United Kingdom",
+      "New Zealand",
+      "USA"
+    ],
+    "answer": "United Kingdom",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on a corner of the UK Union Jack",
+      "country": "United Kingdom"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-05",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "China",
+      "United States",
+      "European Union",
+      "Chile"
+    ],
+    "answer": "United States",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the star field (canton) of the USA flag",
+      "country": "United States"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-06",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "Belgium",
+      "Germany",
+      "Spain",
+      "Lithuania"
+    ],
+    "answer": "Germany",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the black-red-gold horizontal bands of Germany's flag",
+      "country": "Germany"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-07",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "Ireland",
+      "India",
+      "Niger",
+      "Italy"
+    ],
+    "answer": "India",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the blue Ashoka Chakra wheel of India's flag",
+      "country": "India"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-08",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "Kenya",
+      "South Africa",
+      "Zimbabwe",
+      "Jamaica"
+    ],
+    "answer": "South Africa",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the green-and-gold Y shape of South Africa's flag",
+      "country": "South Africa"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-09",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "Tunisia",
+      "Turkey",
+      "Pakistan",
+      "Algeria"
+    ],
+    "answer": "Turkey",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the white crescent & star on red of Turkey's flag",
+      "country": "Turkey"
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-10",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "Italy",
+      "Mexico",
+      "Hungary",
+      "Iran"
+    ],
+    "answer": "Mexico",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the eagle-on-cactus emblem at center of Mexico's flag",
+      "country": "Mexico"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-11",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "Poland",
+      "Indonesia",
+      "Monaco",
+      "Singapore"
+    ],
+    "answer": "Indonesia",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the red-over-white horizontal split of Indonesia's flag",
+      "country": "Indonesia"
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-12",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "Finland",
+      "Greece",
+      "Israel",
+      "Uruguay"
+    ],
+    "answer": "Greece",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the white cross in the blue canton of Greece's flag",
+      "country": "Greece"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-13",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Zoomed Flag",
+    "question": "Which country's flag is this? (zoomed in)",
+    "options": [
+      "Vietnam",
+      "China",
+      "Morocco",
+      "Turkey"
+    ],
+    "answer": "China",
+    "asset": {
+      "kind": "zoomed_flag",
+      "describes": "Zoom on the large gold star on red of China's flag",
+      "country": "China"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-14",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "United States",
+      "Liberia",
+      "Malaysia",
+      "Uruguay"
+    ],
+    "answer": "United States",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale USA flag — stars + 13 stripes",
+      "country": "United States"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-15",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "Canada",
+      "Peru",
+      "Bahrain",
+      "Lebanon"
+    ],
+    "answer": "Canada",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale Canada flag — maple leaf + vertical bands",
+      "country": "Canada"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-16",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "United Kingdom",
+      "Georgia",
+      "Greece",
+      "Norway"
+    ],
+    "answer": "United Kingdom",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale UK Union Jack — overlaid crosses",
+      "country": "United Kingdom"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-17",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "Japan",
+      "Bangladesh",
+      "Palau",
+      "Laos"
+    ],
+    "answer": "Japan",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale Japan flag — single centered disc",
+      "country": "Japan"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-18",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "France",
+      "Italy",
+      "Ireland",
+      "Belgium"
+    ],
+    "answer": "France",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale France flag — three vertical bands",
+      "country": "France"
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-19",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "Brazil",
+      "India",
+      "Portugal",
+      "Argentina"
+    ],
+    "answer": "Brazil",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale Brazil flag — diamond + central globe",
+      "country": "Brazil"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-20",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "Australia",
+      "New Zealand",
+      "Fiji",
+      "United Kingdom"
+    ],
+    "answer": "Australia",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale Australia flag — Union Jack + Southern Cross stars",
+      "country": "Australia"
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-21",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "Switzerland",
+      "Tonga",
+      "Denmark",
+      "England"
+    ],
+    "answer": "Switzerland",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale Switzerland flag — square with centered cross",
+      "country": "Switzerland"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-22",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "Turkey",
+      "Tunisia",
+      "Pakistan",
+      "Singapore"
+    ],
+    "answer": "Turkey",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale Turkey flag — crescent + star",
+      "country": "Turkey"
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-23",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "South Korea",
+      "China",
+      "Mongolia",
+      "Sri Lanka"
+    ],
+    "answer": "South Korea",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale South Korea flag — central taegeuk + trigrams",
+      "country": "South Korea"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-24",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "Germany",
+      "Russia",
+      "Netherlands",
+      "Yemen"
+    ],
+    "answer": "Germany",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale Germany flag — three horizontal bands",
+      "country": "Germany"
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-25",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Greyed Flag",
+    "question": "Identify this flag (shown in greyscale)",
+    "options": [
+      "Mexico",
+      "Italy",
+      "Ireland",
+      "Hungary"
+    ],
+    "answer": "Mexico",
+    "asset": {
+      "kind": "greyed_flag",
+      "describes": "Greyscale Mexico flag — vertical bands + central emblem",
+      "country": "Mexico"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-26",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "Italy",
+      "Greece",
+      "Spain",
+      "Croatia"
+    ],
+    "answer": "Italy",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of Italy — the boot shape",
+      "country": "Italy"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-27",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "United States",
+      "Canada",
+      "Mexico",
+      "Australia"
+    ],
+    "answer": "United States",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of the contiguous United States",
+      "country": "United States"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-28",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "France",
+      "Germany",
+      "Spain",
+      "Poland"
+    ],
+    "answer": "France",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of France — the hexagon",
+      "country": "France"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-29",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "India",
+      "Pakistan",
+      "Sri Lanka",
+      "Bangladesh"
+    ],
+    "answer": "India",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of India — the subcontinent triangle",
+      "country": "India"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-30",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "Japan",
+      "Philippines",
+      "Indonesia",
+      "South Korea"
+    ],
+    "answer": "Japan",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of Japan — the archipelago",
+      "country": "Japan"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-31",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "Brazil",
+      "Argentina",
+      "Peru",
+      "Colombia"
+    ],
+    "answer": "Brazil",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of Brazil",
+      "country": "Brazil"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-32",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "United Kingdom",
+      "Ireland",
+      "Iceland",
+      "New Zealand"
+    ],
+    "answer": "United Kingdom",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of Great Britain (United Kingdom)",
+      "country": "United Kingdom"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-33",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "Australia",
+      "Greenland",
+      "India",
+      "Madagascar"
+    ],
+    "answer": "Australia",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of Australia",
+      "country": "Australia"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-34",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "Chile",
+      "Vietnam",
+      "Norway",
+      "Italy"
+    ],
+    "answer": "Chile",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of Chile — the long thin strip",
+      "country": "Chile"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-35",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "Egypt",
+      "Sudan",
+      "Libya",
+      "Saudi Arabia"
+    ],
+    "answer": "Egypt",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of Egypt — squarish with Sinai peninsula",
+      "country": "Egypt"
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-36",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "Mexico",
+      "Spain",
+      "Turkey",
+      "Iran"
+    ],
+    "answer": "Mexico",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of Mexico",
+      "country": "Mexico"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-37",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "Russia",
+      "Canada",
+      "China",
+      "Kazakhstan"
+    ],
+    "answer": "Russia",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of Russia — vast east-west landmass",
+      "country": "Russia"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-38",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Country Outline",
+    "question": "Which country is this? (outline only)",
+    "options": [
+      "Spain",
+      "Portugal",
+      "France",
+      "Italy"
+    ],
+    "answer": "Spain",
+    "asset": {
+      "kind": "country_outline",
+      "describes": "Outline of Spain — the Iberian bulk",
+      "country": "Spain"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-39",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "Which country has the largest land area?",
+    "options": [
+      "Russia",
+      "Canada",
+      "China",
+      "United States"
+    ],
+    "answer": "Russia",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-40",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "The Amazon rainforest is primarily located in which country?",
+    "options": [
+      "Brazil",
+      "Peru",
+      "Colombia",
+      "Venezuela"
+    ],
+    "answer": "Brazil",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-41",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "Which is the largest country in Africa by area?",
+    "options": [
+      "Algeria",
+      "Egypt",
+      "Nigeria",
+      "South Africa"
+    ],
+    "answer": "Algeria",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-42",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "Mount Kilimanjaro is located in which country?",
+    "options": [
+      "Tanzania",
+      "Kenya",
+      "Ethiopia",
+      "Uganda"
+    ],
+    "answer": "Tanzania",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-43",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "Which country straddles Europe and Asia at the Bosphorus?",
+    "options": [
+      "Turkey",
+      "Russia",
+      "Greece",
+      "Egypt"
+    ],
+    "answer": "Turkey",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-44",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "What is the capital of Canada?",
+    "options": [
+      "Toronto",
+      "Ottawa",
+      "Vancouver",
+      "Montreal"
+    ],
+    "answer": "Ottawa",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-45",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "The Sahara Desert spans the northern part of which continent?",
+    "options": [
+      "Africa",
+      "Asia",
+      "Australia",
+      "South America"
+    ],
+    "answer": "Africa",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-46",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "Which country has the most natural lakes?",
+    "options": [
+      "Canada",
+      "Russia",
+      "United States",
+      "Finland"
+    ],
+    "answer": "Canada",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-47",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "Which European country is shaped like a boot?",
+    "options": [
+      "Italy",
+      "Spain",
+      "Greece",
+      "Portugal"
+    ],
+    "answer": "Italy",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-48",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "The Nile flows through which country before the Mediterranean?",
+    "options": [
+      "Egypt",
+      "Kenya",
+      "Nigeria",
+      "Morocco"
+    ],
+    "answer": "Egypt",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-49",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "Which country has the longest coastline in the world?",
+    "options": [
+      "Canada",
+      "Australia",
+      "Russia",
+      "Indonesia"
+    ],
+    "answer": "Canada",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-50",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "What is the capital of Brazil?",
+    "options": [
+      "Rio de Janeiro",
+      "Brasília",
+      "São Paulo",
+      "Salvador"
+    ],
+    "answer": "Brasília",
+    "asset": {
+      "kind": "none",
+      "describes": "(text question — no image)"
+    },
+    "difficulty": "Medium"
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "buildCommand": "npm run build:content && expo export --platform web --output-dir dist",
+  "outputDirectory": "dist",
+  "framework": null,
+  "cleanUrls": true,
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
