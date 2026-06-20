@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 
-import { playSfx } from "../audio/sfx";
 import { BADGES, levelInfo } from "../engine";
 import { useGameStore } from "../store/gameStore";
 import { useProgressionStore, type ApplyResult } from "../store/progressionStore";
@@ -12,7 +11,7 @@ import { Confetti } from "./Confetti";
 import { PrimaryButton } from "./PrimaryButton";
 
 function ordinal(n?: number): string {
-  if (!n) return "—";
+  if (!n) return "N/A";
   const s = ["th", "st", "nd", "rd"];
   const v = n % 100;
   return n + (s[(v - 20) % 10] || s[v] || s[0]);
@@ -35,9 +34,6 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
   }, [summary]);
 
   const won = championId === "human";
-  useEffect(() => {
-    if (won) playSfx("champion");
-  }, [won]);
 
   const champ = players.find((p) => p.id === championId);
   const you = players.find((p) => p.kind === "human");
@@ -48,7 +44,7 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
   const share = () => {
     const text = won
       ? "I won a BradyYourTutor Trivia episode! 🏆 Can you beat me?"
-      : `I finished ${ordinal(you?.placement)} of 5 on BradyYourTutor Trivia — can you beat me?`;
+      : `I finished ${ordinal(you?.placement)} of 5 on BradyYourTutor Trivia · can you beat me?`;
     const url = typeof location !== "undefined" ? location.href : "";
     const nav = typeof navigator !== "undefined" ? (navigator as Navigator) : undefined;
     if (nav?.share) nav.share({ title: "BradyYourTutor", text, url }).catch(() => {});
@@ -65,14 +61,14 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
         {champ?.kind === "human" ? " (You!)" : ""}
       </Text>
       <Text style={styles.sub}>
-        {won ? "Last one standing — you schooled the lobby!" : `You finished ${ordinal(you?.placement)} of 5`}
+        {won ? "Last one standing · you schooled the lobby!" : `You finished ${ordinal(you?.placement)} of 5`}
       </Text>
 
       <View style={styles.board}>
         {ordered.map((p) => (
           <View key={p.id} style={[styles.rowItem, p.kind === "human" && styles.youRow]}>
             <Text style={styles.place}>{p.placement}</Text>
-            <Avatar config={p.avatar} size={34} ringColor={p.placement === 1 ? palette.accent : palette.neutral} />
+            <Avatar config={p.avatar} size={56} ringColor={p.placement === 1 ? palette.accent : palette.neutral} faceOnly />
             <Text style={[styles.pname, p.kind === "human" && styles.human]}>{p.kind === "human" ? "You" : p.name}</Text>
             {p.placement === 1 ? <Text style={styles.crown}>👑</Text> : null}
           </View>
@@ -85,7 +81,7 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
       </View>
       <View style={styles.levelCard}>
         <View style={styles.levelHead}>
-          <Text style={styles.levelTitle}>Lv {lvl.level} · {lvl.title}</Text>
+          <Text style={styles.levelTitle}>Lv {lvl.level} {lvl.title}</Text>
           {apply?.leveledUp ? <Text style={styles.levelUp}>LEVEL UP! 🎉</Text> : null}
         </View>
         <View style={styles.track}>
@@ -119,7 +115,17 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
       <Pressable onPress={share} style={styles.share}>
         <Text style={styles.shareText}>↗  Share result</Text>
       </Pressable>
-      <Text style={styles.cta}>▶  Subscribe to BradyYourTutor</Text>
+      <Pressable
+        onPress={() => Linking.openURL("https://www.youtube.com/@bradyyourtutor")}
+        style={styles.ytBtn}
+      >
+        <Image
+          source={require("../assets/YouTube_full-color_icon_(2017).svg.png")}
+          style={styles.ytLogo}
+          resizeMode="contain"
+        />
+        <Text style={styles.ytText}>BradyYourTutor</Text>
+      </Pressable>
       </ScrollView>
       {won ? <Confetti /> : null}
     </View>
@@ -129,33 +135,35 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
 const styles = StyleSheet.create({
   root: { flex: 1 },
   wrap: { alignItems: "center", gap: spacing(2), padding: spacing(5), paddingBottom: spacing(10) },
-  kicker: { color: palette.inkSoft, fontSize: typography.size.xs, letterSpacing: 3, fontWeight: typography.weight.medium },
-  champName: { fontSize: typography.size.xxl, fontWeight: typography.weight.heavy, color: palette.ink, textAlign: "center" },
-  sub: { fontSize: typography.size.md, color: palette.primary, fontWeight: typography.weight.medium, textAlign: "center", marginBottom: spacing(2) },
+  kicker: { color: palette.inkSoft, fontSize: typography.size.xs, letterSpacing: 3, fontFamily: typography.fonts.body },
+  champName: { fontSize: typography.size.xxl, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },
+  sub: { fontSize: typography.size.md, color: palette.primary, fontFamily: typography.fonts.body, textAlign: "center", marginBottom: spacing(2) },
   board: { width: "100%", maxWidth: 360, gap: spacing(1.5) },
   rowItem: { flexDirection: "row", alignItems: "center", gap: spacing(3), backgroundColor: palette.stage, borderRadius: radii.md, paddingVertical: spacing(2), paddingHorizontal: spacing(3), ...shadow.sm },
   youRow: { backgroundColor: palette.primarySoft, borderWidth: 2, borderColor: palette.primary },
-  place: { width: 22, fontSize: typography.size.lg, fontWeight: typography.weight.heavy, color: palette.inkSoft },
-  pname: { flex: 1, fontSize: typography.size.md, fontWeight: typography.weight.medium, color: palette.ink },
-  human: { color: palette.primary, fontWeight: typography.weight.heavy },
+  place: { width: 22, fontSize: typography.size.lg, fontFamily: typography.fonts.display, color: palette.inkSoft },
+  pname: { flex: 1, fontSize: typography.size.md, fontFamily: typography.fonts.body, color: palette.ink },
+  human: { color: palette.primary, fontFamily: typography.fonts.display },
   crown: { fontSize: typography.size.lg },
   xpPill: { backgroundColor: palette.accent, borderRadius: radii.pill, paddingHorizontal: spacing(5), paddingVertical: spacing(2), marginTop: spacing(2), ...shadow.glow },
-  xpText: { fontSize: typography.size.lg, fontWeight: typography.weight.heavy, color: palette.onAccent },
+  xpText: { fontSize: typography.size.lg, fontFamily: typography.fonts.display, color: palette.onAccent },
   levelCard: { width: "100%", maxWidth: 360, backgroundColor: palette.stage, borderRadius: radii.lg, padding: spacing(4), gap: spacing(2), ...shadow.md },
   levelHead: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
-  levelTitle: { fontSize: typography.size.md, fontWeight: typography.weight.heavy, color: palette.ink },
-  levelUp: { fontSize: typography.size.sm, fontWeight: typography.weight.heavy, color: palette.correct },
+  levelTitle: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink },
+  levelUp: { fontSize: typography.size.sm, fontFamily: typography.fonts.display, color: palette.correct },
   track: { height: 12, borderRadius: radii.pill, backgroundColor: palette.stage, overflow: "hidden" },
   fill: { height: "100%", borderRadius: radii.pill, backgroundColor: palette.primary },
-  nextText: { fontSize: typography.size.xs, color: palette.inkSoft, fontWeight: typography.weight.medium },
+  nextText: { fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body },
   badges: { width: "100%", maxWidth: 360, alignItems: "center", gap: spacing(2), marginTop: spacing(2) },
-  badgesTitle: { fontSize: typography.size.sm, fontWeight: typography.weight.heavy, color: palette.inkSoft, letterSpacing: 1 },
+  badgesTitle: { fontSize: typography.size.sm, fontFamily: typography.fonts.display, color: palette.inkSoft, letterSpacing: 1 },
   badgeRow: { flexDirection: "row", flexWrap: "wrap", gap: spacing(2), justifyContent: "center" },
   badge: { backgroundColor: "#FFF4D6", borderRadius: radii.md, paddingVertical: spacing(2), paddingHorizontal: spacing(3), alignItems: "center", minWidth: 96 },
   badgeEmoji: { fontSize: 24 },
-  badgeName: { fontSize: 11, fontWeight: typography.weight.heavy, color: palette.ink, textAlign: "center" },
+  badgeName: { fontSize: 11, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },
   actions: { flexDirection: "row", gap: spacing(3), marginTop: spacing(3) },
   share: { marginTop: spacing(3), paddingVertical: spacing(2), paddingHorizontal: spacing(4) },
-  shareText: { color: palette.primary, fontWeight: typography.weight.heavy, fontSize: typography.size.md },
-  cta: { marginTop: spacing(2), color: palette.incorrect, fontWeight: typography.weight.heavy, fontSize: typography.size.sm },
+  shareText: { color: palette.primary, fontFamily: typography.fonts.display, fontSize: typography.size.md },
+  ytBtn: { flexDirection: "row", alignItems: "center", gap: spacing(2), marginTop: spacing(3), paddingVertical: spacing(2), paddingHorizontal: spacing(4) },
+  ytLogo: { width: 36, height: 36 },
+  ytText: { color: palette.inkSoft, fontFamily: typography.fonts.display, fontSize: typography.size.md },
 });

@@ -1,59 +1,75 @@
 import { useRouter } from "expo-router";
-import { useMemo, useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { useState } from "react";
+import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { Avatar } from "../components/Avatar";
 import { PrimaryButton } from "../components/PrimaryButton";
+import { SPRITE_IDS, SPRITE_IMAGES, spriteLabel } from "../components/spriteImages";
 import { useProfileStore } from "../store/profileStore";
-import {
-  ATTRIBUTES,
-  AVATAR_STYLE,
-  buildAvatarOptions,
-  randomSelection,
-  type AvatarAttr,
-  type AvatarSelection,
-} from "../theme/avatar-options";
 import { palette, radii, spacing, typography } from "../theme";
 
-function prettify(v: string): string {
-  if (v === "none") return "None";
-  return v.replace(/([A-Z])/g, " $1").replace(/^\w/, (c) => c.toUpperCase()).replace(/\d+/g, "").trim();
-}
-
-/** Avatar Create / Edit (§7.3) — one-screen parametric builder with live preview. */
+/** Avatar / character select screen — pick one of 8 PNG sprites + enter a name. */
 export default function AvatarBuilder() {
   const router = useRouter();
   const profile = useProfileStore();
   const firstRun = !profile.selection;
-  const [selection, setSelection] = useState<AvatarSelection>(() => profile.selection ?? randomSelection());
+
+  const savedId = profile.selection?.spriteIndex ?? null;
+  const validSavedId = savedId && SPRITE_IMAGES[savedId] ? savedId : null;
+
+  const [spriteId, setSpriteId] = useState<string | null>(validSavedId ?? "Contestant1");
   const [name, setName] = useState(profile.name || "");
 
-  const config = useMemo(
-    () => ({ seed: "you", style: AVATAR_STYLE, options: buildAvatarOptions(selection) }),
-    [selection],
-  );
-
-  const cycle = (attr: AvatarAttr, dir: 1 | -1) => {
-    const i = attr.values.indexOf(selection[attr.key]);
-    const next = (i + dir + attr.values.length) % attr.values.length;
-    setSelection({ ...selection, [attr.key]: attr.values[next] });
+  const onSave = async () => {
+    if (!spriteId) return;
+    await profile.save(name.trim() || "You", { spriteIndex: String(spriteId) });
+    router.replace(firstRun ? "/play" : "/");
   };
 
-  const onSave = async () => {
-    await profile.save(name.trim() || "You", selection);
-    router.replace(firstRun ? "/play" : "/"); // first run → straight into your first episode
+  const onReset = async () => {
+    await profile.reset();
+    setSpriteId("Contestant1");
+    setName("");
   };
 
   return (
     <SafeAreaView style={styles.stage}>
-      <ScrollView contentContainerStyle={styles.content}>
-        <Text style={styles.title}>{firstRun ? "Create your contestant" : "Edit your avatar"}</Text>
+      {/* Header */}
+      <View style={styles.header}>
+        {!firstRun ? (
+          <Pressable
+            onPress={() => (router.canGoBack() ? router.back() : router.replace("/"))}
+            style={styles.headerSide}
+            hitSlop={10}
+          >
+            <Text style={styles.backText}>‹ Back</Text>
+          </Pressable>
+        ) : (
+          <View style={styles.headerSide} />
+        )}
+        <Text style={styles.title}>CHOOSE YOUR CONTESTANT</Text>
+        <Pressable onPress={onSave} style={styles.headerSide} hitSlop={10}>
+          <Text style={styles.saveText}>{firstRun ? "Save ›" : "Save ›"}</Text>
+        </Pressable>
+      </View>
 
+      {/* Fixed top panel — stays visible while grid scrolls */}
+      <View style={styles.topPanel}>
         <View style={styles.previewWrap}>
-          <Avatar config={config} size={150} ringColor={palette.primary} />
+          {spriteId ? (
+            <Image
+              source={SPRITE_IMAGES[spriteId]}
+              style={styles.previewImg}
+              resizeMode="contain"
+            />
+          ) : (
+            <View style={styles.previewPlaceholder}>
+              <Text style={styles.previewPlaceholderText}>Pick a character below</Text>
+            </View>
+          )}
         </View>
 
+        {/* Name input sits right under the preview */}
         <TextInput
           style={styles.nameInput}
           value={name}
@@ -64,94 +80,166 @@ export default function AvatarBuilder() {
           autoCapitalize="words"
           autoCorrect={false}
         />
+      </View>
 
-        <Pressable onPress={() => setSelection(randomSelection())} style={styles.shuffle}>
-          <Text style={styles.shuffleText}>🎲  Shuffle</Text>
-        </Pressable>
-
-        {ATTRIBUTES.map((attr) => (
-          <View key={attr.key} style={styles.row}>
-            <Text style={styles.rowLabel}>{attr.label}</Text>
-            <View style={styles.cycler}>
-              <Pressable onPress={() => cycle(attr, -1)} style={styles.arrow} hitSlop={8}>
-                <Text style={styles.arrowText}>◀</Text>
-              </Pressable>
-              {attr.isColor ? (
-                <View style={styles.swatchWrap}>
-                  {selection[attr.key] === "transparent" ? (
-                    <Text style={styles.value}>None</Text>
-                  ) : (
-                    <View style={[styles.swatch, { backgroundColor: `#${selection[attr.key]}` }]} />
-                  )}
+      {/* Scrollable grid below */}
+      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+        <Text style={styles.gridLabel}>SELECT YOUR CHARACTER</Text>
+        <View style={styles.grid}>
+          {SPRITE_IDS.map((id) => {
+            const selected = spriteId === id;
+            return (
+              <Pressable
+                key={id}
+                onPress={() => setSpriteId(id)}
+                style={[styles.gridCard, selected && styles.gridCardSel]}
+              >
+                <View style={styles.gridImgWrap}>
+                  <Image
+                    source={SPRITE_IMAGES[id]}
+                    style={styles.gridImg}
+                    resizeMode="contain"
+                  />
                 </View>
-              ) : (
-                <Text style={styles.value} numberOfLines={1}>
-                  {prettify(selection[attr.key])}
+                <Text style={[styles.gridName, selected && styles.gridNameSel]} numberOfLines={1}>
+                  {spriteLabel(id)}
                 </Text>
-              )}
-              <Pressable onPress={() => cycle(attr, 1)} style={styles.arrow} hitSlop={8}>
-                <Text style={styles.arrowText}>▶</Text>
+                {selected && <View style={styles.checkBadge}><Text style={styles.checkText}>✓</Text></View>}
               </Pressable>
-            </View>
-          </View>
-        ))}
+            );
+          })}
+        </View>
 
-        <PrimaryButton
-          title={firstRun ? "Save & Play" : "Save"}
-          variant="accent"
-          onPress={onSave}
-          style={styles.save}
-        />
-        {!firstRun ? (
-          <PrimaryButton
-            title="Reset profile"
-            variant="ghost"
-            onPress={async () => {
-              await profile.reset();
-              setSelection(randomSelection());
-              setName("");
-            }}
-            style={styles.reset}
-          />
-        ) : null}
       </ScrollView>
     </SafeAreaView>
   );
 }
 
+const IMG_SIZE = 155;
+
 const styles = StyleSheet.create({
   stage: { flex: 1, backgroundColor: palette.stage },
-  content: { padding: spacing(5), gap: spacing(2), alignItems: "stretch", maxWidth: 480, alignSelf: "center", width: "100%" },
-  title: { fontSize: typography.size.xl, fontWeight: typography.weight.heavy, color: palette.ink, textAlign: "center" },
-  previewWrap: { alignItems: "center", marginVertical: spacing(2) },
-  nameInput: {
-    backgroundColor: palette.surface,
-    borderRadius: radii.lg,
+
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
     paddingHorizontal: spacing(4),
-    paddingVertical: spacing(3),
-    fontSize: typography.size.lg,
-    fontWeight: typography.weight.heavy,
+    paddingVertical: spacing(2),
+  },
+  headerSide: { width: 72 },
+  backText: { color: palette.primary, fontSize: typography.size.md, fontFamily: typography.fonts.display },
+  saveText: { color: palette.primary, fontSize: typography.size.md, fontFamily: typography.fonts.display, textAlign: "right" },
+  title: {
+    flex: 1,
+    textAlign: "center",
+    fontSize: typography.size.xl,
+    fontFamily: typography.fonts.display,
+    color: palette.ink,
+  },
+
+  topPanel: {
+    alignItems: "center",
+    paddingHorizontal: spacing(4),
+    paddingBottom: spacing(2),
+    gap: 0,
+    maxWidth: 560,
+    width: "100%",
+    alignSelf: "center",
+  },
+
+  content: {
+    padding: spacing(4),
+    gap: spacing(4),
+    alignItems: "center",
+    maxWidth: 560,
+    width: "100%",
+    alignSelf: "center",
+  },
+
+  previewWrap: {
+    width: "100%",
+    height: 255,
+    overflow: "hidden",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+  previewImg: { width: 300, height: 300 },
+  previewPlaceholder: { alignItems: "center", justifyContent: "center", flex: 1 },
+  previewPlaceholderText: {
+    color: palette.neutral,
+    fontFamily: typography.fonts.body,
+    fontSize: typography.size.sm,
+  },
+
+  nameInput: {
+    width: "100%",
+    backgroundColor: palette.surface,
+    borderRadius: radii.md,
+    borderWidth: 2,
+    borderColor: palette.hairline,
+    paddingHorizontal: spacing(3),
+    paddingVertical: spacing(2),
+    fontSize: typography.size.md,
+    fontFamily: typography.fonts.display,
     color: palette.ink,
     textAlign: "center",
   },
-  shuffle: { alignSelf: "center", paddingVertical: spacing(2), paddingHorizontal: spacing(4) },
-  shuffleText: { color: palette.primary, fontWeight: typography.weight.heavy, fontSize: typography.size.md },
-  row: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    backgroundColor: palette.surface,
-    borderRadius: radii.md,
-    paddingHorizontal: spacing(3),
-    paddingVertical: spacing(2),
+
+  gridLabel: {
+    fontSize: typography.size.xs,
+    fontFamily: typography.fonts.display,
+    color: palette.inkSoft,
+    letterSpacing: 1,
+    textTransform: "uppercase",
+    alignSelf: "flex-start",
   },
-  rowLabel: { fontSize: typography.size.sm, fontWeight: typography.weight.heavy, color: palette.inkSoft, width: 96 },
-  cycler: { flexDirection: "row", alignItems: "center", gap: spacing(2), flex: 1, justifyContent: "flex-end" },
-  arrow: { padding: spacing(1.5) },
-  arrowText: { fontSize: typography.size.md, color: palette.primary, fontWeight: typography.weight.heavy },
-  value: { fontSize: typography.size.sm, fontWeight: typography.weight.medium, color: palette.ink, minWidth: 90, textAlign: "center" },
-  swatchWrap: { minWidth: 90, alignItems: "center" },
-  swatch: { width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: palette.ink },
-  save: { marginTop: spacing(4) },
-  reset: { marginTop: spacing(2) },
+  grid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    columnGap: spacing(1),
+    rowGap: 0,
+    justifyContent: "center",
+    width: "100%",
+  },
+  gridCard: {
+    alignItems: "center",
+    justifyContent: "flex-end",
+    opacity: 1,
+  },
+  gridCardSel: {
+    opacity: 1,
+  },
+  gridImgWrap: {
+    width: IMG_SIZE,
+    height: IMG_SIZE * 0.85,
+    overflow: "hidden",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+  gridImg: { width: IMG_SIZE, height: IMG_SIZE },
+  gridName: {
+    fontSize: 11,
+    fontFamily: typography.fonts.display,
+    color: palette.inkSoft,
+    textAlign: "center",
+    marginTop: 0,
+    marginBottom: spacing(1),
+  },
+  gridNameSel: { color: palette.primary, fontWeight: "700" },
+  checkBadge: {
+    position: "absolute",
+    top: 0,
+    right: -4,
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    backgroundColor: palette.primary,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  checkText: { color: palette.onPrimary, fontSize: 10, fontFamily: typography.fonts.display },
+
+  actions: { width: "100%", gap: spacing(1), marginTop: spacing(2) },
+  resetLink: { alignSelf: "center", paddingVertical: spacing(2) },
+  resetText: { color: palette.neutral, fontFamily: typography.fonts.body, fontSize: typography.size.sm },
 });

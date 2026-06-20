@@ -10,12 +10,15 @@ export type RoundId = 1 | 2 | 3 | "final";
 export type PlayerKind = "human" | "bot";
 export type PlayerStatus = "active" | "advanced" | "eliminated" | "spectating";
 
-/** Parametric avatar config (§6.1): DiceBear style + seed, with optional explicit
- *  options (the human's customized look). Bots pass just a seed (randomized). */
+/** Parametric avatar config (§6.1): seed + optional flat selection (human's
+ *  customized look). Bots pass just a seed; the sprite renderer derives their
+ *  look deterministically from it. */
 export type AvatarConfig = {
   seed: string;
   style?: string;
   options?: Record<string, unknown>;
+  /** Flat key→value selection used by the sprite renderer. */
+  selection?: Record<string, string>;
 };
 
 export type Player = {

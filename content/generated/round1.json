@@ -79,7 +79,7 @@
     "round": 1,
     "type": "multiple_choice",
     "category": "Math",
-    "question": "What is 12 × 12?",
+    "question": "What is 12 \u00d7 12?",
     "options": [
       "124",
       "132",
@@ -514,7 +514,7 @@
     "round": 1,
     "type": "multiple_choice",
     "category": "Math",
-    "question": "What is 7 × 8?",
+    "question": "What is 7 \u00d7 8?",
     "options": [
       "48",
       "54",
@@ -747,6 +747,306 @@
       "6"
     ],
     "answer": "5",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-51",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Literature",
+    "question": "Who wrote 'Romeo and Juliet'?",
+    "options": [
+      "Charles Dickens",
+      "William Shakespeare",
+      "Jane Austen",
+      "Mark Twain"
+    ],
+    "answer": "William Shakespeare",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-52",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the most abundant gas in Earth's atmosphere?",
+    "options": [
+      "Oxygen",
+      "Carbon Dioxide",
+      "Nitrogen",
+      "Argon"
+    ],
+    "answer": "Nitrogen",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-53",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "Which empire was ruled by Julius Caesar?",
+    "options": [
+      "Greek",
+      "Ottoman",
+      "Roman",
+      "British"
+    ],
+    "answer": "Roman",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-54",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Food",
+    "question": "Which country is the origin of sushi?",
+    "options": [
+      "China",
+      "South Korea",
+      "Japan",
+      "Thailand"
+    ],
+    "answer": "Japan",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-55",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Animals",
+    "question": "What is the only mammal capable of true flight?",
+    "options": [
+      "Flying squirrel",
+      "Bat",
+      "Sugar glider",
+      "Colugo"
+    ],
+    "answer": "Bat",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-56",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Movies",
+    "question": "Which film won the first-ever Academy Award for Best Picture?",
+    "options": [
+      "Casablanca",
+      "Wings",
+      "Gone with the Wind",
+      "All Quiet on the Western Front"
+    ],
+    "answer": "Wings",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R1-57",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "What is the longest river in the world?",
+    "options": [
+      "Amazon",
+      "Congo",
+      "Yangtze",
+      "Nile"
+    ],
+    "answer": "Nile",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-58",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the speed of light in a vacuum (approximately)?",
+    "options": [
+      "300,000 km/s",
+      "150,000 km/s",
+      "3,000 km/s",
+      "30,000 km/s"
+    ],
+    "answer": "300,000 km/s",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-59",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Sports",
+    "question": "In which sport is the 'Ryder Cup' contested?",
+    "options": [
+      "Tennis",
+      "Golf",
+      "Cricket",
+      "Polo"
+    ],
+    "answer": "Golf",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-60",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Music",
+    "question": "Which singer is known as 'Queen of Pop'?",
+    "options": [
+      "Beyonc\u00e9",
+      "Rihanna",
+      "Madonna",
+      "Lady Gaga"
+    ],
+    "answer": "Madonna",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-61",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Technology",
+    "question": "What does 'HTML' stand for?",
+    "options": [
+      "HyperText Markup Language",
+      "High Transfer Machine Learning",
+      "Hyperlink Text Model Language",
+      "HyperText Machine Learning"
+    ],
+    "answer": "HyperText Markup Language",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-62",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "Which country dropped atomic bombs on Hiroshima and Nagasaki?",
+    "options": [
+      "Soviet Union",
+      "United Kingdom",
+      "China",
+      "United States"
+    ],
+    "answer": "United States",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-63",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "How many chromosomes do humans typically have?",
+    "options": [
+      "23",
+      "46",
+      "48",
+      "44"
+    ],
+    "answer": "46",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-64",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Geography",
+    "question": "Which country contains the most of the Amazon rainforest?",
+    "options": [
+      "Colombia",
+      "Peru",
+      "Venezuela",
+      "Brazil"
+    ],
+    "answer": "Brazil",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-65",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Pop Culture",
+    "question": "What year did 'Fortnite' launch as a free-to-play battle royale?",
+    "options": [
+      "2016",
+      "2017",
+      "2018",
+      "2015"
+    ],
+    "answer": "2017",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-66",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Math",
+    "question": "What is the value of \u03c0 (pi) to two decimal places?",
+    "options": [
+      "3.14",
+      "3.41",
+      "3.12",
+      "3.16"
+    ],
+    "answer": "3.14",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-67",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Literature",
+    "question": "In which Dickens novel does the character Ebenezer Scrooge appear?",
+    "options": [
+      "Oliver Twist",
+      "Great Expectations",
+      "David Copperfield",
+      "A Christmas Carol"
+    ],
+    "answer": "A Christmas Carol",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-68",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Animals",
+    "question": "How many hearts does an octopus have?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "3",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R1-69",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Food",
+    "question": "Which nut is used to make marzipan?",
+    "options": [
+      "Hazelnut",
+      "Walnut",
+      "Almond",
+      "Cashew"
+    ],
+    "answer": "Almond",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-70",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Movies",
+    "question": "Which studio produced 'The Lion King' (1994)?",
+    "options": [
+      "Pixar",
+      "DreamWorks",
+      "Universal",
+      "Walt Disney"
+    ],
+    "answer": "Walt Disney",
     "difficulty": "Easy"
   }
 ]

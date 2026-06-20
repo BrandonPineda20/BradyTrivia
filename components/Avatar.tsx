@@ -1,10 +1,11 @@
 import { memo, useMemo } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { SvgXml } from "react-native-svg";
 
 import type { AvatarConfig } from "../engine/types";
-import { palette, shadow, typography } from "../theme";
+import { palette, typography } from "../theme";
 import { avatarSvg } from "./avatarSvg";
+import { SPRITE_IMAGES } from "./spriteImages";
 
 type Props = {
   config: AvatarConfig;
@@ -16,9 +17,11 @@ type Props = {
   /** Small corner badge, e.g. "✓" advanced / "★" winner. */
   badge?: string;
   badgeColor?: string;
+  /** Crop to face only — zooms into the top portion of the sprite. */
+  faceOnly?: boolean;
 };
 
-/** Parametric cartoon avatar (DiceBear "avataaars", §6.1), clipped to a circle. */
+/** Circle avatar — renders a PNG sprite if spriteIndex is set, else SVG. */
 export const Avatar = memo(function Avatar({
   config,
   name,
@@ -27,18 +30,45 @@ export const Avatar = memo(function Avatar({
   dimmed,
   badge,
   badgeColor = palette.accent,
+  faceOnly,
 }: Props) {
-  const xml = useMemo(() => avatarSvg(config, size), [config, size]);
+  const spriteId = config.selection?.spriteIndex ?? null;
+  const xml = useMemo(
+    () => (spriteId ? null : avatarSvg(config, size)),
+    [config, size, spriteId],
+  );
+
+  // Zoom into the top ~45% of the sprite to show face + shoulders, centered.
+  const faceImgSize = size * 2.4;
+  const faceTop = size * 0.08;
+
   return (
     <View style={{ opacity: dimmed ? 0.4 : 1 }} accessibilityLabel={name ? `${name} avatar` : undefined}>
       <View
         style={[
           styles.circle,
-          shadow.sm,
           { width: size, height: size, borderRadius: size / 2, borderColor: ringColor },
         ]}
       >
-        <SvgXml xml={xml} width={size} height={size} />
+        {spriteId && SPRITE_IMAGES[spriteId] ? (
+          faceOnly ? (
+            <Image
+              source={SPRITE_IMAGES[spriteId]}
+              // @ts-ignore
+              style={{ width: faceImgSize, height: faceImgSize, position: "absolute", top: -faceTop, left: -(faceImgSize - size) / 2, imageRendering: "pixelated" }}
+              resizeMode="contain"
+            />
+          ) : (
+            <Image
+              source={SPRITE_IMAGES[spriteId]}
+              // @ts-ignore
+              style={{ width: size, height: size, imageRendering: "pixelated" }}
+              resizeMode="cover"
+            />
+          )
+        ) : (
+          <SvgXml xml={xml!} width={size} height={size} />
+        )}
       </View>
       {badge ? (
         <View style={[styles.badge, { backgroundColor: badgeColor }]}>

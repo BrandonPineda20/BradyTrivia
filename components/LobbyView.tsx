@@ -13,7 +13,7 @@ export function LobbyView() {
   return (
     <View style={styles.wrap}>
       <BradyHost expression="idle" size={130} />
-      <Text style={styles.status}>{full ? "Lineup set — Round 1 coming up!" : "Finding players…"}</Text>
+      <Text style={styles.status}>{full ? "Lineup set · Round 1 coming up!" : "Finding players…"}</Text>
 
       <View style={styles.room}>
         <View style={styles.floor} />
@@ -27,7 +27,7 @@ export function LobbyView() {
                   <Contestant
                     config={p.avatar}
                     name={p.name}
-                    size={52}
+                    size={80}
                     ringColor={p.kind === "human" ? palette.primary : palette.neutral}
                   />
                 ) : (
@@ -51,7 +51,7 @@ export function LobbyView() {
 
 const styles = StyleSheet.create({
   wrap: { flex: 1, alignItems: "center", justifyContent: "center", gap: spacing(4), padding: spacing(5) },
-  status: { fontSize: typography.size.lg, fontWeight: typography.weight.heavy, color: palette.ink },
+  status: { fontSize: typography.size.lg, fontFamily: typography.fonts.display, color: palette.ink },
   room: {
     width: "100%",
     maxWidth: 440,
@@ -63,8 +63,8 @@ const styles = StyleSheet.create({
   },
   floor: { position: "absolute", left: 0, right: 0, bottom: 0, height: "32%", backgroundColor: palette.surfaceAlt },
   floorLine: { position: "absolute", left: 0, right: 0, bottom: "32%", height: 2, backgroundColor: palette.hairline },
-  row: { flexDirection: "row", gap: spacing(1), flexWrap: "wrap", justifyContent: "center", alignItems: "flex-end" },
-  slot: { alignItems: "center", width: 72 },
+  row: { flexDirection: "row", gap: 0, flexWrap: "nowrap", justifyContent: "center", alignItems: "flex-end" },
+  slot: { alignItems: "center", flex: 1 },
   empty: {
     width: 56,
     height: 56,
@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: spacing(2),
   },
-  dots: { color: palette.neutral, fontSize: typography.size.lg, fontWeight: typography.weight.heavy },
-  name: { marginTop: spacing(1), fontSize: typography.size.xs, color: palette.inkSoft, fontWeight: typography.weight.medium },
-  human: { color: palette.primary, fontWeight: typography.weight.heavy },
-  hint: { fontSize: typography.size.xs, color: palette.neutral, fontWeight: typography.weight.medium, textAlign: "center" },
+  dots: { color: palette.neutral, fontSize: typography.size.lg, fontFamily: typography.fonts.display },
+  name: { marginTop: spacing(1), fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body },
+  human: { color: palette.primary, fontFamily: typography.fonts.display },
+  hint: { fontSize: typography.size.xs, color: palette.neutral, fontFamily: typography.fonts.body, textAlign: "center" },
 });

@@ -12,7 +12,7 @@ import { AVATAR_STYLE, buildAvatarOptions, type AvatarSelection } from "../theme
 const KEY = "brady.profile.v1";
 
 function configFor(selection: AvatarSelection): AvatarConfig {
-  return { seed: "you", style: AVATAR_STYLE, options: buildAvatarOptions(selection) };
+  return { seed: "you", style: AVATAR_STYLE, options: buildAvatarOptions(selection), selection };
 }
 
 type ProfileState = {

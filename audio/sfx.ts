@@ -6,7 +6,7 @@
  */
 import { useSettingsStore } from "../store/settingsStore";
 
-export type Sfx = "lockIn" | "correct" | "wrong" | "advance" | "eliminate" | "champion" | "tick";
+export type Sfx = "lockIn" | "correct" | "wrong" | "advance" | "eliminate" | "champion" | "tick" | "tap";
 
 let ctx: AudioContext | null = null;
 function audioCtx(): AudioContext | null {
@@ -52,6 +52,24 @@ function sweep(c: AudioContext, from: number, to: number, start: number, dur: nu
   osc.stop(start + dur + 0.02);
 }
 
+/**
+ * Soft "bubble" pop: a pure sine whose pitch curves upward (the watery bloop) under
+ * a gentle attack + smooth decay. Kept low-gain so it's pleasant, never harsh.
+ */
+function bubble(c: AudioContext, from: number, to: number, start: number, dur: number, gain: number) {
+  const osc = c.createOscillator();
+  const g = c.createGain();
+  osc.type = "sine";
+  osc.frequency.setValueAtTime(from, start);
+  osc.frequency.exponentialRampToValueAtTime(to, start + dur * 0.6);
+  g.gain.setValueAtTime(0.0001, start);
+  g.gain.exponentialRampToValueAtTime(gain, start + 0.016); // soft attack — no hard click
+  g.gain.exponentialRampToValueAtTime(0.0001, start + dur); // smooth round-off
+  osc.connect(g).connect(c.destination);
+  osc.start(start);
+  osc.stop(start + dur + 0.02);
+}
+
 export function playSfx(name: Sfx) {
   if (useSettingsStore.getState().muted) return;
   const c = audioCtx();
@@ -80,6 +98,12 @@ export function playSfx(name: Sfx) {
       break;
     case "champion":
       [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => tone(c, f, t + i * 0.12, 0.26, "sine", 0.16));
+      break;
+    case "tap":
+      // Bubbly "bloop": a soft sine pops up an octave, with a faint higher shimmer
+      // riding on top for a satisfying, gentle, watery click.
+      bubble(c, 380, 720, t, 0.16, 0.085);
+      bubble(c, 740, 1180, t + 0.012, 0.1, 0.022);
       break;
   }
 }

@@ -17,7 +17,7 @@ export function TopBar({ title, onBack }: { title: string; onBack: () => void })
 const styles = StyleSheet.create({
   bar: { flexDirection: "row", alignItems: "center", paddingHorizontal: spacing(4), paddingVertical: spacing(3) },
   back: { width: 72 },
-  backText: { color: palette.primary, fontSize: typography.size.md, fontWeight: typography.weight.heavy },
-  title: { flex: 1, textAlign: "center", fontSize: typography.size.lg, fontWeight: typography.weight.heavy, color: palette.ink },
+  backText: { color: palette.primary, fontSize: typography.size.md, fontFamily: typography.fonts.display },
+  title: { flex: 1, textAlign: "center", fontSize: typography.size.lg, fontFamily: typography.fonts.display, color: palette.ink },
   spacer: { width: 72 },
 });

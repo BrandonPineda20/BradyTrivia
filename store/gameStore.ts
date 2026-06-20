@@ -32,7 +32,6 @@ import {
   type ScoredSubmission,
 } from "../engine";
 import { validateListEntries } from "../engine/validation";
-import { playSfx } from "../audio/sfx";
 import { bradyLine, MOOD_EXPRESSION, type HostMood } from "../theme/brady-lines";
 import type { HostExpression } from "../theme";
 
@@ -177,6 +176,9 @@ type GameState = {
   lobbyJoinedCount: number;
   humanEliminated: boolean;
 
+  // final best-of-3
+  finalWins: Record<string, number>;
+
   // progression accumulators (the human's run this episode → §9 summary)
   htally: HumanTally;
   summary: EpisodeSummary | null;
@@ -232,10 +234,6 @@ export const useGameStore = create<GameState>((set, get) => {
 
     // Brady mood: reflect the human's outcome if they're playing, else the question's.
     const mood = hostMood(q, rows, winnerId, spectating);
-    if (!spectating) {
-      if (mood === "correct") playSfx("correct");
-      else if (mood === "wrong") playSfx("wrong");
-    }
     set({
       phase: "reveal",
       reveal: { winnerId, rows },
@@ -255,21 +253,26 @@ export const useGameStore = create<GameState>((set, get) => {
     const winnerId = rev.winnerId;
 
     if (q.type === "list") {
-      // Final battle.
+      // Final battle — best of 3 (first to 2 wins).
+      const finalWins = { ...s.finalWins };
       if (winnerId) {
+        finalWins[winnerId] = (finalWins[winnerId] ?? 0) + 1;
+      }
+      const champion = s.pool.find((id) => (finalWins[id] ?? 0) >= 2) ?? null;
+      if (champion) {
         const finalists = s.pool;
-        const runnerUp = finalists.find((id) => id !== winnerId)!;
-        const placements = { ...s.placements, [winnerId]: 1, [runnerUp]: 2 };
+        const runnerUp = finalists.find((id) => id !== champion)!;
+        const placements = { ...s.placements, [champion]: 1, [runnerUp]: 2 };
         const players = s.players.map((p) => ({
           ...p,
           placement: placements[p.id] ?? p.placement,
-          status: p.id === winnerId ? ("advanced" as const) : ("eliminated" as const),
+          status: p.id === champion ? ("advanced" as const) : ("eliminated" as const),
         }));
-        const summary = buildSummary(s.htally, winnerId === HUMAN_ID, placements[HUMAN_ID] ?? 5);
-        set({ phase: "results", championId: winnerId, placements, players, current: null, summary });
+        const summary = buildSummary(s.htally, champion === HUMAN_ID, placements[HUMAN_ID] ?? 5);
+        set({ phase: "results", championId: champion, placements, players, current: null, summary, finalWins });
       } else {
-        // Tie → sudden-death next prompt.
-        set({ suddenDeath: true });
+        // No winner yet — next prompt (sudden death only if both tied at 0 after max rounds).
+        set({ finalWins, suddenDeath: !winnerId });
         presentNextQuestion(now);
       }
       return;
@@ -283,7 +286,6 @@ export const useGameStore = create<GameState>((set, get) => {
       advanced = [...advanced, winnerId];
       pool = pool.filter((id) => id !== winnerId);
       if (winnerId === HUMAN_ID) {
-        playSfx("advance");
         htally = {
           ...htally,
           roundsAdvanced: Math.min(3, htally.roundsAdvanced + 1),
@@ -300,7 +302,6 @@ export const useGameStore = create<GameState>((set, get) => {
 
     // One remains → eliminated by being last (§4.2 step 7).
     const eliminatedId = pool[0];
-    if (eliminatedId === HUMAN_ID) playSfx("eliminate");
     const placement = PLACEMENT_BY_ROUND[s.round as 1 | 2 | 3];
     const placements = { ...s.placements, [eliminatedId]: placement };
     const players = s.players.map((p) => ({
@@ -321,6 +322,7 @@ export const useGameStore = create<GameState>((set, get) => {
         pool: advanced,
         round: "final",
         suddenDeath: false,
+        finalWins: {},
         phase: "round-intro",
         phaseStartedAt: now,
         questionNo: 0,
@@ -423,6 +425,7 @@ export const useGameStore = create<GameState>((set, get) => {
     questionStartAt: 0,
     deadlineAt: 0,
     suddenDeath: false,
+    finalWins: {},
     locked: {},
     botSchedule: {},
     humanLocked: false,
@@ -530,7 +533,6 @@ export const useGameStore = create<GameState>((set, get) => {
       const q = s.current!;
       if (q.type === "list") return; // list uses addListEntry
       const submittedAtMs = Date.now() - s.questionStartAt;
-      playSfx("lockIn");
       set({
         humanLocked: true,
         locked: { ...s.locked, [HUMAN_ID]: { playerId: HUMAN_ID, questionId: q.id, value, submittedAtMs } },
@@ -547,7 +549,6 @@ export const useGameStore = create<GameState>((set, get) => {
       const after = validateListEntries(s.current, next, s.supplements).validCount;
       set({ listEntries: next });
       const gained = after > before;
-      playSfx(gained ? "lockIn" : "tick");
       return gained;
     },
 
@@ -563,7 +564,7 @@ if (typeof window !== "undefined") {
 // ── display helpers ──────────────────────────────────────────────────────────
 
 function answerDisplay(q: AnyQuestion, sub: ScoredSubmission): string {
-  if (sub.submittedAtMs === undefined) return "—";
+  if (sub.submittedAtMs === undefined) return "No answer";
   if (q.type === "numeric") return String(sub.value);
   return String(sub.value);
 }

@@ -26,8 +26,16 @@ import type {
 type AnyQ = MCQuestion | NumericQuestion | ListQuestion;
 type RawCore = { value: string | number | string[]; submittedAtMs?: number };
 
-function avatarFor(rng: Rng): AvatarConfig {
-  return { seed: `av-${rng.int(1, 1_000_000_000)}`, style: "avataaars" };
+const SPRITE_IDS = [
+  "Contestant1", "Contestant2", "Anderson", "Andrew", "Ashli", "Ben",
+  "Brady", "Branden", "Brandi", "Fortune", "Isaac", "Jake", "Landon",
+  "Lauren", "Miles", "Owen", "Pablo", "Reda", "Robert", "Shea", "Soluna",
+] as const;
+
+function avatarFor(rng: Rng, exclude?: string): AvatarConfig {
+  const pool = exclude != null ? SPRITE_IDS.filter((id) => id !== exclude) : [...SPRITE_IDS];
+  const spriteIndex = pool[rng.int(0, pool.length - 1)];
+  return { seed: `av-${rng.int(1, 1_000_000_000)}`, selection: { spriteIndex } };
 }
 
 export type RosterOptions = {
@@ -46,12 +54,23 @@ export function makeRoster(rng: Rng, opts: RosterOptions = {}): Player[] {
   const { mean, spread } = BOT_SKILL[difficulty];
   const players: Player[] = [];
 
+  // Shuffle sprite pool so all 5 players get unique sprites.
+  const spritePool = rng.shuffle([...SPRITE_IDS]) as string[];
+
+  const humanSpriteId = opts.humanAvatar?.selection?.spriteIndex ?? null;
+
+  // Put the human's sprite first so it gets removed from the bot pool.
+  if (humanSpriteId != null) {
+    const idx = spritePool.indexOf(humanSpriteId);
+    if (idx !== -1) spritePool.splice(idx, 1);
+  }
+
   if (opts.includeHuman !== false) {
     players.push({
       id: "human",
       kind: "human",
       name: opts.humanName ?? "You",
-      avatar: opts.humanAvatar ?? avatarFor(rng),
+      avatar: opts.humanAvatar ?? { seed: "you", selection: { spriteIndex: spritePool.pop() ?? "Contestant1" } },
       skill: opts.humanSkill ?? DEFAULT_HUMAN_SKILL,
       status: "active",
     });
@@ -60,11 +79,12 @@ export function makeRoster(rng: Rng, opts: RosterOptions = {}): Player[] {
   const names = rng.shuffle(BOT_NAMES);
   const botCount = LOBBY_SIZE - players.length;
   for (let i = 0; i < botCount; i++) {
+    const spriteIndex = spritePool[i] ?? SPRITE_IDS[i % SPRITE_IDS.length];
     players.push({
       id: `bot-${i + 1}`,
       kind: "bot",
       name: names[i] ?? `Bot ${i + 1}`,
-      avatar: avatarFor(rng),
+      avatar: { seed: `av-${rng.int(1, 1_000_000_000)}`, selection: { spriteIndex } },
       skill: clamp(rng.gaussian(mean, spread), 0.28, 0.92),
       status: "active",
     });

@@ -27,9 +27,9 @@ export const MOOD_EXPRESSION: Record<HostMood, HostExpression> = {
 
 export const BRADY_LINES: Record<HostMood, readonly string[]> = {
   intro: [
-    "Welcome to the class — let's see who's got it!",
+    "Welcome to the class! Let's see who's got it!",
     "Five players, one champion. Let's play!",
-    "Alright, eyes up here — first question's a doozy.",
+    "Alright, eyes up here! First question's a doozy.",
   ],
   asking: [
     "Lock it in when you've got it...",
@@ -48,19 +48,19 @@ export const BRADY_LINES: Record<HostMood, readonly string[]> = {
     "Correct! Somebody's been studying.",
   ],
   wrong: [
-    "Ohhh, so close — not today!",
+    "Ohhh, so close. Not today!",
     "Swing and a miss! Shake it off.",
-    "Not quite — but I respect the confidence.",
+    "Not quite, but I respect the confidence.",
     "Yikes! The class winced a little on that one.",
   ],
   champion: [
-    "CHAMPION! Take a bow — that's a Valedictorian right there!",
+    "CHAMPION! Take a bow. That's a Valedictorian right there!",
     "Last one standing! Brady's proud of you.",
     "Winner, winner! You just schooled the whole lobby.",
   ],
   neutral: [
     "Nice. On to the next.",
-    "Stay sharp — we're just getting started.",
+    "Stay sharp. We're just getting started.",
     "Good round. Shake it out.",
   ],
 };

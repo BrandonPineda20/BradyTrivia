@@ -1,4 +1,5 @@
 import { useRouter } from "expo-router";
+import { useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -32,6 +33,8 @@ export default function Profile() {
   const { xp, streak, badges, stats } = useProgressionStore();
   const lvl = levelInfo(xp);
   const earned = new Set(badges);
+  const [showNext, setShowNext] = useState(false);
+  const xpToNext = lvl.xpForNext - lvl.xpIntoLevel;
 
   return (
     <SafeAreaView style={styles.stage}>
@@ -40,24 +43,31 @@ export default function Profile() {
         <View style={styles.header}>
           {avatar ? <Avatar config={avatar} size={88} ringColor={palette.primary} /> : null}
           <Text style={styles.name}>{name || "You"}</Text>
-          <Text style={styles.levelTitle}>Lv {lvl.level} · {lvl.title}</Text>
+          <Pressable onPress={() => setShowNext((v) => !v)} hitSlop={8} style={styles.levelTitleBtn}>
+            <Text style={styles.levelTitle}>Lv {lvl.level} {lvl.title}</Text>
+            <Text style={styles.levelHint}>{showNext ? "▲" : "ⓘ"}</Text>
+          </Pressable>
+          {showNext ? (
+            <View style={styles.nextPill}>
+              <Text style={styles.nextPillText}>
+                {lvl.nextTitle ? `${xpToNext.toLocaleString()} XP to ${lvl.nextTitle}` : "Max level reached!"}
+              </Text>
+            </View>
+          ) : null}
         </View>
 
         <View style={styles.levelCard}>
           <View style={styles.track}>
             <View style={[styles.fill, { width: `${Math.round(lvl.progress * 100)}%` }]} />
           </View>
-          <Text style={styles.xp}>
-            {xp.toLocaleString()} XP
-            {lvl.nextTitle ? ` · ${lvl.xpForNext - lvl.xpIntoLevel} to ${lvl.nextTitle}` : " · max level"}
-          </Text>
+          <Text style={styles.xp}>{xp.toLocaleString()} XP</Text>
         </View>
 
         <View style={styles.statsRow}>
           <Stat label="🔥 Streak" value={`${streak}d`} />
           <Stat label="Games" value={stats.gamesPlayed} />
           <Stat label="Wins" value={stats.wins} />
-          <Stat label="Best" value={stats.gamesPlayed ? ordinal(stats.bestPlacement) : "—"} />
+          <Stat label="Best" value={stats.gamesPlayed ? ordinal(stats.bestPlacement) : "N/A"} />
         </View>
 
         <Text style={styles.sectionTitle}>Badges</Text>
@@ -87,24 +97,28 @@ const styles = StyleSheet.create({
   stage: { flex: 1, backgroundColor: palette.stage },
   content: { padding: spacing(5), gap: spacing(3), maxWidth: 480, alignSelf: "center", width: "100%" },
   header: { alignItems: "center", gap: spacing(1) },
-  name: { fontSize: typography.size.xl, fontWeight: typography.weight.heavy, color: palette.ink },
-  levelTitle: { fontSize: typography.size.md, fontWeight: typography.weight.heavy, color: palette.primary },
+  name: { fontSize: typography.size.xl, fontFamily: typography.fonts.display, color: palette.ink },
+  levelTitleBtn: { flexDirection: "row", alignItems: "center", gap: spacing(1) },
+  levelTitle: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.primary },
+  levelHint: { fontSize: typography.size.sm, color: palette.primary, opacity: 0.7 },
+  nextPill: { marginTop: spacing(1), backgroundColor: palette.primarySoft, borderRadius: radii.pill, paddingHorizontal: spacing(3), paddingVertical: spacing(1) },
+  nextPillText: { fontSize: typography.size.sm, fontFamily: typography.fonts.display, color: palette.primary },
   levelCard: { backgroundColor: palette.surface, borderRadius: radii.lg, padding: spacing(4), gap: spacing(2) },
   track: { height: 12, borderRadius: radii.pill, backgroundColor: palette.stage, overflow: "hidden" },
   fill: { height: "100%", borderRadius: radii.pill, backgroundColor: palette.primary },
-  xp: { fontSize: typography.size.xs, color: palette.inkSoft, fontWeight: typography.weight.medium },
+  xp: { fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body },
   statsRow: { flexDirection: "row", gap: spacing(2) },
   stat: { flex: 1, backgroundColor: palette.surface, borderRadius: radii.md, paddingVertical: spacing(3), alignItems: "center", gap: 2 },
-  statValue: { fontSize: typography.size.lg, fontWeight: typography.weight.heavy, color: palette.ink },
-  statLabel: { fontSize: 10, color: palette.inkSoft, fontWeight: typography.weight.medium },
-  sectionTitle: { fontSize: typography.size.md, fontWeight: typography.weight.heavy, color: palette.ink, marginTop: spacing(1) },
+  statValue: { fontSize: typography.size.lg, fontFamily: typography.fonts.display, color: palette.ink },
+  statLabel: { fontSize: 10, color: palette.inkSoft, fontFamily: typography.fonts.body },
+  sectionTitle: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink, marginTop: spacing(1) },
   badgeGrid: { flexDirection: "row", flexWrap: "wrap", gap: spacing(2) },
   badge: { width: "31%", backgroundColor: "#FFF4D6", borderRadius: radii.md, padding: spacing(2), alignItems: "center", gap: 2 },
   badgeLocked: { backgroundColor: palette.surface },
   badgeEmoji: { fontSize: 26 },
-  badgeName: { fontSize: 11, fontWeight: typography.weight.heavy, color: palette.ink, textAlign: "center" },
+  badgeName: { fontSize: 11, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },
   badgeDesc: { fontSize: 9, color: palette.inkSoft, textAlign: "center" },
   edit: { marginTop: spacing(3) },
   reset: { alignSelf: "center", paddingVertical: spacing(2) },
-  resetText: { color: palette.neutral, fontWeight: typography.weight.medium, fontSize: typography.size.sm },
+  resetText: { color: palette.neutral, fontFamily: typography.fonts.body, fontSize: typography.size.sm },
 });

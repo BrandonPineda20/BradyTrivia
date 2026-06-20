@@ -1,3 +1,4 @@
+import { BebasNeue_400Regular, useFonts } from "@expo-google-fonts/bebas-neue";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
@@ -14,6 +15,7 @@ import { palette } from "../theme";
 export default function RootLayout() {
   const gateLoaded = useGateStore((s) => s.loaded);
   const unlocked = useGateStore((s) => s.unlocked);
+  const [fontsLoaded] = useFonts({ BebasNeue_400Regular });
 
   useEffect(() => {
     useGateStore.getState().load();
@@ -21,6 +23,8 @@ export default function RootLayout() {
     useProgressionStore.getState().load();
     useSettingsStore.getState().load();
   }, []);
+
+  if (!fontsLoaded) return <View style={{ flex: 1, backgroundColor: palette.stage }} />;
 
   return (
     <SafeAreaProvider>

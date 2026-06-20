@@ -13,6 +13,7 @@ export type LineupItem = {
   dimmed?: boolean;
   badge?: string;
   badgeColor?: string;
+  sparkle?: boolean;
   /** Status line under the contestant — e.g. "Locked in", "Thinking…", or the revealed answer. */
   caption?: string;
   captionColor?: string;
@@ -32,8 +33,8 @@ export function PlayerLineup({
       <View style={styles.floor} />
       <View style={styles.floorLine} />
       <View style={styles.row}>
-        {items.map((p) => (
-          <View key={p.id} style={styles.slot}>
+        {items.map((p, i) => (
+          <View key={p.id} style={[styles.slot, i > 0 && styles.slotOverlap]}>
             <Contestant
               config={p.avatar}
               name={p.name}
@@ -42,6 +43,7 @@ export function PlayerLineup({
               dimmed={p.dimmed}
               badge={p.badge}
               badgeColor={p.badgeColor}
+              sparkle={p.sparkle}
             />
             <Text
               numberOfLines={1}
@@ -69,36 +71,39 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: radii.lg,
     backgroundColor: palette.surface,
-    overflow: "hidden",
-    paddingTop: spacing(3),
-    paddingHorizontal: spacing(1),
+    overflow: "visible",
+    paddingTop: 24,
+    paddingHorizontal: 0,
   },
-  floor: { position: "absolute", left: 0, right: 0, bottom: 0, height: "34%", backgroundColor: palette.surfaceAlt },
-  floorLine: { position: "absolute", left: 0, right: 0, bottom: "34%", height: 2, backgroundColor: palette.hairline },
+  floor: { position: "absolute", left: 0, right: 0, bottom: 0, height: "30%", backgroundColor: palette.surfaceAlt },
+  floorLine: { position: "absolute", left: 0, right: 0, bottom: "30%", height: 2, backgroundColor: palette.hairline },
   row: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "flex-end",
-    flexWrap: "wrap",
-    gap: spacing(1),
+    flexWrap: "nowrap",
+    paddingHorizontal: spacing(1),
   },
-  slot: { alignItems: "center", paddingHorizontal: spacing(0.5) },
+  slot: { alignItems: "center", minWidth: 0, flex: 1 },
+  slotOverlap: {},
   name: {
-    marginTop: spacing(1),
-    fontSize: typography.size.xs,
+    marginTop: 2,
+    fontSize: 9,
     fontWeight: typography.weight.medium,
     color: palette.inkSoft,
-    maxWidth: 76,
     textAlign: "center",
+    width: "100%",
   },
   human: { color: palette.primary, fontWeight: typography.weight.heavy },
   dim: { color: palette.neutral },
   caption: {
-    marginTop: 2,
-    fontSize: 10,
+    marginTop: 1,
+    fontSize: 9,
     fontWeight: typography.weight.medium,
     color: palette.neutral,
-    height: 14,
+    height: 12,
+    textAlign: "center",
+    width: "100%",
   },
-  captionSpacer: { height: 14, marginTop: 2 },
+  captionSpacer: { height: 12, marginTop: 1 },
 });

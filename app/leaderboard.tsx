@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
   content: { padding: spacing(4), gap: spacing(1.5), maxWidth: 480, alignSelf: "center", width: "100%" },
   row: { flexDirection: "row", alignItems: "center", gap: spacing(3), backgroundColor: palette.surface, borderRadius: radii.md, paddingVertical: spacing(2), paddingHorizontal: spacing(3) },
   youRow: { backgroundColor: "#EAF1FF", borderWidth: 2, borderColor: palette.primary },
-  rank: { width: 28, textAlign: "center", fontSize: typography.size.md, fontWeight: typography.weight.heavy, color: palette.inkSoft },
+  rank: { width: 28, textAlign: "center", fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.inkSoft },
   topRank: { color: palette.accent },
-  name: { flex: 1, fontSize: typography.size.md, fontWeight: typography.weight.medium, color: palette.ink },
-  human: { color: palette.primary, fontWeight: typography.weight.heavy },
-  xp: { fontSize: typography.size.sm, fontWeight: typography.weight.heavy, color: palette.inkSoft },
+  name: { flex: 1, fontSize: typography.size.md, fontFamily: typography.fonts.body, color: palette.ink },
+  human: { color: palette.primary, fontFamily: typography.fonts.display },
+  xp: { fontSize: typography.size.sm, fontFamily: typography.fonts.display, color: palette.inkSoft },
 });

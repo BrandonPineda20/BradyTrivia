@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   text: {
     color: palette.ink,
     fontSize: typography.size.md,
-    fontWeight: typography.weight.medium,
+    fontFamily: typography.fonts.body,
     textAlign: "center",
   },
   tail: {

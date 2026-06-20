@@ -44,7 +44,7 @@ export const glow = {
   core: "#FFD23F",
 } as const;
 
-export const radii = { sm: 8, md: 14, lg: 22, xl: 28, pill: 999 } as const;
+export const radii = { sm: 3, md: 5, lg: 8, xl: 10, pill: 999 } as const;
 
 /** 4pt spacing scale: spacing(2) = 8px. */
 export const spacing = (n: number) => n * 4;
@@ -55,19 +55,19 @@ export const spacing = (n: number) => n * 4;
  * is "floating on a bright stage", not heavy material.
  */
 export const shadow = {
-  sm: { boxShadow: "0px 2px 8px rgba(11,27,58,0.07)" },
-  md: { boxShadow: "0px 8px 20px rgba(11,27,58,0.10)" },
-  lg: { boxShadow: "0px 16px 36px rgba(11,27,58,0.16)" },
+  sm: { boxShadow: "2px 3px 0px rgba(11,27,58,0.18)" },
+  md: { boxShadow: "3px 5px 0px rgba(11,27,58,0.22)" },
+  lg: { boxShadow: "4px 7px 0px rgba(11,27,58,0.28)" },
   glow: { boxShadow: "0px 6px 30px rgba(255,194,0,0.45)" }, // host / champion pop
-  press: { boxShadow: "0px 2px 6px rgba(11,27,58,0.12)" },
+  press: { boxShadow: "1px 2px 0px rgba(11,27,58,0.20)" },
 } as const;
 
 export const typography = {
   fonts: {
-    // Rounded/heavy display face (Poppins/Nunito feel) + clean body face.
-    // System stack for now; real faces load via expo-font in M3 behind these keys.
-    display: "System",
-    body: "System",
+    // Bebas Neue: bold condensed all-caps display face — titles, buttons, scoreboard.
+    // Impact: punchy condensed system font — labels, subheadings, UI text (web-native).
+    display: "BebasNeue_400Regular",
+    body: "Impact",
     mono: "Courier",
   },
   size: { xs: 12, sm: 14, md: 16, lg: 20, xl: 28, xxl: 40, mega: 64 },

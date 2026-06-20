@@ -1,5 +1,6 @@
+import { useRouter } from "expo-router";
 import { useMemo } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 
 import { normalizeEntry } from "../engine/validation";
 import { useGameStore } from "../store/gameStore";
@@ -21,6 +22,7 @@ const ROUND_TITLE: Record<string, string> = {
 };
 
 export function RoundStage({ now }: { now: number }) {
+  const router = useRouter();
   const s = useGameStore();
   const q = s.current;
   const byId = useMemo(
@@ -47,6 +49,22 @@ export function RoundStage({ now }: { now: number }) {
   const prompt = q.type === "list" ? q.prompt : q.question;
   const category = q.type === "list" ? "" : q.category;
 
+  // Answer order: sort locked submissions by submittedAtMs to assign 1st, 2nd, 3rd...
+  const answerOrder = useMemo(() => {
+    const entries = Object.entries(s.locked)
+      .filter(([, sub]) => sub.submittedAtMs !== undefined)
+      .sort(([, a], [, b]) => (a.submittedAtMs ?? 0) - (b.submittedAtMs ?? 0));
+    const order: Record<string, number> = {};
+    entries.forEach(([id], i) => { order[id] = i + 1; });
+    return order;
+  }, [s.locked]);
+
+  // Players who already qualified this round (only relevant R1–R3).
+  const qualifiedItems: LineupItem[] = (s.round !== "final" ? s.advanced : []).map((id) => {
+    const p = byId[id];
+    return { id, name: p.name, avatar: p.avatar, isHuman: p.kind === "human", ringColor: palette.correct };
+  });
+
   // Lineup view-models (reveal discipline: no green/red until reveal).
   const items: LineupItem[] = s.pool.map((id) => {
     const p = byId[id];
@@ -62,20 +80,24 @@ export function RoundStage({ now }: { now: number }) {
         ring = palette.correct;
         captionColor = palette.correct;
       }
-      if (row.isWinner) ring = palette.accent;
       return {
         ...base,
         ringColor: ring,
         badge: row.isWinner ? "★" : undefined,
         badgeColor: palette.accent,
+        sparkle: row.isWinner,
         caption: row.display,
         captionColor,
       };
     }
     const locked = !!s.locked[id] || (id === "human" && s.humanLocked);
+    const showOrder = s.round === 1 || s.round === 2;
+    const orderNum = showOrder ? answerOrder[id] : undefined;
     return {
       ...base,
       ringColor: locked ? palette.primary : palette.neutral,
+      badge: orderNum !== undefined ? String(orderNum) : undefined,
+      badgeColor: palette.primary,
       caption: locked ? "Locked in" : "Thinking…",
       captionColor: locked ? palette.primary : palette.neutral,
     };
@@ -98,7 +120,7 @@ export function RoundStage({ now }: { now: number }) {
         banner = { text: `${byId[w].name} advances to ${next}!`, tint: "advance" };
       }
     } else {
-      banner = { text: "Nobody got it — next question!", tint: "neutral" };
+      banner = { text: "Nobody got it · next question!", tint: "neutral" };
     }
   }
 
@@ -117,112 +139,138 @@ export function RoundStage({ now }: { now: number }) {
   }
   const humanSub = s.locked["human"];
 
+  const isMC = q.type === "multiple_choice";
+
+  const header = (
+    <View style={styles.header}>
+      <View>
+        <Text style={styles.roundTitle}>{ROUND_TITLE[String(s.round)]}</Text>
+        {category ? <Text style={styles.category}>{category}</Text> : null}
+      </View>
+      {!reveal ? <CountdownTimer remainingMs={remainingMs} totalMs={totalMs} /> : null}
+    </View>
+  );
+
+  const bradyBlock = (
+    <View style={styles.brady}>
+      <BradyHost expression={s.hostExpression} size={isMC ? 72 : 96} />
+      {reveal ? (
+        <SpeechBubble text={s.hostLine} tint={s.hostTint} />
+      ) : (
+        <View style={styles.questionCard}>
+          {isMC && q.asset && q.asset.kind !== "none" ? (
+            <View style={styles.visualWrap}><R2Visual question={q} width={180} /></View>
+          ) : null}
+          <Text style={styles.prompt} numberOfLines={3}>{prompt}</Text>
+        </View>
+      )}
+    </View>
+  );
+
+  const qualifiedShelf = qualifiedItems.length > 0 ? (
+    <View style={styles.qualifiedShelf}>
+      <Text style={styles.qualifiedLabel}>✓ Advancing to next round</Text>
+      <PlayerLineup items={qualifiedItems} avatarSize={72} />
+    </View>
+  ) : null;
+
+  const lineup = <PlayerLineup items={items} avatarSize={72} />;
+
+  const revealBanner = banner ? (
+    <View style={[styles.banner, banner.tint === "advance" && styles.bannerAdvance, banner.tint === "out" && styles.bannerOut]}>
+      <Text style={styles.bannerText}>{banner.text}</Text>
+    </View>
+  ) : null;
+
+  const answerArea = !humanInPool ? (
+    <View style={styles.spectator}>
+      <Text style={styles.spectatorText}>👀 You're out — watching the rest play out…</Text>
+      <Pressable style={styles.homeBtn} onPress={() => router.replace("/")}>
+        <Text style={styles.homeBtnText}>Leave Game</Text>
+      </Pressable>
+    </View>
+  ) : isMC ? (
+    <AnswerOptions
+      options={q.options}
+      onPick={(opt) => s.submitHuman(opt)}
+      locked={s.humanLocked}
+      humanPick={typeof humanSub?.value === "string" ? humanSub.value : undefined}
+      reveal={reveal ? { correctAnswer: q.answer } : undefined}
+    />
+  ) : q.type === "numeric" ? (
+    <NumericAnswer
+      key={q.id}
+      unit={q.unit}
+      onSubmit={(v) => s.submitHuman(v)}
+      locked={s.humanLocked}
+      submittedValue={humanSub ? String(humanSub.value) : undefined}
+      reveal={reveal ? { correctAnswer: q.answer, humanGuess: humanSub ? String(humanSub.value) : "No answer", distance: reveal.rows.find((r) => r.playerId === "human")?.distance } : undefined}
+    />
+  ) : (
+    <ListAnswer
+      onAdd={(t) => s.addListEntry(t)}
+      entries={listViews}
+      validCount={validCount}
+      totalPossible={q.totalPossible}
+      disabled={!!reveal}
+    />
+  );
+
+  // MC: fixed non-scrolling layout so all 4 options are always visible
+  if (isMC) {
+    return (
+      <View style={styles.stage}>
+        {header}
+        <View style={styles.mcBody}>
+          {bradyBlock}
+          {qualifiedShelf}
+          {lineup}
+          {revealBanner}
+          <View style={styles.mcAnswers}>{answerArea}</View>
+        </View>
+      </View>
+    );
+  }
+
+  // Numeric / list: keep scrollable for keyboard input
   return (
     <View style={styles.stage}>
-      {/* Header: round + timer */}
-      <View style={styles.header}>
-        <View>
-          <Text style={styles.roundTitle}>{ROUND_TITLE[String(s.round)]}</Text>
-          {category ? <Text style={styles.category}>{category}</Text> : null}
-        </View>
-        {!reveal ? <CountdownTimer remainingMs={remainingMs} totalMs={totalMs} /> : null}
-      </View>
-
-      {/* Brady + question prompt */}
-      <View style={styles.brady}>
-        <BradyHost expression={s.hostExpression} size={118} />
-        {reveal ? (
-          <SpeechBubble text={s.hostLine} tint={s.hostTint} />
-        ) : (
-          <View style={styles.questionCard}>
-            {q.type === "multiple_choice" && q.asset && q.asset.kind !== "none" ? (
-              <View style={styles.visualWrap}>
-                <R2Visual question={q} width={230} />
-              </View>
-            ) : null}
-            <Text style={styles.prompt}>{prompt}</Text>
-          </View>
-        )}
-      </View>
-
-      {/* Lineup */}
-      <PlayerLineup items={items} avatarSize={q.type === "list" ? 50 : 44} />
-
-      {/* Reveal banner */}
-      {banner ? (
-        <View
-          style={[
-            styles.banner,
-            banner.tint === "advance" && styles.bannerAdvance,
-            banner.tint === "out" && styles.bannerOut,
-          ]}
-        >
-          <Text style={styles.bannerText}>{banner.text}</Text>
-        </View>
-      ) : null}
-
-      {/* Answer area */}
-      <View style={styles.answerArea}>
-        {!humanInPool ? (
-          <View style={styles.spectator}>
-            <Text style={styles.spectatorText}>👀 You're spectating — auto-playing the bots…</Text>
-          </View>
-        ) : q.type === "multiple_choice" ? (
-          <AnswerOptions
-            options={q.options}
-            onPick={(opt) => s.submitHuman(opt)}
-            locked={s.humanLocked}
-            humanPick={typeof humanSub?.value === "string" ? humanSub.value : undefined}
-            reveal={reveal ? { correctAnswer: q.answer } : undefined}
-          />
-        ) : q.type === "numeric" ? (
-          <NumericAnswer
-            unit={q.unit}
-            onSubmit={(v) => s.submitHuman(v)}
-            locked={s.humanLocked}
-            submittedValue={humanSub ? String(humanSub.value) : undefined}
-            reveal={
-              reveal
-                ? {
-                    correctAnswer: q.answer,
-                    humanGuess: humanSub ? String(humanSub.value) : "—",
-                    distance: reveal.rows.find((r) => r.playerId === "human")?.distance,
-                  }
-                : undefined
-            }
-          />
-        ) : (
-          <ListAnswer
-            onAdd={(t) => s.addListEntry(t)}
-            entries={listViews}
-            validCount={validCount}
-            totalPossible={q.totalPossible}
-            disabled={!!reveal}
-          />
-        )}
-      </View>
+      {header}
+      <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+        {bradyBlock}
+        {qualifiedShelf}
+        {lineup}
+        {revealBanner}
+        <View style={styles.answerArea}>{answerArea}</View>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  stage: { flex: 1, paddingHorizontal: spacing(4), paddingTop: spacing(2), gap: spacing(3) },
-  header: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" },
-  roundTitle: { fontSize: typography.size.md, fontWeight: typography.weight.heavy, color: palette.ink },
-  category: { fontSize: typography.size.xs, color: palette.inkSoft, fontWeight: typography.weight.medium, marginTop: 2 },
-  brady: { alignItems: "center", gap: spacing(2) },
+  stage: { flex: 1, paddingHorizontal: spacing(3), paddingTop: spacing(1) },
+  header: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start", marginBottom: spacing(1) },
+  // MC fixed layout — no scroll, space distributed evenly
+  mcBody: { flex: 1, gap: spacing(1.5) },
+  mcAnswers: { flex: 1, justifyContent: "flex-end", paddingBottom: spacing(3) },
+  scroll: { flex: 1 },
+  scrollContent: { gap: spacing(2), paddingBottom: spacing(6) },
+  roundTitle: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink },
+  category: { fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body, marginTop: 2 },
+  brady: { alignItems: "center", gap: spacing(1.5) },
   questionCard: {
     backgroundColor: palette.stage,
     borderRadius: radii.lg,
-    padding: spacing(4),
+    padding: spacing(3),
     maxWidth: 480,
     alignSelf: "center",
-    borderWidth: 1,
+    width: "100%",
+    borderWidth: 2,
     borderColor: palette.hairline,
     ...shadow.md,
   },
-  visualWrap: { alignItems: "center", marginBottom: spacing(3) },
-  prompt: { fontSize: typography.size.lg, fontWeight: typography.weight.heavy, color: palette.ink, textAlign: "center" },
+  visualWrap: { alignItems: "center", marginBottom: spacing(2) },
+  prompt: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },
   banner: {
     alignSelf: "center",
     paddingHorizontal: spacing(4),
@@ -233,8 +281,34 @@ const styles = StyleSheet.create({
   },
   bannerAdvance: { backgroundColor: "#E6FBF0" },
   bannerOut: { backgroundColor: "#FFECEC" },
-  bannerText: { fontSize: typography.size.sm, fontWeight: typography.weight.heavy, color: palette.ink },
-  answerArea: { flex: 1, justifyContent: "flex-start", paddingTop: spacing(2) },
-  spectator: { padding: spacing(5), alignItems: "center" },
-  spectatorText: { color: palette.inkSoft, fontSize: typography.size.md, fontWeight: typography.weight.medium },
+  bannerText: { fontSize: typography.size.sm, fontFamily: typography.fonts.display, color: palette.ink },
+  qualifiedShelf: {
+    borderRadius: radii.lg,
+    borderWidth: 1,
+    borderColor: palette.correct,
+    backgroundColor: "#E6FBF0",
+    paddingTop: spacing(2),
+    paddingHorizontal: spacing(2),
+    paddingBottom: spacing(1),
+    gap: spacing(1),
+  },
+  qualifiedLabel: {
+    fontSize: typography.size.xs,
+    fontFamily: typography.fonts.display,
+    color: palette.correct,
+    textAlign: "center",
+    letterSpacing: 0.5,
+  },
+  answerArea: { paddingTop: spacing(1) },
+  spectator: { padding: spacing(5), alignItems: "center", gap: spacing(3) },
+  spectatorText: { color: palette.inkSoft, fontSize: typography.size.md, fontFamily: typography.fonts.body, textAlign: "center" },
+  homeBtn: {
+    paddingHorizontal: spacing(5),
+    paddingVertical: spacing(2.5),
+    borderRadius: radii.pill,
+    borderWidth: 2,
+    borderColor: palette.hairline,
+    backgroundColor: palette.stage,
+  },
+  homeBtnText: { color: palette.inkSoft, fontFamily: typography.fonts.display, fontSize: typography.size.sm },
 });

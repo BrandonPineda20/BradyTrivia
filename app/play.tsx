@@ -1,9 +1,10 @@
 import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { BradyHost } from "../components/BradyHost";
+import { FloatingBrains } from "../components/FloatingBrains";
 import { LobbyView } from "../components/LobbyView";
 import { ResultsView } from "../components/ResultsView";
 import { RoundStage } from "../components/RoundStage";
@@ -11,7 +12,7 @@ import { resolveEpisodeSeed } from "../config/demo";
 import { QUESTION_BANK } from "../content";
 import { useGameStore } from "../store/gameStore";
 import { useProfileStore } from "../store/profileStore";
-import { palette, spacing, typography } from "../theme";
+import { palette, radii, spacing, typography } from "../theme";
 
 const CONTENT = {
   round1: QUESTION_BANK.round1,
@@ -54,8 +55,11 @@ export default function Play() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const inGame = phase === "round-intro" || phase === "question" || phase === "reveal";
+
   return (
     <SafeAreaView style={styles.stage}>
+      {inGame && <FloatingBrains />}
       {(phase === "idle" || phase === "lobby") && <LobbyView />}
       {phase === "round-intro" && <RoundIntro />}
       {(phase === "question" || phase === "reveal") && <RoundStage now={now} />}
@@ -68,10 +72,12 @@ export default function Play() {
 
 /** Round intro / transition card (§7.6). */
 function RoundIntro() {
+  const router = useRouter();
   const s = useGameStore();
   const remaining = s.pool.length;
   const elimPlace = s.round === 2 ? 5 : s.round === 3 ? 4 : s.round === "final" ? 3 : null;
   const elim = elimPlace ? s.players.find((p) => p.placement === elimPlace) : undefined;
+  const humanEliminated = elim?.kind === "human";
   return (
     <View style={styles.intro}>
       <BradyHost expression="tension" size={120} />
@@ -81,10 +87,15 @@ function RoundIntro() {
       </Text>
       {elim ? (
         <Text style={styles.elim}>
-          ❌ {elim.kind === "human" ? "You were" : `${elim.name} was`} eliminated
+          ❌ {humanEliminated ? "You were" : `${elim.name} was`} eliminated
         </Text>
       ) : (
         <Text style={styles.go}>Here we go!</Text>
+      )}
+      {humanEliminated && (
+        <Pressable style={styles.homeBtn} onPress={() => router.replace("/")}>
+          <Text style={styles.homeBtnText}>Go Home</Text>
+        </Pressable>
       )}
     </View>
   );
@@ -93,8 +104,17 @@ function RoundIntro() {
 const styles = StyleSheet.create({
   stage: { flex: 1, backgroundColor: palette.stage },
   intro: { flex: 1, alignItems: "center", justifyContent: "center", gap: spacing(2), padding: spacing(5) },
-  introRound: { fontSize: typography.size.xl, fontWeight: typography.weight.heavy, color: palette.ink, textAlign: "center" },
-  introSub: { fontSize: typography.size.md, color: palette.primary, fontWeight: typography.weight.medium },
-  elim: { fontSize: typography.size.md, color: palette.incorrect, fontWeight: typography.weight.heavy, marginTop: spacing(2) },
-  go: { fontSize: typography.size.md, color: palette.inkSoft, fontWeight: typography.weight.medium, marginTop: spacing(2) },
+  introRound: { fontSize: typography.size.xl, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },
+  introSub: { fontSize: typography.size.md, color: palette.primary, fontFamily: typography.fonts.body },
+  elim: { fontSize: typography.size.md, color: palette.incorrect, fontFamily: typography.fonts.display, marginTop: spacing(2) },
+  go: { fontSize: typography.size.md, color: palette.inkSoft, fontFamily: typography.fonts.body, marginTop: spacing(2) },
+  homeBtn: {
+    marginTop: spacing(3),
+    paddingHorizontal: spacing(6),
+    paddingVertical: spacing(2.5),
+    borderRadius: radii.pill,
+    borderWidth: 2,
+    borderColor: palette.hairline,
+  },
+  homeBtnText: { color: palette.inkSoft, fontFamily: typography.fonts.display, fontSize: typography.size.sm },
 });

@@ -38,7 +38,6 @@ export function BradyHost({
       <View
         style={[
           styles.ring,
-          shadow.lg,
           { width: size, height: size, borderRadius: size / 2, borderColor: ring },
         ]}
       >
@@ -73,7 +72,6 @@ const styles = StyleSheet.create({
     borderColor: palette.accent,
     alignItems: "center",
     justifyContent: "center",
-    ...shadow.md,
   },
   badgeText: { fontSize: 18 },
 });
