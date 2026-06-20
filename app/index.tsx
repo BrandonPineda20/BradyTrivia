@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
 import { useEffect } from "react";
-import { Image, Linking, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Avatar } from "../components/Avatar";
@@ -37,63 +37,70 @@ export default function Home() {
         <Text style={styles.muteText}>{muted ? "🔇" : "🔊"}</Text>
       </Pressable>
 
-      <View style={styles.top}>
-        <View style={styles.kickerPill}>
-          <Text style={styles.kicker}>A MAGNET GAMES PRODUCTION</Text>
+      <ScrollView
+        contentContainerStyle={styles.scroll}
+        showsVerticalScrollIndicator={false}
+        bounces={true}
+      >
+        <View style={styles.top}>
+          <View style={styles.kickerPill}>
+            <Text style={styles.kicker}>A MAGNET GAMES PRODUCTION</Text>
+          </View>
+          <Text style={styles.title}>BradyYourTutor</Text>
+          <View style={styles.underline} />
+          <Text style={styles.tag}>Play to Get Smarter 🧠</Text>
         </View>
-        <Text style={styles.title}>BradyYourTutor</Text>
-        <View style={styles.underline} />
-        <Text style={styles.tag}>Play to Get Smarter 🧠</Text>
-      </View>
 
-      <BradyHost expression="idle" size={264} />
+        <BradyHost expression="idle" size={220} />
 
-      <Pressable style={({ pressed }) => [styles.profileChip, pressed && styles.chipPressed]} onPress={() => router.push("/avatar")}>
-        {avatar ? <Avatar config={avatar} size={48} ringColor={palette.primary} faceOnly /> : null}
-        <View>
-          <Text style={styles.profileName}>{name || "You"}</Text>
-          <Text style={styles.editLink}>Edit avatar ›</Text>
-        </View>
-      </Pressable>
+        <Pressable style={({ pressed }) => [styles.profileChip, pressed && styles.chipPressed]} onPress={() => router.push("/avatar")}>
+          {avatar ? <Avatar config={avatar} size={48} ringColor={palette.primary} faceOnly /> : null}
+          <View>
+            <Text style={styles.profileName}>{name || "You"}</Text>
+            <Text style={styles.editLink}>Edit avatar ›</Text>
+          </View>
+        </Pressable>
 
-      <View style={styles.mid}>
-        <PrimaryButton title="▶  Last Genius Standing Wins" variant="primary" onPress={() => router.push("/play")} style={styles.playBtn} fontSize={17} />
-        <View style={styles.tiles}>
-          <Pressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/profile")}>
-            <Text style={styles.tileIcon}>👤</Text>
-            <Text style={styles.tileTitle}>Profile</Text>
-          </Pressable>
-          <Pressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/leaderboard")}>
-            <Text style={styles.tileIcon}>🏆</Text>
-            <Text style={styles.tileTitle}>Leaderboard</Text>
-          </Pressable>
-          <View style={[styles.tile, styles.tileMuted]}>
-            <Text style={styles.tileIcon}>🎮</Text>
-            <Text style={styles.tileTitle}>More modes</Text>
-            <Text style={styles.soon}>soon</Text>
+        <View style={styles.mid}>
+          <PrimaryButton title="▶  Last Genius Standing Wins" variant="primary" onPress={() => router.push("/play")} style={styles.playBtn} fontSize={17} />
+          <View style={styles.tiles}>
+            <Pressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/profile")}>
+              <Text style={styles.tileIcon}>👤</Text>
+              <Text style={styles.tileTitle}>Profile</Text>
+            </Pressable>
+            <Pressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/leaderboard")}>
+              <Text style={styles.tileIcon}>🏆</Text>
+              <Text style={styles.tileTitle}>Leaderboard</Text>
+            </Pressable>
+            <View style={[styles.tile, styles.tileMuted]}>
+              <Text style={styles.tileIcon}>🎮</Text>
+              <Text style={styles.tileTitle}>More modes</Text>
+              <Text style={styles.soon}>soon</Text>
+            </View>
           </View>
         </View>
-      </View>
 
-      <View style={styles.socials}>
-        {SOCIALS.map((s) => (
-          <Pressable
-            key={s.name}
-            style={({ pressed }) => [styles.socialBtn, pressed && styles.socialBtnPressed]}
-            onPress={() => Linking.openURL(s.url)}
-            accessibilityLabel={s.name}
-            accessibilityRole="link"
-          >
-            <Image source={s.icon} style={styles.socialIcon} resizeMode="contain" />
-          </Pressable>
-        ))}
-      </View>
+        <View style={styles.socials}>
+          {SOCIALS.map((s) => (
+            <Pressable
+              key={s.name}
+              style={({ pressed }) => [styles.socialBtn, pressed && styles.socialBtnPressed]}
+              onPress={() => Linking.openURL(s.url)}
+              accessibilityLabel={s.name}
+              accessibilityRole="link"
+            >
+              <Image source={s.icon} style={styles.socialIcon} resizeMode="contain" />
+            </Pressable>
+          ))}
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  stage: { flex: 1, backgroundColor: palette.stageTint, alignItems: "center", justifyContent: "space-between", paddingVertical: spacing(7), paddingHorizontal: spacing(5) },
+  stage: { flex: 1, backgroundColor: palette.stageTint },
+  scroll: { alignItems: "center", paddingVertical: spacing(5), paddingHorizontal: spacing(5), gap: spacing(4) },
   top: { alignItems: "center", gap: spacing(1.5) },
   kickerPill: { backgroundColor: palette.surface, borderRadius: radii.pill, paddingHorizontal: spacing(3), paddingVertical: spacing(1) },
   kicker: { color: palette.inkSoft, fontSize: typography.size.xs, letterSpacing: 2, fontFamily: typography.fonts.body },

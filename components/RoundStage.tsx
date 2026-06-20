@@ -59,49 +59,62 @@ export function RoundStage({ now }: { now: number }) {
     return order;
   }, [s.locked]);
 
-  // Players who already qualified this round (only relevant R1–R3).
-  const qualifiedItems: LineupItem[] = (s.round !== "final" ? s.advanced : []).map((id) => {
-    const p = byId[id];
-    return { id, name: p.name, avatar: p.avatar, isHuman: p.kind === "human", ringColor: palette.correct };
-  });
+  // Unified lineup: all active players in original order.
+  // Qualified players are dimmed with a ✓ badge; pool players show normal state.
+  const advancedSet = new Set(s.round !== "final" ? s.advanced : []);
+  const poolSet = new Set(s.pool);
 
-  // Lineup view-models (reveal discipline: no green/red until reveal).
-  const items: LineupItem[] = s.pool.map((id) => {
-    const p = byId[id];
-    const base = { id, name: p.name, avatar: p.avatar, isHuman: p.kind === "human" };
-    if (reveal) {
-      const row = reveal.rows.find((r) => r.playerId === id)!;
-      let ring: string = palette.neutral;
-      let captionColor: string = palette.inkSoft;
-      if (q.type === "multiple_choice") {
-        ring = row.correct ? palette.correct : palette.incorrect;
-        captionColor = row.correct ? palette.correct : palette.incorrect;
-      } else if (row.isWinner) {
-        ring = palette.correct;
-        captionColor = palette.correct;
+  const items: LineupItem[] = s.players
+    .filter((p) => advancedSet.has(p.id) || poolSet.has(p.id))
+    .map((p) => {
+      const base = { id: p.id, name: p.name, avatar: p.avatar, isHuman: p.kind === "human" };
+
+      // Already qualified — grey out, show ✓
+      if (advancedSet.has(p.id)) {
+        return {
+          ...base,
+          dimmed: true,
+          badge: "✓",
+          badgeColor: palette.correct,
+          caption: "Qualified",
+          captionColor: palette.correct,
+        };
       }
+
+      // Still in pool
+      if (reveal) {
+        const row = reveal.rows.find((r) => r.playerId === p.id)!;
+        let ring: string = palette.neutral;
+        let captionColor: string = palette.inkSoft;
+        if (q.type === "multiple_choice") {
+          ring = row.correct ? palette.correct : palette.incorrect;
+          captionColor = row.correct ? palette.correct : palette.incorrect;
+        } else if (row.isWinner) {
+          ring = palette.correct;
+          captionColor = palette.correct;
+        }
+        return {
+          ...base,
+          ringColor: ring,
+          badge: row.isWinner ? "★" : undefined,
+          badgeColor: palette.accent,
+          sparkle: row.isWinner,
+          caption: row.display,
+          captionColor,
+        };
+      }
+      const locked = !!s.locked[p.id] || (p.id === "human" && s.humanLocked);
+      const showOrder = s.round === 1 || s.round === 2;
+      const orderNum = showOrder ? answerOrder[p.id] : undefined;
       return {
         ...base,
-        ringColor: ring,
-        badge: row.isWinner ? "★" : undefined,
-        badgeColor: palette.accent,
-        sparkle: row.isWinner,
-        caption: row.display,
-        captionColor,
+        ringColor: locked ? palette.primary : palette.neutral,
+        badge: orderNum !== undefined ? String(orderNum) : undefined,
+        badgeColor: palette.primary,
+        caption: locked ? "Locked in" : "Thinking…",
+        captionColor: locked ? palette.primary : palette.neutral,
       };
-    }
-    const locked = !!s.locked[id] || (id === "human" && s.humanLocked);
-    const showOrder = s.round === 1 || s.round === 2;
-    const orderNum = showOrder ? answerOrder[id] : undefined;
-    return {
-      ...base,
-      ringColor: locked ? palette.primary : palette.neutral,
-      badge: orderNum !== undefined ? String(orderNum) : undefined,
-      badgeColor: palette.primary,
-      caption: locked ? "Locked in" : "Thinking…",
-      captionColor: locked ? palette.primary : palette.neutral,
-    };
-  });
+    });
 
   // Reveal banner.
   let banner: { text: string; tint: "advance" | "out" | "neutral" } | null = null;
@@ -153,26 +166,19 @@ export function RoundStage({ now }: { now: number }) {
 
   const bradyBlock = (
     <View style={styles.brady}>
-      <BradyHost expression={s.hostExpression} size={isMC ? 72 : 96} />
+      <BradyHost expression={s.hostExpression} size={60} />
       {reveal ? (
         <SpeechBubble text={s.hostLine} tint={s.hostTint} />
       ) : (
         <View style={styles.questionCard}>
-          {isMC && q.asset && q.asset.kind !== "none" ? (
-            <View style={styles.visualWrap}><R2Visual question={q} width={180} /></View>
+          {q.asset && q.asset.kind !== "none" ? (
+            <View style={styles.visualWrap}><R2Visual question={q} width={140} /></View>
           ) : null}
           <Text style={styles.prompt} numberOfLines={3}>{prompt}</Text>
         </View>
       )}
     </View>
   );
-
-  const qualifiedShelf = qualifiedItems.length > 0 ? (
-    <View style={styles.qualifiedShelf}>
-      <Text style={styles.qualifiedLabel}>✓ Advancing to next round</Text>
-      <PlayerLineup items={qualifiedItems} avatarSize={72} />
-    </View>
-  ) : null;
 
   const lineup = <PlayerLineup items={items} avatarSize={72} />;
 
@@ -184,7 +190,7 @@ export function RoundStage({ now }: { now: number }) {
 
   const answerArea = !humanInPool ? (
     <View style={styles.spectator}>
-      <Text style={styles.spectatorText}>👀 You're out — watching the rest play out…</Text>
+      <Text style={styles.spectatorText}>👀 You're out. Watching the rest play out…</Text>
       <Pressable style={styles.homeBtn} onPress={() => router.replace("/")}>
         <Text style={styles.homeBtnText}>Leave Game</Text>
       </Pressable>
@@ -223,7 +229,6 @@ export function RoundStage({ now }: { now: number }) {
         {header}
         <View style={styles.mcBody}>
           {bradyBlock}
-          {qualifiedShelf}
           {lineup}
           {revealBanner}
           <View style={styles.mcAnswers}>{answerArea}</View>
@@ -238,7 +243,6 @@ export function RoundStage({ now }: { now: number }) {
       {header}
       <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
         {bradyBlock}
-        {qualifiedShelf}
         {lineup}
         {revealBanner}
         <View style={styles.answerArea}>{answerArea}</View>
@@ -251,8 +255,8 @@ const styles = StyleSheet.create({
   stage: { flex: 1, paddingHorizontal: spacing(3), paddingTop: spacing(1) },
   header: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start", marginBottom: spacing(1) },
   // MC fixed layout — no scroll, space distributed evenly
-  mcBody: { flex: 1, gap: spacing(1.5) },
-  mcAnswers: { flex: 1, justifyContent: "flex-end", paddingBottom: spacing(3) },
+  mcBody: { flex: 1, gap: spacing(1) },
+  mcAnswers: { marginTop: "auto", paddingBottom: spacing(3) },
   scroll: { flex: 1 },
   scrollContent: { gap: spacing(2), paddingBottom: spacing(6) },
   roundTitle: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink },
@@ -261,7 +265,7 @@ const styles = StyleSheet.create({
   questionCard: {
     backgroundColor: palette.stage,
     borderRadius: radii.lg,
-    padding: spacing(3),
+    padding: spacing(2),
     maxWidth: 480,
     alignSelf: "center",
     width: "100%",
@@ -269,7 +273,7 @@ const styles = StyleSheet.create({
     borderColor: palette.hairline,
     ...shadow.md,
   },
-  visualWrap: { alignItems: "center", marginBottom: spacing(2) },
+  visualWrap: { alignItems: "center", marginBottom: spacing(1) },
   prompt: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },
   banner: {
     alignSelf: "center",
@@ -282,29 +286,12 @@ const styles = StyleSheet.create({
   bannerAdvance: { backgroundColor: "#E6FBF0" },
   bannerOut: { backgroundColor: "#FFECEC" },
   bannerText: { fontSize: typography.size.sm, fontFamily: typography.fonts.display, color: palette.ink },
-  qualifiedShelf: {
-    borderRadius: radii.lg,
-    borderWidth: 1,
-    borderColor: palette.correct,
-    backgroundColor: "#E6FBF0",
-    paddingTop: spacing(2),
-    paddingHorizontal: spacing(2),
-    paddingBottom: spacing(1),
-    gap: spacing(1),
-  },
-  qualifiedLabel: {
-    fontSize: typography.size.xs,
-    fontFamily: typography.fonts.display,
-    color: palette.correct,
-    textAlign: "center",
-    letterSpacing: 0.5,
-  },
   answerArea: { paddingTop: spacing(1) },
-  spectator: { padding: spacing(5), alignItems: "center", gap: spacing(3) },
-  spectatorText: { color: palette.inkSoft, fontSize: typography.size.md, fontFamily: typography.fonts.body, textAlign: "center" },
+  spectator: { paddingVertical: spacing(2), alignItems: "center", gap: spacing(2) },
+  spectatorText: { color: palette.inkSoft, fontSize: typography.size.sm, fontFamily: typography.fonts.body, textAlign: "center" },
   homeBtn: {
-    paddingHorizontal: spacing(5),
-    paddingVertical: spacing(2.5),
+    paddingHorizontal: spacing(4),
+    paddingVertical: spacing(2),
     borderRadius: radii.pill,
     borderWidth: 2,
     borderColor: palette.hairline,

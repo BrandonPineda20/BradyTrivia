@@ -16,7 +16,7 @@ import { palette, radii, spacing, typography } from "../theme";
 
 const CONTENT = {
   round1: QUESTION_BANK.round1,
-  round2: QUESTION_BANK.round2,
+  round2: QUESTION_BANK.round2.filter((q) => q.asset && q.asset.kind !== "none"),
   round3: QUESTION_BANK.round3,
   final: QUESTION_BANK.final,
 };
