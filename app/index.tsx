@@ -6,6 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Avatar } from "../components/Avatar";
 import { BradyHost } from "../components/BradyHost";
 import { FloatingBrains } from "../components/FloatingBrains";
+import { PixelIcon } from "../components/PixelIcon";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { useProfileStore } from "../store/profileStore";
 import { useSettingsStore } from "../store/settingsStore";
@@ -34,7 +35,7 @@ export default function Home() {
     <SafeAreaView style={styles.stage}>
       <FloatingBrains />
       <Pressable style={styles.muteBtn} onPress={() => useSettingsStore.getState().toggleMute()} hitSlop={10}>
-        <Text style={styles.muteText}>{muted ? "🔇" : "🔊"}</Text>
+        <PixelIcon name={muted ? "speaker_off" : "speaker_on"} size={22} />
       </Pressable>
 
       <ScrollView
@@ -65,15 +66,15 @@ export default function Home() {
           <PrimaryButton title="▶  Last Genius Standing Wins" variant="primary" onPress={() => router.push("/play")} style={styles.playBtn} fontSize={17} />
           <View style={styles.tiles}>
             <Pressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/profile")}>
-              <Text style={styles.tileIcon}>👤</Text>
+              <PixelIcon name="person" size={28} />
               <Text style={styles.tileTitle}>Profile</Text>
             </Pressable>
             <Pressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/leaderboard")}>
-              <Text style={styles.tileIcon}>🏆</Text>
+              <PixelIcon name="trophy" size={28} />
               <Text style={styles.tileTitle}>Leaderboard</Text>
             </Pressable>
             <View style={[styles.tile, styles.tileMuted]}>
-              <Text style={styles.tileIcon}>🎮</Text>
+              <PixelIcon name="controller" size={28} />
               <Text style={styles.tileTitle}>More modes</Text>
               <Text style={styles.soon}>soon</Text>
             </View>

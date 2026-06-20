@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { BradyHost } from "../components/BradyHost";
 import { FloatingBrains } from "../components/FloatingBrains";
+import { PixelIcon } from "../components/PixelIcon";
 import { LobbyView } from "../components/LobbyView";
 import { ResultsView } from "../components/ResultsView";
 import { RoundStage } from "../components/RoundStage";
@@ -86,9 +87,10 @@ function RoundIntro() {
         {remaining} {remaining === 1 ? "player" : "players"} remain
       </Text>
       {elim ? (
-        <Text style={styles.elim}>
-          ❌ {humanEliminated ? "You were" : `${elim.name} was`} eliminated
-        </Text>
+        <View style={styles.elimRow}>
+          <PixelIcon name="x_mark" size={16} />
+          <Text style={styles.elim}>{humanEliminated ? "You were" : `${elim.name} was`} eliminated</Text>
+        </View>
       ) : (
         <Text style={styles.go}>Here we go!</Text>
       )}
@@ -106,7 +108,8 @@ const styles = StyleSheet.create({
   intro: { flex: 1, alignItems: "center", justifyContent: "center", gap: spacing(2), padding: spacing(5) },
   introRound: { fontSize: typography.size.xl, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },
   introSub: { fontSize: typography.size.md, color: palette.primary, fontFamily: typography.fonts.body },
-  elim: { fontSize: typography.size.md, color: palette.incorrect, fontFamily: typography.fonts.display, marginTop: spacing(2) },
+  elimRow: { flexDirection: "row", alignItems: "center", gap: spacing(1.5), marginTop: spacing(2) },
+  elim: { fontSize: typography.size.md, color: palette.incorrect, fontFamily: typography.fonts.display },
   go: { fontSize: typography.size.md, color: palette.inkSoft, fontFamily: typography.fonts.body, marginTop: spacing(2) },
   homeBtn: {
     marginTop: spacing(3),

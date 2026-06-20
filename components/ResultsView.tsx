@@ -7,6 +7,7 @@ import { useProgressionStore, type ApplyResult } from "../store/progressionStore
 import { palette, radii, shadow, spacing, typography } from "../theme";
 import { Avatar } from "./Avatar";
 import { BradyHost } from "./BradyHost";
+import { PixelIcon } from "./PixelIcon";
 import { Confetti } from "./Confetti";
 import { PrimaryButton } from "./PrimaryButton";
 
@@ -70,7 +71,7 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
             <Text style={styles.place}>{p.placement}</Text>
             <Avatar config={p.avatar} size={56} ringColor={p.placement === 1 ? palette.accent : palette.neutral} faceOnly />
             <Text style={[styles.pname, p.kind === "human" && styles.human]}>{p.kind === "human" ? "You" : p.name}</Text>
-            {p.placement === 1 ? <Text style={styles.crown}>👑</Text> : null}
+            {p.placement === 1 ? <PixelIcon name="crown_gems" size={24} /> : null}
           </View>
         ))}
       </View>
@@ -82,7 +83,7 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
       <View style={styles.levelCard}>
         <View style={styles.levelHead}>
           <Text style={styles.levelTitle}>Lv {lvl.level} {lvl.title}</Text>
-          {apply?.leveledUp ? <Text style={styles.levelUp}>LEVEL UP! 🎉</Text> : null}
+          {apply?.leveledUp ? <View style={styles.levelUpRow}><PixelIcon name="confetti" size={20} /><Text style={styles.levelUp}>LEVEL UP!</Text><PixelIcon name="confetti" size={20} /></View> : null}
         </View>
         <View style={styles.track}>
           <View style={[styles.fill, { width: `${Math.round(lvl.progress * 100)}%` }]} />
@@ -150,6 +151,7 @@ const styles = StyleSheet.create({
   levelCard: { width: "100%", maxWidth: 360, backgroundColor: palette.stage, borderRadius: radii.lg, padding: spacing(4), gap: spacing(2), ...shadow.md },
   levelHead: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
   levelTitle: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink },
+  levelUpRow: { flexDirection: "row", alignItems: "center", gap: spacing(2) },
   levelUp: { fontSize: typography.size.sm, fontFamily: typography.fonts.display, color: palette.correct },
   track: { height: 12, borderRadius: radii.pill, backgroundColor: palette.stage, overflow: "hidden" },
   fill: { height: "100%", borderRadius: radii.pill, backgroundColor: palette.primary },

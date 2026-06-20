@@ -7,6 +7,7 @@ import { useGameStore } from "../store/gameStore";
 import { palette, radii, shadow, spacing, typography } from "../theme";
 import { AnswerOptions } from "./AnswerOptions";
 import { BradyHost } from "./BradyHost";
+import { PixelIcon } from "./PixelIcon";
 import { CountdownTimer } from "./CountdownTimer";
 import { ListAnswer, type ListEntryView } from "./ListAnswer";
 import { NumericAnswer } from "./NumericAnswer";
@@ -44,6 +45,7 @@ export function RoundStage({ now }: { now: number }) {
 
   const reveal = s.phase === "reveal" ? s.reveal : null;
   const humanInPool = s.pool.includes("human");
+  const humanQualified = s.advanced.includes("human");
   const totalMs = Math.max(1, s.deadlineAt - s.questionStartAt);
   const remainingMs = s.deadlineAt - now;
   const prompt = q.type === "list" ? q.prompt : q.question;
@@ -122,7 +124,7 @@ export function RoundStage({ now }: { now: number }) {
     const w = reveal.winnerId;
     if (q.type === "list") {
       banner = w
-        ? { text: `🏆 ${byId[w].name} wins the episode!`, tint: "advance" }
+        ? { text: `${byId[w].name} wins the episode!`, tint: "advance" }
         : { text: "Tie! Sudden death...", tint: "neutral" };
     } else if (w) {
       const next = s.round === 1 ? "Round 2" : s.round === 2 ? "Round 3" : "the Final";
@@ -188,9 +190,15 @@ export function RoundStage({ now }: { now: number }) {
     </View>
   ) : null;
 
-  const answerArea = !humanInPool ? (
+  const answerArea = humanQualified ? (
     <View style={styles.spectator}>
-      <Text style={styles.spectatorText}>👀 You're out. Watching the rest play out…</Text>
+      <PixelIcon name="star" size={24} />
+      <Text style={styles.qualifiedMsg}>You've qualified to the next round!</Text>
+    </View>
+  ) : !humanInPool ? (
+    <View style={styles.spectator}>
+      <PixelIcon name="eyes" size={28} />
+      <Text style={styles.spectatorText}>You're out. Watching the rest play out…</Text>
       <Pressable style={styles.homeBtn} onPress={() => router.replace("/")}>
         <Text style={styles.homeBtnText}>Leave Game</Text>
       </Pressable>
@@ -261,7 +269,7 @@ const styles = StyleSheet.create({
   scrollContent: { gap: spacing(2), paddingBottom: spacing(6) },
   roundTitle: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink },
   category: { fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body, marginTop: 2 },
-  brady: { alignItems: "center", gap: spacing(1.5) },
+  brady: { alignItems: "center", gap: spacing(1.5), paddingBottom: spacing(4) },
   questionCard: {
     backgroundColor: palette.stage,
     borderRadius: radii.lg,
@@ -288,6 +296,7 @@ const styles = StyleSheet.create({
   bannerText: { fontSize: typography.size.sm, fontFamily: typography.fonts.display, color: palette.ink },
   answerArea: { paddingTop: spacing(1) },
   spectator: { paddingVertical: spacing(2), alignItems: "center", gap: spacing(2) },
+  qualifiedMsg: { color: palette.correct, fontSize: typography.size.md, fontFamily: typography.fonts.display, textAlign: "center" },
   spectatorText: { color: palette.inkSoft, fontSize: typography.size.sm, fontFamily: typography.fonts.body, textAlign: "center" },
   homeBtn: {
     paddingHorizontal: spacing(4),
