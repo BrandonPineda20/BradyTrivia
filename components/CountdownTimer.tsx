@@ -3,7 +3,7 @@ import { Animated, StyleSheet, View } from "react-native";
 
 import { palette, radii, typography } from "../theme";
 
-// Preload both beep assets once so playback is instant when the second ticks.
+// Preload both beep assets once so playback is zero-latency.
 let _tickAudio: HTMLAudioElement | null = null;
 let _finalAudio: HTMLAudioElement | null = null;
 function getTickAudio(): HTMLAudioElement | null {
@@ -32,8 +32,18 @@ function playBeep(audio: HTMLAudioElement | null) {
   audio.play().catch(() => {});
 }
 
-/** Countdown timer (§4.1) with an urgent pulse + tick in the final seconds (§3.2). */
-export function CountdownTimer({ remainingMs, totalMs }: { remainingMs: number; totalMs: number }) {
+/** Countdown timer (§4.1) with an urgent pulse + perfectly-timed beeps in the
+ *  final 4 seconds. Pass deadlineAt so beeps are scheduled via setTimeout against
+ *  the real wall clock rather than relying on the 120ms polling interval. */
+export function CountdownTimer({
+  remainingMs,
+  totalMs,
+  deadlineAt,
+}: {
+  remainingMs: number;
+  totalMs: number;
+  deadlineAt: number;
+}) {
   const remaining = Math.max(0, remainingMs);
   const secs = Math.ceil(remaining / 1000);
   const frac = totalMs > 0 ? remaining / totalMs : 0;
@@ -42,7 +52,40 @@ export function CountdownTimer({ remainingMs, totalMs }: { remainingMs: number; 
 
   const scale = useRef(new Animated.Value(1)).current;
   const lastSec = useRef(secs);
+  const timerIds = useRef<ReturnType<typeof setTimeout>[]>([]);
 
+  // Schedule all 4 beeps precisely against the real deadline whenever a new
+  // question starts (deadlineAt changes). Clear any previous timers first.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    timerIds.current.forEach(clearTimeout);
+    timerIds.current = [];
+
+    const now = Date.now();
+    const schedule: Array<[number, "tick" | "final"]> = [
+      [deadlineAt - 4000, "tick"],
+      [deadlineAt - 3000, "tick"],
+      [deadlineAt - 2000, "tick"],
+      [deadlineAt - 1000, "final"],
+    ];
+
+    for (const [fireAt, kind] of schedule) {
+      const delay = fireAt - now;
+      if (delay < 0) continue; // already past, skip
+      timerIds.current.push(
+        setTimeout(() => {
+          playBeep(kind === "tick" ? getTickAudio() : getFinalAudio());
+        }, delay)
+      );
+    }
+
+    return () => {
+      timerIds.current.forEach(clearTimeout);
+      timerIds.current = [];
+    };
+  }, [deadlineAt]);
+
+  // Visual pulse on each second tick in the urgent zone.
   useEffect(() => {
     if (secs !== lastSec.current) {
       lastSec.current = secs;
@@ -50,9 +93,6 @@ export function CountdownTimer({ remainingMs, totalMs }: { remainingMs: number; 
         scale.setValue(1.3);
         Animated.spring(scale, { toValue: 1, useNativeDriver: true, friction: 4, tension: 120 }).start();
       }
-      // Countdown beeps: smooth beep at 4/3/2, final beep at 1
-      if (secs === 4 || secs === 3 || secs === 2) playBeep(getTickAudio());
-      else if (secs === 1) playBeep(getFinalAudio());
     }
   }, [secs, urgent, scale]);
 

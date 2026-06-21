@@ -65,6 +65,9 @@ export default function Play() {
       <Pressable style={styles.devHome} onPress={() => router.replace("/")}>
         <Text style={styles.devHomeText}>Dev only home button</Text>
       </Pressable>
+      <Pressable style={styles.devSkip} onPress={() => useGameStore.setState({ deadlineAt: Date.now() - 1 })}>
+        <Text style={styles.devHomeText}>Dev only skip round</Text>
+      </Pressable>
       {(phase === "idle" || phase === "lobby") && <LobbyView />}
       {phase === "round-intro" && <RoundIntro />}
       {(phase === "question" || phase === "reveal") && <RoundStage now={now} />}
@@ -110,6 +113,7 @@ function RoundIntro() {
 const styles = StyleSheet.create({
   stage: { flex: 1, backgroundColor: palette.stage },
   devHome: { position: "absolute", top: 48, left: 12, zIndex: 999, paddingHorizontal: 10, paddingVertical: 5, backgroundColor: "rgba(0,0,0,0.45)", borderRadius: 6 },
+  devSkip: { position: "absolute", top: 82, left: 12, zIndex: 999, paddingHorizontal: 10, paddingVertical: 5, backgroundColor: "rgba(180,0,0,0.55)", borderRadius: 6 },
   devHomeText: { color: "#fff", fontSize: 11, fontFamily: "monospace" },
   intro: { flex: 1, alignItems: "center", justifyContent: "center", gap: spacing(2), padding: spacing(5) },
   introRound: { fontSize: typography.size.xl, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },

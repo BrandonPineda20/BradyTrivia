@@ -200,7 +200,7 @@ export function RoundStage({ now }: { now: number }) {
         <Text style={styles.roundTitle}>{ROUND_TITLE[String(s.round)]}</Text>
         {category ? <Text style={styles.category}>{category}</Text> : null}
       </View>
-      {!reveal ? <CountdownTimer remainingMs={remainingMs} totalMs={totalMs} /> : null}
+      {!reveal ? <CountdownTimer remainingMs={remainingMs} totalMs={totalMs} deadlineAt={s.deadlineAt} /> : null}
     </View>
   );
 
