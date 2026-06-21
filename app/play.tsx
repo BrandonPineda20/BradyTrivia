@@ -55,14 +55,11 @@ export default function Play() {
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showPicker, setShowPicker] = useState(false);
-  // The round the user last dismissed the picker in. Lets the picker re-prompt at
-  // each new round so an eliminated spectator always gets a chance to predict —
-  // most importantly the final two.
-  const [dismissedRound, setDismissedRound] = useState<RoundId | null>(null);
+  // Once the picker is dismissed (by user or auto-timeout) it never reopens.
+  const pickerDismissedRef = useRef(false);
   const applyingRef = useRef(false);
 
-  // Open the picker at each round transition while the human is an eliminated
-  // spectator who hasn't locked a prediction or dismissed it this round.
+  // Show the picker exactly once — the first round-intro after elimination.
   useEffect(() => {
     if (predictionLocked || phase === "results") {
       setShowPicker(false);
@@ -72,14 +69,14 @@ export default function Play() {
       humanEliminated &&
       phase === "round-intro" &&
       poolLength >= 2 &&
-      dismissedRound !== round
+      !pickerDismissedRef.current
     ) {
       setSelectedId(null);
       setShowPicker(true);
     }
-  }, [humanEliminated, predictionLocked, phase, round, poolLength, dismissedRound]);
+  }, [humanEliminated, predictionLocked, phase, round, poolLength]);
 
-  // Auto-dismiss the picker after 10 seconds → spectate.
+  // Auto-dismiss after 10 seconds → spectate, permanently.
   useEffect(() => {
     if (!showPicker) return;
     const t = setTimeout(() => dismissPicker(), 10000);
@@ -87,11 +84,9 @@ export default function Play() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showPicker]);
 
-  // Dismissing the picker (skip/leave) remembers the round so it won't re-nag
-  // during this round's questions, but will re-prompt when the next round begins.
   const dismissPicker = () => {
+    pickerDismissedRef.current = true;
     setShowPicker(false);
-    setDismissedRound(round);
   };
 
   const handleLockPrediction = () => {
@@ -132,7 +127,7 @@ export default function Play() {
     // Reset prediction-picker UI state for the fresh episode.
     setShowPicker(false);
     setSelectedId(null);
-    setDismissedRound(null);
+    pickerDismissedRef.current = false;
     applyingRef.current = false;
     const { name, avatar } = useProfileStore.getState();
     useGameStore.getState().start({
@@ -181,7 +176,10 @@ export default function Play() {
         <View style={styles.pickerOverlay}>
           <View style={styles.pickerCard}>
             <BradyHost expression="tension" size={72} />
-            <Text style={styles.pickerTitle}>Who will win?</Text>
+            <View style={styles.pickerTitleWrap}>
+              <Text style={styles.pickerTitleDisq}>DISQUALIFIED!</Text>
+              <Text style={styles.pickerTitle}>WHO WILL WIN?</Text>
+            </View>
             <Text style={styles.pickerSub}>Guess correctly and stay to earn +{PREDICTION_XP} XP</Text>
             <PickerList selectedId={selectedId} onSelect={setSelectedId} />
             <SoundPressable
@@ -191,12 +189,11 @@ export default function Play() {
               <Text style={styles.lockBtnText}>Lock in Pick</Text>
             </SoundPressable>
             <View style={styles.pickerFooter}>
-              <SoundPressable style={styles.skipBtn} onPress={dismissPicker}>
-                <Text style={styles.skipBtnText}>Spectate game</Text>
+              <SoundPressable style={styles.blackPillBtn} onPress={dismissPicker}>
+                <Text style={styles.blackPillBtnText}>Spectate game</Text>
               </SoundPressable>
-              <Text style={styles.pickerFooterDivider}>|</Text>
-              <SoundPressable style={styles.skipBtn} onPress={() => { dismissPicker(); handleGoHome(); }}>
-                <Text style={styles.skipBtnText}>Leave game</Text>
+              <SoundPressable style={styles.blackPillBtn} onPress={() => { dismissPicker(); handleGoHome(); }}>
+                <Text style={styles.blackPillBtnText}>Leave game</Text>
               </SoundPressable>
             </View>
           </View>
@@ -293,6 +290,8 @@ const styles = StyleSheet.create({
   // Prediction picker modal
   pickerOverlay: { flex: 1, backgroundColor: "rgba(0,0,0,0.6)", alignItems: "center", justifyContent: "flex-end" },
   pickerCard: { backgroundColor: palette.stage, borderTopLeftRadius: radii.xl, borderTopRightRadius: radii.xl, padding: spacing(5), alignItems: "center", gap: spacing(2.5), width: "100%", paddingBottom: spacing(8) },
+  pickerTitleWrap: { alignItems: "center", gap: 2 },
+  pickerTitleDisq: { fontSize: typography.size.xl, fontFamily: typography.fonts.display, color: palette.incorrect, fontWeight: "900" },
   pickerTitle: { fontSize: typography.size.xl, fontFamily: typography.fonts.display, color: palette.ink },
   pickerSub: { fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body, textAlign: "center" },
   pickerList: { width: "100%", gap: spacing(1.5) },
@@ -303,10 +302,9 @@ const styles = StyleSheet.create({
   lockBtn: { backgroundColor: palette.primary, borderRadius: radii.pill, paddingVertical: spacing(2.5), alignItems: "center", marginTop: spacing(1), width: "100%" },
   lockBtnDisabled: { opacity: 0.4 },
   lockBtnText: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: "#fff" },
-  pickerFooter: { flexDirection: "row", alignItems: "center", gap: spacing(2) },
-  pickerFooterDivider: { color: palette.hairline, fontSize: typography.size.xs },
-  skipBtn: { paddingVertical: spacing(1.5) },
-  skipBtnText: { fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body },
+  pickerFooter: { flexDirection: "row", alignItems: "center", gap: spacing(3) },
+  blackPillBtn: { backgroundColor: "#000", borderRadius: radii.pill, paddingVertical: spacing(1.5), paddingHorizontal: spacing(4) },
+  blackPillBtnText: { fontSize: typography.size.xs, fontFamily: typography.fonts.display, color: "#fff" },
 
   // Prediction confirmed (inline in RoundIntro)
   predictionConfirm: { flexDirection: "row", alignItems: "center", gap: spacing(1.5), backgroundColor: palette.primarySoft, borderRadius: radii.pill, paddingVertical: spacing(1.5), paddingHorizontal: spacing(3), marginTop: spacing(1) },
