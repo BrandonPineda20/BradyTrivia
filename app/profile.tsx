@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SoundPressable } from "../components/SoundPressable";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -103,7 +103,10 @@ export default function Profile() {
             const got = earned.has(b.id);
             return (
               <View key={b.id} style={[styles.badge, !got && styles.badgeLocked]}>
-                <PixelIcon name={got ? (BADGE_ICONS[b.id] ?? "star") : "lock"} size={28} />
+                {got
+                  ? <PixelIcon name={BADGE_ICONS[b.id] ?? "star"} size={28} />
+                  : <Image source={require("../assets/Icons/Icons/Lock Icon.png")} style={styles.lockIcon} />
+                }
                 <Text style={styles.badgeName}>{b.name}</Text>
                 <Text style={styles.badgeDesc}>{b.desc}</Text>
               </View>
@@ -151,6 +154,7 @@ const styles = StyleSheet.create({
   badgeGrid: { flexDirection: "row", flexWrap: "wrap", gap: spacing(2) },
   badge: { width: "31%", backgroundColor: "#FFF4D6", borderRadius: radii.md, padding: spacing(2), alignItems: "center", gap: 4 },
   badgeLocked: { backgroundColor: palette.surface },
+  lockIcon: { width: 28, height: 28, resizeMode: "contain" },
   badgeName: { fontSize: 11, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },
   badgeDesc: { fontSize: 9, color: palette.inkSoft, textAlign: "center" },
   edit: { marginTop: spacing(3) },
