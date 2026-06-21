@@ -79,7 +79,7 @@
     "round": 1,
     "type": "multiple_choice",
     "category": "Math",
-    "question": "What is 12 \u00d7 12?",
+    "question": "What is 12 × 12?",
     "options": [
       "124",
       "132",
@@ -514,7 +514,7 @@
     "round": 1,
     "type": "multiple_choice",
     "category": "Math",
-    "question": "What is 7 \u00d7 8?",
+    "question": "What is 7 × 8?",
     "options": [
       "48",
       "54",
@@ -772,9 +772,9 @@
     "question": "What is the most abundant gas in Earth's atmosphere?",
     "options": [
       "Oxygen",
-      "Carbon Dioxide",
-      "Nitrogen",
-      "Argon"
+      "Carbon dioxide",
+      "Argon",
+      "Nitrogen"
     ],
     "answer": "Nitrogen",
     "difficulty": "Medium"
@@ -789,7 +789,7 @@
       "Greek",
       "Ottoman",
       "Roman",
-      "British"
+      "Byzantine"
     ],
     "answer": "Roman",
     "difficulty": "Easy"
@@ -798,13 +798,13 @@
     "id": "R1-54",
     "round": 1,
     "type": "multiple_choice",
-    "category": "Food",
+    "category": "Culture",
     "question": "Which country is the origin of sushi?",
     "options": [
       "China",
       "South Korea",
-      "Japan",
-      "Thailand"
+      "Thailand",
+      "Japan"
     ],
     "answer": "Japan",
     "difficulty": "Easy"
@@ -813,7 +813,7 @@
     "id": "R1-55",
     "round": 1,
     "type": "multiple_choice",
-    "category": "Animals",
+    "category": "Science",
     "question": "What is the only mammal capable of true flight?",
     "options": [
       "Flying squirrel",
@@ -822,19 +822,19 @@
       "Colugo"
     ],
     "answer": "Bat",
-    "difficulty": "Medium"
+    "difficulty": "Easy"
   },
   {
     "id": "R1-56",
     "round": 1,
     "type": "multiple_choice",
-    "category": "Movies",
+    "category": "Pop Culture",
     "question": "Which film won the first-ever Academy Award for Best Picture?",
     "options": [
-      "Casablanca",
       "Wings",
-      "Gone with the Wind",
-      "All Quiet on the Western Front"
+      "Sunrise",
+      "The Jazz Singer",
+      "Ben-Hur"
     ],
     "answer": "Wings",
     "difficulty": "Hard"
@@ -848,23 +848,23 @@
     "options": [
       "Amazon",
       "Congo",
-      "Yangtze",
+      "Mississippi",
       "Nile"
     ],
     "answer": "Nile",
-    "difficulty": "Medium"
+    "difficulty": "Easy"
   },
   {
     "id": "R1-58",
     "round": 1,
     "type": "multiple_choice",
     "category": "Science",
-    "question": "What is the speed of light in a vacuum (approximately)?",
+    "question": "What is the approximate speed of light in a vacuum?",
     "options": [
       "300,000 km/s",
       "150,000 km/s",
-      "3,000 km/s",
-      "30,000 km/s"
+      "30,000 km/s",
+      "3,000 km/s"
     ],
     "answer": "300,000 km/s",
     "difficulty": "Medium"
@@ -888,10 +888,10 @@
     "id": "R1-60",
     "round": 1,
     "type": "multiple_choice",
-    "category": "Music",
+    "category": "Pop Culture",
     "question": "Which singer is known as 'Queen of Pop'?",
     "options": [
-      "Beyonc\u00e9",
+      "Beyoncé",
       "Rihanna",
       "Madonna",
       "Lady Gaga"
@@ -906,13 +906,13 @@
     "category": "Technology",
     "question": "What does 'HTML' stand for?",
     "options": [
-      "HyperText Markup Language",
-      "High Transfer Machine Learning",
-      "Hyperlink Text Model Language",
-      "HyperText Machine Learning"
+      "Hyper Text Markup Language",
+      "High Tech Machine Learning",
+      "Home Tool Management Link",
+      "Hyper Transfer Markup Logic"
     ],
-    "answer": "HyperText Markup Language",
-    "difficulty": "Easy"
+    "answer": "Hyper Text Markup Language",
+    "difficulty": "Medium"
   },
   {
     "id": "R1-62",
@@ -923,8 +923,8 @@
     "options": [
       "Soviet Union",
       "United Kingdom",
-      "China",
-      "United States"
+      "United States",
+      "France"
     ],
     "answer": "United States",
     "difficulty": "Easy"
@@ -937,9 +937,9 @@
     "question": "How many chromosomes do humans typically have?",
     "options": [
       "23",
+      "36",
       "46",
-      "48",
-      "44"
+      "48"
     ],
     "answer": "46",
     "difficulty": "Medium"
@@ -951,8 +951,8 @@
     "category": "Geography",
     "question": "Which country contains the most of the Amazon rainforest?",
     "options": [
-      "Colombia",
       "Peru",
+      "Colombia",
       "Venezuela",
       "Brazil"
     ],
@@ -969,7 +969,7 @@
       "2016",
       "2017",
       "2018",
-      "2015"
+      "2019"
     ],
     "answer": "2017",
     "difficulty": "Medium"
@@ -979,12 +979,12 @@
     "round": 1,
     "type": "multiple_choice",
     "category": "Math",
-    "question": "What is the value of \u03c0 (pi) to two decimal places?",
+    "question": "What is the value of π (pi) to two decimal places?",
     "options": [
-      "3.14",
-      "3.41",
       "3.12",
-      "3.16"
+      "3.14",
+      "3.16",
+      "3.18"
     ],
     "answer": "3.14",
     "difficulty": "Easy"
@@ -994,12 +994,12 @@
     "round": 1,
     "type": "multiple_choice",
     "category": "Literature",
-    "question": "In which Dickens novel does the character Ebenezer Scrooge appear?",
+    "question": "In which Dickens novel does Ebenezer Scrooge appear?",
     "options": [
       "Oliver Twist",
-      "Great Expectations",
-      "David Copperfield",
-      "A Christmas Carol"
+      "Bleak House",
+      "A Christmas Carol",
+      "Great Expectations"
     ],
     "answer": "A Christmas Carol",
     "difficulty": "Easy"
@@ -1008,7 +1008,7 @@
     "id": "R1-68",
     "round": 1,
     "type": "multiple_choice",
-    "category": "Animals",
+    "category": "Science",
     "question": "How many hearts does an octopus have?",
     "options": [
       "1",
@@ -1017,7 +1017,7 @@
       "4"
     ],
     "answer": "3",
-    "difficulty": "Hard"
+    "difficulty": "Medium"
   },
   {
     "id": "R1-69",
@@ -1026,10 +1026,10 @@
     "category": "Food",
     "question": "Which nut is used to make marzipan?",
     "options": [
-      "Hazelnut",
       "Walnut",
-      "Almond",
-      "Cashew"
+      "Hazelnut",
+      "Cashew",
+      "Almond"
     ],
     "answer": "Almond",
     "difficulty": "Medium"
@@ -1038,15 +1038,465 @@
     "id": "R1-70",
     "round": 1,
     "type": "multiple_choice",
-    "category": "Movies",
+    "category": "Pop Culture",
     "question": "Which studio produced 'The Lion King' (1994)?",
     "options": [
       "Pixar",
       "DreamWorks",
       "Universal",
-      "Walt Disney"
+      "Disney"
     ],
-    "answer": "Walt Disney",
+    "answer": "Disney",
     "difficulty": "Easy"
+  },
+  {
+    "id": "R1-71",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "How many chambers does the human heart have?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "answer": "4",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-72",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Pop Culture",
+    "question": "Who wrote the Harry Potter series?",
+    "options": [
+      "J.R.R. Tolkien",
+      "C.S. Lewis",
+      "J.K. Rowling",
+      "Roald Dahl"
+    ],
+    "answer": "J.K. Rowling",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-73",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the most abundant element in the universe?",
+    "options": [
+      "Oxygen",
+      "Carbon",
+      "Helium",
+      "Hydrogen"
+    ],
+    "answer": "Hydrogen",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-74",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "Who was the first woman to win a Nobel Prize?",
+    "options": [
+      "Marie Curie",
+      "Rosalind Franklin",
+      "Ada Lovelace",
+      "Florence Nightingale"
+    ],
+    "answer": "Marie Curie",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-75",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "Which planet has the most moons?",
+    "options": [
+      "Jupiter",
+      "Uranus",
+      "Neptune",
+      "Saturn"
+    ],
+    "answer": "Saturn",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-76",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the longest bone in the human body?",
+    "options": [
+      "Tibia",
+      "Femur",
+      "Humerus",
+      "Fibula"
+    ],
+    "answer": "Femur",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-77",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "Who invented the telephone?",
+    "options": [
+      "Thomas Edison",
+      "Nikola Tesla",
+      "Alexander Graham Bell",
+      "Guglielmo Marconi"
+    ],
+    "answer": "Alexander Graham Bell",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-78",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "Which organ in the human body produces insulin?",
+    "options": [
+      "Liver",
+      "Kidney",
+      "Pancreas",
+      "Spleen"
+    ],
+    "answer": "Pancreas",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-79",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Technology",
+    "question": "Which streaming platform produced Stranger Things?",
+    "options": [
+      "HBO",
+      "Hulu",
+      "Amazon Prime",
+      "Netflix"
+    ],
+    "answer": "Netflix",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-80",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the rarest blood type?",
+    "options": [
+      "O-negative",
+      "A-negative",
+      "B-negative",
+      "AB-negative"
+    ],
+    "answer": "AB-negative",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R1-81",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "In what year was the first iPhone released?",
+    "options": [
+      "2005",
+      "2006",
+      "2007",
+      "2008"
+    ],
+    "answer": "2007",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-82",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the smallest planet in our solar system?",
+    "options": [
+      "Mars",
+      "Mercury",
+      "Venus",
+      "Pluto"
+    ],
+    "answer": "Mercury",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-83",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "Which country first sent a human to space?",
+    "options": [
+      "USA",
+      "Germany",
+      "China",
+      "Soviet Union"
+    ],
+    "answer": "Soviet Union",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-84",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Pop Culture",
+    "question": "What is the best-selling video game of all time?",
+    "options": [
+      "Tetris",
+      "Minecraft",
+      "GTA V",
+      "Call of Duty: MW"
+    ],
+    "answer": "Minecraft",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-85",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "How many bones does a newborn baby have?",
+    "options": [
+      "206",
+      "270",
+      "300",
+      "350"
+    ],
+    "answer": "270",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R1-86",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "Which ancient wonder of the world still stands today?",
+    "options": [
+      "Hanging Gardens",
+      "Colossus of Rhodes",
+      "Great Pyramid of Giza",
+      "Lighthouse of Alexandria"
+    ],
+    "answer": "Great Pyramid of Giza",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-87",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Math",
+    "question": "What is 9 squared?",
+    "options": [
+      "72",
+      "81",
+      "90",
+      "99"
+    ],
+    "answer": "81",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-88",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the chemical formula for water?",
+    "options": [
+      "H2O",
+      "CO2",
+      "NaCl",
+      "O2"
+    ],
+    "answer": "H2O",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-89",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Sports",
+    "question": "In chess, which piece can only move diagonally?",
+    "options": [
+      "Knight",
+      "Rook",
+      "Bishop",
+      "Queen"
+    ],
+    "answer": "Bishop",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-90",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "The Renaissance began in which country?",
+    "options": [
+      "France",
+      "Spain",
+      "Italy",
+      "Greece"
+    ],
+    "answer": "Italy",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-91",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Pop Culture",
+    "question": "How many Super Bowl rings does Tom Brady have?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answer": "7",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-92",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the powerhouse of the cell?",
+    "options": [
+      "Nucleus",
+      "Ribosome",
+      "Mitochondria",
+      "Golgi apparatus"
+    ],
+    "answer": "Mitochondria",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-93",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "Who painted the Sistine Chapel ceiling?",
+    "options": [
+      "Leonardo da Vinci",
+      "Raphael",
+      "Donatello",
+      "Michelangelo"
+    ],
+    "answer": "Michelangelo",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R1-94",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Math",
+    "question": "What is the value of 2 to the power of 10?",
+    "options": [
+      "512",
+      "1024",
+      "2048",
+      "256"
+    ],
+    "answer": "1024",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-95",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Pop Culture",
+    "question": "What language has the most native speakers in the world?",
+    "options": [
+      "English",
+      "Spanish",
+      "Hindi",
+      "Mandarin Chinese"
+    ],
+    "answer": "Mandarin Chinese",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-96",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "Which planet rotates on its side (axial tilt ~98 degrees)?",
+    "options": [
+      "Neptune",
+      "Saturn",
+      "Venus",
+      "Uranus"
+    ],
+    "answer": "Uranus",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R1-97",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "History",
+    "question": "In what year was the United Nations founded?",
+    "options": [
+      "1942",
+      "1945",
+      "1948",
+      "1950"
+    ],
+    "answer": "1945",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-98",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "Which gas makes up about 78% of Earth's atmosphere?",
+    "options": [
+      "Oxygen",
+      "Carbon dioxide",
+      "Argon",
+      "Nitrogen"
+    ],
+    "answer": "Nitrogen",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R1-99",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the approximate speed of sound in air?",
+    "options": [
+      "343 m/s",
+      "1000 m/s",
+      "100 m/s",
+      "3000 m/s"
+    ],
+    "answer": "343 m/s",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R1-100",
+    "round": 1,
+    "type": "multiple_choice",
+    "category": "Science",
+    "question": "What is the chemical symbol for sodium?",
+    "options": [
+      "So",
+      "Sd",
+      "Na",
+      "Sn"
+    ],
+    "answer": "Na",
+    "difficulty": "Medium"
   }
 ]

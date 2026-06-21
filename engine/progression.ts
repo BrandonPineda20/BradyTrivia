@@ -22,28 +22,23 @@ export type EpisodeSummary = {
 
 // ── XP & levels (§9.1) ───────────────────────────────────────────────────────
 
-/** Base XP by finishing position (1 = winner). Negative = XP loss. */
-const PLACEMENT_XP: Record<number, number> = {
-  1: 250,
-  2: 80,
-  3: 25,
-  4: -30,
-  5: -60,
-};
-
 export function xpForEpisode(s: EpisodeSummary): number {
-  const base = PLACEMENT_XP[s.placement] ?? 0;
-  const correctBonus = 5 * s.correct; // small bonus for good answers
-  return base + correctBonus;
+  return (
+    20 +                          // participation
+    10 * s.correct +              // per correct answer
+    25 * s.roundsAdvanced +       // per round advanced
+    (s.reachedFinal ? 50 : 0) +   // reached the Final
+    (s.won ? 200 : 0)             // championship bonus
+  );
 }
 
 export const LEVELS = [
-  { level: 1, title: "Pop Quiz Rookie",  min: 0,      minWins: 0  },
-  { level: 2, title: "Class Clown",      min: 300,    minWins: 0  },
-  { level: 3, title: "Honor Roll",       min: 800,    minWins: 5  },
-  { level: 4, title: "Dean's List",      min: 1600,   minWins: 0  },
-  { level: 5, title: "Valedictorian",    min: 3000,   minWins: 10 },
-  { level: 6, title: "The Tutor",        min: 10000,  minWins: 20 },
+  { level: 1, title: "Pop Quiz Rookie",  min: 0,      minWins: 0 },
+  { level: 2, title: "Class Clown",      min: 300,    minWins: 0 },
+  { level: 3, title: "Honor Roll",       min: 800,    minWins: 0 },
+  { level: 4, title: "Dean's List",      min: 1600,   minWins: 0 },
+  { level: 5, title: "Valedictorian",    min: 3000,   minWins: 0 },
+  { level: 6, title: "The Tutor",        min: 5000,   minWins: 0 },
 ] as const;
 
 export type LevelInfo = {

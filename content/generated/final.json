@@ -1265,5 +1265,403 @@
     ],
     "totalPossible": "open",
     "openDictionaryKey": "F-50"
+  },
+  {
+    "id": "F-51",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many countries that have won the FIFA World Cup as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Brazil",
+      "Germany",
+      "Italy",
+      "Argentina",
+      "France",
+      "Uruguay",
+      "England",
+      "Spain"
+    ],
+    "totalPossible": 8
+  },
+  {
+    "id": "F-52",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many planets in our solar system that have rings as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Saturn",
+      "Jupiter",
+      "Uranus",
+      "Neptune"
+    ],
+    "totalPossible": 4
+  },
+  {
+    "id": "F-53",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many Taylor Swift studio albums as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Taylor Swift",
+      "Fearless",
+      "Speak Now",
+      "Red",
+      "1989",
+      "reputation",
+      "Lover",
+      "folklore",
+      "evermore",
+      "Midnights",
+      "The Tortured Poets Department"
+    ],
+    "totalPossible": 11
+  },
+  {
+    "id": "F-54",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many African countries starting with the letter M as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Morocco",
+      "Madagascar",
+      "Malawi",
+      "Mali",
+      "Mauritania",
+      "Mauritius",
+      "Mozambique"
+    ],
+    "totalPossible": 7
+  },
+  {
+    "id": "F-55",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many countries in Southeast Asia as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Brunei",
+      "Cambodia",
+      "Indonesia",
+      "Laos",
+      "Malaysia",
+      "Myanmar",
+      "Burma",
+      "Philippines",
+      "Singapore",
+      "Thailand",
+      "Timor-Leste",
+      "East Timor",
+      "Vietnam"
+    ],
+    "totalPossible": 11
+  },
+  {
+    "id": "F-56",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many colors of the American flag as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "red",
+      "white",
+      "blue"
+    ],
+    "totalPossible": 3
+  },
+  {
+    "id": "F-57",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many Ivy League universities as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Harvard",
+      "Yale",
+      "Princeton",
+      "Columbia",
+      "Penn",
+      "University of Pennsylvania",
+      "Brown",
+      "Dartmouth",
+      "Cornell"
+    ],
+    "totalPossible": 8
+  },
+  {
+    "id": "F-58",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many U.S. states that start with the letter N as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Nebraska",
+      "Nevada",
+      "New Hampshire",
+      "New Jersey",
+      "New Mexico",
+      "New York",
+      "North Carolina",
+      "North Dakota"
+    ],
+    "totalPossible": 8
+  },
+  {
+    "id": "F-59",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many types of pasta as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "spaghetti",
+      "fettuccine",
+      "penne",
+      "rigatoni",
+      "linguine",
+      "tagliatelle",
+      "farfalle",
+      "bow tie",
+      "fusilli",
+      "rotini",
+      "lasagna",
+      "ravioli",
+      "tortellini",
+      "gnocchi",
+      "orzo",
+      "orecchiette",
+      "cavatappi",
+      "conchiglie",
+      "shells",
+      "bucatini",
+      "angel hair",
+      "capellini",
+      "pappardelle",
+      "ziti",
+      "macaroni"
+    ],
+    "totalPossible": "open",
+    "openDictionaryKey": "F-59"
+  },
+  {
+    "id": "F-60",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many U.S. states that border Canada as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Alaska",
+      "Washington",
+      "Idaho",
+      "Montana",
+      "North Dakota",
+      "Minnesota",
+      "Wisconsin",
+      "Michigan",
+      "Ohio",
+      "Pennsylvania",
+      "New York",
+      "Vermont",
+      "New Hampshire",
+      "Maine"
+    ],
+    "totalPossible": 13
+  },
+  {
+    "id": "F-61",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many countries in Central America as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Belize",
+      "Guatemala",
+      "Honduras",
+      "El Salvador",
+      "Nicaragua",
+      "Costa Rica",
+      "Panama"
+    ],
+    "totalPossible": 7
+  },
+  {
+    "id": "F-62",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many chess pieces as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "king",
+      "queen",
+      "rook",
+      "castle",
+      "bishop",
+      "knight",
+      "pawn"
+    ],
+    "totalPossible": 6
+  },
+  {
+    "id": "F-63",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many original 13 U.S. colonies as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Connecticut",
+      "Delaware",
+      "Georgia",
+      "Maryland",
+      "Massachusetts",
+      "New Hampshire",
+      "New Jersey",
+      "New York",
+      "North Carolina",
+      "Pennsylvania",
+      "Rhode Island",
+      "South Carolina",
+      "Virginia"
+    ],
+    "totalPossible": 13
+  },
+  {
+    "id": "F-64",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many countries that start with the letter P as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Pakistan",
+      "Palau",
+      "Palestine",
+      "Panama",
+      "Papua New Guinea",
+      "Paraguay",
+      "Peru",
+      "Philippines",
+      "Poland",
+      "Portugal"
+    ],
+    "totalPossible": 10
+  },
+  {
+    "id": "F-65",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many U.S. states that start with the letter A as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Alabama",
+      "Alaska",
+      "Arizona",
+      "Arkansas"
+    ],
+    "totalPossible": 4
+  },
+  {
+    "id": "F-66",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many Winter Olympic sports as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "alpine skiing",
+      "biathlon",
+      "bobsled",
+      "bobsleigh",
+      "cross-country skiing",
+      "curling",
+      "figure skating",
+      "freestyle skiing",
+      "ice hockey",
+      "luge",
+      "Nordic combined",
+      "short track speed skating",
+      "skeleton",
+      "ski jumping",
+      "snowboard",
+      "snowboarding",
+      "speed skating"
+    ],
+    "totalPossible": 15
+  },
+  {
+    "id": "F-67",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many countries that share a border with Brazil as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Argentina",
+      "Bolivia",
+      "Colombia",
+      "Guyana",
+      "Paraguay",
+      "Peru",
+      "Suriname",
+      "Uruguay",
+      "Venezuela",
+      "French Guiana"
+    ],
+    "totalPossible": 10
+  },
+  {
+    "id": "F-68",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many U.S. state capitals that start with the letter A as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Albany",
+      "Annapolis",
+      "Atlanta",
+      "Augusta",
+      "Austin"
+    ],
+    "totalPossible": 5
+  },
+  {
+    "id": "F-69",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many Harry Potter books as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Sorcerer's Stone",
+      "Philosopher's Stone",
+      "Chamber of Secrets",
+      "Prisoner of Azkaban",
+      "Goblet of Fire",
+      "Order of the Phoenix",
+      "Half-Blood Prince",
+      "Deathly Hallows"
+    ],
+    "totalPossible": 7
+  },
+  {
+    "id": "F-70",
+    "round": "final",
+    "type": "list",
+    "prompt": "Name as many countries in the Caribbean as you can.",
+    "timeSec": 20,
+    "acceptable": [
+      "Cuba",
+      "Jamaica",
+      "Haiti",
+      "Dominican Republic",
+      "Puerto Rico",
+      "Trinidad and Tobago",
+      "Barbados",
+      "Bahamas",
+      "Saint Lucia",
+      "Saint Vincent and the Grenadines",
+      "Grenada",
+      "Antigua and Barbuda",
+      "Dominica",
+      "Saint Kitts and Nevis"
+    ],
+    "totalPossible": 13
   }
 ]

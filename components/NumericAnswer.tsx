@@ -14,19 +14,15 @@ type Props = {
 
 /** R3 numeric estimate: typed number + unit (§4.5). */
 export function NumericAnswer({ unit, onSubmit, locked, submittedValue, reveal }: Props) {
-  // Store raw digits/decimal only; display with commas (except years).
+  // Store raw digits only; display with commas (except years).
   const [raw, setRaw] = useState("");
 
   const isYear = unit === "year";
   const formatted = isYear ? raw : raw.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   const handleChange = (input: string) => {
-    // Strip everything except digits and one decimal point
-    const clean = input.replace(/,/g, "").replace(/[^\d.]/g, "");
-    // Allow only one decimal point
-    const parts = clean.split(".");
-    const normalized = parts.length > 2 ? parts[0] + "." + parts.slice(1).join("") : clean;
-    setRaw(normalized);
+    // Whole numbers only — strip everything except digits
+    setRaw(input.replace(/[^\d]/g, ""));
   };
 
   if (reveal) {
@@ -64,7 +60,7 @@ export function NumericAnswer({ unit, onSubmit, locked, submittedValue, reveal }
           style={styles.input}
           value={formatted}
           onChangeText={handleChange}
-          keyboardType="numeric"
+          keyboardType="number-pad"
           placeholder="Your estimate"
           placeholderTextColor={palette.neutral}
           onSubmitEditing={() => canSubmit && onSubmit(raw)}

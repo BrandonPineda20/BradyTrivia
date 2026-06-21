@@ -139,6 +139,72 @@ const ICONS = {
     ".XXX....",
     "..X.....",
   ], "#2e7d4f"),
+
+  // ── Badge icons ─────────────────────────────────────────────────────────────
+
+  lock: grid([
+    "..XXX..",
+    ".X...X.",
+    ".X...X.",
+    "XXXXXXX",
+    "X.....X",
+    "XX.X.XX",
+    "X.....X",
+    "XXXXXXX",
+  ], "#8a9bb0"),
+
+  backpack: grid([
+    "...XX...",
+    "..XXXX..",
+    ".XXXXXX.",
+    "XXXXXXXX",
+    "X.XXXX.X",
+    "X.XXXX.X",
+    "X.XXXX.X",
+    "XXXXXXXX",
+  ], "#5199e4"),
+
+  globe: grid([
+    "..XXXX..",
+    ".X.XX.X.",
+    "XXXXXXXX",
+    "X......X",
+    "XXXXXXXX",
+    ".X.XX.X.",
+    "..XXXX..",
+  ], "#5199e4"),
+
+  target: grid([
+    "..XXXX..",
+    ".X....X.",
+    "X.XXXX.X",
+    "X.XOOX.X",
+    "X.XOOX.X",
+    "X.XXXX.X",
+    ".X....X.",
+    "..XXXX..",
+  ], "#3c4f5c", { char: "O", color: "#c0392b" }),
+
+  notepad: grid([
+    "XXXXXXX",
+    "X.....X",
+    "X.XXX.X",
+    "X.....X",
+    "X.XXX.X",
+    "X.....X",
+    "X.XXX.X",
+    "XXXXXXX",
+  ], "#5199e4"),
+
+  diamond: grid([
+    "...XX...",
+    "..XXXX..",
+    ".XXXXXX.",
+    "XXXXXXXX",
+    ".XXXXXX.",
+    "..XXXX..",
+    "...XX...",
+  ], "#42e0d8"),
 };
 
 export type PixelIconName = keyof typeof ICONS;

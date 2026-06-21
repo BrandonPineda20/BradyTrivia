@@ -166,8 +166,8 @@ function main() {
   const round3 = parseR3(loadRows(wb, SHEETS.r3));
   const final = parseFinal(loadRows(wb, SHEETS.final));
 
-  const expect = (name, arr, n) => {
-    if (arr.length !== n) fail(name, `expected ${n} rows, got ${arr.length}`);
+  const expect = (name, arr, min) => {
+    if (arr.length < min) fail(name, `expected at least ${min} rows, got ${arr.length}`);
   };
   expect("Round1", round1, 50);
   expect("Round2", round2, 50);

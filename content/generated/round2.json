@@ -274,7 +274,7 @@
     "answer": "United States",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale USA flag \u2014 stars + 13 stripes",
+      "describes": "Greyscale USA flag — stars + 13 stripes",
       "country": "United States"
     },
     "difficulty": "Medium"
@@ -294,7 +294,7 @@
     "answer": "Canada",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale Canada flag \u2014 maple leaf + vertical bands",
+      "describes": "Greyscale Canada flag — maple leaf + vertical bands",
       "country": "Canada"
     },
     "difficulty": "Easy"
@@ -314,7 +314,7 @@
     "answer": "United Kingdom",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale UK Union Jack \u2014 overlaid crosses",
+      "describes": "Greyscale UK Union Jack — overlaid crosses",
       "country": "United Kingdom"
     },
     "difficulty": "Medium"
@@ -334,7 +334,7 @@
     "answer": "Japan",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale Japan flag \u2014 single centered disc",
+      "describes": "Greyscale Japan flag — single centered disc",
       "country": "Japan"
     },
     "difficulty": "Medium"
@@ -354,7 +354,7 @@
     "answer": "France",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale France flag \u2014 three vertical bands",
+      "describes": "Greyscale France flag — three vertical bands",
       "country": "France"
     },
     "difficulty": "Hard"
@@ -374,7 +374,7 @@
     "answer": "Brazil",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale Brazil flag \u2014 diamond + central globe",
+      "describes": "Greyscale Brazil flag — diamond + central globe",
       "country": "Brazil"
     },
     "difficulty": "Medium"
@@ -394,7 +394,7 @@
     "answer": "Australia",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale Australia flag \u2014 Union Jack + Southern Cross stars",
+      "describes": "Greyscale Australia flag — Union Jack + Southern Cross stars",
       "country": "Australia"
     },
     "difficulty": "Hard"
@@ -414,7 +414,7 @@
     "answer": "Switzerland",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale Switzerland flag \u2014 square with centered cross",
+      "describes": "Greyscale Switzerland flag — square with centered cross",
       "country": "Switzerland"
     },
     "difficulty": "Medium"
@@ -434,7 +434,7 @@
     "answer": "Turkey",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale Turkey flag \u2014 crescent + star",
+      "describes": "Greyscale Turkey flag — crescent + star",
       "country": "Turkey"
     },
     "difficulty": "Hard"
@@ -454,7 +454,7 @@
     "answer": "South Korea",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale South Korea flag \u2014 central taegeuk + trigrams",
+      "describes": "Greyscale South Korea flag — central taegeuk + trigrams",
       "country": "South Korea"
     },
     "difficulty": "Medium"
@@ -474,7 +474,7 @@
     "answer": "Germany",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale Germany flag \u2014 three horizontal bands",
+      "describes": "Greyscale Germany flag — three horizontal bands",
       "country": "Germany"
     },
     "difficulty": "Hard"
@@ -494,7 +494,7 @@
     "answer": "Mexico",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Greyscale Mexico flag \u2014 vertical bands + central emblem",
+      "describes": "Greyscale Mexico flag — vertical bands + central emblem",
       "country": "Mexico"
     },
     "difficulty": "Medium"
@@ -514,7 +514,7 @@
     "answer": "Italy",
     "asset": {
       "kind": "country_outline",
-      "describes": "Outline of Italy \u2014 the boot shape",
+      "describes": "Outline of Italy — the boot shape",
       "country": "Italy"
     },
     "difficulty": "Easy"
@@ -554,7 +554,7 @@
     "answer": "France",
     "asset": {
       "kind": "country_outline",
-      "describes": "Outline of France \u2014 the hexagon",
+      "describes": "Outline of France — the hexagon",
       "country": "France"
     },
     "difficulty": "Medium"
@@ -574,7 +574,7 @@
     "answer": "India",
     "asset": {
       "kind": "country_outline",
-      "describes": "Outline of India \u2014 the subcontinent triangle",
+      "describes": "Outline of India — the subcontinent triangle",
       "country": "India"
     },
     "difficulty": "Easy"
@@ -594,7 +594,7 @@
     "answer": "Japan",
     "asset": {
       "kind": "country_outline",
-      "describes": "Outline of Japan \u2014 the archipelago",
+      "describes": "Outline of Japan — the archipelago",
       "country": "Japan"
     },
     "difficulty": "Medium"
@@ -674,7 +674,7 @@
     "answer": "Chile",
     "asset": {
       "kind": "country_outline",
-      "describes": "Outline of Chile \u2014 the long thin strip",
+      "describes": "Outline of Chile — the long thin strip",
       "country": "Chile"
     },
     "difficulty": "Medium"
@@ -694,7 +694,7 @@
     "answer": "Egypt",
     "asset": {
       "kind": "country_outline",
-      "describes": "Outline of Egypt \u2014 squarish with Sinai peninsula",
+      "describes": "Outline of Egypt — squarish with Sinai peninsula",
       "country": "Egypt"
     },
     "difficulty": "Hard"
@@ -734,7 +734,7 @@
     "answer": "Russia",
     "asset": {
       "kind": "country_outline",
-      "describes": "Outline of Russia \u2014 vast east-west landmass",
+      "describes": "Outline of Russia — vast east-west landmass",
       "country": "Russia"
     },
     "difficulty": "Easy"
@@ -754,7 +754,7 @@
     "answer": "Spain",
     "asset": {
       "kind": "country_outline",
-      "describes": "Outline of Spain \u2014 the Iberian bulk",
+      "describes": "Outline of Spain — the Iberian bulk",
       "country": "Spain"
     },
     "difficulty": "Medium"
@@ -774,7 +774,7 @@
     "answer": "Russia",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Easy"
   },
@@ -793,7 +793,7 @@
     "answer": "Brazil",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Easy"
   },
@@ -812,7 +812,7 @@
     "answer": "Algeria",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Hard"
   },
@@ -831,7 +831,7 @@
     "answer": "Tanzania",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Medium"
   },
@@ -850,7 +850,7 @@
     "answer": "Turkey",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Medium"
   },
@@ -869,7 +869,7 @@
     "answer": "Ottawa",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Medium"
   },
@@ -888,7 +888,7 @@
     "answer": "Africa",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Easy"
   },
@@ -907,7 +907,7 @@
     "answer": "Canada",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Hard"
   },
@@ -926,7 +926,7 @@
     "answer": "Italy",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Easy"
   },
@@ -945,7 +945,7 @@
     "answer": "Egypt",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Easy"
   },
@@ -964,7 +964,7 @@
     "answer": "Canada",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Hard"
   },
@@ -976,14 +976,14 @@
     "question": "What is the capital of Brazil?",
     "options": [
       "Rio de Janeiro",
-      "Bras\u00edlia",
-      "S\u00e3o Paulo",
+      "Brasília",
+      "São Paulo",
       "Salvador"
     ],
-    "answer": "Bras\u00edlia",
+    "answer": "Brasília",
     "asset": {
       "kind": "none",
-      "describes": "(text question \u2014 no image)"
+      "describes": "(text question — no image)"
     },
     "difficulty": "Medium"
   },
@@ -992,38 +992,38 @@
     "round": 2,
     "type": "multiple_choice",
     "category": "Zoomed Flag",
-    "question": "Which country's flag is this? (zoomed in)",
+    "question": "",
     "options": [
-      "Norway",
-      "Sweden",
-      "Denmark",
-      "Finland"
+      "Greece",
+      "Cyprus",
+      "Turkey",
+      "Georgia"
     ],
-    "answer": "Norway",
+    "answer": "Cyprus",
     "asset": {
       "kind": "zoomed_flag",
-      "describes": "Zoom on the blue cross outlined in white on Norway's red flag",
-      "country": "Norway"
+      "describes": "",
+      "country": "Cyprus"
     },
-    "difficulty": "Medium"
+    "difficulty": "Hard"
   },
   {
     "id": "R2-52",
     "round": 2,
     "type": "multiple_choice",
     "category": "Zoomed Flag",
-    "question": "Which country's flag is this? (zoomed in)",
+    "question": "",
     "options": [
-      "Argentina",
-      "Chile",
-      "Uruguay",
-      "Paraguay"
+      "Mexico",
+      "Italy",
+      "Hungary",
+      "Bulgaria"
     ],
-    "answer": "Argentina",
+    "answer": "Hungary",
     "asset": {
       "kind": "zoomed_flag",
-      "describes": "Zoom on the gold Sun of May at center of Argentina's light-blue-and-white flag",
-      "country": "Argentina"
+      "describes": "",
+      "country": "Hungary"
     },
     "difficulty": "Medium"
   },
@@ -1032,37 +1032,37 @@
     "round": 2,
     "type": "multiple_choice",
     "category": "Zoomed Flag",
-    "question": "Which country's flag is this? (zoomed in)",
+    "question": "",
     "options": [
-      "Portugal",
-      "Spain",
-      "Italy",
-      "France"
+      "Netherlands",
+      "Russia",
+      "France",
+      "Slovenia"
     ],
-    "answer": "Portugal",
+    "answer": "France",
     "asset": {
       "kind": "zoomed_flag",
-      "describes": "Zoom on the armillary sphere coat of arms on Portugal's green-and-red flag",
-      "country": "Portugal"
+      "describes": "",
+      "country": "France"
     },
-    "difficulty": "Hard"
+    "difficulty": "Easy"
   },
   {
     "id": "R2-54",
     "round": 2,
     "type": "multiple_choice",
     "category": "Zoomed Flag",
-    "question": "Which country's flag is this? (zoomed in)",
+    "question": "",
     "options": [
       "South Korea",
       "Japan",
       "China",
-      "Vietnam"
+      "Taiwan"
     ],
     "answer": "South Korea",
     "asset": {
       "kind": "zoomed_flag",
-      "describes": "Zoom on the red-and-blue yin-yang symbol at center of South Korea's flag",
+      "describes": "",
       "country": "South Korea"
     },
     "difficulty": "Medium"
@@ -1072,38 +1072,38 @@
     "round": 2,
     "type": "multiple_choice",
     "category": "Zoomed Flag",
-    "question": "Which country's flag is this? (zoomed in)",
+    "question": "",
     "options": [
-      "Saudi Arabia",
-      "UAE",
       "Pakistan",
-      "Iran"
+      "Bangladesh",
+      "Algeria",
+      "Saudi Arabia"
     ],
-    "answer": "Saudi Arabia",
+    "answer": "Pakistan",
     "asset": {
       "kind": "zoomed_flag",
-      "describes": "Zoom on the white Arabic script and sword on Saudi Arabia's green flag",
-      "country": "Saudi Arabia"
+      "describes": "",
+      "country": "Pakistan"
     },
-    "difficulty": "Hard"
+    "difficulty": "Medium"
   },
   {
     "id": "R2-56",
     "round": 2,
     "type": "multiple_choice",
     "category": "Greyed Flag",
-    "question": "Identify this flag (shown in greyscale)",
+    "question": "",
     "options": [
-      "Italy",
-      "Ireland",
-      "Nigeria",
-      "Hungary"
+      "Switzerland",
+      "Denmark",
+      "Sweden",
+      "Norway"
     ],
-    "answer": "Italy",
+    "answer": "Denmark",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Three equal vertical bands; greyscale hides the green-white-red",
-      "country": "Italy"
+      "describes": "",
+      "country": "Denmark"
     },
     "difficulty": "Medium"
   },
@@ -1112,78 +1112,78 @@
     "round": 2,
     "type": "multiple_choice",
     "category": "Greyed Flag",
-    "question": "Identify this flag (shown in greyscale)",
+    "question": "",
     "options": [
-      "Norway",
-      "Finland",
-      "Sweden",
-      "Denmark"
+      "Argentina",
+      "Uruguay",
+      "Greece",
+      "Honduras"
     ],
-    "answer": "Sweden",
+    "answer": "Argentina",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Off-centre cross; greyscale hides the yellow cross on blue",
-      "country": "Sweden"
+      "describes": "",
+      "country": "Argentina"
     },
-    "difficulty": "Medium"
+    "difficulty": "Easy"
   },
   {
     "id": "R2-58",
     "round": 2,
     "type": "multiple_choice",
     "category": "Greyed Flag",
-    "question": "Identify this flag (shown in greyscale)",
+    "question": "",
     "options": [
       "India",
-      "Pakistan",
-      "Bangladesh",
-      "Sri Lanka"
+      "Niger",
+      "Ivory Coast",
+      "Ireland"
     ],
     "answer": "India",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Horizontal triband with a central wheel; greyscale hides the saffron-white-green",
+      "describes": "",
       "country": "India"
     },
-    "difficulty": "Medium"
+    "difficulty": "Easy"
   },
   {
     "id": "R2-59",
     "round": 2,
     "type": "multiple_choice",
     "category": "Greyed Flag",
-    "question": "Identify this flag (shown in greyscale)",
+    "question": "",
     "options": [
-      "Argentina",
-      "Uruguay",
-      "Greece",
-      "El Salvador"
+      "Ethiopia",
+      "Bolivia",
+      "Ghana",
+      "Cameroon"
     ],
-    "answer": "Greece",
+    "answer": "Ghana",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Nine horizontal stripes with a cross in the canton; greyscale hides the blue and white",
-      "country": "Greece"
+      "describes": "",
+      "country": "Ghana"
     },
-    "difficulty": "Hard"
+    "difficulty": "Medium"
   },
   {
     "id": "R2-60",
     "round": 2,
     "type": "multiple_choice",
     "category": "Greyed Flag",
-    "question": "Identify this flag (shown in greyscale)",
+    "question": "",
     "options": [
-      "Morocco",
-      "Turkey",
-      "Tunisia",
-      "Algeria"
+      "Croatia",
+      "Slovakia",
+      "Czech Republic",
+      "Slovenia"
     ],
-    "answer": "Morocco",
+    "answer": "Croatia",
     "asset": {
       "kind": "greyed_flag",
-      "describes": "Plain field with a five-pointed star outline; greyscale hides the red field and green star",
-      "country": "Morocco"
+      "describes": "",
+      "country": "Croatia"
     },
     "difficulty": "Hard"
   },
@@ -1192,38 +1192,38 @@
     "round": 2,
     "type": "multiple_choice",
     "category": "Country Outline",
-    "question": "Which country is this? (outline only)",
+    "question": "",
     "options": [
-      "Norway",
-      "Sweden",
-      "Finland",
-      "Denmark"
+      "Colombia",
+      "Venezuela",
+      "Ecuador",
+      "Peru"
     ],
-    "answer": "Norway",
+    "answer": "Colombia",
     "asset": {
       "kind": "country_outline",
-      "describes": "Irregular jagged western coastline with a long narrow shape",
-      "country": "Norway"
+      "describes": "",
+      "country": "Colombia"
     },
-    "difficulty": "Hard"
+    "difficulty": "Medium"
   },
   {
     "id": "R2-62",
     "round": 2,
     "type": "multiple_choice",
     "category": "Country Outline",
-    "question": "Which country is this? (outline only)",
+    "question": "",
     "options": [
-      "Argentina",
-      "Chile",
-      "Peru",
-      "Bolivia"
+      "South Korea",
+      "Japan",
+      "Taiwan",
+      "Vietnam"
     ],
-    "answer": "Chile",
+    "answer": "Japan",
     "asset": {
       "kind": "country_outline",
-      "describes": "Extremely long and narrow strip running north-south along the Pacific coast",
-      "country": "Chile"
+      "describes": "",
+      "country": "Japan"
     },
     "difficulty": "Easy"
   },
@@ -1232,58 +1232,58 @@
     "round": 2,
     "type": "multiple_choice",
     "category": "Country Outline",
-    "question": "Which country is this? (outline only)",
+    "question": "",
     "options": [
-      "Saudi Arabia",
-      "Iraq",
-      "Iran",
-      "Turkey"
+      "Kenya",
+      "Tanzania",
+      "Ethiopia",
+      "Uganda"
     ],
-    "answer": "Saudi Arabia",
+    "answer": "Kenya",
     "asset": {
       "kind": "country_outline",
-      "describes": "Large rectangular peninsula with a jagged western edge",
-      "country": "Saudi Arabia"
+      "describes": "",
+      "country": "Kenya"
     },
-    "difficulty": "Medium"
+    "difficulty": "Hard"
   },
   {
     "id": "R2-64",
     "round": 2,
     "type": "multiple_choice",
     "category": "Country Outline",
-    "question": "Which country is this? (outline only)",
+    "question": "",
     "options": [
+      "UK",
+      "Ireland",
       "New Zealand",
-      "Australia",
-      "Papua New Guinea",
-      "Philippines"
+      "Iceland"
     ],
-    "answer": "New Zealand",
+    "answer": "UK",
     "asset": {
       "kind": "country_outline",
-      "describes": "Two elongated islands aligned northeast-southwest",
-      "country": "New Zealand"
+      "describes": "",
+      "country": "UK"
     },
-    "difficulty": "Medium"
+    "difficulty": "Easy"
   },
   {
     "id": "R2-65",
     "round": 2,
     "type": "multiple_choice",
     "category": "Country Outline",
-    "question": "Which country is this? (outline only)",
+    "question": "",
     "options": [
-      "Vietnam",
-      "Thailand",
-      "Cambodia",
-      "Laos"
+      "Morocco",
+      "Algeria",
+      "Libya",
+      "Tunisia"
     ],
-    "answer": "Vietnam",
+    "answer": "Morocco",
     "asset": {
       "kind": "country_outline",
-      "describes": "Thin S-shaped country running north-south along the eastern edge of Southeast Asia",
-      "country": "Vietnam"
+      "describes": "",
+      "country": "Morocco"
     },
     "difficulty": "Medium"
   },
@@ -1292,14 +1292,18 @@
     "round": 2,
     "type": "multiple_choice",
     "category": "Geography Q",
-    "question": "What is the capital of Australia?",
+    "question": "",
     "options": [
-      "Sydney",
-      "Melbourne",
-      "Canberra",
-      "Brisbane"
+      "Istanbul",
+      "Ankara",
+      "Izmir",
+      "Bursa"
     ],
-    "answer": "Canberra",
+    "answer": "Ankara",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
     "difficulty": "Medium"
   },
   {
@@ -1307,29 +1311,37 @@
     "round": 2,
     "type": "multiple_choice",
     "category": "Geography Q",
-    "question": "Which country shares the longest land border with the United States?",
+    "question": "",
     "options": [
-      "Mexico",
-      "Russia",
-      "Cuba",
-      "Canada"
+      "Utah",
+      "Colorado",
+      "Nevada",
+      "Arizona"
     ],
-    "answer": "Canada",
-    "difficulty": "Medium"
+    "answer": "Arizona",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
   },
   {
     "id": "R2-68",
     "round": 2,
     "type": "multiple_choice",
     "category": "Geography Q",
-    "question": "What is the smallest continent by land area?",
+    "question": "",
     "options": [
-      "Europe",
-      "Antarctica",
-      "Australia",
-      "South America"
+      "Ganges",
+      "Yangtze",
+      "Mekong",
+      "Indus"
     ],
-    "answer": "Australia",
+    "answer": "Yangtze",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
     "difficulty": "Medium"
   },
   {
@@ -1337,29 +1349,607 @@
     "round": 2,
     "type": "multiple_choice",
     "category": "Geography Q",
-    "question": "Which city is the capital of South Africa's national government (executive capital)?",
+    "question": "",
     "options": [
-      "Cape Town",
-      "Johannesburg",
-      "Pretoria",
-      "Durban"
+      "Indonesia",
+      "Philippines",
+      "New Zealand",
+      "Australia"
     ],
-    "answer": "Pretoria",
-    "difficulty": "Hard"
+    "answer": "Australia",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
   },
   {
     "id": "R2-70",
     "round": 2,
     "type": "multiple_choice",
     "category": "Geography Q",
-    "question": "The Strait of Gibraltar separates Europe from which continent?",
+    "question": "",
     "options": [
-      "Asia",
-      "South America",
-      "Africa",
-      "North America"
+      "Japan",
+      "USA",
+      "Philippines",
+      "Indonesia"
     ],
-    "answer": "Africa",
+    "answer": "Indonesia",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-71",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Alexandria",
+      "Luxor",
+      "Giza",
+      "Cairo"
+    ],
+    "answer": "Cairo",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-72",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "China",
+      "South Korea",
+      "Taiwan",
+      "Japan"
+    ],
+    "answer": "Japan",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-73",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Lagos",
+      "Kano",
+      "Ibadan",
+      "Abuja"
+    ],
+    "answer": "Abuja",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
     "difficulty": "Medium"
+  },
+  {
+    "id": "R2-74",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Africa",
+      "Australia",
+      "South America",
+      "Asia"
+    ],
+    "answer": "Asia",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-75",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Mumbai",
+      "Kolkata",
+      "Bangalore",
+      "New Delhi"
+    ],
+    "answer": "New Delhi",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-76",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Costa Rica",
+      "Nicaragua",
+      "Guatemala",
+      "Panama"
+    ],
+    "answer": "Panama",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-77",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "St. Petersburg",
+      "Novosibirsk",
+      "Vladivostok",
+      "Moscow"
+    ],
+    "answer": "Moscow",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-78",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Ethiopia",
+      "Democratic Republic of Congo",
+      "Egypt",
+      "Nigeria"
+    ],
+    "answer": "Nigeria",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-79",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Atlantic Ocean",
+      "Pacific Ocean",
+      "Southern Ocean",
+      "Indian Ocean"
+    ],
+    "answer": "Indian Ocean",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-80",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Indian Ocean",
+      "Southern Ocean",
+      "Atlantic Ocean",
+      "Arctic Ocean"
+    ],
+    "answer": "Arctic Ocean",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-81",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Mecca",
+      "Medina",
+      "Jeddah",
+      "Riyadh"
+    ],
+    "answer": "Riyadh",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-82",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Mount Logan",
+      "Pico de Orizaba",
+      "Mount Whitney",
+      "Denali"
+    ],
+    "answer": "Denali",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-83",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Porto",
+      "Braga",
+      "Faro",
+      "Lisbon"
+    ],
+    "answer": "Lisbon",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-84",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Texas",
+      "California",
+      "Montana",
+      "Alaska"
+    ],
+    "answer": "Alaska",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-85",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "India",
+      "Vietnam",
+      "Thailand",
+      "China"
+    ],
+    "answer": "China",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-86",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Lima",
+      "Bogota",
+      "Santiago",
+      "Buenos Aires"
+    ],
+    "answer": "Buenos Aires",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-87",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Chile",
+      "Argentina",
+      "Peru",
+      "Bolivia"
+    ],
+    "answer": "Bolivia",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-88",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Busan",
+      "Pyongyang",
+      "Incheon",
+      "Seoul"
+    ],
+    "answer": "Seoul",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-89",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "France",
+      "China",
+      "Italy",
+      "Spain"
+    ],
+    "answer": "Italy",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-90",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Peru",
+      "Argentina",
+      "Bolivia",
+      "Chile"
+    ],
+    "answer": "Chile",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-91",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Sydney",
+      "Melbourne",
+      "Brisbane",
+      "Canberra"
+    ],
+    "answer": "Canberra",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-92",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Russia",
+      "USA",
+      "Indonesia",
+      "Canada"
+    ],
+    "answer": "Canada",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-93",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Chile",
+      "Ecuador",
+      "Colombia",
+      "Bolivia"
+    ],
+    "answer": "Bolivia",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-94",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Java",
+      "Borneo",
+      "Sulawesi",
+      "Sumatra"
+    ],
+    "answer": "Sumatra",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-95",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Guadalajara",
+      "Monterrey",
+      "Tijuana",
+      "Mexico City"
+    ],
+    "answer": "Mexico City",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "id": "R2-96",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Brazil",
+      "Argentina",
+      "Peru",
+      "Colombia"
+    ],
+    "answer": "Colombia",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "id": "R2-97",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Lagos",
+      "Abuja",
+      "Kano",
+      "Ibadan"
+    ],
+    "answer": "Abuja",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-98",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Aegean Sea",
+      "Black Sea",
+      "Adriatic Sea",
+      "Ionian Sea"
+    ],
+    "answer": "Adriatic Sea",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-99",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Iraq",
+      "Lebanon",
+      "Jordan",
+      "Israel"
+    ],
+    "answer": "Jordan",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "id": "R2-100",
+    "round": 2,
+    "type": "multiple_choice",
+    "category": "Geography Q",
+    "question": "",
+    "options": [
+      "Spanish",
+      "Portuguese",
+      "French",
+      "English"
+    ],
+    "answer": "Portuguese",
+    "asset": {
+      "kind": "none",
+      "describes": ""
+    },
+    "difficulty": "Easy"
   }
 ]

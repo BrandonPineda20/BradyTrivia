@@ -5,12 +5,23 @@ import { SoundPressable } from "../components/SoundPressable";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Avatar } from "../components/Avatar";
+import { PixelIcon, type PixelIconName } from "../components/PixelIcon";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { TopBar } from "../components/TopBar";
 import { BADGES, levelInfo, LEVELS } from "../engine";
 import { useProfileStore } from "../store/profileStore";
 import { useProgressionStore } from "../store/progressionStore";
 import { palette, radii, spacing, typography } from "../theme";
+
+const BADGE_ICONS: Record<string, PixelIconName> = {
+  welcome: "backpack",
+  firstWin: "trophy",
+  geoWhiz: "globe",
+  sharpshooter: "target",
+  listmaster: "notepad",
+  flawless: "diamond",
+  regular: "star",
+};
 
 function ordinal(n: number): string {
   const s = ["th", "st", "nd", "rd"];
@@ -80,7 +91,7 @@ export default function Profile() {
         </View>
 
         <View style={styles.statsRow}>
-          <Stat label="🔥 Streak" value={`${streak}d`} />
+          <Stat label="Streak" value={`${streak} ${streak === 1 ? "day" : "days"}`} />
           <Stat label="Games" value={stats.gamesPlayed} />
           <Stat label="Wins" value={stats.wins} />
           <Stat label="Best" value={stats.gamesPlayed ? ordinal(stats.bestPlacement) : "N/A"} />
@@ -92,7 +103,7 @@ export default function Profile() {
             const got = earned.has(b.id);
             return (
               <View key={b.id} style={[styles.badge, !got && styles.badgeLocked]}>
-                <Text style={styles.badgeEmoji}>{got ? b.emoji : "🔒"}</Text>
+                <PixelIcon name={got ? (BADGE_ICONS[b.id] ?? "star") : "lock"} size={28} />
                 <Text style={styles.badgeName}>{b.name}</Text>
                 <Text style={styles.badgeDesc}>{b.desc}</Text>
               </View>
@@ -138,9 +149,8 @@ const styles = StyleSheet.create({
   statLabel: { fontSize: 10, color: palette.inkSoft, fontFamily: typography.fonts.body },
   sectionTitle: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink, marginTop: spacing(1) },
   badgeGrid: { flexDirection: "row", flexWrap: "wrap", gap: spacing(2) },
-  badge: { width: "31%", backgroundColor: "#FFF4D6", borderRadius: radii.md, padding: spacing(2), alignItems: "center", gap: 2 },
+  badge: { width: "31%", backgroundColor: "#FFF4D6", borderRadius: radii.md, padding: spacing(2), alignItems: "center", gap: 4 },
   badgeLocked: { backgroundColor: palette.surface },
-  badgeEmoji: { fontSize: 26 },
   badgeName: { fontSize: 11, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },
   badgeDesc: { fontSize: 9, color: palette.inkSoft, textAlign: "center" },
   edit: { marginTop: spacing(3) },

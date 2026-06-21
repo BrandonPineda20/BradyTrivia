@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-19T01:10:49.202Z",
+  "generatedAt": "2026-06-21T05:03:04.420Z",
   "source": "content/brady_trivia_question_bank.xlsx",
   "counts": {
-    "round1": 50,
-    "round2": 50,
-    "round3": 50,
-    "final": 50,
-    "total": 200
+    "round1": 100,
+    "round2": 100,
+    "round3": 100,
+    "final": 70,
+    "total": 370
   },
   "round1": [
     {
@@ -758,6 +758,756 @@
       ],
       "answer": "5",
       "difficulty": "Easy"
+    },
+    {
+      "id": "R1-51",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Literature",
+      "question": "Who wrote 'Romeo and Juliet'?",
+      "options": [
+        "Charles Dickens",
+        "William Shakespeare",
+        "Jane Austen",
+        "Mark Twain"
+      ],
+      "answer": "William Shakespeare",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-52",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the most abundant gas in Earth's atmosphere?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Argon",
+        "Nitrogen"
+      ],
+      "answer": "Nitrogen",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-53",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "Which empire was ruled by Julius Caesar?",
+      "options": [
+        "Greek",
+        "Ottoman",
+        "Roman",
+        "Byzantine"
+      ],
+      "answer": "Roman",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-54",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Culture",
+      "question": "Which country is the origin of sushi?",
+      "options": [
+        "China",
+        "South Korea",
+        "Thailand",
+        "Japan"
+      ],
+      "answer": "Japan",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-55",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the only mammal capable of true flight?",
+      "options": [
+        "Flying squirrel",
+        "Bat",
+        "Sugar glider",
+        "Colugo"
+      ],
+      "answer": "Bat",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-56",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "Which film won the first-ever Academy Award for Best Picture?",
+      "options": [
+        "Wings",
+        "Sunrise",
+        "The Jazz Singer",
+        "Ben-Hur"
+      ],
+      "answer": "Wings",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R1-57",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "What is the longest river in the world?",
+      "options": [
+        "Amazon",
+        "Congo",
+        "Mississippi",
+        "Nile"
+      ],
+      "answer": "Nile",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-58",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the approximate speed of light in a vacuum?",
+      "options": [
+        "300,000 km/s",
+        "150,000 km/s",
+        "30,000 km/s",
+        "3,000 km/s"
+      ],
+      "answer": "300,000 km/s",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-59",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Sports",
+      "question": "In which sport is the 'Ryder Cup' contested?",
+      "options": [
+        "Tennis",
+        "Golf",
+        "Cricket",
+        "Polo"
+      ],
+      "answer": "Golf",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-60",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "Which singer is known as 'Queen of Pop'?",
+      "options": [
+        "Beyoncé",
+        "Rihanna",
+        "Madonna",
+        "Lady Gaga"
+      ],
+      "answer": "Madonna",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-61",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Technology",
+      "question": "What does 'HTML' stand for?",
+      "options": [
+        "Hyper Text Markup Language",
+        "High Tech Machine Learning",
+        "Home Tool Management Link",
+        "Hyper Transfer Markup Logic"
+      ],
+      "answer": "Hyper Text Markup Language",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-62",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "Which country dropped atomic bombs on Hiroshima and Nagasaki?",
+      "options": [
+        "Soviet Union",
+        "United Kingdom",
+        "United States",
+        "France"
+      ],
+      "answer": "United States",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-63",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "How many chromosomes do humans typically have?",
+      "options": [
+        "23",
+        "36",
+        "46",
+        "48"
+      ],
+      "answer": "46",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-64",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Geography",
+      "question": "Which country contains the most of the Amazon rainforest?",
+      "options": [
+        "Peru",
+        "Colombia",
+        "Venezuela",
+        "Brazil"
+      ],
+      "answer": "Brazil",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-65",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "What year did 'Fortnite' launch as a free-to-play battle royale?",
+      "options": [
+        "2016",
+        "2017",
+        "2018",
+        "2019"
+      ],
+      "answer": "2017",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-66",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Math",
+      "question": "What is the value of π (pi) to two decimal places?",
+      "options": [
+        "3.12",
+        "3.14",
+        "3.16",
+        "3.18"
+      ],
+      "answer": "3.14",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-67",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Literature",
+      "question": "In which Dickens novel does Ebenezer Scrooge appear?",
+      "options": [
+        "Oliver Twist",
+        "Bleak House",
+        "A Christmas Carol",
+        "Great Expectations"
+      ],
+      "answer": "A Christmas Carol",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-68",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "How many hearts does an octopus have?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-69",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Food",
+      "question": "Which nut is used to make marzipan?",
+      "options": [
+        "Walnut",
+        "Hazelnut",
+        "Cashew",
+        "Almond"
+      ],
+      "answer": "Almond",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-70",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "Which studio produced 'The Lion King' (1994)?",
+      "options": [
+        "Pixar",
+        "DreamWorks",
+        "Universal",
+        "Disney"
+      ],
+      "answer": "Disney",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-71",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "How many chambers does the human heart have?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "answer": "4",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-72",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "Who wrote the Harry Potter series?",
+      "options": [
+        "J.R.R. Tolkien",
+        "C.S. Lewis",
+        "J.K. Rowling",
+        "Roald Dahl"
+      ],
+      "answer": "J.K. Rowling",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-73",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the most abundant element in the universe?",
+      "options": [
+        "Oxygen",
+        "Carbon",
+        "Helium",
+        "Hydrogen"
+      ],
+      "answer": "Hydrogen",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-74",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "Who was the first woman to win a Nobel Prize?",
+      "options": [
+        "Marie Curie",
+        "Rosalind Franklin",
+        "Ada Lovelace",
+        "Florence Nightingale"
+      ],
+      "answer": "Marie Curie",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-75",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "Which planet has the most moons?",
+      "options": [
+        "Jupiter",
+        "Uranus",
+        "Neptune",
+        "Saturn"
+      ],
+      "answer": "Saturn",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-76",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the longest bone in the human body?",
+      "options": [
+        "Tibia",
+        "Femur",
+        "Humerus",
+        "Fibula"
+      ],
+      "answer": "Femur",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-77",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "Who invented the telephone?",
+      "options": [
+        "Thomas Edison",
+        "Nikola Tesla",
+        "Alexander Graham Bell",
+        "Guglielmo Marconi"
+      ],
+      "answer": "Alexander Graham Bell",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-78",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "Which organ in the human body produces insulin?",
+      "options": [
+        "Liver",
+        "Kidney",
+        "Pancreas",
+        "Spleen"
+      ],
+      "answer": "Pancreas",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-79",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Technology",
+      "question": "Which streaming platform produced Stranger Things?",
+      "options": [
+        "HBO",
+        "Hulu",
+        "Amazon Prime",
+        "Netflix"
+      ],
+      "answer": "Netflix",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-80",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the rarest blood type?",
+      "options": [
+        "O-negative",
+        "A-negative",
+        "B-negative",
+        "AB-negative"
+      ],
+      "answer": "AB-negative",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R1-81",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "In what year was the first iPhone released?",
+      "options": [
+        "2005",
+        "2006",
+        "2007",
+        "2008"
+      ],
+      "answer": "2007",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-82",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the smallest planet in our solar system?",
+      "options": [
+        "Mars",
+        "Mercury",
+        "Venus",
+        "Pluto"
+      ],
+      "answer": "Mercury",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-83",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "Which country first sent a human to space?",
+      "options": [
+        "USA",
+        "Germany",
+        "China",
+        "Soviet Union"
+      ],
+      "answer": "Soviet Union",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-84",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "What is the best-selling video game of all time?",
+      "options": [
+        "Tetris",
+        "Minecraft",
+        "GTA V",
+        "Call of Duty: MW"
+      ],
+      "answer": "Minecraft",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-85",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "How many bones does a newborn baby have?",
+      "options": [
+        "206",
+        "270",
+        "300",
+        "350"
+      ],
+      "answer": "270",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R1-86",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "Which ancient wonder of the world still stands today?",
+      "options": [
+        "Hanging Gardens",
+        "Colossus of Rhodes",
+        "Great Pyramid of Giza",
+        "Lighthouse of Alexandria"
+      ],
+      "answer": "Great Pyramid of Giza",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-87",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Math",
+      "question": "What is 9 squared?",
+      "options": [
+        "72",
+        "81",
+        "90",
+        "99"
+      ],
+      "answer": "81",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-88",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the chemical formula for water?",
+      "options": [
+        "H2O",
+        "CO2",
+        "NaCl",
+        "O2"
+      ],
+      "answer": "H2O",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-89",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Sports",
+      "question": "In chess, which piece can only move diagonally?",
+      "options": [
+        "Knight",
+        "Rook",
+        "Bishop",
+        "Queen"
+      ],
+      "answer": "Bishop",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-90",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "The Renaissance began in which country?",
+      "options": [
+        "France",
+        "Spain",
+        "Italy",
+        "Greece"
+      ],
+      "answer": "Italy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-91",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "How many Super Bowl rings does Tom Brady have?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": "7",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-92",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondria",
+        "Golgi apparatus"
+      ],
+      "answer": "Mitochondria",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-93",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "Who painted the Sistine Chapel ceiling?",
+      "options": [
+        "Leonardo da Vinci",
+        "Raphael",
+        "Donatello",
+        "Michelangelo"
+      ],
+      "answer": "Michelangelo",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R1-94",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Math",
+      "question": "What is the value of 2 to the power of 10?",
+      "options": [
+        "512",
+        "1024",
+        "2048",
+        "256"
+      ],
+      "answer": "1024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-95",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Pop Culture",
+      "question": "What language has the most native speakers in the world?",
+      "options": [
+        "English",
+        "Spanish",
+        "Hindi",
+        "Mandarin Chinese"
+      ],
+      "answer": "Mandarin Chinese",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-96",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "Which planet rotates on its side (axial tilt ~98 degrees)?",
+      "options": [
+        "Neptune",
+        "Saturn",
+        "Venus",
+        "Uranus"
+      ],
+      "answer": "Uranus",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R1-97",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "History",
+      "question": "In what year was the United Nations founded?",
+      "options": [
+        "1942",
+        "1945",
+        "1948",
+        "1950"
+      ],
+      "answer": "1945",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-98",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "Which gas makes up about 78% of Earth's atmosphere?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Argon",
+        "Nitrogen"
+      ],
+      "answer": "Nitrogen",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R1-99",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the approximate speed of sound in air?",
+      "options": [
+        "343 m/s",
+        "1000 m/s",
+        "100 m/s",
+        "3000 m/s"
+      ],
+      "answer": "343 m/s",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R1-100",
+      "round": 1,
+      "type": "multiple_choice",
+      "category": "Science",
+      "question": "What is the chemical symbol for sodium?",
+      "options": [
+        "So",
+        "Sd",
+        "Na",
+        "Sn"
+      ],
+      "answer": "Na",
+      "difficulty": "Medium"
     }
   ],
   "round2": [
@@ -1748,6 +2498,971 @@
         "describes": "(text question — no image)"
       },
       "difficulty": "Medium"
+    },
+    {
+      "id": "R2-51",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "",
+      "options": [
+        "Greece",
+        "Cyprus",
+        "Turkey",
+        "Georgia"
+      ],
+      "answer": "Cyprus",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "",
+        "country": "Cyprus"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-52",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "",
+      "options": [
+        "Mexico",
+        "Italy",
+        "Hungary",
+        "Bulgaria"
+      ],
+      "answer": "Hungary",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "",
+        "country": "Hungary"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-53",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "",
+      "options": [
+        "Netherlands",
+        "Russia",
+        "France",
+        "Slovenia"
+      ],
+      "answer": "France",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "",
+        "country": "France"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-54",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "",
+      "options": [
+        "South Korea",
+        "Japan",
+        "China",
+        "Taiwan"
+      ],
+      "answer": "South Korea",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "",
+        "country": "South Korea"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-55",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Zoomed Flag",
+      "question": "",
+      "options": [
+        "Pakistan",
+        "Bangladesh",
+        "Algeria",
+        "Saudi Arabia"
+      ],
+      "answer": "Pakistan",
+      "asset": {
+        "kind": "zoomed_flag",
+        "describes": "",
+        "country": "Pakistan"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-56",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "",
+      "options": [
+        "Switzerland",
+        "Denmark",
+        "Sweden",
+        "Norway"
+      ],
+      "answer": "Denmark",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "",
+        "country": "Denmark"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-57",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "",
+      "options": [
+        "Argentina",
+        "Uruguay",
+        "Greece",
+        "Honduras"
+      ],
+      "answer": "Argentina",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "",
+        "country": "Argentina"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-58",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "",
+      "options": [
+        "India",
+        "Niger",
+        "Ivory Coast",
+        "Ireland"
+      ],
+      "answer": "India",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "",
+        "country": "India"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-59",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "",
+      "options": [
+        "Ethiopia",
+        "Bolivia",
+        "Ghana",
+        "Cameroon"
+      ],
+      "answer": "Ghana",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "",
+        "country": "Ghana"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-60",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Greyed Flag",
+      "question": "",
+      "options": [
+        "Croatia",
+        "Slovakia",
+        "Czech Republic",
+        "Slovenia"
+      ],
+      "answer": "Croatia",
+      "asset": {
+        "kind": "greyed_flag",
+        "describes": "",
+        "country": "Croatia"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-61",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "",
+      "options": [
+        "Colombia",
+        "Venezuela",
+        "Ecuador",
+        "Peru"
+      ],
+      "answer": "Colombia",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "",
+        "country": "Colombia"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-62",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "",
+      "options": [
+        "South Korea",
+        "Japan",
+        "Taiwan",
+        "Vietnam"
+      ],
+      "answer": "Japan",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "",
+        "country": "Japan"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-63",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "",
+      "options": [
+        "Kenya",
+        "Tanzania",
+        "Ethiopia",
+        "Uganda"
+      ],
+      "answer": "Kenya",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "",
+        "country": "Kenya"
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-64",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "",
+      "options": [
+        "UK",
+        "Ireland",
+        "New Zealand",
+        "Iceland"
+      ],
+      "answer": "UK",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "",
+        "country": "UK"
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-65",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Country Outline",
+      "question": "",
+      "options": [
+        "Morocco",
+        "Algeria",
+        "Libya",
+        "Tunisia"
+      ],
+      "answer": "Morocco",
+      "asset": {
+        "kind": "country_outline",
+        "describes": "",
+        "country": "Morocco"
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-66",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Istanbul",
+        "Ankara",
+        "Izmir",
+        "Bursa"
+      ],
+      "answer": "Ankara",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-67",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Utah",
+        "Colorado",
+        "Nevada",
+        "Arizona"
+      ],
+      "answer": "Arizona",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-68",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Ganges",
+        "Yangtze",
+        "Mekong",
+        "Indus"
+      ],
+      "answer": "Yangtze",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-69",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Indonesia",
+        "Philippines",
+        "New Zealand",
+        "Australia"
+      ],
+      "answer": "Australia",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-70",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Japan",
+        "USA",
+        "Philippines",
+        "Indonesia"
+      ],
+      "answer": "Indonesia",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-71",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Alexandria",
+        "Luxor",
+        "Giza",
+        "Cairo"
+      ],
+      "answer": "Cairo",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-72",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "China",
+        "South Korea",
+        "Taiwan",
+        "Japan"
+      ],
+      "answer": "Japan",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-73",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Lagos",
+        "Kano",
+        "Ibadan",
+        "Abuja"
+      ],
+      "answer": "Abuja",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-74",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Africa",
+        "Australia",
+        "South America",
+        "Asia"
+      ],
+      "answer": "Asia",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-75",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Mumbai",
+        "Kolkata",
+        "Bangalore",
+        "New Delhi"
+      ],
+      "answer": "New Delhi",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-76",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Costa Rica",
+        "Nicaragua",
+        "Guatemala",
+        "Panama"
+      ],
+      "answer": "Panama",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-77",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "St. Petersburg",
+        "Novosibirsk",
+        "Vladivostok",
+        "Moscow"
+      ],
+      "answer": "Moscow",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-78",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Ethiopia",
+        "Democratic Republic of Congo",
+        "Egypt",
+        "Nigeria"
+      ],
+      "answer": "Nigeria",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-79",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Atlantic Ocean",
+        "Pacific Ocean",
+        "Southern Ocean",
+        "Indian Ocean"
+      ],
+      "answer": "Indian Ocean",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-80",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Indian Ocean",
+        "Southern Ocean",
+        "Atlantic Ocean",
+        "Arctic Ocean"
+      ],
+      "answer": "Arctic Ocean",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-81",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Mecca",
+        "Medina",
+        "Jeddah",
+        "Riyadh"
+      ],
+      "answer": "Riyadh",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-82",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Mount Logan",
+        "Pico de Orizaba",
+        "Mount Whitney",
+        "Denali"
+      ],
+      "answer": "Denali",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-83",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Porto",
+        "Braga",
+        "Faro",
+        "Lisbon"
+      ],
+      "answer": "Lisbon",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-84",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Texas",
+        "California",
+        "Montana",
+        "Alaska"
+      ],
+      "answer": "Alaska",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-85",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "India",
+        "Vietnam",
+        "Thailand",
+        "China"
+      ],
+      "answer": "China",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-86",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Lima",
+        "Bogota",
+        "Santiago",
+        "Buenos Aires"
+      ],
+      "answer": "Buenos Aires",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-87",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Chile",
+        "Argentina",
+        "Peru",
+        "Bolivia"
+      ],
+      "answer": "Bolivia",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-88",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Busan",
+        "Pyongyang",
+        "Incheon",
+        "Seoul"
+      ],
+      "answer": "Seoul",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-89",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "France",
+        "China",
+        "Italy",
+        "Spain"
+      ],
+      "answer": "Italy",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-90",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Peru",
+        "Argentina",
+        "Bolivia",
+        "Chile"
+      ],
+      "answer": "Chile",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-91",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Brisbane",
+        "Canberra"
+      ],
+      "answer": "Canberra",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-92",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Russia",
+        "USA",
+        "Indonesia",
+        "Canada"
+      ],
+      "answer": "Canada",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-93",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Chile",
+        "Ecuador",
+        "Colombia",
+        "Bolivia"
+      ],
+      "answer": "Bolivia",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-94",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Java",
+        "Borneo",
+        "Sulawesi",
+        "Sumatra"
+      ],
+      "answer": "Sumatra",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-95",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Guadalajara",
+        "Monterrey",
+        "Tijuana",
+        "Mexico City"
+      ],
+      "answer": "Mexico City",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R2-96",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Brazil",
+        "Argentina",
+        "Peru",
+        "Colombia"
+      ],
+      "answer": "Colombia",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R2-97",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Lagos",
+        "Abuja",
+        "Kano",
+        "Ibadan"
+      ],
+      "answer": "Abuja",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-98",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Aegean Sea",
+        "Black Sea",
+        "Adriatic Sea",
+        "Ionian Sea"
+      ],
+      "answer": "Adriatic Sea",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-99",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Iraq",
+        "Lebanon",
+        "Jordan",
+        "Israel"
+      ],
+      "answer": "Jordan",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R2-100",
+      "round": 2,
+      "type": "multiple_choice",
+      "category": "Geography Q",
+      "question": "",
+      "options": [
+        "Spanish",
+        "Portuguese",
+        "French",
+        "English"
+      ],
+      "answer": "Portuguese",
+      "asset": {
+        "kind": "none",
+        "describes": ""
+      },
+      "difficulty": "Easy"
     }
   ],
   "round3": [
@@ -2281,6 +3996,556 @@
       "answer": 32,
       "unit": "°F",
       "difficulty": "Easy"
+    },
+    {
+      "id": "R3-51",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year was the Eiffel Tower completed?",
+      "answer": 1889,
+      "unit": "year",
+      "notes": "Completed 1889",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-52",
+      "round": 3,
+      "type": "numeric",
+      "category": "Sports",
+      "question": "In what year did the first Super Bowl take place?",
+      "answer": 1967,
+      "unit": "year",
+      "notes": "Super Bowl I, January 1967",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-53",
+      "round": 3,
+      "type": "numeric",
+      "category": "Technology",
+      "question": "In what year was Instagram founded?",
+      "answer": 2010,
+      "unit": "year",
+      "notes": "Founded October 2010",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-54",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year did Neil Armstrong first walk on the Moon?",
+      "answer": 1969,
+      "unit": "year",
+      "notes": "Apollo 11, July 1969",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-55",
+      "round": 3,
+      "type": "numeric",
+      "category": "Geography",
+      "question": "What is the population of Los Angeles (city proper)?",
+      "answer": 3900000,
+      "unit": "people",
+      "notes": "Approx 3.9M city proper",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-56",
+      "round": 3,
+      "type": "numeric",
+      "category": "Geography",
+      "question": "What is the population of the United Kingdom?",
+      "answer": 67000000,
+      "unit": "people",
+      "notes": "Approx 67M",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-57",
+      "round": 3,
+      "type": "numeric",
+      "category": "Geography",
+      "question": "What is the population of Nigeria?",
+      "answer": 220000000,
+      "unit": "people",
+      "notes": "Approx 220M",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-58",
+      "round": 3,
+      "type": "numeric",
+      "category": "Geography",
+      "question": "What is the population of the state of Florida?",
+      "answer": 22000000,
+      "unit": "people",
+      "notes": "Approx 22M",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-59",
+      "round": 3,
+      "type": "numeric",
+      "category": "Sports",
+      "question": "How many grand slam tennis tournaments are there in a year?",
+      "answer": 4,
+      "unit": "tournaments",
+      "notes": "Australian, French, Wimbledon, US Open",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-60",
+      "round": 3,
+      "type": "numeric",
+      "category": "Science",
+      "question": "How many planets have been visited by a spacecraft from Earth?",
+      "answer": 8,
+      "unit": "planets",
+      "notes": "All 8 planets visited by at least a flyby",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-61",
+      "round": 3,
+      "type": "numeric",
+      "category": "Culture",
+      "question": "How many stars are on the American flag?",
+      "answer": 50,
+      "unit": "stars",
+      "notes": "One per state",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-62",
+      "round": 3,
+      "type": "numeric",
+      "category": "Pop Culture",
+      "question": "How many episodes are in the original run of 'Friends' (1994-2004)?",
+      "answer": 236,
+      "unit": "episodes",
+      "notes": "236 total episodes across 10 seasons",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-63",
+      "round": 3,
+      "type": "numeric",
+      "category": "Geography",
+      "question": "How many miles is it around the Earth's equator?",
+      "answer": 24901,
+      "unit": "miles",
+      "notes": "Approx 24,901 miles",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-64",
+      "round": 3,
+      "type": "numeric",
+      "category": "Science",
+      "question": "What is the approximate distance from Earth to the Sun in miles?",
+      "answer": 93000000,
+      "unit": "miles",
+      "notes": "Approx 93 million miles",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-65",
+      "round": 3,
+      "type": "numeric",
+      "category": "Geography",
+      "question": "What is the area of Texas in square miles?",
+      "answer": 268596,
+      "unit": "square miles",
+      "notes": "268,596 sq mi",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-66",
+      "round": 3,
+      "type": "numeric",
+      "category": "Geography",
+      "question": "What is the area of Russia in square miles?",
+      "answer": 6601670,
+      "unit": "square miles",
+      "notes": "Approx 6.6M sq mi",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-67",
+      "round": 3,
+      "type": "numeric",
+      "category": "Architecture",
+      "question": "How tall is the Statue of Liberty from base to torch tip in feet?",
+      "answer": 305,
+      "unit": "feet",
+      "notes": "305 feet total",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-68",
+      "round": 3,
+      "type": "numeric",
+      "category": "Architecture",
+      "question": "How tall is the Empire State Building to roof in feet?",
+      "answer": 1250,
+      "unit": "feet",
+      "notes": "1,250 ft to roof",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-69",
+      "round": 3,
+      "type": "numeric",
+      "category": "Science",
+      "question": "What is normal human body temperature in degrees Fahrenheit?",
+      "answer": 98,
+      "unit": "degrees F",
+      "notes": "98.6 rounds to 99; accept 98",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-70",
+      "round": 3,
+      "type": "numeric",
+      "category": "Sports",
+      "question": "How many medals did the USA win in total at the 2024 Paris Olympics?",
+      "answer": 126,
+      "unit": "medals",
+      "notes": "126 total (40 gold, 44 silver, 42 bronze)",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-71",
+      "round": 3,
+      "type": "numeric",
+      "category": "Nature",
+      "question": "How tall is Angel Falls, the world's tallest waterfall, in feet?",
+      "answer": 3212,
+      "unit": "feet",
+      "notes": "3,212 feet, Venezuela",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-72",
+      "round": 3,
+      "type": "numeric",
+      "category": "Culture",
+      "question": "How many books are in the Protestant Bible?",
+      "answer": 66,
+      "unit": "books",
+      "notes": "66 books",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-73",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year was the Taj Mahal completed?",
+      "answer": 1653,
+      "unit": "year",
+      "notes": "Completed 1653",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-74",
+      "round": 3,
+      "type": "numeric",
+      "category": "Science",
+      "question": "How many bones does a newborn baby have?",
+      "answer": 270,
+      "unit": "bones",
+      "notes": "Approx 270",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-75",
+      "round": 3,
+      "type": "numeric",
+      "category": "Science",
+      "question": "How many days are in a leap year?",
+      "answer": 366,
+      "unit": "days",
+      "notes": "366 days",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-76",
+      "round": 3,
+      "type": "numeric",
+      "category": "Geography",
+      "question": "How tall is Mount Everest in meters?",
+      "answer": 8849,
+      "unit": "meters",
+      "notes": "8,849 m",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-77",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year was Google founded?",
+      "answer": 1998,
+      "unit": "year",
+      "notes": "Founded 1998",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-78",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year was Facebook founded?",
+      "answer": 2004,
+      "unit": "year",
+      "notes": "Founded 2004",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-79",
+      "round": 3,
+      "type": "numeric",
+      "category": "Pop Culture",
+      "question": "How many episodes does Breaking Bad have in total?",
+      "answer": 62,
+      "unit": "episodes",
+      "notes": "62 total episodes",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-80",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year was the first Harry Potter book published?",
+      "answer": 1997,
+      "unit": "year",
+      "notes": "Philosopher's Stone, 1997",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-81",
+      "round": 3,
+      "type": "numeric",
+      "category": "Sports",
+      "question": "How many World Series titles have the New York Yankees won?",
+      "answer": 27,
+      "unit": "titles",
+      "notes": "Through 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-82",
+      "round": 3,
+      "type": "numeric",
+      "category": "Architecture",
+      "question": "How many floors does the Empire State Building have?",
+      "answer": 102,
+      "unit": "floors",
+      "notes": "102 floors",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-83",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year was the Mona Lisa painted (approximate start)?",
+      "answer": 1503,
+      "unit": "year",
+      "notes": "Circa 1503",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-84",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year did YouTube launch?",
+      "answer": 2005,
+      "unit": "year",
+      "notes": "Launched 2005",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-85",
+      "round": 3,
+      "type": "numeric",
+      "category": "Architecture",
+      "question": "How many stories tall is the Burj Khalifa?",
+      "answer": 163,
+      "unit": "stories",
+      "notes": "163 floors",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-86",
+      "round": 3,
+      "type": "numeric",
+      "category": "Science",
+      "question": "How many vertebrae does the human spine have?",
+      "answer": 33,
+      "unit": "vertebrae",
+      "notes": "33 vertebrae",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-87",
+      "round": 3,
+      "type": "numeric",
+      "category": "Sports",
+      "question": "How many countries have won the FIFA World Cup?",
+      "answer": 8,
+      "unit": "countries",
+      "notes": "Brazil, Germany, Italy, Argentina, France, Uruguay, England, Spain",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-88",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year was Amazon founded?",
+      "answer": 1994,
+      "unit": "year",
+      "notes": "Founded July 1994",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-89",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year was the first Harry Potter film released?",
+      "answer": 2001,
+      "unit": "year",
+      "notes": "Sorcerer's Stone, 2001",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-90",
+      "round": 3,
+      "type": "numeric",
+      "category": "Pop Culture",
+      "question": "How many seasons does The Office (US) have?",
+      "answer": 9,
+      "unit": "seasons",
+      "notes": "9 seasons",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-91",
+      "round": 3,
+      "type": "numeric",
+      "category": "Sports",
+      "question": "How many Olympic gold medals has Michael Phelps won?",
+      "answer": 23,
+      "unit": "gold medals",
+      "notes": "23 golds through 2016",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-92",
+      "round": 3,
+      "type": "numeric",
+      "category": "Geography",
+      "question": "How long is the Nile River in miles (approximate)?",
+      "answer": 4258,
+      "unit": "miles",
+      "notes": "Approx 4,258 miles",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-93",
+      "round": 3,
+      "type": "numeric",
+      "category": "Science",
+      "question": "How many ribs does a human have?",
+      "answer": 24,
+      "unit": "ribs",
+      "notes": "24 ribs (12 pairs)",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-94",
+      "round": 3,
+      "type": "numeric",
+      "category": "Geography",
+      "question": "How many countries does China border?",
+      "answer": 14,
+      "unit": "countries",
+      "notes": "14 land borders",
+      "difficulty": "Hard"
+    },
+    {
+      "id": "R3-95",
+      "round": 3,
+      "type": "numeric",
+      "category": "Pop Culture",
+      "question": "How many seasons does Game of Thrones have?",
+      "answer": 8,
+      "unit": "seasons",
+      "notes": "8 seasons",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-96",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year did Martin Luther King Jr. deliver the 'I Have a Dream' speech?",
+      "answer": 1963,
+      "unit": "year",
+      "notes": "August 28, 1963",
+      "difficulty": "Easy"
+    },
+    {
+      "id": "R3-97",
+      "round": 3,
+      "type": "numeric",
+      "category": "History",
+      "question": "In what year was the first James Bond film released?",
+      "answer": 1962,
+      "unit": "year",
+      "notes": "Dr. No, 1962",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-98",
+      "round": 3,
+      "type": "numeric",
+      "category": "Geography",
+      "question": "How many countries are in the European Union?",
+      "answer": 27,
+      "unit": "countries",
+      "notes": "27 member states as of 2024",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-99",
+      "round": 3,
+      "type": "numeric",
+      "category": "Sports",
+      "question": "How long is an NBA basketball court in feet?",
+      "answer": 94,
+      "unit": "feet",
+      "notes": "94 feet long",
+      "difficulty": "Medium"
+    },
+    {
+      "id": "R3-100",
+      "round": 3,
+      "type": "numeric",
+      "category": "Science",
+      "question": "How many elements are on the periodic table?",
+      "answer": 118,
+      "unit": "elements",
+      "notes": "118 confirmed elements",
+      "difficulty": "Medium"
     }
   ],
   "final": [
@@ -3550,6 +5815,404 @@
       ],
       "totalPossible": "open",
       "openDictionaryKey": "F-50"
+    },
+    {
+      "id": "F-51",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries that have won the FIFA World Cup as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Brazil",
+        "Germany",
+        "Italy",
+        "Argentina",
+        "France",
+        "Uruguay",
+        "England",
+        "Spain"
+      ],
+      "totalPossible": 8
+    },
+    {
+      "id": "F-52",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many planets in our solar system that have rings as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Saturn",
+        "Jupiter",
+        "Uranus",
+        "Neptune"
+      ],
+      "totalPossible": 4
+    },
+    {
+      "id": "F-53",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many Taylor Swift studio albums as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Taylor Swift",
+        "Fearless",
+        "Speak Now",
+        "Red",
+        "1989",
+        "reputation",
+        "Lover",
+        "folklore",
+        "evermore",
+        "Midnights",
+        "The Tortured Poets Department"
+      ],
+      "totalPossible": 11
+    },
+    {
+      "id": "F-54",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many African countries starting with the letter M as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Morocco",
+        "Madagascar",
+        "Malawi",
+        "Mali",
+        "Mauritania",
+        "Mauritius",
+        "Mozambique"
+      ],
+      "totalPossible": 7
+    },
+    {
+      "id": "F-55",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries in Southeast Asia as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Brunei",
+        "Cambodia",
+        "Indonesia",
+        "Laos",
+        "Malaysia",
+        "Myanmar",
+        "Burma",
+        "Philippines",
+        "Singapore",
+        "Thailand",
+        "Timor-Leste",
+        "East Timor",
+        "Vietnam"
+      ],
+      "totalPossible": 11
+    },
+    {
+      "id": "F-56",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many colors of the American flag as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "red",
+        "white",
+        "blue"
+      ],
+      "totalPossible": 3
+    },
+    {
+      "id": "F-57",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many Ivy League universities as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Harvard",
+        "Yale",
+        "Princeton",
+        "Columbia",
+        "Penn",
+        "University of Pennsylvania",
+        "Brown",
+        "Dartmouth",
+        "Cornell"
+      ],
+      "totalPossible": 8
+    },
+    {
+      "id": "F-58",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many U.S. states that start with the letter N as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Nebraska",
+        "Nevada",
+        "New Hampshire",
+        "New Jersey",
+        "New Mexico",
+        "New York",
+        "North Carolina",
+        "North Dakota"
+      ],
+      "totalPossible": 8
+    },
+    {
+      "id": "F-59",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many types of pasta as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "spaghetti",
+        "fettuccine",
+        "penne",
+        "rigatoni",
+        "linguine",
+        "tagliatelle",
+        "farfalle",
+        "bow tie",
+        "fusilli",
+        "rotini",
+        "lasagna",
+        "ravioli",
+        "tortellini",
+        "gnocchi",
+        "orzo",
+        "orecchiette",
+        "cavatappi",
+        "conchiglie",
+        "shells",
+        "bucatini",
+        "angel hair",
+        "capellini",
+        "pappardelle",
+        "ziti",
+        "macaroni"
+      ],
+      "totalPossible": "open",
+      "openDictionaryKey": "F-59"
+    },
+    {
+      "id": "F-60",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many U.S. states that border Canada as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Alaska",
+        "Washington",
+        "Idaho",
+        "Montana",
+        "North Dakota",
+        "Minnesota",
+        "Wisconsin",
+        "Michigan",
+        "Ohio",
+        "Pennsylvania",
+        "New York",
+        "Vermont",
+        "New Hampshire",
+        "Maine"
+      ],
+      "totalPossible": 13
+    },
+    {
+      "id": "F-61",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries in Central America as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Belize",
+        "Guatemala",
+        "Honduras",
+        "El Salvador",
+        "Nicaragua",
+        "Costa Rica",
+        "Panama"
+      ],
+      "totalPossible": 7
+    },
+    {
+      "id": "F-62",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many chess pieces as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "king",
+        "queen",
+        "rook",
+        "castle",
+        "bishop",
+        "knight",
+        "pawn"
+      ],
+      "totalPossible": 6
+    },
+    {
+      "id": "F-63",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many original 13 U.S. colonies as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Connecticut",
+        "Delaware",
+        "Georgia",
+        "Maryland",
+        "Massachusetts",
+        "New Hampshire",
+        "New Jersey",
+        "New York",
+        "North Carolina",
+        "Pennsylvania",
+        "Rhode Island",
+        "South Carolina",
+        "Virginia"
+      ],
+      "totalPossible": 13
+    },
+    {
+      "id": "F-64",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries that start with the letter P as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Pakistan",
+        "Palau",
+        "Palestine",
+        "Panama",
+        "Papua New Guinea",
+        "Paraguay",
+        "Peru",
+        "Philippines",
+        "Poland",
+        "Portugal"
+      ],
+      "totalPossible": 10
+    },
+    {
+      "id": "F-65",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many U.S. states that start with the letter A as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Alabama",
+        "Alaska",
+        "Arizona",
+        "Arkansas"
+      ],
+      "totalPossible": 4
+    },
+    {
+      "id": "F-66",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many Winter Olympic sports as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "alpine skiing",
+        "biathlon",
+        "bobsled",
+        "bobsleigh",
+        "cross-country skiing",
+        "curling",
+        "figure skating",
+        "freestyle skiing",
+        "ice hockey",
+        "luge",
+        "Nordic combined",
+        "short track speed skating",
+        "skeleton",
+        "ski jumping",
+        "snowboard",
+        "snowboarding",
+        "speed skating"
+      ],
+      "totalPossible": 15
+    },
+    {
+      "id": "F-67",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries that share a border with Brazil as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Argentina",
+        "Bolivia",
+        "Colombia",
+        "Guyana",
+        "Paraguay",
+        "Peru",
+        "Suriname",
+        "Uruguay",
+        "Venezuela",
+        "French Guiana"
+      ],
+      "totalPossible": 10
+    },
+    {
+      "id": "F-68",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many U.S. state capitals that start with the letter A as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Albany",
+        "Annapolis",
+        "Atlanta",
+        "Augusta",
+        "Austin"
+      ],
+      "totalPossible": 5
+    },
+    {
+      "id": "F-69",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many Harry Potter books as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Sorcerer's Stone",
+        "Philosopher's Stone",
+        "Chamber of Secrets",
+        "Prisoner of Azkaban",
+        "Goblet of Fire",
+        "Order of the Phoenix",
+        "Half-Blood Prince",
+        "Deathly Hallows"
+      ],
+      "totalPossible": 7
+    },
+    {
+      "id": "F-70",
+      "round": "final",
+      "type": "list",
+      "prompt": "Name as many countries in the Caribbean as you can.",
+      "timeSec": 20,
+      "acceptable": [
+        "Cuba",
+        "Jamaica",
+        "Haiti",
+        "Dominican Republic",
+        "Puerto Rico",
+        "Trinidad and Tobago",
+        "Barbados",
+        "Bahamas",
+        "Saint Lucia",
+        "Saint Vincent and the Grenadines",
+        "Grenada",
+        "Antigua and Barbuda",
+        "Dominica",
+        "Saint Kitts and Nevis"
+      ],
+      "totalPossible": 13
     }
   ]
 }
