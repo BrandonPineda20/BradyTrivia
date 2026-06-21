@@ -45,7 +45,7 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
       const audio = new Audio(src);
       // Use a quieter volume on narrow screens (mobile web)
       const isMobileWeb = typeof window !== "undefined" && window.innerWidth < 768;
-      audio.volume = isMobileWeb ? 0.04 : 0.07;
+      audio.volume = isMobileWeb ? 0.25 : 0.35;
       audio.play().catch(() => {});
     }
 
