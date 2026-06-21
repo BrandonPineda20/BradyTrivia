@@ -38,9 +38,10 @@ export const Avatar = memo(function Avatar({
     [config, size, spriteId],
   );
 
-  // Zoom into the top ~45% of the sprite to show face + shoulders, centered.
+  // Zoom into the top portion of the sprite; shift the image down slightly
+  // so the face lands at the vertical center of the circle.
   const faceImgSize = size * 2.4;
-  const faceTop = size * 0.08;
+  const faceTop = size * -0.12; // negative = shift image downward
 
   return (
     <View style={{ opacity: dimmed ? 0.4 : 1 }} accessibilityLabel={name ? `${name} avatar` : undefined}>

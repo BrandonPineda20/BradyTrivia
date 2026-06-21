@@ -67,7 +67,13 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
 
   const champ = players.find((p) => p.id === championId);
   const you = players.find((p) => p.kind === "human");
-  const ordered = [...players].sort((a, b) => (a.placement ?? 9) - (b.placement ?? 9));
+
+  // Sort by placement; any player without a placement falls to the end.
+  // Then assign display numbers from the sorted position so they're always
+  // sequential (1–5) even if the store has gaps from dev-skip flows.
+  const ordered = [...players]
+    .sort((a, b) => (a.placement ?? 99) - (b.placement ?? 99))
+    .map((p, i) => ({ ...p, displayPlace: p.placement ?? i + 1 }));
   const wins = useProgressionStore((s) => s.stats.wins);
 
   // Deterministic fake win count for bots seeded from name chars
@@ -104,7 +110,7 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
 
       <View style={styles.board}>
         {ordered.map((p) => {
-          const isChamp = p.placement === 1;
+          const isChamp = p.displayPlace === 1;
           return (
             <Animated.View
               key={p.id}
@@ -116,7 +122,7 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
                 },
               ]}
             >
-              <Text style={styles.place}>{p.placement}</Text>
+              <Text style={styles.place}>{p.displayPlace}</Text>
               <Animated.View style={isChamp ? { opacity: shineAnim.interpolate({ inputRange: [0, 1], outputRange: [1, 1] }), shadowColor: "#FFD700", shadowRadius: shineAnim.interpolate({ inputRange: [0, 1], outputRange: [0, 18] }), shadowOpacity: shineAnim } : undefined}>
                 <Avatar config={p.avatar} size={56} ringColor={isChamp ? palette.accent : palette.neutral} faceOnly />
               </Animated.View>
