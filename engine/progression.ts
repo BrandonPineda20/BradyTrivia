@@ -22,49 +22,60 @@ export type EpisodeSummary = {
 
 // ── XP & levels (§9.1) ───────────────────────────────────────────────────────
 
+/** Base XP by finishing position (1 = winner). Negative = XP loss. */
+const PLACEMENT_XP: Record<number, number> = {
+  1: 250,
+  2: 80,
+  3: 25,
+  4: -30,
+  5: -60,
+};
+
 export function xpForEpisode(s: EpisodeSummary): number {
-  return (
-    20 + // participation
-    10 * s.correct +
-    25 * s.roundsAdvanced +
-    (s.reachedFinal ? 50 : 0) +
-    (s.won ? 200 : 0)
-  );
+  const base = PLACEMENT_XP[s.placement] ?? 0;
+  const correctBonus = 5 * s.correct; // small bonus for good answers
+  return base + correctBonus;
 }
 
 export const LEVELS = [
-  { level: 1, title: "Pop Quiz Rookie", min: 0 },
-  { level: 2, title: "Class Clown", min: 300 },
-  { level: 3, title: "Honor Roll", min: 800 },
-  { level: 4, title: "Dean's List", min: 1600 },
-  { level: 5, title: "Valedictorian", min: 3000 },
-  { level: 6, title: "The Tutor", min: 5000 },
+  { level: 1, title: "Pop Quiz Rookie",  min: 0,      minWins: 0  },
+  { level: 2, title: "Class Clown",      min: 300,    minWins: 0  },
+  { level: 3, title: "Honor Roll",       min: 800,    minWins: 5  },
+  { level: 4, title: "Dean's List",      min: 1600,   minWins: 0  },
+  { level: 5, title: "Valedictorian",    min: 3000,   minWins: 10 },
+  { level: 6, title: "The Tutor",        min: 10000,  minWins: 20 },
 ] as const;
 
 export type LevelInfo = {
   level: number;
   title: string;
   min: number;
+  minWins: number;
   /** 0..1 progress toward the next level (1 when maxed). */
   progress: number;
   xpIntoLevel: number;
   xpForNext: number; // 0 when maxed
   nextTitle?: string;
+  nextMinWins: number;
 };
 
-export function levelInfo(xp: number): LevelInfo {
+export function levelInfo(xp: number, wins = 0): LevelInfo {
   let cur = LEVELS[0] as (typeof LEVELS)[number];
-  for (const l of LEVELS) if (xp >= l.min) cur = l;
-  const next = LEVELS.find((l) => l.min > xp);
+  for (const l of LEVELS) {
+    if (xp >= l.min && wins >= l.minWins) cur = l;
+  }
+  const next = LEVELS.find((l) => l.level === cur.level + 1);
   const span = next ? next.min - cur.min : 0;
   return {
     level: cur.level,
     title: cur.title,
     min: cur.min,
-    progress: next ? (xp - cur.min) / span : 1,
+    minWins: cur.minWins,
+    progress: next ? Math.min(1, (xp - cur.min) / Math.max(1, span)) : 1,
     xpIntoLevel: xp - cur.min,
     xpForNext: span,
     nextTitle: next?.title,
+    nextMinWins: next?.minWins ?? 0,
   };
 }
 

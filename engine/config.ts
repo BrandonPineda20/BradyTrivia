@@ -66,11 +66,11 @@ export const NUMERIC = {
 /** Name-as-many behavior (final). */
 export const LIST = {
   /** For closed prompts: target ≈ total * (base + slope*skill). */
-  closedBase: 0.18,
-  closedSlope: 0.7,
+  closedBase: 0.12,
+  closedSlope: 0.5,
   /** For open prompts: target interpolates low↔high by skill. */
-  openLow: 3,
-  openHigh: 14,
+  openLow: 2,
+  openHigh: 9,
   /** Jitter (stdDev) on the target count. */
   jitter: 1.4,
 } as const;
