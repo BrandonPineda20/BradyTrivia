@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+const ICON_MAGNET = require("../assets/Icons/Icons/magnet-colorful copy.png");
 
 import { useGateStore } from "../store/gateStore";
 import { unlockAudio } from "../audio/sfx";
@@ -31,6 +33,7 @@ export function PasscodeGate() {
     <SafeAreaView style={styles.stage}>
       <View style={styles.card}>
         <View style={styles.kickerPill}>
+          <Image source={ICON_MAGNET} style={styles.kickerIcon} resizeMode="contain" />
           <Text style={styles.kicker}>A MAGNET GAMES PRODUCTION</Text>
         </View>
         <BradyHost expression="asking" size={110} />
@@ -67,8 +70,9 @@ export function PasscodeGate() {
 const styles = StyleSheet.create({
   stage: { flex: 1, backgroundColor: palette.stageTint, alignItems: "center", justifyContent: "center", padding: spacing(5) },
   card: { width: "100%", maxWidth: 380, alignItems: "center", gap: spacing(2) },
-  kickerPill: { backgroundColor: palette.surface, borderRadius: radii.pill, paddingHorizontal: spacing(3), paddingVertical: spacing(1) },
-  kicker: { color: palette.inkSoft, fontSize: typography.size.xs, letterSpacing: 2, fontFamily: typography.fonts.display },
+  kickerPill: { flexDirection: "row", alignItems: "center", gap: spacing(1.5), backgroundColor: palette.surface, borderRadius: radii.pill, paddingHorizontal: spacing(3), paddingVertical: spacing(1) },
+  kickerIcon: { width: 16, height: 16 },
+  kicker: { color: palette.inkSoft, fontSize: typography.size.xs, letterSpacing: 2, fontFamily: typography.fonts.body },
   title: { color: palette.ink, fontSize: typography.size.xxl, fontFamily: typography.fonts.display, letterSpacing: -0.5, marginTop: spacing(1) },
   underline: { width: 56, height: 5, borderRadius: radii.pill, backgroundColor: palette.accent },
   sub: { color: palette.inkSoft, fontSize: typography.size.md, fontFamily: typography.fonts.body, textAlign: "center", marginTop: spacing(1), marginBottom: spacing(2) },
