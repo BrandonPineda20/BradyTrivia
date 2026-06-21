@@ -50,15 +50,12 @@ export default function Play() {
   const predictionLocked = useGameStore((s) => !!s.championPrediction);
   const eliminationPoolSize = useGameStore((s) => s.eliminationPoolSize);
   const poolLength = useGameStore((s) => s.pool.length);
-  const episodeApplied = useGameStore((s) => s.episodeApplied);
-
   const round = useGameStore((s) => s.round);
 
-  // Prediction picker is visible while: eliminated in a non-final round, not locked, pool hasn't shrunk
+  // Prediction picker is visible while: eliminated, not locked, pool hasn't shrunk further
   const votingWindowOpen =
     humanEliminated &&
     !predictionLocked &&
-    round !== "final" &&
     eliminationPoolSize !== null &&
     poolLength >= eliminationPoolSize;
 
@@ -92,21 +89,26 @@ export default function Play() {
   const handleGoHome = async () => {
     if (applyingRef.current) return;
     applyingRef.current = true;
-    if (!episodeApplied) {
-      useGameStore.getState().markEpisodeApplied();
-      const summary = useGameStore.getState().getEarlyLeaveSummary();
-      const result = await useProgressionStore.getState().applyEpisode(summary);
-      useProgressionStore.getState().setPendingXpDisplay({
-        xpEarned: result.xpEarned,
-        totalXp: result.totalXp,
-        level: result.level,
-        title: result.title,
-        xpToNext: result.xpToNext,
-        nextTitle: result.nextTitle,
-        progress: result.progress,
-      });
+    try {
+      // Read episodeApplied from store directly — not from React closure which can be stale
+      if (!useGameStore.getState().episodeApplied) {
+        useGameStore.getState().markEpisodeApplied();
+        const summary = useGameStore.getState().getEarlyLeaveSummary();
+        const result = await useProgressionStore.getState().applyEpisode(summary);
+        useProgressionStore.getState().setPendingXpDisplay({
+          xpEarned: result.xpEarned,
+          totalXp: result.totalXp,
+          level: result.level,
+          title: result.title,
+          xpToNext: result.xpToNext,
+          nextTitle: result.nextTitle,
+          progress: result.progress,
+        });
+      }
+      router.replace("/");
+    } catch {
+      applyingRef.current = false; // allow retry if something failed
     }
-    router.replace("/");
   };
 
   const startEpisode = () => {

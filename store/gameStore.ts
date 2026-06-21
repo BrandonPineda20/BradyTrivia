@@ -182,6 +182,12 @@ type GameState = {
   // progression accumulators (the human's run this episode → §9 summary)
   htally: HumanTally;
   summary: EpisodeSummary | null;
+  episodeApplied: boolean;
+
+  // prediction (human picks who will win after being eliminated)
+  championPrediction: string | null;
+  // pool size at the moment the human was eliminated (voting window closes if pool shrinks further)
+  eliminationPoolSize: number | null;
 
   // actions
   start: (cfg: { seed: number; content: EpisodeContent; difficulty?: DifficultyLevel; humanName?: string; humanAvatar?: AvatarConfig; supplements?: Record<string, string[]> }) => void;
@@ -190,6 +196,9 @@ type GameState = {
   addListEntry: (text: string) => boolean; // final; returns true if newly valid
   reset: () => void;
   devSkipRound: () => void;
+  setChampionPrediction: (id: string) => void;
+  markEpisodeApplied: () => void;
+  getEarlyLeaveSummary: () => EpisodeSummary;
 };
 
 export const useGameStore = create<GameState>((set, get) => {
@@ -311,6 +320,8 @@ export const useGameStore = create<GameState>((set, get) => {
       status: p.id === eliminatedId ? ("eliminated" as const) : p.status,
     }));
     const humanEliminated = s.humanEliminated || eliminatedId === HUMAN_ID;
+    const eliminationPoolSize =
+      eliminatedId === HUMAN_ID ? advanced.length : s.eliminationPoolSize;
 
     if (s.round === 3) {
       // Two advance → final.
@@ -319,6 +330,7 @@ export const useGameStore = create<GameState>((set, get) => {
         placements,
         advanced,
         humanEliminated,
+        eliminationPoolSize,
         htally,
         pool: advanced,
         round: "final",
@@ -335,6 +347,7 @@ export const useGameStore = create<GameState>((set, get) => {
         placements,
         advanced: [],
         humanEliminated,
+        eliminationPoolSize,
         htally,
         pool: advanced,
         round: nextRound,
@@ -438,6 +451,9 @@ export const useGameStore = create<GameState>((set, get) => {
     humanEliminated: false,
     htally: { ...EMPTY_TALLY },
     summary: null,
+    episodeApplied: false,
+    championPrediction: null,
+    eliminationPoolSize: null,
 
     start: (cfg) => {
       const rng = makeRng(cfg.seed);
@@ -478,6 +494,9 @@ export const useGameStore = create<GameState>((set, get) => {
         humanEliminated: false,
         htally: { ...EMPTY_TALLY },
         summary: null,
+        episodeApplied: false,
+        championPrediction: null,
+        eliminationPoolSize: null,
       });
     },
 
@@ -499,6 +518,7 @@ export const useGameStore = create<GameState>((set, get) => {
         }
         case "question": {
           const elapsed = now - s.questionStartAt;
+          const spectating = !s.pool.includes(HUMAN_ID);
           // Arrive bots whose time has come.
           let changed = false;
           const locked = { ...s.locked };
@@ -513,8 +533,10 @@ export const useGameStore = create<GameState>((set, get) => {
 
           const everyoneIn = s.pool.every((id) => locked[id] !== undefined);
           const past = now >= s.deadlineAt;
-          // Final always runs the full clock; others can reveal early once all are in.
-          if (past || (everyoneIn && s.current!.type !== "list")) finalize(now);
+          // When spectating and all bots have submitted, fast-forward after a brief pause
+          // so the spectator doesn't sit through the full timer (especially in the final).
+          const spectateReady = spectating && everyoneIn && elapsed >= TIMING.spectateQMs;
+          if (past || spectateReady || (everyoneIn && s.current!.type !== "list")) finalize(now);
           break;
         }
         case "reveal": {
@@ -600,6 +622,16 @@ export const useGameStore = create<GameState>((set, get) => {
         set({ players, placements, advanced: [], humanEliminated: s.humanEliminated, htally, pool: advancedIds, round: nextRound, phase: "round-intro", phaseStartedAt: now, questionNo: 0, current: null, reveal: null });
       }
     },
+
+    setChampionPrediction: (id: string) => set({ championPrediction: id }),
+
+    markEpisodeApplied: () => set({ episodeApplied: true }),
+
+    getEarlyLeaveSummary: () => {
+      const s = get();
+      const placement = s.placements[HUMAN_ID] ?? 5;
+      return buildSummary(s.htally, false, placement);
+    },
   };
 });
 
@@ -612,7 +644,11 @@ if (typeof window !== "undefined") {
 
 function answerDisplay(q: AnyQuestion, sub: ScoredSubmission): string {
   if (sub.submittedAtMs === undefined) return "No answer";
-  if (q.type === "numeric") return String(sub.value);
+  if (q.type === "numeric") {
+    const isYear = q.unit.toLowerCase() === "year";
+    const num = Number(sub.value);
+    return isYear || isNaN(num) ? String(sub.value) : num.toLocaleString();
+  }
   return String(sub.value);
 }
 
