@@ -8,7 +8,7 @@ import type { RoundId } from "./types";
 export const ROUND_TIMERS_MS: Record<RoundId, number> = {
   1: 15_000,
   2: 15_000,
-  3: 10_000,
+  3: 15_000,
   final: 20_000,
 };
 
