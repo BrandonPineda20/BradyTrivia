@@ -14,6 +14,7 @@ import { PrimaryButton } from "../components/PrimaryButton";
 const ICON_PROFILE  = require("../assets/Icons/Icons/Profile Icon.png");
 const ICON_TROPHY   = require("../assets/Icons/Icons/Pixel Trophy.png");
 const ICON_NEW_BTN  = require("../assets/Icons/Icons/New Button.png");
+const ICON_MAGNET   = require("../assets/Icons/Icons/magnet-colorful copy.png");
 import { useProfileStore } from "../store/profileStore";
 import { useSettingsStore } from "../store/settingsStore";
 import { palette, radii, shadow, spacing, typography } from "../theme";
@@ -51,10 +52,10 @@ export default function Home() {
       >
         <View style={styles.top}>
           <View style={styles.kickerPill}>
+            <Image source={ICON_MAGNET} style={styles.kickerIcon} resizeMode="contain" />
             <Text style={styles.kicker}>A MAGNET GAMES PRODUCTION</Text>
           </View>
           <Text style={styles.title}>BradyYourTutor</Text>
-          <View style={styles.underline} />
           <Text style={styles.tag}>Play to Get Smarter 🧠</Text>
         </View>
 
@@ -109,7 +110,8 @@ const styles = StyleSheet.create({
   stage: { flex: 1, backgroundColor: palette.stageTint },
   scroll: { alignItems: "center", paddingVertical: spacing(5), paddingHorizontal: spacing(5), gap: spacing(4) },
   top: { alignItems: "center", gap: spacing(1.5) },
-  kickerPill: { backgroundColor: palette.surface, borderRadius: radii.pill, paddingHorizontal: spacing(3), paddingVertical: spacing(1) },
+  kickerPill: { flexDirection: "row", alignItems: "center", gap: spacing(1.5), backgroundColor: palette.surface, borderRadius: radii.pill, paddingHorizontal: spacing(3), paddingVertical: spacing(1) },
+  kickerIcon: { width: 16, height: 16 },
   kicker: { color: palette.inkSoft, fontSize: typography.size.xs, letterSpacing: 2, fontFamily: typography.fonts.body },
   title: { color: palette.ink, fontSize: typography.size.xxl, fontFamily: typography.fonts.display, letterSpacing: 1, marginTop: spacing(1) },
   underline: { width: 64, height: 5, borderRadius: radii.pill, backgroundColor: palette.accent },
