@@ -189,6 +189,7 @@ type GameState = {
   submitHuman: (value: string) => void; // MC option text or numeric text
   addListEntry: (text: string) => boolean; // final; returns true if newly valid
   reset: () => void;
+  devSkipRound: () => void;
 };
 
 export const useGameStore = create<GameState>((set, get) => {
@@ -551,6 +552,40 @@ export const useGameStore = create<GameState>((set, get) => {
     },
 
     reset: () => set({ phase: "idle", current: null, reveal: null, championId: null }),
+
+    devSkipRound: () => {
+      const s = get();
+      if (s.round === "final") return;
+      const now = Date.now();
+      const round = s.round as 1 | 2 | 3;
+
+      // Collect everyone currently in the game (pool + already advanced this round).
+      const everyone = [...new Set([...s.pool, ...s.advanced])];
+      const bots = everyone.filter((id) => id !== HUMAN_ID);
+
+      // Pick one random bot to eliminate; the rest (including human) advance.
+      const elimIdx = Math.floor(Math.random() * bots.length);
+      const eliminatedId = bots[elimIdx];
+      const advancedIds = everyone.filter((id) => id !== eliminatedId);
+
+      const placement = PLACEMENT_BY_ROUND[round];
+      const placements = { ...s.placements, [eliminatedId]: placement };
+      const players = s.players.map((p) => ({
+        ...p,
+        placement: placements[p.id] ?? p.placement,
+        status: p.id === eliminatedId ? ("eliminated" as const) : p.status,
+      }));
+      const htally = advancedIds.includes(HUMAN_ID)
+        ? { ...s.htally, roundsAdvanced: Math.min(3, s.htally.roundsAdvanced + 1), wonRound2: s.htally.wonRound2 || round === 2 }
+        : s.htally;
+
+      if (round === 3) {
+        set({ players, placements, advanced: [], humanEliminated: s.humanEliminated, htally, pool: advancedIds, round: "final", suddenDeath: false, finalWins: {}, phase: "round-intro", phaseStartedAt: now, questionNo: 0, current: null, reveal: null });
+      } else {
+        const nextRound = (round === 1 ? 2 : 3) as RoundId;
+        set({ players, placements, advanced: [], humanEliminated: s.humanEliminated, htally, pool: advancedIds, round: nextRound, phase: "round-intro", phaseStartedAt: now, questionNo: 0, current: null, reveal: null });
+      }
+    },
   };
 });
 

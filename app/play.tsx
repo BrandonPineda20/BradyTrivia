@@ -65,7 +65,7 @@ export default function Play() {
       <Pressable style={styles.devHome} onPress={() => router.replace("/")}>
         <Text style={styles.devHomeText}>Dev only home button</Text>
       </Pressable>
-      <Pressable style={styles.devSkip} onPress={() => useGameStore.setState({ deadlineAt: Date.now() - 1 })}>
+      <Pressable style={styles.devSkip} onPress={() => useGameStore.getState().devSkipRound()}>
         <Text style={styles.devHomeText}>Dev only skip round</Text>
       </Pressable>
       {(phase === "idle" || phase === "lobby") && <LobbyView />}
