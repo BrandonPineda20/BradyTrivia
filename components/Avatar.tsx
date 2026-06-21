@@ -38,10 +38,9 @@ export const Avatar = memo(function Avatar({
     [config, size, spriteId],
   );
 
-  // Zoom into the top portion of the sprite; shift the image down slightly
-  // so the face lands at the vertical center of the circle.
   const faceImgSize = size * 2.4;
-  const faceTop = size * -0.12; // negative = shift image downward
+  const faceOffsetTop = size * 0.05;   // positive = image starts below circle top (lower = more of top of sprite visible)
+  const faceOffsetLeft = -(faceImgSize - size) / 2 - size * 0.06; // slightly left of center
 
   return (
     <View style={{ opacity: dimmed ? 0.4 : 1 }} accessibilityLabel={name ? `${name} avatar` : undefined}>
@@ -56,7 +55,7 @@ export const Avatar = memo(function Avatar({
             <Image
               source={SPRITE_IMAGES[spriteId]}
               // @ts-ignore
-              style={{ width: faceImgSize, height: faceImgSize, position: "absolute", top: -faceTop, left: -(faceImgSize - size) / 2, imageRendering: "pixelated" }}
+              style={{ width: faceImgSize, height: faceImgSize, position: "absolute", top: faceOffsetTop, left: faceOffsetLeft, imageRendering: "pixelated" }}
               resizeMode="contain"
             />
           ) : (

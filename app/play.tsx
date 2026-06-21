@@ -62,12 +62,16 @@ export default function Play() {
   return (
     <SafeAreaView style={styles.stage}>
       {inGame && <FloatingBrains />}
-      <Pressable style={styles.devHome} onPress={() => router.replace("/")}>
-        <Text style={styles.devHomeText}>Dev only home button</Text>
-      </Pressable>
-      <Pressable style={styles.devSkip} onPress={() => useGameStore.getState().devSkipRound()}>
-        <Text style={styles.devHomeText}>Dev only skip round</Text>
-      </Pressable>
+      {phase !== "results" && (
+        <>
+          <Pressable style={styles.devHome} onPress={() => router.replace("/")}>
+            <Text style={styles.devHomeText}>Dev only home button</Text>
+          </Pressable>
+          <Pressable style={styles.devSkip} onPress={() => useGameStore.getState().devSkipRound()}>
+            <Text style={styles.devHomeText}>Dev only skip round</Text>
+          </Pressable>
+        </>
+      )}
       {(phase === "idle" || phase === "lobby") && <LobbyView />}
       {phase === "round-intro" && <RoundIntro />}
       {(phase === "question" || phase === "reveal") && <RoundStage now={now} />}
