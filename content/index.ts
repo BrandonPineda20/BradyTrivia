@@ -6,6 +6,7 @@
  * whenever the spreadsheet changes.
  */
 import bank from "./generated/bank.json";
+import fullFlagSupplement from "./full-flag-supplement.json";
 import type {
   ListQuestion,
   MCQuestion,
@@ -13,7 +14,12 @@ import type {
   QuestionBank,
 } from "./types";
 
-export const QUESTION_BANK = bank as unknown as QuestionBank;
+const _bank = bank as unknown as QuestionBank;
+export const QUESTION_BANK: QuestionBank = {
+  ..._bank,
+  round2: [..._bank.round2, ...(fullFlagSupplement as unknown as MCQuestion[])],
+  counts: { ..._bank.counts, round2: _bank.counts.round2 + fullFlagSupplement.length, total: _bank.counts.total + fullFlagSupplement.length },
+};
 
 export const ROUND1: MCQuestion[] = QUESTION_BANK.round1;
 export const ROUND2: MCQuestion[] = QUESTION_BANK.round2;

@@ -30,6 +30,15 @@ export function R2Visual({ question, width = 240 }: { question: MCQuestion; widt
   if (!src) return <Missing label={asset.describes} />;
   const h = Math.round(width * 0.62);
 
+  // full_flag: show the complete flag at natural proportions, no zoom or grey.
+  if (asset.kind === "full_flag") {
+    return (
+      <View style={[styles.flagBox, { width, height: h }]}>
+        <Image source={src} resizeMode="contain" style={styles.fill} />
+      </View>
+    );
+  }
+
   return (
     <View style={[styles.flagBox, { width, height: h }]}>
       <Image

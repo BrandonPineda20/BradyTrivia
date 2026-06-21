@@ -1,0 +1,121 @@
+[
+  {
+    "id": "R2-FF-01", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Canada", "Denmark", "Switzerland", "Peru"],
+    "answer": "Canada", "difficulty": "Easy",
+    "asset": { "kind": "full_flag", "describes": "Full flag of Canada", "country": "Canada" }
+  },
+  {
+    "id": "R2-FF-02", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Bangladesh", "Japan", "South Korea", "Laos"],
+    "answer": "Japan", "difficulty": "Easy",
+    "asset": { "kind": "full_flag", "describes": "Full flag of Japan", "country": "Japan" }
+  },
+  {
+    "id": "R2-FF-03", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Brazil", "Nigeria", "Portugal", "Bolivia"],
+    "answer": "Brazil", "difficulty": "Easy",
+    "asset": { "kind": "full_flag", "describes": "Full flag of Brazil", "country": "Brazil" }
+  },
+  {
+    "id": "R2-FF-04", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Australia", "New Zealand", "United Kingdom", "Iceland"],
+    "answer": "United Kingdom", "difficulty": "Easy",
+    "asset": { "kind": "full_flag", "describes": "Full flag of the United Kingdom", "country": "United Kingdom" }
+  },
+  {
+    "id": "R2-FF-05", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["United States", "Liberia", "France", "Chile"],
+    "answer": "United States", "difficulty": "Easy",
+    "asset": { "kind": "full_flag", "describes": "Full flag of the United States", "country": "United States" }
+  },
+  {
+    "id": "R2-FF-06", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Belgium", "Germany", "Chad", "Bolivia"],
+    "answer": "Germany", "difficulty": "Easy",
+    "asset": { "kind": "full_flag", "describes": "Full flag of Germany", "country": "Germany" }
+  },
+  {
+    "id": "R2-FF-07", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Niger", "Armenia", "India", "Italy"],
+    "answer": "India", "difficulty": "Easy",
+    "asset": { "kind": "full_flag", "describes": "Full flag of India", "country": "India" }
+  },
+  {
+    "id": "R2-FF-08", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Zimbabwe", "Nigeria", "South Africa", "Kenya"],
+    "answer": "South Africa", "difficulty": "Medium",
+    "asset": { "kind": "full_flag", "describes": "Full flag of South Africa", "country": "South Africa" }
+  },
+  {
+    "id": "R2-FF-09", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Pakistan", "Turkey", "Tunisia", "Algeria"],
+    "answer": "Turkey", "difficulty": "Easy",
+    "asset": { "kind": "full_flag", "describes": "Full flag of Turkey", "country": "Turkey" }
+  },
+  {
+    "id": "R2-FF-10", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Italy", "Mexico", "Bolivia", "Peru"],
+    "answer": "Mexico", "difficulty": "Easy",
+    "asset": { "kind": "full_flag", "describes": "Full flag of Mexico", "country": "Mexico" }
+  },
+  {
+    "id": "R2-FF-11", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Monaco", "Indonesia", "Singapore", "Poland"],
+    "answer": "Indonesia", "difficulty": "Medium",
+    "asset": { "kind": "full_flag", "describes": "Full flag of Indonesia", "country": "Indonesia" }
+  },
+  {
+    "id": "R2-FF-12", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Finland", "Greece", "Uruguay", "Slovakia"],
+    "answer": "Greece", "difficulty": "Easy",
+    "asset": { "kind": "full_flag", "describes": "Full flag of Greece", "country": "Greece" }
+  },
+  {
+    "id": "R2-FF-13", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Vietnam", "China", "North Korea", "Cuba"],
+    "answer": "China", "difficulty": "Easy",
+    "asset": { "kind": "full_flag", "describes": "Full flag of China", "country": "China" }
+  },
+  {
+    "id": "R2-FF-14", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Netherlands", "France", "Russia", "Ireland"],
+    "answer": "France", "difficulty": "Medium",
+    "asset": { "kind": "full_flag", "describes": "Full flag of France", "country": "France" }
+  },
+  {
+    "id": "R2-FF-15", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["New Zealand", "Fiji", "Australia", "Tuvalu"],
+    "answer": "Australia", "difficulty": "Medium",
+    "asset": { "kind": "full_flag", "describes": "Full flag of Australia", "country": "Australia" }
+  },
+  {
+    "id": "R2-FF-16", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Denmark", "Switzerland", "Georgia", "Tonga"],
+    "answer": "Switzerland", "difficulty": "Medium",
+    "asset": { "kind": "full_flag", "describes": "Full flag of Switzerland", "country": "Switzerland" }
+  },
+  {
+    "id": "R2-FF-17", "round": 2, "type": "multiple_choice",
+    "category": "Full Flag", "question": "Which country does this flag belong to?",
+    "options": ["Japan", "South Korea", "Taiwan", "Nepal"],
+    "answer": "South Korea", "difficulty": "Medium",
+    "asset": { "kind": "full_flag", "describes": "Full flag of South Korea", "country": "South Korea" }
+  }
+]

@@ -8,7 +8,7 @@ export type Difficulty = "Easy" | "Medium" | "Hard";
 /** Round 2 visual-asset descriptor — drives the §8.4 derive-don't-hand-draw pipeline. */
 export type FlagOrOutlineAsset = {
   /** "none" for plain Geography Q rows (no image). */
-  kind: "zoomed_flag" | "greyed_flag" | "country_outline" | "none";
+  kind: "zoomed_flag" | "greyed_flag" | "country_outline" | "full_flag" | "none";
   /** The "Asset Needed" text from the sheet (what the image should show). */
   describes: string;
   /** Best-effort subject country (usually the correct answer); picks the source flag/outline. */
