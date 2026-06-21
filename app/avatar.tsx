@@ -159,10 +159,9 @@ const styles = StyleSheet.create({
 
   previewWrap: {
     width: "100%",
-    height: 255,
-    overflow: "hidden",
+    height: 300,
     alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: "center",
   },
   previewImg: { width: 300, height: 300 },
   previewPlaceholder: { alignItems: "center", justifyContent: "center", flex: 1 },
@@ -212,10 +211,9 @@ const styles = StyleSheet.create({
   },
   gridImgWrap: {
     width: IMG_SIZE,
-    height: IMG_SIZE * 0.85,
-    overflow: "hidden",
+    height: IMG_SIZE,
     alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: "center",
   },
   gridImg: { width: IMG_SIZE, height: IMG_SIZE },
   gridName: {

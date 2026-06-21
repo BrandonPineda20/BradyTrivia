@@ -112,32 +112,64 @@ export function playClick() {
   playSfx("tap");
 }
 
-const AUDIO_ASSETS = [
-  () => require("./u_ss015dykrt-brass-fanfare-with-timpani-and-winchimes-reverberated-146260.mp3"),
-  () => require("./correctaudio.mp3"),
-  () => require("./ribhavagrawal-point-smooth-beep-230573.mp3"),
-  () => require("./freesound_community-beep-6-96243.mp3"),
-];
+// Shared Audio instances for countdown beeps — created once, reused everywhere
+// so unlockAudio() primes the exact same objects CountdownTimer will play.
+let _countdownTick: HTMLAudioElement | null = null;
+let _countdownFinal: HTMLAudioElement | null = null;
+
+function makeAudio(getter: () => unknown, volume: number): HTMLAudioElement | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const mod = getter();
+    const src = typeof mod === "string" ? mod : (mod as any)?.uri ?? String(mod);
+    const a = new Audio(src);
+    a.volume = volume;
+    a.load();
+    return a;
+  } catch { return null; }
+}
+
+export function getCountdownTickAudio(): HTMLAudioElement | null {
+  if (typeof window === "undefined") return null;
+  if (!_countdownTick) _countdownTick = makeAudio(() => require("./ribhavagrawal-point-smooth-beep-230573.mp3"), 0.4);
+  return _countdownTick;
+}
+
+export function getCountdownFinalAudio(): HTMLAudioElement | null {
+  if (typeof window === "undefined") return null;
+  if (!_countdownFinal) _countdownFinal = makeAudio(() => require("./freesound_community-beep-6-96243.mp3"), 0.4);
+  return _countdownFinal;
+}
 
 let _audioUnlocked = false;
 
 /**
- * Call once from a direct user-gesture handler (button press) to unblock
- * mobile browser autoplay policy for all MP3 audio elements. Safe to call
- * multiple times — only runs once.
+ * Call once from a direct user-gesture handler to unblock mobile autoplay.
+ * Primes the shared countdown audio instances and all other MP3s.
  */
 export function unlockAudio() {
   if (_audioUnlocked || typeof window === "undefined") return;
   _audioUnlocked = true;
-  // Also resume the Web Audio context if suspended.
   const c = getCtx();
   if (c?.state === "suspended") c.resume().catch(() => {});
-  // Prime each audio file: play a silent instant then immediately pause.
-  // This satisfies the browser's "must originate from user gesture" rule.
-  for (const getter of AUDIO_ASSETS) {
+
+  // Prime shared countdown instances (exact objects used at playback time).
+  for (const a of [getCountdownTickAudio(), getCountdownFinalAudio()]) {
+    if (!a) continue;
+    const vol = a.volume;
+    a.volume = 0;
+    a.play().then(() => { a.pause(); a.currentTime = 0; a.volume = vol; }).catch(() => {});
+  }
+
+  // Prime fanfare + qualify sounds.
+  const others = [
+    () => require("./u_ss015dykrt-brass-fanfare-with-timpani-and-winchimes-reverberated-146260.mp3"),
+    () => require("./correctaudio.mp3"),
+  ];
+  for (const getter of others) {
     try {
       const mod = getter();
-      const src = typeof mod === "string" ? mod : mod?.uri ?? String(mod);
+      const src = typeof mod === "string" ? mod : (mod as any)?.uri ?? String(mod);
       const a = new Audio(src);
       a.volume = 0;
       a.play().then(() => a.pause()).catch(() => {});
