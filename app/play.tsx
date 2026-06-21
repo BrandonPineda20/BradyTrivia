@@ -18,6 +18,7 @@ import { resetFanfare } from "../components/ResultsView";
 import { useGameStore } from "../store/gameStore";
 import { useProgressionStore } from "../store/progressionStore";
 import { useProfileStore } from "../store/profileStore";
+import type { RoundId } from "../engine";
 import { flagFor, outlineFor } from "../theme/r2-assets";
 import { palette, radii, shadow, spacing, typography } from "../theme";
 
@@ -48,41 +49,46 @@ export default function Play() {
   const phase = useGameStore((s) => s.phase);
   const humanEliminated = useGameStore((s) => s.humanEliminated);
   const predictionLocked = useGameStore((s) => !!s.championPrediction);
-  const eliminationPoolSize = useGameStore((s) => s.eliminationPoolSize);
   const poolLength = useGameStore((s) => s.pool.length);
   const round = useGameStore((s) => s.round);
 
-  // Prediction picker is visible while: eliminated, not locked, pool hasn't shrunk further
-  const votingWindowOpen =
-    humanEliminated &&
-    !predictionLocked &&
-    eliminationPoolSize !== null &&
-    poolLength >= eliminationPoolSize;
-
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  // showPicker stays true until the user locks in OR pool shrinks (auto-dismiss)
   const [showPicker, setShowPicker] = useState(false);
+  // The round the user last dismissed the picker in. Lets the picker re-prompt at
+  // each new round so an eliminated spectator always gets a chance to predict —
+  // most importantly the final two.
+  const [dismissedRound, setDismissedRound] = useState<RoundId | null>(null);
   const applyingRef = useRef(false);
 
-  // Open picker as soon as human is eliminated
+  // Open the picker at each round transition while the human is an eliminated
+  // spectator who hasn't locked a prediction or dismissed it this round.
   useEffect(() => {
-    if (humanEliminated && !predictionLocked) setShowPicker(true);
-  }, [humanEliminated]);
-
-  // Auto-dismiss picker when voting window closes (another player eliminated)
-  useEffect(() => {
-    if (showPicker && !votingWindowOpen && !predictionLocked) {
+    if (predictionLocked || phase === "results") {
       setShowPicker(false);
+      return;
     }
-  }, [votingWindowOpen, showPicker, predictionLocked]);
+    if (
+      humanEliminated &&
+      phase === "round-intro" &&
+      poolLength >= 2 &&
+      dismissedRound !== round
+    ) {
+      setSelectedId(null);
+      setShowPicker(true);
+    }
+  }, [humanEliminated, predictionLocked, phase, round, poolLength, dismissedRound]);
 
-  // Dismiss picker when user locks in or game reaches results
-  useEffect(() => {
-    if (predictionLocked || phase === "results") setShowPicker(false);
-  }, [predictionLocked, phase]);
+  // Dismissing the picker (skip/leave) remembers the round so it won't re-nag
+  // during this round's questions, but will re-prompt when the next round begins.
+  const dismissPicker = () => {
+    setShowPicker(false);
+    setDismissedRound(round);
+  };
 
   const handleLockPrediction = () => {
     if (!selectedId) return;
+    // Guard against a candidate eliminated while the picker lingered open.
+    if (!useGameStore.getState().pool.includes(selectedId)) return;
     useGameStore.getState().setChampionPrediction(selectedId);
   };
 
@@ -114,6 +120,11 @@ export default function Play() {
   const startEpisode = () => {
     unlockAudio();
     resetFanfare();
+    // Reset prediction-picker UI state for the fresh episode.
+    setShowPicker(false);
+    setSelectedId(null);
+    setDismissedRound(null);
+    applyingRef.current = false;
     const { name, avatar } = useProfileStore.getState();
     useGameStore.getState().start({
       seed: resolveEpisodeSeed().seed,
@@ -171,11 +182,11 @@ export default function Play() {
               <Text style={styles.lockBtnText}>Lock in Pick</Text>
             </SoundPressable>
             <View style={styles.pickerFooter}>
-              <SoundPressable style={styles.skipBtn} onPress={() => setShowPicker(false)}>
+              <SoundPressable style={styles.skipBtn} onPress={dismissPicker}>
                 <Text style={styles.skipBtnText}>Skip. Just spectate</Text>
               </SoundPressable>
               <Text style={styles.pickerFooterDivider}>|</Text>
-              <SoundPressable style={styles.skipBtn} onPress={() => { setShowPicker(false); handleGoHome(); }}>
+              <SoundPressable style={styles.skipBtn} onPress={() => { dismissPicker(); handleGoHome(); }}>
                 <Text style={styles.skipBtnText}>Leave game</Text>
               </SoundPressable>
             </View>

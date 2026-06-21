@@ -154,11 +154,15 @@ export function unlockAudio() {
   if (c?.state === "suspended") c.resume().catch(() => {});
 
   // Prime shared countdown instances (exact objects used at playback time).
+  // Use `muted` (not `volume = 0`) — iOS Safari ignores the volume property on
+  // HTMLAudioElement, so volume-based priming plays an audible burst; muted is
+  // respected on iOS and keeps the priming silent.
   for (const a of [getCountdownTickAudio(), getCountdownFinalAudio()]) {
     if (!a) continue;
-    const vol = a.volume;
-    a.volume = 0;
-    a.play().then(() => { a.pause(); a.currentTime = 0; a.volume = vol; }).catch(() => {});
+    a.muted = true;
+    a.play()
+      .then(() => { a.pause(); a.currentTime = 0; a.muted = false; })
+      .catch(() => { a.muted = false; });
   }
 
   // Prime fanfare + qualify sounds.
@@ -171,8 +175,8 @@ export function unlockAudio() {
       const mod = getter();
       const src = typeof mod === "string" ? mod : (mod as any)?.uri ?? String(mod);
       const a = new Audio(src);
-      a.volume = 0;
-      a.play().then(() => a.pause()).catch(() => {});
+      a.muted = true;
+      a.play().then(() => { a.pause(); a.currentTime = 0; }).catch(() => {});
     } catch {}
   }
 }
