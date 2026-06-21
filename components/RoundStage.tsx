@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { Dimensions, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SoundPressable } from "./SoundPressable";
 
@@ -27,6 +27,7 @@ export function RoundStage({ now }: { now: number }) {
   const router = useRouter();
   const s = useGameStore();
   const q = s.current;
+  const qualifyPlayedRef = useRef(false);
   const byId = useMemo(
     () => Object.fromEntries(s.players.map((p) => [p.id, p])),
     [s.players],
@@ -57,6 +58,24 @@ export function RoundStage({ now }: { now: number }) {
   const reveal = s.phase === "reveal" ? s.reveal : null;
   const humanInPool = s.pool.includes("human");
   const humanQualified = s.round !== "final" && s.advanced.includes("human");
+
+  // Play qualify sound exactly once when the human first qualifies this round.
+  useEffect(() => {
+    if (!humanQualified) {
+      qualifyPlayedRef.current = false; // reset when no longer qualified (new round)
+      return;
+    }
+    if (qualifyPlayedRef.current) return;
+    qualifyPlayedRef.current = true;
+    if (typeof window !== "undefined") {
+      const SFX = require("../audio/correctaudio.mp3");
+      const src = typeof SFX === "string" ? SFX : SFX?.uri ?? String(SFX);
+      const audio = new Audio(src);
+      audio.volume = 0.15;
+      audio.play().catch(() => {});
+    }
+  }, [humanQualified]);
+
   const totalMs = Math.max(1, s.deadlineAt - s.questionStartAt);
   const remainingMs = s.deadlineAt - now;
   const prompt = q.type === "list" ? q.prompt : q.question;
