@@ -68,7 +68,7 @@ export default function Home() {
         </SoundPressable>
 
         <View style={styles.mid}>
-          <PrimaryButton title="▶  Last Genius Standing Wins" variant="primary" onPress={() => router.push("/play")} style={styles.playBtn} fontSize={17} />
+          <PrimaryButton title="▶&#xFE0E;  Last Genius Standing Wins" variant="primary" onPress={() => router.push("/play")} style={styles.playBtn} fontSize={17} />
           <View style={styles.tiles}>
             <SoundPressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/profile")}>
               <Image source={ICON_PROFILE} style={styles.tileIconImgLg} resizeMode="contain" />

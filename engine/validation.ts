@@ -36,6 +36,50 @@ export function numericDistance(answer: number, guess: number): number {
   return Math.abs(answer - guess);
 }
 
+/** Levenshtein distance between two strings. */
+function levenshtein(a: string, b: string): number {
+  const m = a.length, n = b.length;
+  const dp: number[] = Array.from({ length: n + 1 }, (_, i) => i);
+  for (let i = 1; i <= m; i++) {
+    let prev = dp[0];
+    dp[0] = i;
+    for (let j = 1; j <= n; j++) {
+      const tmp = dp[j];
+      dp[j] = a[i - 1] === b[j - 1] ? prev : 1 + Math.min(prev, dp[j], dp[j - 1]);
+      prev = tmp;
+    }
+  }
+  return dp[n];
+}
+
+/** Max typos allowed based on word length (0 for very short words to avoid false positives). */
+function typoThreshold(len: number): number {
+  if (len < 4) return 0;
+  if (len < 8) return 1;
+  return 2;
+}
+
+/**
+ * Fuzzy-match a normalized input against the accepted set.
+ * Returns the matched canonical form if within typo threshold, else null.
+ */
+export function fuzzyMatch(norm: string, accepted: Set<string>): string | null {
+  if (accepted.has(norm)) return norm;
+  const threshold = typoThreshold(norm.length);
+  if (threshold === 0) return null;
+  let best: string | null = null;
+  let bestDist = Infinity;
+  for (const candidate of accepted) {
+    if (Math.abs(candidate.length - norm.length) > threshold) continue;
+    const d = levenshtein(norm, candidate);
+    if (d <= threshold && d < bestDist) {
+      bestDist = d;
+      best = candidate;
+    }
+  }
+  return best;
+}
+
 export type ListValidation = {
   valid: string[]; // unique valid entries (original casing kept for reveal)
   invalid: string[]; // not in the acceptable set
@@ -70,10 +114,11 @@ export function validateListEntries(
   for (const raw of entries) {
     const norm = normalizeEntry(raw);
     if (!norm) continue;
-    if (accepted.has(norm)) {
-      if (seenValid.has(norm)) duplicates.push(raw);
+    const matched = fuzzyMatch(norm, accepted);
+    if (matched !== null) {
+      if (seenValid.has(matched)) duplicates.push(raw);
       else {
-        seenValid.add(norm);
+        seenValid.add(matched);
         valid.push(raw);
       }
     } else {

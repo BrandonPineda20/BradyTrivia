@@ -40,7 +40,7 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
       const FANFARE = require("../audio/u_ss015dykrt-brass-fanfare-with-timpani-and-winchimes-reverberated-146260.mp3");
       const src = typeof FANFARE === "string" ? FANFARE : FANFARE?.uri ?? String(FANFARE);
       const audio = new Audio(src);
-      audio.volume = 0.35;
+      audio.volume = 0.15;
       audio.play().catch(() => {});
     }
 

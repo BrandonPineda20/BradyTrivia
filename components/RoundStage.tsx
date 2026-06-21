@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SoundPressable } from "./SoundPressable";
 
-import { normalizeEntry } from "../engine/validation";
+import { fuzzyMatch, normalizeEntry } from "../engine/validation";
 import { useGameStore } from "../store/gameStore";
 import { palette, radii, shadow, spacing, typography } from "../theme";
 import { AnswerOptions } from "./AnswerOptions";
@@ -33,13 +33,23 @@ export function RoundStage({ now }: { now: number }) {
   );
 
   // Live list-entry validation (final).
-  const accepted = useMemo(() => {
-    if (!q || q.type !== "list") return null;
-    const set = new Set(q.acceptable.map(normalizeEntry));
-    if (q.totalPossible === "open" && q.openDictionaryKey) {
-      for (const w of s.supplements?.[q.openDictionaryKey] ?? []) set.add(normalizeEntry(w));
+  const { accepted, canonicalDisplay } = useMemo(() => {
+    if (!q || q.type !== "list") return { accepted: null, canonicalDisplay: null };
+    const set = new Set<string>();
+    const display = new Map<string, string>(); // normalized → original-cased
+    for (const w of q.acceptable) {
+      const n = normalizeEntry(w);
+      set.add(n);
+      display.set(n, w);
     }
-    return set;
+    if (q.totalPossible === "open" && q.openDictionaryKey) {
+      for (const w of s.supplements?.[q.openDictionaryKey] ?? []) {
+        const n = normalizeEntry(w);
+        set.add(n);
+        display.set(n, w);
+      }
+    }
+    return { accepted: set, canonicalDisplay: display };
   }, [q, s.supplements]);
 
   if (!q) return null;
@@ -147,9 +157,11 @@ export function RoundStage({ now }: { now: number }) {
     const seen = new Set<string>();
     for (const e of s.listEntries) {
       const n = normalizeEntry(e);
-      const valid = accepted.has(n) && !seen.has(n);
-      if (valid) seen.add(n);
-      listViews.push({ text: e, valid });
+      const matched = fuzzyMatch(n, accepted);
+      const valid = matched !== null && !seen.has(matched);
+      if (valid) seen.add(matched!);
+      const displayText = matched !== null ? (canonicalDisplay!.get(matched) ?? e) : e;
+      listViews.push({ text: displayText, valid });
     }
     validCount = seen.size;
   }
