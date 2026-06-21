@@ -69,7 +69,7 @@ export type Reveal = {
 const TIMING = {
   lobbyJoinMs: 560,
   lobbyHoldMs: 1500,
-  roundIntroMs: 2000,
+  roundIntroMs: 3200,
   revealHumanMs: 3300,
   revealSpectateMs: 1100,
   spectateQMs: 1500,
