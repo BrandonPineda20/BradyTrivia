@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { SoundPressable } from "./SoundPressable";
 
 import { palette, radii, shadow, spacing, typography } from "../theme";
 
@@ -39,7 +40,7 @@ export function AnswerOptions({ options, onPick, locked, humanPick, reveal }: Pr
         }
 
         return (
-          <Pressable
+          <SoundPressable
             key={i}
             disabled={locked || !!reveal}
             onPress={() => onPick(opt)}
@@ -56,7 +57,7 @@ export function AnswerOptions({ options, onPick, locked, humanPick, reveal }: Pr
             <Text style={[styles.optText, { color: fg }]} numberOfLines={2}>
               {opt}
             </Text>
-          </Pressable>
+          </SoundPressable>
         );
       })}
     </View>

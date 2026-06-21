@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { SoundPressable } from "../components/SoundPressable";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { PrimaryButton } from "../components/PrimaryButton";
@@ -37,20 +38,20 @@ export default function AvatarBuilder() {
       {/* Header */}
       <View style={styles.header}>
         {!firstRun ? (
-          <Pressable
+          <SoundPressable
             onPress={() => (router.canGoBack() ? router.back() : router.replace("/"))}
             style={styles.headerSide}
             hitSlop={10}
           >
             <Text style={styles.backText}>‹ Back</Text>
-          </Pressable>
+          </SoundPressable>
         ) : (
           <View style={styles.headerSide} />
         )}
         <Text style={styles.title}>CHOOSE YOUR CONTESTANT</Text>
-        <Pressable onPress={onSave} style={styles.headerSide} hitSlop={10}>
+        <SoundPressable onPress={onSave} style={styles.headerSide} hitSlop={10}>
           <Text style={styles.saveText}>{firstRun ? "Save ›" : "Save ›"}</Text>
-        </Pressable>
+        </SoundPressable>
       </View>
 
       {/* Fixed top panel — stays visible while grid scrolls */}
@@ -89,7 +90,7 @@ export default function AvatarBuilder() {
           {SPRITE_IDS.map((id) => {
             const selected = spriteId === id;
             return (
-              <Pressable
+              <SoundPressable
                 key={id}
                 onPress={() => setSpriteId(id)}
                 style={[styles.gridCard, selected && styles.gridCardSel]}
@@ -105,7 +106,7 @@ export default function AvatarBuilder() {
                   {spriteLabel(id)}
                 </Text>
                 {selected && <View style={styles.checkBadge}><Text style={styles.checkText}>✓</Text></View>}
-              </Pressable>
+              </SoundPressable>
             );
           })}
         </View>

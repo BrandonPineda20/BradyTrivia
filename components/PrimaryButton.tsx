@@ -19,7 +19,8 @@ export function PrimaryButton({ title, onPress, variant = "primary", disabled, s
   const elevated = variant !== "ghost";
   return (
     <Pressable
-      onPress={() => { playSfx("tap"); onPress?.(); }}
+      onPressIn={() => playSfx("tap")}
+      onPress={onPress}
       disabled={disabled}
       style={({ pressed }) => [
         styles.base,

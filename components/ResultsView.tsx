@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Animated, Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SoundPressable } from "./SoundPressable";
 
 import { BADGES, levelInfo } from "../engine";
 import { useGameStore } from "../store/gameStore";
@@ -27,6 +28,29 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
 
   const [apply, setApply] = useState<ApplyResult | null>(null);
   const applied = useRef(false);
+  const shineAnim = useRef(new Animated.Value(0)).current;
+  const fanfarePlayed = useRef(false);
+
+  // Play fanfare once on mount + trigger shine animation
+  useEffect(() => {
+    if (fanfarePlayed.current) return;
+    fanfarePlayed.current = true;
+
+    if (typeof window !== "undefined") {
+      const FANFARE = require("../audio/u_ss015dykrt-brass-fanfare-with-timpani-and-winchimes-reverberated-146260.mp3");
+      const src = typeof FANFARE === "string" ? FANFARE : FANFARE?.uri ?? String(FANFARE);
+      const audio = new Audio(src);
+      audio.volume = 0.35;
+      audio.play().catch(() => {});
+    }
+
+    // Shine: fade in then fade out over ~2s
+    Animated.sequence([
+      Animated.timing(shineAnim, { toValue: 1, duration: 400, useNativeDriver: true }),
+      Animated.delay(900),
+      Animated.timing(shineAnim, { toValue: 0, duration: 600, useNativeDriver: true }),
+    ]).start();
+  }, []);
 
   useEffect(() => {
     if (applied.current || !summary) return;
@@ -39,7 +63,15 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
   const champ = players.find((p) => p.id === championId);
   const you = players.find((p) => p.kind === "human");
   const ordered = [...players].sort((a, b) => (a.placement ?? 9) - (b.placement ?? 9));
-  const lvl = levelInfo(apply?.totalXp ?? xp);
+  const wins = useProgressionStore((s) => s.stats.wins);
+
+  // Deterministic fake win count for bots seeded from name chars
+  function botWins(name: string): number {
+    let h = 0;
+    for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) & 0xffff;
+    return (h % 28) + 2; // 2–29 wins
+  }
+  const lvl = levelInfo(apply?.totalXp ?? xp, (apply?.totalXp != null ? (wins + (won ? 1 : 0)) : wins));
   const unlocked = (apply?.newBadges ?? []).map((id) => BADGES.find((b) => b.id === id)).filter(Boolean);
 
   const share = () => {
@@ -66,14 +98,39 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
       </Text>
 
       <View style={styles.board}>
-        {ordered.map((p) => (
-          <View key={p.id} style={[styles.rowItem, p.kind === "human" && styles.youRow]}>
-            <Text style={styles.place}>{p.placement}</Text>
-            <Avatar config={p.avatar} size={56} ringColor={p.placement === 1 ? palette.accent : palette.neutral} faceOnly />
-            <Text style={[styles.pname, p.kind === "human" && styles.human]}>{p.kind === "human" ? "You" : p.name}</Text>
-            {p.placement === 1 ? <PixelIcon name="crown_gems" size={24} /> : null}
-          </View>
-        ))}
+        {ordered.map((p) => {
+          const isChamp = p.placement === 1;
+          return (
+            <Animated.View
+              key={p.id}
+              style={[
+                styles.rowItem,
+                p.kind === "human" && styles.youRow,
+                isChamp && {
+                  transform: [{ scale: shineAnim.interpolate({ inputRange: [0, 1], outputRange: [1, 1.03] }) }],
+                },
+              ]}
+            >
+              <Text style={styles.place}>{p.placement}</Text>
+              <Animated.View style={isChamp ? { opacity: shineAnim.interpolate({ inputRange: [0, 1], outputRange: [1, 1] }), shadowColor: "#FFD700", shadowRadius: shineAnim.interpolate({ inputRange: [0, 1], outputRange: [0, 18] }), shadowOpacity: shineAnim } : undefined}>
+                <Avatar config={p.avatar} size={56} ringColor={isChamp ? palette.accent : palette.neutral} faceOnly />
+              </Animated.View>
+              <View style={{ flex: 1 }}>
+                <Animated.Text
+                  style={[
+                    styles.pname,
+                    p.kind === "human" && styles.human,
+                    isChamp && { color: shineAnim.interpolate({ inputRange: [0, 0.5, 1], outputRange: [palette.ink, "#FFD700", palette.ink] }) },
+                  ]}
+                >
+                  {p.kind === "human" ? "You" : p.name}
+                </Animated.Text>
+                <Text style={styles.pwins}>{p.kind === "human" ? wins : botWins(p.name)} wins</Text>
+              </View>
+              {isChamp ? <Image source={require("../assets/Icons/Icons/Crown Icon.png")} style={{ width: 28, height: 28 }} resizeMode="contain" /> : null}
+            </Animated.View>
+          );
+        })}
       </View>
 
       {/* XP + level */}
@@ -113,10 +170,10 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
         <PrimaryButton title="Play again" variant="accent" onPress={onPlayAgain} />
         <PrimaryButton title="Home" variant="ghost" onPress={onHome} />
       </View>
-      <Pressable onPress={share} style={styles.share}>
+      <SoundPressable onPress={share} style={styles.share}>
         <Text style={styles.shareText}>↗  Share result</Text>
-      </Pressable>
-      <Pressable
+      </SoundPressable>
+      <SoundPressable
         onPress={() => Linking.openURL("https://www.youtube.com/@bradyyourtutor")}
         style={styles.ytBtn}
       >
@@ -126,7 +183,7 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
           resizeMode="contain"
         />
         <Text style={styles.ytText}>BradyYourTutor</Text>
-      </Pressable>
+      </SoundPressable>
       </ScrollView>
       {won ? <Confetti /> : null}
     </View>
@@ -143,7 +200,8 @@ const styles = StyleSheet.create({
   rowItem: { flexDirection: "row", alignItems: "center", gap: spacing(3), backgroundColor: palette.stage, borderRadius: radii.md, paddingVertical: spacing(2), paddingHorizontal: spacing(3), ...shadow.sm },
   youRow: { backgroundColor: palette.primarySoft, borderWidth: 2, borderColor: palette.primary },
   place: { width: 22, fontSize: typography.size.lg, fontFamily: typography.fonts.display, color: palette.inkSoft },
-  pname: { flex: 1, fontSize: typography.size.md, fontFamily: typography.fonts.body, color: palette.ink },
+  pname: { fontSize: typography.size.md, fontFamily: typography.fonts.body, color: palette.ink },
+  pwins: { fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body, marginTop: 1 },
   human: { color: palette.primary, fontFamily: typography.fonts.display },
   crown: { fontSize: typography.size.lg },
   xpPill: { backgroundColor: palette.accent, borderRadius: radii.pill, paddingHorizontal: spacing(5), paddingVertical: spacing(2), marginTop: spacing(2), ...shadow.glow },

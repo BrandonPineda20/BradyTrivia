@@ -1,12 +1,13 @@
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SoundPressable } from "../components/SoundPressable";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Avatar } from "../components/Avatar";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { TopBar } from "../components/TopBar";
-import { BADGES, levelInfo } from "../engine";
+import { BADGES, levelInfo, LEVELS } from "../engine";
 import { useProfileStore } from "../store/profileStore";
 import { useProgressionStore } from "../store/progressionStore";
 import { palette, radii, spacing, typography } from "../theme";
@@ -31,27 +32,42 @@ export default function Profile() {
   const router = useRouter();
   const { avatar, name } = useProfileStore();
   const { xp, streak, badges, stats } = useProgressionStore();
-  const lvl = levelInfo(xp);
+  const lvl = levelInfo(xp, stats.wins);
   const earned = new Set(badges);
   const [showNext, setShowNext] = useState(false);
   const xpToNext = lvl.xpForNext - lvl.xpIntoLevel;
 
   return (
     <SafeAreaView style={styles.stage}>
-      <TopBar title="Profile" onBack={() => router.back()} />
+      <TopBar title="Profile" onBack={() => router.canGoBack() ? router.back() : router.replace("/")} />
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.header}>
-          {avatar ? <Avatar config={avatar} size={88} ringColor={palette.primary} /> : null}
+          {avatar ? <Avatar config={avatar} size={88} ringColor={palette.primary} faceOnly /> : null}
           <Text style={styles.name}>{name || "You"}</Text>
-          <Pressable onPress={() => setShowNext((v) => !v)} hitSlop={8} style={styles.levelTitleBtn}>
+          <SoundPressable onPress={() => setShowNext((v) => !v)} hitSlop={8} style={styles.levelTitleBtn}>
             <Text style={styles.levelTitle}>Lv {lvl.level} {lvl.title}</Text>
             <Text style={styles.levelHint}>{showNext ? "▲" : "ⓘ"}</Text>
-          </Pressable>
+          </SoundPressable>
           {showNext ? (
-            <View style={styles.nextPill}>
-              <Text style={styles.nextPillText}>
-                {lvl.nextTitle ? `${xpToNext.toLocaleString()} XP to ${lvl.nextTitle}` : "Max level reached!"}
-              </Text>
+            <View style={styles.levelTable}>
+              {LEVELS.map((l) => {
+                const isCurrent = lvl.level === l.level;
+                const isUnlocked = xp >= l.min && stats.wins >= l.minWins;
+                const reqs = [
+                  l.min > 0 ? `${l.min.toLocaleString()} XP` : null,
+                  l.minWins > 0 ? `${l.minWins} wins` : null,
+                ].filter(Boolean).join(" · ") || "Start";
+                return (
+                  <View key={l.level} style={[styles.levelRow, isCurrent && styles.levelRowCurrent]}>
+                    <Text style={[styles.levelRowNum, isCurrent && styles.levelRowNumCurrent]}>Lv {l.level}</Text>
+                    <View style={{ flex: 1 }}>
+                      <Text style={[styles.levelRowTitle, isCurrent && styles.levelRowTitleCurrent]}>{l.title}</Text>
+                      <Text style={[styles.levelRowXp, !isUnlocked && styles.levelRowXpLocked]}>{reqs}</Text>
+                    </View>
+                    {isUnlocked && !isCurrent ? <Text style={styles.levelRowCheck}>✓</Text> : isCurrent ? <Text style={styles.levelRowCurrent2}>▶</Text> : null}
+                  </View>
+                );
+              })}
             </View>
           ) : null}
         </View>
@@ -85,9 +101,9 @@ export default function Profile() {
         </View>
 
         <PrimaryButton title="Edit avatar" variant="primary" onPress={() => router.push("/avatar")} style={styles.edit} />
-        <Pressable onPress={() => useProgressionStore.getState().reset()} style={styles.reset}>
+        <SoundPressable onPress={() => useProgressionStore.getState().reset()} style={styles.reset}>
           <Text style={styles.resetText}>Reset progress</Text>
-        </Pressable>
+        </SoundPressable>
       </ScrollView>
     </SafeAreaView>
   );
@@ -101,8 +117,17 @@ const styles = StyleSheet.create({
   levelTitleBtn: { flexDirection: "row", alignItems: "center", gap: spacing(1) },
   levelTitle: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.primary },
   levelHint: { fontSize: typography.size.sm, color: palette.primary, opacity: 0.7 },
-  nextPill: { marginTop: spacing(1), backgroundColor: palette.primarySoft, borderRadius: radii.pill, paddingHorizontal: spacing(3), paddingVertical: spacing(1) },
-  nextPillText: { fontSize: typography.size.sm, fontFamily: typography.fonts.display, color: palette.primary },
+  levelTable: { width: "100%", marginTop: spacing(2), borderRadius: radii.lg, overflow: "hidden", borderWidth: 1, borderColor: palette.hairline },
+  levelRow: { flexDirection: "row", alignItems: "center", paddingHorizontal: spacing(3), paddingVertical: spacing(2), backgroundColor: palette.surface, borderBottomWidth: 1, borderBottomColor: palette.hairline, gap: spacing(2) },
+  levelRowCurrent: { backgroundColor: palette.primarySoft },
+  levelRowNum: { fontSize: typography.size.xs, fontFamily: typography.fonts.display, color: palette.inkSoft, width: 32 },
+  levelRowNumCurrent: { color: palette.primary },
+  levelRowTitle: { flex: 1, fontSize: typography.size.sm, fontFamily: typography.fonts.display, color: palette.ink },
+  levelRowTitleCurrent: { color: palette.primary },
+  levelRowXp: { fontSize: typography.size.xs, fontFamily: typography.fonts.body, color: palette.inkSoft },
+  levelRowXpLocked: { color: palette.neutral },
+  levelRowCheck: { fontSize: 12, color: palette.correct },
+  levelRowCurrent2: { fontSize: 12, color: palette.primary },
   levelCard: { backgroundColor: palette.surface, borderRadius: radii.lg, padding: spacing(4), gap: spacing(2) },
   track: { height: 12, borderRadius: radii.pill, backgroundColor: palette.stage, overflow: "hidden" },
   fill: { height: "100%", borderRadius: radii.pill, backgroundColor: palette.primary },

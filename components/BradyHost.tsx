@@ -12,11 +12,11 @@ import { Spotlight } from "./Spotlight";
 const REACTION: Record<HostExpression, string | null> = {
   idle: null,
   neutral: null,
-  asking: "🤔",
-  tension: "⏳",
-  correct: "🔥",
-  wrong: "😬",
-  champion: "🏆",
+  asking: null,
+  tension: null,
+  correct: null,
+  wrong: null,
+  champion: null,
 };
 
 export function BradyHost({

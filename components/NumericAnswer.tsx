@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { SoundPressable } from "./SoundPressable";
 
 import { palette, radii, spacing, typography } from "../theme";
 
@@ -71,13 +72,13 @@ export function NumericAnswer({ unit, onSubmit, locked, submittedValue, reveal }
         />
         <Text style={styles.unit}>{unit}</Text>
       </View>
-      <Pressable
+      <SoundPressable
         disabled={!canSubmit}
         onPress={() => onSubmit(raw)}
         style={[styles.submit, !canSubmit && { opacity: 0.4 }]}
       >
         <Text style={styles.submitText}>Lock it in</Text>
-      </Pressable>
+      </SoundPressable>
     </View>
   );
 }

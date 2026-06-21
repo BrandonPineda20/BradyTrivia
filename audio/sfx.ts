@@ -70,40 +70,44 @@ function bubble(c: AudioContext, from: number, to: number, start: number, dur: n
   osc.stop(start + dur + 0.02);
 }
 
-export function playSfx(name: Sfx) {
+// Preloaded audio buffer for zero-latency playback via Web Audio API.
+let _ctx: AudioContext | null = null;
+let _buffer: AudioBuffer | null = null;
+
+function getCtx(): AudioContext | null {
+  if (typeof window === "undefined") return null;
+  const AC = window.AudioContext || (window as any).webkitAudioContext;
+  if (!AC) return null;
+  if (!_ctx) _ctx = new AC();
+  return _ctx;
+}
+
+// Preload as soon as the module loads (browser only).
+if (typeof window !== "undefined") {
+  const CLICK_SRC = require("./677861__el_boss__ui-button-click.wav");
+  const src = typeof CLICK_SRC === "string" ? CLICK_SRC : CLICK_SRC?.uri ?? String(CLICK_SRC);
+  fetch(src)
+    .then((r) => r.arrayBuffer())
+    .then((ab) => getCtx()?.decodeAudioData(ab))
+    .then((buf) => { if (buf) _buffer = buf; })
+    .catch(() => {});
+}
+
+export function playSfx(_name: Sfx) {
   if (useSettingsStore.getState().muted) return;
-  const c = audioCtx();
-  if (!c) return;
-  if (c.state === "suspended") c.resume().catch(() => {});
-  const t = c.currentTime;
-  switch (name) {
-    case "lockIn":
-      tone(c, 680, t, 0.08, "triangle", 0.1);
-      break;
-    case "tick":
-      tone(c, 900, t, 0.04, "square", 0.05);
-      break;
-    case "correct":
-      [523.25, 659.25, 783.99].forEach((f, i) => tone(c, f, t + i * 0.08, 0.13, "sine", 0.14));
-      break;
-    case "wrong":
-      tone(c, 160, t, 0.32, "square", 0.12);
-      tone(c, 120, t + 0.04, 0.32, "square", 0.1);
-      break;
-    case "advance":
-      sweep(c, 320, 880, t, 0.25, "sine");
-      break;
-    case "eliminate":
-      sweep(c, 520, 110, t, 0.45, "sawtooth");
-      break;
-    case "champion":
-      [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => tone(c, f, t + i * 0.12, 0.26, "sine", 0.16));
-      break;
-    case "tap":
-      // Bubbly "bloop": a soft sine pops up an octave, with a faint higher shimmer
-      // riding on top for a satisfying, gentle, watery click.
-      bubble(c, 380, 720, t, 0.16, 0.085);
-      bubble(c, 740, 1180, t + 0.012, 0.1, 0.022);
-      break;
-  }
+  const c = getCtx();
+  if (!c || !_buffer) return;
+  try {
+    if (c.state === "suspended") c.resume().catch(() => {});
+    const src = c.createBufferSource();
+    src.buffer = _buffer;
+    const gain = c.createGain();
+    gain.gain.value = 0.5;
+    src.connect(gain).connect(c.destination);
+    src.start(c.currentTime);
+  } catch {}
+}
+
+export function playClick() {
+  playSfx("tap");
 }

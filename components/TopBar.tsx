@@ -1,13 +1,14 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { SoundPressable } from "./SoundPressable";
 
 import { palette, spacing, typography } from "../theme";
 
 export function TopBar({ title, onBack }: { title: string; onBack: () => void }) {
   return (
     <View style={styles.bar}>
-      <Pressable onPress={onBack} style={styles.back} hitSlop={10}>
+      <SoundPressable onPress={onBack} style={styles.back} hitSlop={10}>
         <Text style={styles.backText}>‹ Back</Text>
-      </Pressable>
+      </SoundPressable>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.spacer} />
     </View>

@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { SoundPressable } from "../components/SoundPressable";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { BradyHost } from "../components/BradyHost";
@@ -95,9 +96,9 @@ function RoundIntro() {
         <Text style={styles.go}>Here we go!</Text>
       )}
       {humanEliminated && (
-        <Pressable style={styles.homeBtn} onPress={() => router.replace("/")}>
+        <SoundPressable style={styles.homeBtn} onPress={() => router.replace("/")}>
           <Text style={styles.homeBtnText}>Go Home</Text>
-        </Pressable>
+        </SoundPressable>
       )}
     </View>
   );

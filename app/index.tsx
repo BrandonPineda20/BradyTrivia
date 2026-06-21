@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { useEffect } from "react";
 import { Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SoundPressable } from "../components/SoundPressable";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Avatar } from "../components/Avatar";
@@ -8,6 +9,10 @@ import { BradyHost } from "../components/BradyHost";
 import { FloatingBrains } from "../components/FloatingBrains";
 import { PixelIcon } from "../components/PixelIcon";
 import { PrimaryButton } from "../components/PrimaryButton";
+
+const ICON_PROFILE  = require("../assets/Icons/Icons/Profile Icon.png");
+const ICON_TROPHY   = require("../assets/Icons/Icons/Pixel Trophy.png");
+const ICON_NEW_BTN  = require("../assets/Icons/Icons/New Button.png");
 import { useProfileStore } from "../store/profileStore";
 import { useSettingsStore } from "../store/settingsStore";
 import { palette, radii, shadow, spacing, typography } from "../theme";
@@ -34,9 +39,9 @@ export default function Home() {
   return (
     <SafeAreaView style={styles.stage}>
       <FloatingBrains />
-      <Pressable style={styles.muteBtn} onPress={() => useSettingsStore.getState().toggleMute()} hitSlop={10}>
+      <SoundPressable style={styles.muteBtn} onPress={() => useSettingsStore.getState().toggleMute()} hitSlop={10}>
         <PixelIcon name={muted ? "speaker_off" : "speaker_on"} size={22} />
-      </Pressable>
+      </SoundPressable>
 
       <ScrollView
         contentContainerStyle={styles.scroll}
@@ -54,25 +59,25 @@ export default function Home() {
 
         <BradyHost expression="idle" size={220} />
 
-        <Pressable style={({ pressed }) => [styles.profileChip, pressed && styles.chipPressed]} onPress={() => router.push("/avatar")}>
+        <SoundPressable style={({ pressed }) => [styles.profileChip, pressed && styles.chipPressed]} onPress={() => router.push("/avatar")}>
           {avatar ? <Avatar config={avatar} size={48} ringColor={palette.primary} faceOnly /> : null}
           <View>
             <Text style={styles.profileName}>{name || "You"}</Text>
             <Text style={styles.editLink}>Edit avatar ›</Text>
           </View>
-        </Pressable>
+        </SoundPressable>
 
         <View style={styles.mid}>
           <PrimaryButton title="▶  Last Genius Standing Wins" variant="primary" onPress={() => router.push("/play")} style={styles.playBtn} fontSize={17} />
           <View style={styles.tiles}>
-            <Pressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/profile")}>
-              <PixelIcon name="person" size={28} />
+            <SoundPressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/profile")}>
+              <Image source={ICON_PROFILE} style={styles.tileIconImgLg} resizeMode="contain" />
               <Text style={styles.tileTitle}>Profile</Text>
-            </Pressable>
-            <Pressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/leaderboard")}>
-              <PixelIcon name="trophy" size={28} />
+            </SoundPressable>
+            <SoundPressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/leaderboard")}>
+              <Image source={ICON_TROPHY} style={styles.tileIconImg} resizeMode="contain" />
               <Text style={styles.tileTitle}>Leaderboard</Text>
-            </Pressable>
+            </SoundPressable>
             <View style={[styles.tile, styles.tileMuted]}>
               <PixelIcon name="controller" size={28} />
               <Text style={styles.tileTitle}>More modes</Text>
@@ -83,7 +88,7 @@ export default function Home() {
 
         <View style={styles.socials}>
           {SOCIALS.map((s) => (
-            <Pressable
+            <SoundPressable
               key={s.name}
               style={({ pressed }) => [styles.socialBtn, pressed && styles.socialBtnPressed]}
               onPress={() => Linking.openURL(s.url)}
@@ -91,7 +96,7 @@ export default function Home() {
               accessibilityRole="link"
             >
               <Image source={s.icon} style={styles.socialIcon} resizeMode="contain" />
-            </Pressable>
+            </SoundPressable>
           ))}
         </View>
       </ScrollView>
@@ -124,13 +129,20 @@ const styles = StyleSheet.create({
   editLink: { fontSize: typography.size.xs, color: palette.primary, fontFamily: typography.fonts.body },
   mid: { width: "100%", maxWidth: 420, gap: spacing(4), alignItems: "stretch" },
   tiles: { flexDirection: "row", gap: spacing(2), justifyContent: "center" },
-  tile: { flex: 1, backgroundColor: palette.stage, borderRadius: radii.lg, paddingVertical: spacing(3.5), alignItems: "center", gap: spacing(1), ...shadow.sm },
+  tile: { flex: 1, backgroundColor: palette.stage, borderRadius: radii.lg, paddingVertical: spacing(1.5), paddingHorizontal: spacing(1), alignItems: "center", justifyContent: "flex-end", gap: spacing(0.5), height: 90, ...shadow.sm },
   tilePressed: { transform: [{ scale: 0.97 }] },
   tileMuted: { opacity: 0.85 },
   tileIcon: { fontSize: 22 },
   tileTitle: { fontSize: typography.size.sm, fontFamily: typography.fonts.body, color: palette.ink },
   soon: { fontSize: 10, color: palette.neutral, fontFamily: typography.fonts.body, letterSpacing: 1, textTransform: "uppercase" },
   playBtn: { paddingVertical: spacing(5.5), paddingHorizontal: spacing(5) },
+  newBtn: { width: "100%", alignItems: "center" },
+  newBtnPressed: { opacity: 0.85, transform: [{ scale: 0.97 }] },
+  newBtnClip: { width: 300, height: 56, overflow: "hidden", alignItems: "center", justifyContent: "center" },
+  newBtnImg: { position: "absolute", width: 540, height: 540, marginTop: 60 },
+  newBtnText: { color: "#ffffff", fontSize: 15, fontFamily: typography.fonts.display, letterSpacing: 0.5, zIndex: 1 },
+  tileIconImg: { width: 56, height: 56 },
+  tileIconImgLg: { width: 56, height: 56 },
   socials: { flexDirection: "row", gap: spacing(3), alignItems: "center", justifyContent: "center" },
   socialBtn: { width: 52, height: 52, borderRadius: radii.lg, backgroundColor: palette.stage, alignItems: "center", justifyContent: "center", ...shadow.sm },
   socialBtnPressed: { transform: [{ scale: 0.92 }], opacity: 0.85 },

@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { useMemo } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SoundPressable } from "./SoundPressable";
 
 import { normalizeEntry } from "../engine/validation";
 import { useGameStore } from "../store/gameStore";
@@ -45,7 +46,7 @@ export function RoundStage({ now }: { now: number }) {
 
   const reveal = s.phase === "reveal" ? s.reveal : null;
   const humanInPool = s.pool.includes("human");
-  const humanQualified = s.advanced.includes("human");
+  const humanQualified = s.round !== "final" && s.advanced.includes("human");
   const totalMs = Math.max(1, s.deadlineAt - s.questionStartAt);
   const remainingMs = s.deadlineAt - now;
   const prompt = q.type === "list" ? q.prompt : q.question;
@@ -199,9 +200,9 @@ export function RoundStage({ now }: { now: number }) {
     <View style={styles.spectator}>
       <PixelIcon name="eyes" size={28} />
       <Text style={styles.spectatorText}>You're out. Watching the rest play out…</Text>
-      <Pressable style={styles.homeBtn} onPress={() => router.replace("/")}>
+      <SoundPressable style={styles.homeBtn} onPress={() => router.replace("/")}>
         <Text style={styles.homeBtnText}>Leave Game</Text>
-      </Pressable>
+      </SoundPressable>
     </View>
   ) : isMC ? (
     <AnswerOptions

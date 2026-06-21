@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { SoundPressable } from "./SoundPressable";
 
 import { palette, radii, spacing, typography } from "../theme";
 
@@ -46,9 +47,9 @@ export function ListAnswer({ onAdd, entries, validCount, totalPossible, disabled
             autoCapitalize="words"
             autoCorrect={false}
           />
-          <Pressable onPress={submit} style={styles.add}>
+          <SoundPressable onPress={submit} style={styles.add}>
             <Text style={styles.addText}>Add</Text>
-          </Pressable>
+          </SoundPressable>
         </View>
       ) : null}
 
