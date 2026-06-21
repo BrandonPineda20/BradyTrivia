@@ -555,7 +555,21 @@ export const useGameStore = create<GameState>((set, get) => {
 
     devSkipRound: () => {
       const s = get();
-      if (s.round === "final") return;
+      if (s.round === "final") {
+        // Declare human as champion immediately.
+        const now = Date.now();
+        const runnerUp = s.pool.find((id) => id !== HUMAN_ID) ?? s.players.find((p) => p.id !== HUMAN_ID)!.id;
+        const placements = { ...s.placements, [HUMAN_ID]: 1, [runnerUp]: 2 };
+        const players = s.players.map((p) => ({
+          ...p,
+          placement: placements[p.id] ?? p.placement,
+          status: p.id === HUMAN_ID ? ("advanced" as const) : ("eliminated" as const),
+        }));
+        const htally = { ...s.htally, roundsAdvanced: 3 };
+        const summary = buildSummary(htally, true, 1);
+        set({ phase: "results", championId: HUMAN_ID, placements, players, current: null, reveal: null, summary });
+        return;
+      }
       const now = Date.now();
       const round = s.round as 1 | 2 | 3;
 
