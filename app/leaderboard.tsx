@@ -30,6 +30,7 @@ export default function Leaderboard() {
                 selection: { spriteIndex: SPRITE_IDS[Math.abs(e.avatarSeed.split("").reduce((h, c) => (h * 31 + c.charCodeAt(0)) | 0, 0)) % SPRITE_IDS.length] },
               }}
               size={36}
+              faceOnly
             />
             <Text style={[styles.name, e.isHuman && styles.human]} numberOfLines={1}>
               {e.isHuman ? "You" : e.name}
