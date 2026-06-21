@@ -62,6 +62,9 @@ export default function Play() {
   return (
     <SafeAreaView style={styles.stage}>
       {inGame && <FloatingBrains />}
+      <Pressable style={styles.devHome} onPress={() => router.replace("/")}>
+        <Text style={styles.devHomeText}>Dev only home button</Text>
+      </Pressable>
       {(phase === "idle" || phase === "lobby") && <LobbyView />}
       {phase === "round-intro" && <RoundIntro />}
       {(phase === "question" || phase === "reveal") && <RoundStage now={now} />}
@@ -106,6 +109,8 @@ function RoundIntro() {
 
 const styles = StyleSheet.create({
   stage: { flex: 1, backgroundColor: palette.stage },
+  devHome: { position: "absolute", top: 48, left: 12, zIndex: 999, paddingHorizontal: 10, paddingVertical: 5, backgroundColor: "rgba(0,0,0,0.45)", borderRadius: 6 },
+  devHomeText: { color: "#fff", fontSize: 11, fontFamily: "monospace" },
   intro: { flex: 1, alignItems: "center", justifyContent: "center", gap: spacing(2), padding: spacing(5) },
   introRound: { fontSize: typography.size.xl, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },
   introSub: { fontSize: typography.size.md, color: palette.primary, fontFamily: typography.fonts.body },

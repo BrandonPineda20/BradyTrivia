@@ -368,12 +368,10 @@ export const useGameStore = create<GameState>((set, get) => {
     const q = queue[idx];
     if (!q) throw new Error(`Out of questions for round ${round}`);
 
-    const spectating = !s.pool.includes(HUMAN_ID);
     const timerMs = timerFor(round, s.suddenDeath);
-    // When spectating, bots auto-play "sped up" (§4.7): compress the window AND
-    // their arrival times together, so they still answer (and win) — just faster.
-    const windowMs = spectating ? TIMING.spectateQMs : timerMs;
-    const scale = windowMs / timerMs;
+    // Bots always play with the full timer, even when the human is spectating.
+    const windowMs = timerMs;
+    const scale = 1;
     const cap = windowMs - (q.type === "list" ? 0 : 50);
 
     // Pre-compute bot submissions + arrival times for the active pool. Bots are
