@@ -41,7 +41,7 @@ export function CountdownTimer({
 
     const now = Date.now();
     const schedule: Array<[number, "tick" | "final"]> = [
-      [deadlineAt - 4200, "tick"],
+      [deadlineAt - 4100, "tick"],
       [deadlineAt - 3000, "tick"],
       [deadlineAt - 2000, "tick"],
       [deadlineAt - 1000, "final"],
