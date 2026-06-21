@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Pressable, StyleSheet, Text, type ViewStyle } from "react-native";
 
 import { playSfx } from "../audio/sfx";
@@ -14,11 +15,14 @@ type Props = {
   fontSize?: number;
 };
 
-/** Chunky rounded brand button ("YouTube-thumbnail energy", §3.1) with depth + press. */
+/** Chunky rounded brand button with depth, press feedback, and desktop hover darkening. */
 export function PrimaryButton({ title, onPress, variant = "primary", disabled, style, fontSize }: Props) {
   const elevated = variant !== "ghost";
+  const [hovered, setHovered] = useState(false);
   return (
     <Pressable
+      onHoverIn={(() => setHovered(true)) as any}
+      onHoverOut={(() => setHovered(false)) as any}
       onPress={(e) => { playSfx("tap"); onPress?.(e as any); }}
       disabled={disabled}
       style={({ pressed }) => [
@@ -27,7 +31,9 @@ export function PrimaryButton({ title, onPress, variant = "primary", disabled, s
         variant === "accent" && styles.accent,
         variant === "ghost" && styles.ghost,
         elevated && (pressed ? shadow.press : shadow.md),
+        hovered && !pressed && !disabled && { opacity: 0.82 },
         pressed && !disabled && styles.pressed,
+        pressed && !disabled && { opacity: 0.72 },
         disabled && styles.disabled,
         style,
       ]}

@@ -27,9 +27,9 @@ type AnyQ = MCQuestion | NumericQuestion | ListQuestion;
 type RawCore = { value: string | number | string[]; submittedAtMs?: number };
 
 const SPRITE_IDS = [
-  "Contestant1", "Contestant2", "Anderson", "Andrew", "Ashli", "Ben",
+  "Contestant1", "Contestant2", "Anderson", "Garrett", "Ashli", "Ben",
   "Brady", "Branden", "Brandi", "Fortune", "Isaac", "Jake", "Landon",
-  "Lauren", "Miles", "Owen", "Pablo", "Reda", "Robert", "Shea", "Soluna",
+  "Lauren", "Miles", "Owen", "Pablo", "Reda", "Robert", "Shea", "Andrew",
 ] as const;
 
 function avatarFor(rng: Rng, exclude?: string): AvatarConfig {

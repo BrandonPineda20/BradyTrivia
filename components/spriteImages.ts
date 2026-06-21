@@ -3,7 +3,7 @@ export const SPRITE_IMAGES: Record<string, ReturnType<typeof require>> = {
   Contestant1:   require("../assets/Avatars/Characters/Default Guy V2.png"),
   Contestant2:   require("../assets/Avatars/Characters/Default Girl.png"),
   Anderson:      require("../assets/Avatars/Characters/Anderson.png"),
-  Andrew:        require("../assets/Avatars/Characters/Andrew.png"),
+  Garrett:       require("../assets/Avatars/Characters/Andrew.png"),
   Ashli:         require("../assets/Avatars/Characters/Ashli.png"),
   Ben:           require("../assets/Avatars/Characters/Ben.png"),
   Brady:         require("../assets/Avatars/Characters/Brady.png"),
@@ -20,7 +20,7 @@ export const SPRITE_IMAGES: Record<string, ReturnType<typeof require>> = {
   Reda:          require("../assets/Avatars/Characters/Reda.png"),
   Robert:        require("../assets/Avatars/Characters/Robert.png"),
   Shea:          require("../assets/Avatars/Characters/Shea.png"),
-  Soluna:        require("../assets/Avatars/Characters/Soluna.png"),
+  Andrew:        require("../assets/Avatars/Characters/Soluna.png"),
 };
 
 export const SPRITE_IDS = Object.keys(SPRITE_IMAGES) as AvatarKey[];

@@ -60,6 +60,11 @@ export function CountdownTimer({
     return () => {
       timerIds.current.forEach(clearTimeout);
       timerIds.current = [];
+      // Stop any in-progress beep so it doesn't bleed into the reveal or results screen.
+      const tick = getCountdownTickAudio();
+      const fin = getCountdownFinalAudio();
+      if (tick) { tick.pause(); tick.currentTime = 0; }
+      if (fin) { fin.pause(); fin.currentTime = 0; }
     };
   }, [deadlineAt]);
 
