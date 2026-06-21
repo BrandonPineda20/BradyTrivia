@@ -111,3 +111,36 @@ export function playSfx(_name: Sfx) {
 export function playClick() {
   playSfx("tap");
 }
+
+const AUDIO_ASSETS = [
+  () => require("./u_ss015dykrt-brass-fanfare-with-timpani-and-winchimes-reverberated-146260.mp3"),
+  () => require("./correctaudio.mp3"),
+  () => require("./ribhavagrawal-point-smooth-beep-230573.mp3"),
+  () => require("./freesound_community-beep-6-96243.mp3"),
+];
+
+let _audioUnlocked = false;
+
+/**
+ * Call once from a direct user-gesture handler (button press) to unblock
+ * mobile browser autoplay policy for all MP3 audio elements. Safe to call
+ * multiple times — only runs once.
+ */
+export function unlockAudio() {
+  if (_audioUnlocked || typeof window === "undefined") return;
+  _audioUnlocked = true;
+  // Also resume the Web Audio context if suspended.
+  const c = getCtx();
+  if (c?.state === "suspended") c.resume().catch(() => {});
+  // Prime each audio file: play a silent instant then immediately pause.
+  // This satisfies the browser's "must originate from user gesture" rule.
+  for (const getter of AUDIO_ASSETS) {
+    try {
+      const mod = getter();
+      const src = typeof mod === "string" ? mod : mod?.uri ?? String(mod);
+      const a = new Audio(src);
+      a.volume = 0;
+      a.play().then(() => a.pause()).catch(() => {});
+    } catch {}
+  }
+}

@@ -3,6 +3,7 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { useGateStore } from "../store/gateStore";
+import { unlockAudio } from "../audio/sfx";
 import { palette, radii, shadow, spacing, typography } from "../theme";
 import { BradyHost } from "./BradyHost";
 import { PrimaryButton } from "./PrimaryButton";
@@ -17,6 +18,7 @@ export function PasscodeGate() {
   const [error, setError] = useState(false);
 
   const submit = () => {
+    unlockAudio(); // prime mobile audio from this user gesture
     const ok = useGateStore.getState().tryUnlock(code);
     if (!ok) {
       setError(true);

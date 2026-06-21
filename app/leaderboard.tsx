@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Avatar } from "../components/Avatar";
 import { TopBar } from "../components/TopBar";
 import { rankedLeaderboard } from "../engine";
+import { SPRITE_IDS } from "../components/spriteImages";
 import { useProfileStore } from "../store/profileStore";
 import { useProgressionStore } from "../store/progressionStore";
 import { palette, radii, spacing, typography } from "../theme";
@@ -23,7 +24,13 @@ export default function Leaderboard() {
         {board.map((e, i) => (
           <View key={e.id} style={[styles.row, e.isHuman && styles.youRow]}>
             <Text style={[styles.rank, i < 3 && styles.topRank]}>{i + 1}</Text>
-            <Avatar config={e.isHuman && avatar ? avatar : { seed: e.avatarSeed, style: "avataaars" }} size={36} />
+            <Avatar
+              config={e.isHuman && avatar ? avatar : {
+                seed: e.avatarSeed,
+                selection: { spriteIndex: SPRITE_IDS[Math.abs(e.avatarSeed.split("").reduce((h, c) => (h * 31 + c.charCodeAt(0)) | 0, 0)) % SPRITE_IDS.length] },
+              }}
+              size={36}
+            />
             <Text style={[styles.name, e.isHuman && styles.human]} numberOfLines={1}>
               {e.isHuman ? "You" : e.name}
             </Text>

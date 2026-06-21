@@ -12,6 +12,8 @@ import { ResultsView } from "../components/ResultsView";
 import { RoundStage } from "../components/RoundStage";
 import { resolveEpisodeSeed } from "../config/demo";
 import { QUESTION_BANK } from "../content";
+import { unlockAudio } from "../audio/sfx";
+import { resetFanfare } from "../components/ResultsView";
 import { useGameStore } from "../store/gameStore";
 import { useProfileStore } from "../store/profileStore";
 import { palette, radii, spacing, typography } from "../theme";
@@ -37,6 +39,8 @@ export default function Play() {
   const phase = useGameStore((s) => s.phase);
 
   const startEpisode = () => {
+    unlockAudio();   // ensure mobile audio is unblocked from this gesture
+    resetFanfare();  // allow fanfare to play for this new game
     const { name, avatar } = useProfileStore.getState();
     useGameStore.getState().start({
       seed: resolveEpisodeSeed().seed, // ?demo=1 / ?seed=N curate the pitch run; else random

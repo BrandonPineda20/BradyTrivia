@@ -1,5 +1,6 @@
 import { useRouter } from "expo-router";
 import { useEffect } from "react";
+import { unlockAudio } from "../audio/sfx";
 import { Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SoundPressable } from "../components/SoundPressable";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -68,7 +69,7 @@ export default function Home() {
         </SoundPressable>
 
         <View style={styles.mid}>
-          <PrimaryButton title="▶&#xFE0E;  Last Genius Standing Wins" variant="primary" onPress={() => router.push("/play")} style={styles.playBtn} fontSize={17} />
+          <PrimaryButton title="▶&#xFE0E;  Last Genius Standing Wins" variant="primary" onPress={() => { unlockAudio(); router.push("/play"); }} style={styles.playBtn} fontSize={17} />
           <View style={styles.tiles}>
             <SoundPressable style={({ pressed }) => [styles.tile, pressed && styles.tilePressed]} onPress={() => router.push("/profile")}>
               <Image source={ICON_PROFILE} style={styles.tileIconImgLg} resizeMode="contain" />

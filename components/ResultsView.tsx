@@ -19,9 +19,9 @@ function ordinal(n?: number): string {
   return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
-// Module-level flag: survives component unmount/remount so the fanfare never
-// replays if the user navigates away and back within the same app session.
+// Per-game flag — reset via resetFanfare() each time a new episode starts.
 let _fanfarePlayed = false;
+export function resetFanfare() { _fanfarePlayed = false; }
 
 /** Results / champion screen (§7, §4.8, §9). Applies the episode into progression once. */
 export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; onHome: () => void }) {
