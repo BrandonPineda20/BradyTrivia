@@ -71,7 +71,7 @@ export function RoundStage({ now }: { now: number }) {
       const SFX = require("../audio/correctaudio.mp3");
       const src = typeof SFX === "string" ? SFX : SFX?.uri ?? String(SFX);
       const audio = new Audio(src);
-      audio.volume = 0.15;
+      audio.volume = 0.07;
       audio.play().catch(() => {});
     }
   }, [humanQualified]);
