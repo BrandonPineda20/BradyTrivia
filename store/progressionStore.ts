@@ -33,6 +33,19 @@ export type ApplyResult = {
   leveledUp: boolean;
   level: number;
   title: string;
+  xpToNext: number;
+  nextTitle?: string;
+  progress: number;
+};
+
+export type PendingXpDisplay = {
+  xpEarned: number;
+  totalXp: number;
+  level: number;
+  title: string;
+  xpToNext: number;
+  nextTitle?: string;
+  progress: number; // 0..1 within current level
 };
 
 type ProgState = {
@@ -42,9 +55,12 @@ type ProgState = {
   lastPlayedDay: string | null;
   badges: string[];
   stats: Stats;
+  pendingXpDisplay: PendingXpDisplay | null;
   load: () => Promise<void>;
   applyEpisode: (s: EpisodeSummary) => Promise<ApplyResult>;
+  addBonusXp: (amount: number) => Promise<void>;
   reset: () => Promise<void>;
+  setPendingXpDisplay: (d: PendingXpDisplay | null) => void;
 };
 
 export const useProgressionStore = create<ProgState>((set, get) => ({
@@ -54,6 +70,8 @@ export const useProgressionStore = create<ProgState>((set, get) => ({
   lastPlayedDay: null,
   badges: [],
   stats: DEFAULT_STATS,
+  pendingXpDisplay: null,
+  setPendingXpDisplay: (d) => set({ pendingXpDisplay: d }),
 
   load: async () => {
     try {
@@ -107,7 +125,19 @@ export const useProgressionStore = create<ProgState>((set, get) => ({
     } catch {
       // best-effort
     }
-    return { xpEarned, totalXp, newBadges, leveledUp, level: after.level, title: after.title };
+    const xpRemaining = after.xpForNext > 0 ? after.xpForNext - after.xpIntoLevel : 0;
+    return { xpEarned, totalXp, newBadges, leveledUp, level: after.level, title: after.title, xpToNext: xpRemaining, nextTitle: after.nextTitle, progress: after.progress };
+  },
+
+  addBonusXp: async (amount: number) => {
+    const st = get();
+    const totalXp = st.xp + amount;
+    set({ xp: totalXp });
+    try {
+      const raw = await AsyncStorage.getItem(KEY);
+      const p = raw ? JSON.parse(raw) : {};
+      await AsyncStorage.setItem(KEY, JSON.stringify({ ...p, xp: totalXp }));
+    } catch {}
   },
 
   reset: async () => {

@@ -17,13 +17,13 @@ import { PlayerLineup, type LineupItem } from "./PlayerLineup";
 import { SpeechBubble } from "./SpeechBubble";
 
 const ROUND_TITLE: Record<string, string> = {
-  "1": "Round 1 · General Trivia",
-  "2": "Round 2 · Flags & Geography",
-  "3": "Round 3 · Numeric Estimate",
-  final: "Final · Name As Many",
+  "1": "Round 1: General Trivia",
+  "2": "Round 2: Flags & Geography",
+  "3": "Round 3: Numeric Estimate",
+  final: "Final: Name As Many",
 };
 
-export function RoundStage({ now }: { now: number }) {
+export function RoundStage({ now, onLeaveGame }: { now: number; onLeaveGame?: () => void }) {
   const router = useRouter();
   const s = useGameStore();
   const q = s.current;
@@ -77,7 +77,7 @@ export function RoundStage({ now }: { now: number }) {
       const SFX = require("../audio/correctaudio.mp3");
       const src = typeof SFX === "string" ? SFX : SFX?.uri ?? String(SFX);
       const audio = new Audio(src);
-      audio.volume = 0.25;
+      audio.volume = 0.12;
       audio.play().catch(() => {});
     }
   }, [humanWonReveal, humanQualified]);
@@ -86,6 +86,18 @@ export function RoundStage({ now }: { now: number }) {
   const remainingMs = s.deadlineAt - now;
   const prompt = q.type === "list" ? q.prompt : q.question;
   const category = q.type === "list" ? "" : q.category;
+
+  // Shuffle MC options once per question (stable during reveal, random each new question).
+  const shuffledOptions = useMemo(() => {
+    if (q.type !== "multiple_choice") return [];
+    const opts = [...q.options];
+    for (let i = opts.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [opts[i], opts[j]] = [opts[j], opts[i]];
+    }
+    return opts;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
 
   // Answer order: sort locked submissions by submittedAtMs to assign 1st, 2nd, 3rd...
   const answerOrder = useMemo(() => {
@@ -159,19 +171,28 @@ export function RoundStage({ now }: { now: number }) {
   if (reveal) {
     const w = reveal.winnerId;
     if (q.type === "list") {
-      banner = w
-        ? { text: `${byId[w].name} wins the episode!`, tint: "advance" }
-        : { text: "Tie! Sudden death...", tint: "neutral" };
+      if (w) {
+        const proposedWins = (s.finalWins[w] ?? 0) + 1;
+        const opponent = s.pool.find((id) => id !== w);
+        const opponentWins = opponent ? (s.finalWins[opponent] ?? 0) : 0;
+        if (proposedWins >= 2) {
+          banner = { text: `${byId[w].name} wins the episode!`, tint: "advance" };
+        } else {
+          banner = { text: `Correct! ${byId[w].name} leads ${proposedWins}–${opponentWins}`, tint: "advance" };
+        }
+      } else {
+        banner = { text: "Tie! Sudden death...", tint: "neutral" };
+      }
     } else if (w) {
       const next = s.round === 1 ? "Round 2" : s.round === 2 ? "Round 3" : "the Final";
       if (s.pool.length === 2) {
         const loser = s.pool.find((id) => id !== w)!;
-        banner = { text: `${byId[w].name} advances · ${byId[loser].name} eliminated`, tint: "out" };
+        banner = { text: `${byId[w].name} advances. ${byId[loser].name} eliminated.`, tint: "out" };
       } else {
         banner = { text: `${byId[w].name} advances to ${next}!`, tint: "advance" };
       }
     } else {
-      banner = { text: "Nobody got it · next question!", tint: "neutral" };
+      banner = { text: "Nobody got it! Next question.", tint: "neutral" };
     }
   }
 
@@ -193,6 +214,9 @@ export function RoundStage({ now }: { now: number }) {
   const humanSub = s.locked["human"];
 
   const isMC = q.type === "multiple_choice";
+  const screenWidth = Dimensions.get("window").width;
+  const isMobileScreen = screenWidth < 768;
+  const isRound2 = s.round === 2;
 
   const header = (
     <View style={styles.header}>
@@ -210,19 +234,19 @@ export function RoundStage({ now }: { now: number }) {
       {reveal ? (
         <SpeechBubble text={s.hostLine} tint={s.hostTint} />
       ) : (
-        <View style={styles.questionCard}>
+        <View style={[styles.questionCard, isRound2 && styles.questionCardR2]}>
           {q.asset && q.asset.kind !== "none" ? (
-            <View style={styles.visualWrap}><R2Visual question={q} width={140} /></View>
+            <View style={styles.visualWrap}><R2Visual question={q} width={isRound2 ? 220 : 140} /></View>
           ) : null}
-          <Text style={styles.prompt} numberOfLines={3}>{prompt}</Text>
+          <Text style={[styles.prompt, isRound2 && styles.promptR2]} numberOfLines={3}>{prompt}</Text>
         </View>
       )}
     </View>
   );
 
-  const screenWidth = Dimensions.get("window").width;
-  const isMobileScreen = screenWidth < 768;
-  const avatarSize = isMobileScreen ? 52 : 72;
+  const avatarSize = isRound2
+    ? (isMobileScreen ? 44 : 60)
+    : (isMobileScreen ? 68 : 92);
   const lineup = <PlayerLineup items={items} avatarSize={avatarSize} />;
 
   const revealBanner = banner ? (
@@ -240,13 +264,13 @@ export function RoundStage({ now }: { now: number }) {
     <View style={styles.spectator}>
       <PixelIcon name="eyes" size={28} />
       <Text style={styles.spectatorText}>You're out. Watching the rest play out…</Text>
-      <SoundPressable style={styles.homeBtn} onPress={() => router.replace("/")}>
+      <SoundPressable style={styles.homeBtn} onPress={() => onLeaveGame ? onLeaveGame() : router.replace("/")}>
         <Text style={styles.homeBtnText}>Leave Game</Text>
       </SoundPressable>
     </View>
   ) : isMC ? (
     <AnswerOptions
-      options={q.options}
+      options={shuffledOptions}
       onPick={(opt) => s.submitHuman(opt)}
       locked={s.humanLocked}
       humanPick={typeof humanSub?.value === "string" ? humanSub.value : undefined}
@@ -259,7 +283,7 @@ export function RoundStage({ now }: { now: number }) {
       onSubmit={(v) => s.submitHuman(v)}
       locked={s.humanLocked}
       submittedValue={humanSub ? String(humanSub.value) : undefined}
-      reveal={reveal ? { correctAnswer: q.answer, humanGuess: humanSub ? String(humanSub.value) : "No answer", distance: reveal.rows.find((r) => r.playerId === "human")?.distance } : undefined}
+      reveal={reveal ? { correctAnswer: q.answer, humanGuess: humanSub ? (q.unit.toLowerCase() === "year" ? String(humanSub.value) : Number(humanSub.value).toLocaleString()) : "No answer", distance: reveal.rows.find((r) => r.playerId === "human")?.distance } : undefined}
     />
   ) : (
     <ListAnswer
@@ -304,13 +328,13 @@ const styles = StyleSheet.create({
   stage: { flex: 1, paddingHorizontal: spacing(3), paddingTop: spacing(1) },
   header: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start", marginBottom: spacing(1) },
   // MC fixed layout — no scroll, space distributed evenly
-  mcBody: { flex: 1, gap: spacing(1) },
-  mcAnswers: { marginTop: "auto", paddingBottom: spacing(3) },
+  mcBody: { flex: 1, gap: spacing(1), paddingBottom: spacing(5) },
+  mcAnswers: { marginTop: "auto" },
   scroll: { flex: 1 },
   scrollContent: { gap: spacing(2), paddingBottom: spacing(6) },
   roundTitle: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink },
   category: { fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body, marginTop: 2 },
-  brady: { alignItems: "center", gap: spacing(1.5), paddingBottom: spacing(4) },
+  brady: { alignItems: "center", gap: spacing(1.5), paddingBottom: spacing(1) },
   questionCard: {
     backgroundColor: palette.stage,
     borderRadius: radii.lg,
@@ -324,6 +348,8 @@ const styles = StyleSheet.create({
   },
   visualWrap: { alignItems: "center", marginBottom: spacing(1) },
   prompt: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink, textAlign: "center" },
+  promptR2: { fontSize: typography.size.lg },
+  questionCardR2: { padding: spacing(3) },
   banner: {
     alignSelf: "center",
     paddingHorizontal: spacing(4),

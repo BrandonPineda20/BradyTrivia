@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Animated, Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Animated, Image, Linking, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SoundPressable } from "./SoundPressable";
 
 import { BADGES, levelInfo } from "../engine";
@@ -39,13 +39,11 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
     if (_fanfarePlayed) return;
     _fanfarePlayed = true;
 
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && championId === "human") {
       const FANFARE = require("../audio/u_ss015dykrt-brass-fanfare-with-timpani-and-winchimes-reverberated-146260.mp3");
       const src = typeof FANFARE === "string" ? FANFARE : FANFARE?.uri ?? String(FANFARE);
       const audio = new Audio(src);
-      // Use a quieter volume on narrow screens (mobile web)
-      const isMobileWeb = typeof window !== "undefined" && window.innerWidth < 768;
-      audio.volume = isMobileWeb ? 0.25 : 0.35;
+      audio.volume = 0.15;
       audio.play().catch(() => {});
     }
 
@@ -57,11 +55,24 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
     ]).start();
   }, []);
 
+  const championPrediction = useGameStore((s) => s.championPrediction);
+  const episodeApplied = useGameStore((s) => s.episodeApplied);
+  const [predictionBonusAwarded, setPredictionBonusAwarded] = useState(false);
+
+  const PREDICTION_XP = 50;
+
   useEffect(() => {
-    if (applied.current || !summary) return;
+    if (applied.current || !summary || episodeApplied) return;
     applied.current = true;
-    useProgressionStore.getState().applyEpisode(summary).then(setApply);
-  }, [summary]);
+    useGameStore.getState().markEpisodeApplied();
+    useProgressionStore.getState().applyEpisode(summary).then(async (result) => {
+      if (championPrediction && championPrediction === championId) {
+        await useProgressionStore.getState().addBonusXp(PREDICTION_XP);
+        setPredictionBonusAwarded(true);
+      }
+      setApply(result);
+    });
+  }, [summary, episodeApplied, championPrediction, championId]);
 
   const won = championId === "human";
 
@@ -148,6 +159,17 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
       <View style={styles.xpPill}>
         <Text style={styles.xpText}>+{apply?.xpEarned ?? "…"} XP</Text>
       </View>
+      {predictionBonusAwarded && (
+        <View style={styles.predictionBonusPill}>
+          <PixelIcon name="star" size={14} />
+          <Text style={styles.predictionBonusText}>Prediction correct! +{PREDICTION_XP} XP</Text>
+        </View>
+      )}
+      {championPrediction && !predictionBonusAwarded && apply && (
+        <View style={styles.predictionMissPill}>
+          <Text style={styles.predictionMissText}>Prediction missed this time</Text>
+        </View>
+      )}
       <View style={styles.levelCard}>
         <View style={styles.levelHead}>
           <Text style={styles.levelTitle}>Lv {lvl.level} {lvl.title}</Text>
@@ -179,7 +201,7 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
 
       <View style={styles.actions}>
         <PrimaryButton title="Play again" variant="accent" onPress={onPlayAgain} />
-        <PrimaryButton title="Home" variant="ghost" onPress={onHome} />
+        <PrimaryButton title="Home" variant="primary" onPress={onHome} />
       </View>
       <SoundPressable onPress={share} style={styles.share}>
         <Text style={styles.shareText}>↗  Share result</Text>
@@ -217,6 +239,10 @@ const styles = StyleSheet.create({
   crown: { fontSize: typography.size.lg },
   xpPill: { backgroundColor: palette.accent, borderRadius: radii.pill, paddingHorizontal: spacing(5), paddingVertical: spacing(2), marginTop: spacing(2), ...shadow.glow },
   xpText: { fontSize: typography.size.lg, fontFamily: typography.fonts.display, color: palette.onAccent },
+  predictionBonusPill: { flexDirection: "row", alignItems: "center", gap: spacing(1.5), backgroundColor: palette.correct, borderRadius: radii.pill, paddingHorizontal: spacing(4), paddingVertical: spacing(1.5) },
+  predictionBonusText: { fontSize: typography.size.sm, fontFamily: typography.fonts.display, color: "#fff" },
+  predictionMissPill: { borderRadius: radii.pill, paddingHorizontal: spacing(4), paddingVertical: spacing(1.5) },
+  predictionMissText: { fontSize: typography.size.xs, fontFamily: typography.fonts.body, color: palette.inkSoft },
   levelCard: { width: "100%", maxWidth: 360, backgroundColor: palette.stage, borderRadius: radii.lg, padding: spacing(4), gap: spacing(2), ...shadow.md },
   levelHead: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
   levelTitle: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: palette.ink },

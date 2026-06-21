@@ -65,13 +65,13 @@ export function AnswerOptions({ options, onPick, locked, humanPick, reveal }: Pr
 }
 
 const styles = StyleSheet.create({
-  grid: { gap: spacing(1.5), width: "100%", maxWidth: 460, alignSelf: "center" },
+  grid: { gap: spacing(2), width: "100%", maxWidth: 460, alignSelf: "center" },
   opt: {
     flexDirection: "row",
     alignItems: "center",
     gap: spacing(3),
-    paddingVertical: spacing(2.5),
-    paddingHorizontal: spacing(3),
+    paddingVertical: spacing(3.5),
+    paddingHorizontal: spacing(3.5),
     borderRadius: radii.lg,
     borderWidth: 2,
   },
@@ -86,5 +86,5 @@ const styles = StyleSheet.create({
   },
   letterOnColor: { backgroundColor: "rgba(255,255,255,0.35)" },
   letterText: { color: palette.onPrimary, fontFamily: typography.fonts.display, fontSize: typography.size.sm },
-  optText: { flex: 1, fontSize: typography.size.md, fontFamily: typography.fonts.body },
+  optText: { flex: 1, fontSize: typography.size.lg, fontFamily: typography.fonts.body },
 });

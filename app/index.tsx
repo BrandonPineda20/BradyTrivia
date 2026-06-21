@@ -1,7 +1,7 @@
 import { useRouter } from "expo-router";
 import { useEffect } from "react";
 import { unlockAudio } from "../audio/sfx";
-import { Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SoundPressable } from "../components/SoundPressable";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -10,6 +10,7 @@ import { BradyHost } from "../components/BradyHost";
 import { FloatingBrains } from "../components/FloatingBrains";
 import { PixelIcon } from "../components/PixelIcon";
 import { PrimaryButton } from "../components/PrimaryButton";
+import { useProgressionStore } from "../store/progressionStore";
 
 const ICON_PROFILE  = require("../assets/Icons/Icons/Profile Icon.png");
 const ICON_TROPHY   = require("../assets/Icons/Icons/Pixel Trophy.png");
@@ -31,6 +32,8 @@ export default function Home() {
   const router = useRouter();
   const { loaded, selection, avatar, name } = useProfileStore();
   const muted = useSettingsStore((s) => s.muted);
+  const pendingXp = useProgressionStore((s) => s.pendingXpDisplay);
+  const dismissXp = () => useProgressionStore.getState().setPendingXpDisplay(null);
 
   useEffect(() => {
     if (loaded && !selection) router.replace("/avatar"); // first run → create avatar
@@ -102,6 +105,41 @@ export default function Home() {
           ))}
         </View>
       </ScrollView>
+
+      {/* XP earned popup — shown after leaving a game early */}
+      <Modal visible={!!pendingXp} transparent animationType="fade">
+        <View style={styles.xpOverlay}>
+          <View style={styles.xpCard}>
+            <Pressable style={styles.xpClose} onPress={dismissXp} hitSlop={16}>
+              <Text style={styles.xpCloseText}>✕</Text>
+            </Pressable>
+            <BradyHost expression="neutral" size={80} />
+            <Text style={styles.xpTitle}>Game Over</Text>
+            <Text style={styles.xpSub}>XP earned this game</Text>
+            <View style={styles.xpPill}>
+              <Text style={styles.xpPillText}>+{pendingXp?.xpEarned ?? 0} XP</Text>
+            </View>
+            {/* Progress bar toward next level */}
+            <View style={styles.xpLevelRow}>
+              <Text style={styles.xpLevelLabel}>Lv {pendingXp?.level ?? 1}</Text>
+              <Text style={styles.xpLevelTitle}>{pendingXp?.title ?? ""}</Text>
+            </View>
+            <View style={styles.xpTrack}>
+              <View style={[styles.xpFill, { width: `${Math.round((pendingXp?.progress ?? 0) * 100)}%` }]} />
+            </View>
+            {pendingXp && pendingXp.xpToNext > 0 ? (
+              <Text style={styles.xpHint}>
+                {pendingXp.xpToNext} XP to reach {pendingXp.nextTitle ?? `Level ${pendingXp.level + 1}`}
+              </Text>
+            ) : (
+              <Text style={styles.xpHint}>Max level reached!</Text>
+            )}
+            <SoundPressable style={styles.xpDismissBtn} onPress={dismissXp}>
+              <Text style={styles.xpDismissBtnText}>Close</Text>
+            </SoundPressable>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -152,4 +190,21 @@ const styles = StyleSheet.create({
   socialIcon: { width: 38, height: 38 },
   muteBtn: { position: "absolute", top: spacing(4), right: spacing(4), padding: spacing(2), zIndex: 10 },
   muteText: { fontSize: 22 },
+  // XP earned modal
+  xpOverlay: { flex: 1, backgroundColor: "rgba(0,0,0,0.55)", alignItems: "center", justifyContent: "center" },
+  xpCard: { backgroundColor: palette.stage, borderRadius: radii.xl, padding: spacing(6), alignItems: "center", gap: spacing(2.5), width: 300, ...shadow.md, position: "relative" },
+  xpClose: { position: "absolute", top: spacing(3), right: spacing(3), width: 36, height: 36, alignItems: "center", justifyContent: "center" },
+  xpCloseText: { fontSize: 18, color: palette.inkSoft },
+  xpTitle: { fontSize: typography.size.xl, fontFamily: typography.fonts.display, color: palette.ink },
+  xpSub: { fontSize: typography.size.sm, color: palette.inkSoft, fontFamily: typography.fonts.body },
+  xpPill: { backgroundColor: palette.accent, borderRadius: radii.pill, paddingHorizontal: spacing(6), paddingVertical: spacing(2), ...shadow.glow },
+  xpPillText: { fontSize: typography.size.xl, fontFamily: typography.fonts.display, color: palette.onAccent },
+  xpLevelRow: { flexDirection: "row", alignItems: "center", gap: spacing(2), width: "100%" },
+  xpLevelLabel: { fontSize: typography.size.xs, fontFamily: typography.fonts.display, color: palette.primary },
+  xpLevelTitle: { fontSize: typography.size.xs, fontFamily: typography.fonts.body, color: palette.inkSoft, flex: 1 },
+  xpTrack: { height: 12, width: "100%", borderRadius: radii.pill, backgroundColor: palette.hairline, overflow: "hidden" },
+  xpFill: { height: "100%", borderRadius: radii.pill, backgroundColor: palette.primary },
+  xpHint: { fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body, textAlign: "center" },
+  xpDismissBtn: { marginTop: spacing(1), paddingHorizontal: spacing(6), paddingVertical: spacing(2.5), borderRadius: radii.pill, borderWidth: 2, borderColor: palette.hairline },
+  xpDismissBtnText: { color: palette.inkSoft, fontFamily: typography.fonts.display, fontSize: typography.size.sm },
 });

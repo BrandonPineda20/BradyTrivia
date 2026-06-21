@@ -88,13 +88,14 @@ const styles = StyleSheet.create({
   slotOverlap: {},
   name: {
     marginTop: 2,
-    fontSize: 9,
-    fontWeight: typography.weight.medium,
-    color: palette.inkSoft,
+    fontSize: 11,
+    fontFamily: typography.fonts.display,
+    fontWeight: typography.weight.heavy,
+    color: palette.ink,
     textAlign: "center",
     width: "100%",
   },
-  human: { color: palette.primary, fontWeight: typography.weight.heavy },
+  human: { color: palette.primary },
   dim: { color: palette.neutral },
   caption: {
     marginTop: 1,

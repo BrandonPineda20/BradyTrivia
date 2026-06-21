@@ -1,12 +1,13 @@
 import { useRouter } from "expo-router";
-import { useEffect, useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import { SoundPressable } from "../components/SoundPressable";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { BradyHost } from "../components/BradyHost";
 import { FloatingBrains } from "../components/FloatingBrains";
 import { PixelIcon } from "../components/PixelIcon";
+import { Avatar } from "../components/Avatar";
 import { LobbyView } from "../components/LobbyView";
 import { ResultsView } from "../components/ResultsView";
 import { RoundStage } from "../components/RoundStage";
@@ -15,35 +16,105 @@ import { QUESTION_BANK } from "../content";
 import { unlockAudio } from "../audio/sfx";
 import { resetFanfare } from "../components/ResultsView";
 import { useGameStore } from "../store/gameStore";
+import { useProgressionStore } from "../store/progressionStore";
 import { useProfileStore } from "../store/profileStore";
-import { palette, radii, spacing, typography } from "../theme";
+import { flagFor, outlineFor } from "../theme/r2-assets";
+import { palette, radii, shadow, spacing, typography } from "../theme";
 
 const CONTENT = {
   round1: QUESTION_BANK.round1,
-  round2: QUESTION_BANK.round2.filter((q) => q.asset && q.asset.kind !== "none"),
+  round2: QUESTION_BANK.round2.filter((q) => {
+    if (!q.asset || q.asset.kind === "none") return false;
+    if (q.asset.kind === "country_outline") return !!outlineFor(q.asset.country);
+    return !!flagFor(q.asset.country);
+  }),
   round3: QUESTION_BANK.round3,
   final: QUESTION_BANK.final,
 };
 
 const ROUND_TITLE: Record<string, string> = {
-  "1": "Round 1 · General Trivia",
-  "2": "Round 2 · Flags & Geography",
-  "3": "Round 3 · Numeric Estimate",
-  final: "Final · Name As Many",
+  "1": "Round 1: General Trivia",
+  "2": "Round 2: Flags & Geography",
+  "3": "Round 3: Numeric Estimate",
+  final: "Final: Name As Many",
 };
+
+const PREDICTION_XP = 50;
 
 /** The game: drives the store in real time and switches views by phase. */
 export default function Play() {
   const router = useRouter();
   const [now, setNow] = useState(() => Date.now());
   const phase = useGameStore((s) => s.phase);
+  const humanEliminated = useGameStore((s) => s.humanEliminated);
+  const predictionLocked = useGameStore((s) => !!s.championPrediction);
+  const eliminationPoolSize = useGameStore((s) => s.eliminationPoolSize);
+  const poolLength = useGameStore((s) => s.pool.length);
+  const episodeApplied = useGameStore((s) => s.episodeApplied);
+
+  const round = useGameStore((s) => s.round);
+
+  // Prediction picker is visible while: eliminated in a non-final round, not locked, pool hasn't shrunk
+  const votingWindowOpen =
+    humanEliminated &&
+    !predictionLocked &&
+    round !== "final" &&
+    eliminationPoolSize !== null &&
+    poolLength >= eliminationPoolSize;
+
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  // showPicker stays true until the user locks in OR pool shrinks (auto-dismiss)
+  const [showPicker, setShowPicker] = useState(false);
+  const applyingRef = useRef(false);
+
+  // Open picker as soon as human is eliminated
+  useEffect(() => {
+    if (humanEliminated && !predictionLocked) setShowPicker(true);
+  }, [humanEliminated]);
+
+  // Auto-dismiss picker when voting window closes (another player eliminated)
+  useEffect(() => {
+    if (showPicker && !votingWindowOpen && !predictionLocked) {
+      setShowPicker(false);
+    }
+  }, [votingWindowOpen, showPicker, predictionLocked]);
+
+  // Dismiss picker when user locks in or game reaches results
+  useEffect(() => {
+    if (predictionLocked || phase === "results") setShowPicker(false);
+  }, [predictionLocked, phase]);
+
+  const handleLockPrediction = () => {
+    if (!selectedId) return;
+    useGameStore.getState().setChampionPrediction(selectedId);
+  };
+
+  const handleGoHome = async () => {
+    if (applyingRef.current) return;
+    applyingRef.current = true;
+    if (!episodeApplied) {
+      useGameStore.getState().markEpisodeApplied();
+      const summary = useGameStore.getState().getEarlyLeaveSummary();
+      const result = await useProgressionStore.getState().applyEpisode(summary);
+      useProgressionStore.getState().setPendingXpDisplay({
+        xpEarned: result.xpEarned,
+        totalXp: result.totalXp,
+        level: result.level,
+        title: result.title,
+        xpToNext: result.xpToNext,
+        nextTitle: result.nextTitle,
+        progress: result.progress,
+      });
+    }
+    router.replace("/");
+  };
 
   const startEpisode = () => {
-    unlockAudio();   // ensure mobile audio is unblocked from this gesture
-    resetFanfare();  // allow fanfare to play for this new game
+    unlockAudio();
+    resetFanfare();
     const { name, avatar } = useProfileStore.getState();
     useGameStore.getState().start({
-      seed: resolveEpisodeSeed().seed, // ?demo=1 / ?seed=N curate the pitch run; else random
+      seed: resolveEpisodeSeed().seed,
       content: CONTENT,
       humanName: name || "You",
       humanAvatar: avatar ?? undefined,
@@ -77,23 +148,76 @@ export default function Play() {
         </>
       )}
       {(phase === "idle" || phase === "lobby") && <LobbyView />}
-      {phase === "round-intro" && <RoundIntro />}
-      {(phase === "question" || phase === "reveal") && <RoundStage now={now} />}
+      {phase === "round-intro" && <RoundIntro onGoHome={handleGoHome} />}
+      {(phase === "question" || phase === "reveal") && <RoundStage now={now} onLeaveGame={humanEliminated ? handleGoHome : undefined} />}
       {phase === "results" && (
         <ResultsView onPlayAgain={startEpisode} onHome={() => router.replace("/")} />
       )}
+
+      {/* Prediction picker modal — persists across phase changes until locked or window closes */}
+      <Modal visible={showPicker} transparent animationType="slide">
+        <View style={styles.pickerOverlay}>
+          <View style={styles.pickerCard}>
+            <BradyHost expression="tension" size={72} />
+            <Text style={styles.pickerTitle}>Who will win?</Text>
+            <Text style={styles.pickerSub}>Guess correctly and stay to earn +{PREDICTION_XP} XP</Text>
+            <PickerList selectedId={selectedId} onSelect={setSelectedId} />
+            <SoundPressable
+              style={[styles.lockBtn, !selectedId && styles.lockBtnDisabled]}
+              onPress={handleLockPrediction}
+            >
+              <Text style={styles.lockBtnText}>Lock in Pick</Text>
+            </SoundPressable>
+            <View style={styles.pickerFooter}>
+              <SoundPressable style={styles.skipBtn} onPress={() => setShowPicker(false)}>
+                <Text style={styles.skipBtnText}>Skip. Just spectate</Text>
+              </SoundPressable>
+              <Text style={styles.pickerFooterDivider}>|</Text>
+              <SoundPressable style={styles.skipBtn} onPress={() => { setShowPicker(false); handleGoHome(); }}>
+                <Text style={styles.skipBtnText}>Leave game</Text>
+              </SoundPressable>
+            </View>
+          </View>
+        </View>
+      </Modal>
+
     </SafeAreaView>
   );
 }
 
+/** Renders the selectable player list inside the picker modal. */
+function PickerList({ selectedId, onSelect }: { selectedId: string | null; onSelect: (id: string) => void }) {
+  const players = useGameStore((s) => s.players);
+  const pool = useGameStore((s) => s.pool);
+  const remainingPlayers = players.filter((p) => pool.includes(p.id));
+  return (
+    <View style={styles.pickerList}>
+      {remainingPlayers.map((p) => (
+        <Pressable
+          key={p.id}
+          style={[styles.pickerRow, selectedId === p.id && styles.pickerRowSelected]}
+          onPress={() => onSelect(p.id)}
+        >
+          <Avatar config={p.avatar} size={36} />
+          <Text style={[styles.pickerName, selectedId === p.id && styles.pickerNameSelected]}>
+            {p.name}
+          </Text>
+          {selectedId === p.id && <PixelIcon name="check" size={16} />}
+        </Pressable>
+      ))}
+    </View>
+  );
+}
+
 /** Round intro / transition card (§7.6). */
-function RoundIntro() {
-  const router = useRouter();
+function RoundIntro({ onGoHome }: { onGoHome: () => void }) {
   const s = useGameStore();
   const remaining = s.pool.length;
   const elimPlace = s.round === 2 ? 5 : s.round === 3 ? 4 : s.round === "final" ? 3 : null;
   const elim = elimPlace ? s.players.find((p) => p.placement === elimPlace) : undefined;
   const humanEliminated = elim?.kind === "human";
+  const predictionLocked = !!s.championPrediction;
+
   return (
     <View style={styles.intro}>
       <BradyHost expression="tension" size={120} />
@@ -109,8 +233,22 @@ function RoundIntro() {
       ) : (
         <Text style={styles.go}>Here we go!</Text>
       )}
+
+      {humanEliminated && predictionLocked && (
+        <View style={styles.predictionConfirm}>
+          <PixelIcon name="star" size={16} />
+          <Text style={styles.predictionConfirmText}>
+            You picked{" "}
+            <Text style={{ fontFamily: typography.fonts.display }}>
+              {s.players.find((p) => p.id === s.championPrediction)?.name}
+            </Text>
+            {" "}— stay for results to earn +{PREDICTION_XP} XP!
+          </Text>
+        </View>
+      )}
+
       {humanEliminated && (
-        <SoundPressable style={styles.homeBtn} onPress={() => router.replace("/")}>
+        <SoundPressable style={styles.homeBtn} onPress={onGoHome}>
           <Text style={styles.homeBtnText}>Go Home</Text>
         </SoundPressable>
       )}
@@ -129,13 +267,32 @@ const styles = StyleSheet.create({
   elimRow: { flexDirection: "row", alignItems: "center", gap: spacing(1.5), marginTop: spacing(2) },
   elim: { fontSize: typography.size.lg, color: palette.incorrect, fontFamily: typography.fonts.display },
   go: { fontSize: typography.size.lg, color: palette.inkSoft, fontFamily: typography.fonts.body, marginTop: spacing(2) },
-  homeBtn: {
-    marginTop: spacing(3),
-    paddingHorizontal: spacing(6),
-    paddingVertical: spacing(2.5),
-    borderRadius: radii.pill,
-    borderWidth: 2,
-    borderColor: palette.hairline,
-  },
+
+  // Prediction picker modal
+  pickerOverlay: { flex: 1, backgroundColor: "rgba(0,0,0,0.6)", alignItems: "center", justifyContent: "flex-end" },
+  pickerCard: { backgroundColor: palette.stage, borderTopLeftRadius: radii.xl, borderTopRightRadius: radii.xl, padding: spacing(5), alignItems: "center", gap: spacing(2.5), width: "100%", paddingBottom: spacing(8) },
+  pickerTitle: { fontSize: typography.size.xl, fontFamily: typography.fonts.display, color: palette.ink },
+  pickerSub: { fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body, textAlign: "center" },
+  pickerList: { width: "100%", gap: spacing(1.5) },
+  pickerRow: { flexDirection: "row", alignItems: "center", gap: spacing(2), paddingVertical: spacing(2), paddingHorizontal: spacing(3), borderRadius: radii.md, borderWidth: 1.5, borderColor: palette.hairline, backgroundColor: "#fff" },
+  pickerRowSelected: { borderColor: palette.primary, backgroundColor: palette.primarySoft },
+  pickerName: { flex: 1, fontSize: typography.size.md, fontFamily: typography.fonts.body, color: palette.ink },
+  pickerNameSelected: { fontFamily: typography.fonts.display, color: palette.primary },
+  lockBtn: { backgroundColor: palette.primary, borderRadius: radii.pill, paddingVertical: spacing(2.5), alignItems: "center", marginTop: spacing(1), width: "100%" },
+  lockBtnDisabled: { opacity: 0.4 },
+  lockBtnText: { fontSize: typography.size.md, fontFamily: typography.fonts.display, color: "#fff" },
+  pickerFooter: { flexDirection: "row", alignItems: "center", gap: spacing(2) },
+  pickerFooterDivider: { color: palette.hairline, fontSize: typography.size.xs },
+  skipBtn: { paddingVertical: spacing(1.5) },
+  skipBtnText: { fontSize: typography.size.xs, color: palette.inkSoft, fontFamily: typography.fonts.body },
+
+  // Prediction confirmed (inline in RoundIntro)
+  predictionConfirm: { flexDirection: "row", alignItems: "center", gap: spacing(1.5), backgroundColor: palette.primarySoft, borderRadius: radii.pill, paddingVertical: spacing(1.5), paddingHorizontal: spacing(3), marginTop: spacing(1) },
+  predictionConfirmText: { fontSize: typography.size.xs, fontFamily: typography.fonts.body, color: palette.primary, flexShrink: 1 },
+
+  // Go Home button
+  homeBtn: { marginTop: spacing(3), paddingHorizontal: spacing(6), paddingVertical: spacing(2.5), borderRadius: radii.pill, borderWidth: 2, borderColor: palette.hairline },
   homeBtnText: { color: palette.inkSoft, fontFamily: typography.fonts.display, fontSize: typography.size.sm },
+
+  // Leave XP modal
 });
