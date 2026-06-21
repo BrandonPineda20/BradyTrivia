@@ -44,7 +44,7 @@ export function LobbyView() {
         </View>
       </View>
 
-      <Text style={styles.hint}>5 players · 1 human + 4 bots · last one standing wins</Text>
+      <Text style={styles.hint}>5 players · last one standing wins</Text>
     </View>
   );
 }

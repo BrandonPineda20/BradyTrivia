@@ -19,6 +19,10 @@ function ordinal(n?: number): string {
   return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
+// Module-level flag: survives component unmount/remount so the fanfare never
+// replays if the user navigates away and back within the same app session.
+let _fanfarePlayed = false;
+
 /** Results / champion screen (§7, §4.8, §9). Applies the episode into progression once. */
 export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; onHome: () => void }) {
   const players = useGameStore((s) => s.players);
@@ -29,18 +33,19 @@ export function ResultsView({ onPlayAgain, onHome }: { onPlayAgain: () => void; 
   const [apply, setApply] = useState<ApplyResult | null>(null);
   const applied = useRef(false);
   const shineAnim = useRef(new Animated.Value(0)).current;
-  const fanfarePlayed = useRef(false);
 
-  // Play fanfare once on mount + trigger shine animation
+  // Play fanfare once per app session + trigger shine animation
   useEffect(() => {
-    if (fanfarePlayed.current) return;
-    fanfarePlayed.current = true;
+    if (_fanfarePlayed) return;
+    _fanfarePlayed = true;
 
     if (typeof window !== "undefined") {
       const FANFARE = require("../audio/u_ss015dykrt-brass-fanfare-with-timpani-and-winchimes-reverberated-146260.mp3");
       const src = typeof FANFARE === "string" ? FANFARE : FANFARE?.uri ?? String(FANFARE);
       const audio = new Audio(src);
-      audio.volume = 0.15;
+      // Use a quieter volume on narrow screens (mobile web)
+      const isMobileWeb = typeof window !== "undefined" && window.innerWidth < 768;
+      audio.volume = isMobileWeb ? 0.07 : 0.15;
       audio.play().catch(() => {});
     }
 

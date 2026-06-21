@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
 import { useMemo } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Dimensions, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SoundPressable } from "./SoundPressable";
 
 import { fuzzyMatch, normalizeEntry } from "../engine/validation";
@@ -195,7 +195,10 @@ export function RoundStage({ now }: { now: number }) {
     </View>
   );
 
-  const lineup = <PlayerLineup items={items} avatarSize={72} />;
+  const screenWidth = Dimensions.get("window").width;
+  const isMobileScreen = screenWidth < 768;
+  const avatarSize = isMobileScreen ? 52 : 72;
+  const lineup = <PlayerLineup items={items} avatarSize={avatarSize} />;
 
   const revealBanner = banner ? (
     <View style={[styles.banner, banner.tint === "advance" && styles.bannerAdvance, banner.tint === "out" && styles.bannerOut]}>
