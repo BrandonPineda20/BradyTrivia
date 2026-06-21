@@ -323,6 +323,12 @@ export const useGameStore = create<GameState>((set, get) => {
     const eliminationPoolSize =
       eliminatedId === HUMAN_ID ? advanced.length : s.eliminationPoolSize;
 
+    if (eliminatedId === HUMAN_ID && typeof window !== "undefined") {
+      const { getEliminateAudio } = require("../audio/sfx");
+      const audio = getEliminateAudio();
+      if (audio) { audio.currentTime = 0; audio.play().catch(() => {}); }
+    }
+
     if (s.round === 3) {
       // Two advance → final.
       set({

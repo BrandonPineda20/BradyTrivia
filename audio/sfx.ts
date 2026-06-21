@@ -141,6 +141,20 @@ export function getCountdownFinalAudio(): HTMLAudioElement | null {
   return _countdownFinal;
 }
 
+let _qualifyAudio: HTMLAudioElement | null = null;
+export function getQualifyAudio(): HTMLAudioElement | null {
+  if (typeof window === "undefined") return null;
+  if (!_qualifyAudio) _qualifyAudio = makeAudio(() => require("./correctaudio.mp3"), 0.12);
+  return _qualifyAudio;
+}
+
+let _eliminateAudio: HTMLAudioElement | null = null;
+export function getEliminateAudio(): HTMLAudioElement | null {
+  if (typeof window === "undefined") return null;
+  if (!_eliminateAudio) _eliminateAudio = makeAudio(() => require("./lesiakower-error-mistake-sound-effect-incorrect-answer-437420.mp3"), 0.6);
+  return _eliminateAudio;
+}
+
 let _audioUnlocked = false;
 
 /**
@@ -165,10 +179,20 @@ export function unlockAudio() {
       .catch(() => { a.muted = false; });
   }
 
-  // Prime fanfare + qualify sounds.
+  // Prime preloaded audio instances (qualify + eliminate).
+  getQualifyAudio();
+  getEliminateAudio();
+  for (const a of [_qualifyAudio, _eliminateAudio]) {
+    if (!a) continue;
+    a.muted = true;
+    a.play()
+      .then(() => { a.pause(); a.currentTime = 0; a.muted = false; })
+      .catch(() => { a.muted = false; });
+  }
+
+  // Prime fanfare.
   const others = [
     () => require("./u_ss015dykrt-brass-fanfare-with-timpani-and-winchimes-reverberated-146260.mp3"),
-    () => require("./correctaudio.mp3"),
   ];
   for (const getter of others) {
     try {

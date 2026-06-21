@@ -15,6 +15,7 @@ import { NumericAnswer } from "./NumericAnswer";
 import { R2Visual } from "./R2Visual";
 import { PlayerLineup, type LineupItem } from "./PlayerLineup";
 import { SpeechBubble } from "./SpeechBubble";
+import { getQualifyAudio } from "../audio/sfx";
 
 const ROUND_TITLE: Record<string, string> = {
   "1": "Round 1: General Trivia",
@@ -73,11 +74,9 @@ export function RoundStage({ now, onLeaveGame }: { now: number; onLeaveGame?: ()
     }
     if (qualifyPlayedRef.current) return;
     qualifyPlayedRef.current = true;
-    if (typeof window !== "undefined") {
-      const SFX = require("../audio/correctaudio.mp3");
-      const src = typeof SFX === "string" ? SFX : SFX?.uri ?? String(SFX);
-      const audio = new Audio(src);
-      audio.volume = 0.12;
+    const audio = getQualifyAudio();
+    if (audio) {
+      audio.currentTime = 0;
       audio.play().catch(() => {});
     }
   }, [humanWonReveal, humanQualified]);
@@ -245,8 +244,8 @@ export function RoundStage({ now, onLeaveGame }: { now: number; onLeaveGame?: ()
   );
 
   const avatarSize = isRound2
-    ? (isMobileScreen ? 44 : 60)
-    : (isMobileScreen ? 68 : 92);
+    ? (isMobileScreen ? 52 : 72)
+    : (isMobileScreen ? 96 : 132);
   const lineup = <PlayerLineup items={items} avatarSize={avatarSize} />;
 
   const revealBanner = banner ? (

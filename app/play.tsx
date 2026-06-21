@@ -52,6 +52,7 @@ export default function Play() {
   const poolLength = useGameStore((s) => s.pool.length);
   const round = useGameStore((s) => s.round);
 
+
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showPicker, setShowPicker] = useState(false);
   // The round the user last dismissed the picker in. Lets the picker re-prompt at
@@ -77,6 +78,14 @@ export default function Play() {
       setShowPicker(true);
     }
   }, [humanEliminated, predictionLocked, phase, round, poolLength, dismissedRound]);
+
+  // Auto-dismiss the picker after 10 seconds → spectate.
+  useEffect(() => {
+    if (!showPicker) return;
+    const t = setTimeout(() => dismissPicker(), 10000);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showPicker]);
 
   // Dismissing the picker (skip/leave) remembers the round so it won't re-nag
   // during this round's questions, but will re-prompt when the next round begins.
@@ -183,7 +192,7 @@ export default function Play() {
             </SoundPressable>
             <View style={styles.pickerFooter}>
               <SoundPressable style={styles.skipBtn} onPress={dismissPicker}>
-                <Text style={styles.skipBtnText}>Skip. Just spectate</Text>
+                <Text style={styles.skipBtnText}>Spectate game</Text>
               </SoundPressable>
               <Text style={styles.pickerFooterDivider}>|</Text>
               <SoundPressable style={styles.skipBtn} onPress={() => { dismissPicker(); handleGoHome(); }}>
